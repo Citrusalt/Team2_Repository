@@ -6,10 +6,9 @@ public class GUI_Prototype {
 
 
     private JPanel mainPanel;
-    private JTextField helloTextField;
 
     //Constructor
-    public void TestGUI(){
+    public void createGUI(){
 
         JFrame frame = new JFrame ("Test GUI");
         frame.setContentPane(mainPanel);
