@@ -22,7 +22,7 @@ public class MainGUI {
 
     public MainGUI(){
 
-
+//Card Layout start
         cardLayout = (CardLayout) mainPanel.getLayout();
 
         cardLayout.show(mainPanel, "startScreenCard");
