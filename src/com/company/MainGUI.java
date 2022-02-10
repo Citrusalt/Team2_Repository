@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class MainGUI {
 
@@ -97,7 +96,7 @@ public class MainGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                createTeamScreen myTeamScreen = new createTeamScreen(); //instantiate createTeamScreen Class
+                CreateTeamScreen myTeamScreen = new CreateTeamScreen(); //instantiate createTeamScreen Class
                 myTeamScreen.createTeamScreen(); //call constructor
 
             }
