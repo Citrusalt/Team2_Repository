@@ -17,9 +17,7 @@ public class MainGUI {
 
 
         //GUI Setup
-
         limitJSpinners(); //limit ranges of order numbers
-
 
 
         //Action Listeners
@@ -39,8 +37,10 @@ public class MainGUI {
             public void actionPerformed(ActionEvent e) {
 
                 //cardLayout.show(mainPanel, "MeetTemplateCard");
-                cardLayout.show(mainPanel, "SelectVaultCard");
-                selectedMeetFormat.setText("Dual Meet Selected");
+                //cardLayout.show(mainPanel, "SelectVaultCard");
+                //selectedMeetFormat.setText("Dual Meet Selected");
+
+                cardLayout.show(mainPanel, "SetUpScreen2Card");
 
 
             }
@@ -72,13 +72,34 @@ public class MainGUI {
         vaultBackButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cardLayout.show(mainPanel, "MeetSelectCard");
+                cardLayout.show(mainPanel, "SetUpScreen2Card");
             }
         });
         meetTemplateBackButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(mainPanel, "MeetSelectCard");
+            }
+        });
+        goBackButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(mainPanel, "MeetSelectCard");
+            }
+        });
+        continueButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(mainPanel, "SelectVaultCard");
+            }
+        });
+        createTeamButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                createTeamScreen myTeamScreen = new createTeamScreen(); //instantiate createTeamScreen Class
+                myTeamScreen.createTeamScreen(); //call constructor
+
             }
         });
     }
@@ -170,6 +191,12 @@ public class MainGUI {
     private JSpinner spinner10;
     private JSpinner spinner11;
     private JSpinner spinner12;
+    private JPanel setupScreen2;
+    private JComboBox comboBox7;
+    private JComboBox comboBox8;
+    private JButton goBackButton;
+    private JButton continueButton;
+    private JButton createTeamButton;
 
 
 }
