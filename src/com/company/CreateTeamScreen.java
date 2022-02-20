@@ -54,6 +54,7 @@ public class CreateTeamScreen {
 
                 myTeamWriter.createTeamFile(teamSchoolName.getText(), playerList);
 
+                //go back to team select screen here - hailey
 
             }
         });

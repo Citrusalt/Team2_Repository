@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 public class Team {
     private String teamName;
-    private String teamLogo;                            //Contain like the path for the logo
+    private String teamLogo;                                  //Contain like the path for the logo
     private final HashMap<Player, Integer> vaultGymnast;      //Hashmap<Player, OrderInTheApparatus>
     private final HashMap<Player, Integer> floorGymnast;
     private final HashMap<Player, Integer> barGymnast;

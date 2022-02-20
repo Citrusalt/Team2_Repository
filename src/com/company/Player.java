@@ -2,6 +2,8 @@ package com.company;
 /**
  * This class will store personal information for each gymnast
  * Comment: maybe  we can add string that will contain picPath since we have to display their pic (?) -jlou
+ * Comment: would we just need the name of the file if it was included in the project folder?
+ * either way we will need a string to hold either the path or the file name -hailey
  * */
 public class Player {
 
