@@ -5,8 +5,7 @@ import java.util.List;
 
 /**
  * This class will contain all gymnasts (separated into apparatus) for each team (college).
- * Each team division is a HashMap, this will help keep track who the players are for each apparatus and their order in that apparatus.
- * Note: I will have to create a remove methods for each apparatus team. The order are in random on the map, have to think of how to arrange them.
+ * Note: At some point we should add a checker if the order is valid, player is not a duplicate, etc. Maybe on this team class.
  */
 
 public class Team {private String teamName;
