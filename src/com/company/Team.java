@@ -1,6 +1,7 @@
 package com.company;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class will contain all gymnasts (separated into apparatus) for each team (college).
@@ -8,120 +9,78 @@ import java.util.HashMap;
  * Note: I will have to create a remove methods for each apparatus team. The order are in random on the map, have to think of how to arrange them.
  */
 
-public class Team {
-    private String teamName;
-    private String teamLogo;                            //Contain like the path for the logo
-    private final HashMap<Player, Integer> vaultGymnast;      //Hashmap<Player, OrderInTheApparatus>
-    private final HashMap<Player, Integer> floorGymnast;
-    private final HashMap<Player, Integer> barGymnast;
-    private final HashMap<Player, Integer> beamGymnast;
+public class Team {private String teamName;
+    private String teamLogo;                        //Contain like the path for the logo
+    private  List<Player> vaultGymnast;             //
+    private  List<Player> barGymnast;
+    private  List<Player> beamGymnast;
+    private  List<Player> floorGymnast;
 
     //Constructor
-    Team() {
-        vaultGymnast = new HashMap<>();
-        floorGymnast = new HashMap<>();
-        barGymnast = new HashMap<>();
-        beamGymnast = new HashMap<>();
+    public Team() {
+        this.teamName = new String();
+        this.teamLogo = new String();
+        this.vaultGymnast = new ArrayList<>();
+        this.floorGymnast = new ArrayList<>();
+        this.barGymnast = new ArrayList<>();
+        this.beamGymnast = new ArrayList<>();
     }
-    //Method that will contain the path for the team logo
-    public void setTeamLogo(String s){
-        this.teamLogo = s;
+    //Method that adds a player to the vault list
+    public void addPlayerVaultGymnast(Player p){
+        vaultGymnast.add(p);
     }
-    //Method that will set the team name
-    public void setTeamName(String s){
-        this.teamName = s;
+    //Method that adds a player to the bar list
+    public void addPlayerBarGymnast(Player p){
+
+        barGymnast.add(p);
+    }
+    //Method that adds a player to the beam list
+    public void addPlayerBeamGymnast(Player p){
+
+        beamGymnast.add(p);
+    }
+    //Method that adds a player to the floor list
+    public void addPlayerFloorGymnast(Player p){
+
+        floorGymnast.add(p);
     }
 
-    //Method that will add a player into the vault division of the team
-    //Checks if there's enough players, the player exist, someone is alr in that order.
-    public boolean addPlayerVaults(Player p, int order){
-        if(vaultGymnast.size() < 6 && !vaultGymnast.containsKey(p) && !vaultGymnast.containsValue(order)
-            && order <= 6){
-            vaultGymnast.put(p, order);
-            return true;
-        }else return false;
+    //Method that deletes a player from the vault list
+    public void deletePlayerVaultGymnast(Player p){
+        vaultGymnast.remove(p);
+    }
+    //Method that deletes a player from the bar list
+    public void deletePlayerBarGymnast(Player p){
+        barGymnast.remove(p);
+    }
+    //Method that deletes a player from the beam list
+    public void deletePlayerBeamGymnast(Player p){
+        beamGymnast.remove(p);
+    }
+    //Method that deletes a player from the floor list
+    public void deletePlayerFloorGymnast(Player p){
+        floorGymnast.remove(p);
     }
 
-    //Method that will add a player into the floor division of the team
-    public boolean addPlayerFloors(Player p, int order){
-        if(floorGymnast.size() < 6 && !floorGymnast.containsKey(p) && !floorGymnast.containsValue(order)
-                && order <= 6){
-            floorGymnast.put(p, order);
-            return true;
-        }else return false;
+    //Method that gets the list vaultGymnast
+    public List<Player> getVaultGymnast(){
+
+        return this.vaultGymnast;
     }
+    //Method that gets the list barGymnast
+    public List<Player> getBarGymnast(){
 
-    //Method that will add a player into the bar division of the team
-    public boolean addPlayerBar(Player p, int order){
-        if(barGymnast.size() < 6 && !barGymnast.containsKey(p) && !barGymnast.containsValue(order)
-                && order <= 6){
-            barGymnast.put(p, order);
-            return true;
-        }else return false;
+        return this.barGymnast;
     }
+    //Method that gets the list beamGymnast
+    public List<Player> getBeamGymnast(){
 
-    //Method that will add a player into the beam division of the team
-    public boolean addPlayerBeam(Player p, int order){
-        if(beamGymnast.size() < 6 && !beamGymnast.containsKey(p) && !beamGymnast.containsValue(order)
-                && order <= 6){
-            beamGymnast.put(p, order);
-            return true;
-        }else return false;
+        return this.beamGymnast;
     }
+    //Method that gets the list floorGymnast
+    public List<Player> getFloorGymnast(){
 
-    //Getters
-    public String getTeamName() {
-        return teamName;
-    }
-
-    public HashMap<Player, Integer> getVaultGymnast() {
-        return vaultGymnast;
-    }
-
-    public HashMap<Player, Integer> getFloorGymnast() {
-        return floorGymnast;
-    }
-
-    public HashMap<Player, Integer> getBarGymnast() {
-        return barGymnast;
-    }
-
-    public HashMap<Player, Integer> getBeamGymnast() {
-        return beamGymnast;
-    }
-
-    //This method is for test only. Prints all information.
-    public void printAll(){
-        System.out.println(teamLogo);
-        System.out.println("-------------");
-        System.out.println("    Vaults:");
-        for (Player name: vaultGymnast.keySet()) {
-            String key = name.getPlayerName();
-            String value = vaultGymnast.get(name).toString();
-            System.out.println(key + "  | Order:" + value);
-        }
-        System.out.println("-------------");
-        System.out.println("    Floors:");
-        for (Player name: floorGymnast.keySet()) {
-            String key = name.getPlayerName();
-            String value = floorGymnast.get(name).toString();
-            System.out.println(key + "  | Order:" + value);
-        }
-        System.out.println("-------------");
-        System.out.println("    Bars:");
-        for (Player name: barGymnast.keySet()) {
-            String key = name.getPlayerName();
-            String value = barGymnast.get(name).toString();
-            System.out.println(key + "  | Order:" + value);
-        }
-        System.out.println("-------------");
-        System.out.println("    Beams:");
-        for (Player name: beamGymnast.keySet()) {
-            String key = name.getPlayerName();
-            String value = beamGymnast.get(name).toString();
-            System.out.println(key + "  | Order:" + value);
-        }
-
+        return this.floorGymnast;
     }
 }
 

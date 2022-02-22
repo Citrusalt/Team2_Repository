@@ -5,13 +5,14 @@ package com.company;
  * */
 public class Player {
 
+    //Constructor
     public Player (String playerName, String playerClass, String playerMajor, String playerAvg){
         this.playerName = playerName;
         this.playerClass = playerClass;
         this.playerMajor = playerMajor;
         this.playerAvg = playerAvg;
+        this.playerApparatus = new PlayerRole();
     }
-
 
     /*
     Below are public get functions for Player Object
@@ -41,9 +42,37 @@ public class Player {
         this.playerAvg = playerAvg;
     }
 
+    //Print all info. For testing purposes only.
+    public void printAll(){
+        System.out.println("----------- Player Information ----------");
+        System.out.println("Name: " + this.playerName);
+        System.out.println("Class: " + this.playerClass);
+        System.out.println("Major: " + this.playerMajor);
+        System.out.println("Average: " + this.playerAvg);
+
+        System.out.println("Apparatus in: ");
+        for(int i = 0; i < 4; i++){
+            if(playerApparatus.getApparatusStatus()[i] == true){
+                switch(i){
+                    case 0: System.out.println("[Vaults]" + " order number is " + this.playerApparatus.getOrderApparatus()[i]);
+                        break;
+                    case 1: System.out.println("[Bars]" + " order number is " + this.playerApparatus.getOrderApparatus()[i]);
+                        break;
+                    case 2: System.out.println("[Beams]" + " order number is " + this.playerApparatus.getOrderApparatus()[i]);
+                        break;
+                    case 3: System.out.println("[Floors]" +  " order number is " + this.playerApparatus.getOrderApparatus()[i]);
+                        break;
+                }
+            }
+        }
+        System.out.println("------------------------------------");
+    }
+
     private String playerName;
     private String playerClass;
     private String playerMajor;
-    private String playerAvg;
-    //private String playerPic;
+    private String playerAvg;                   //Make it into a list double
+    private String playerPic;
+    PlayerRole playerApparatus;
+
 }
