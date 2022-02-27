@@ -115,8 +115,10 @@ public class MainGUI {
                 if (startTimerButton.getText() == "Start Timer"){
                     try{
                         //convert textfield to int and call clock function from ArenaScreen to start countdown
-                        myArenaScreen.clock(Integer.parseInt(clockTextField.getText()));
-                        startTimerButton.setText("Reset Timer");
+                        if(Integer.parseInt(clockTextField.getText() ) > 0){
+                            myArenaScreen.clock(Integer.parseInt(clockTextField.getText()));
+                            startTimerButton.setText("Reset Timer");
+                        }
                     }
                     catch (Exception exception) {
                         System.out.println("Invalid Input");
@@ -125,6 +127,7 @@ public class MainGUI {
                 else{
                     myArenaScreen.resetClock();
                     startTimerButton.setText("Start Timer");
+
                 }
 
 

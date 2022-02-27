@@ -33,7 +33,12 @@ public class ArenaScreen {
         {
             @Override
             public void actionPerformed(ActionEvent e) {
-                seconds--; //to account for second delay start
+                if (seconds <= 0){
+                    resetClock();
+                }
+                else {
+                    seconds--; //to account for second delay start
+                }
                 time = String.format("%02d:%02d", seconds/60, seconds % 60);
                 clockLabel.setText(time);
             }
