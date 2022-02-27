@@ -12,33 +12,6 @@ import com.company.Player;
 
 public class CreateTeamScreen {
 
-    private JPanel createTeamPanel;
-    private JTextField playerName4;
-    private JTextField playerName5;
-    private JTextField playerName3;
-    private JTextField playerName6;
-    private JTextField playerName2;
-    private JTextField playerName1;
-    private JTextField playerMajor1;
-    private JTextField avg1;
-    private JTextField teamSchoolName;
-    private JButton createTeamButton;
-    private JTextField playerClass1;
-    private JTextField playerClass2;
-    private JTextField playerClass3;
-    private JTextField playerClass4;
-    private JTextField playerClass5;
-    private JTextField playerClass6;
-    private JTextField playerMajor2;
-    private JTextField playerMajor3;
-    private JTextField playerMajor4;
-    private JTextField playerMajor5;
-    private JTextField playerMajor6;
-    private JTextField avg2;
-    private JTextField avg3;
-    private JTextField avg4;
-    private JTextField avg5;
-    private JTextField avg6;
 
     List<Player> playerList = new ArrayList<>();
     TeamWriter myTeamWriter = new TeamWriter();
@@ -95,4 +68,32 @@ public class CreateTeamScreen {
         frame.setVisible(true);
 
     }
+
+    private JPanel createTeamPanel;
+    private JTextField playerName4;
+    private JTextField playerName5;
+    private JTextField playerName3;
+    private JTextField playerName6;
+    private JTextField playerName2;
+    private JTextField playerName1;
+    private JTextField playerMajor1;
+    private JTextField avg1;
+    private JTextField teamSchoolName;
+    private JButton createTeamButton;
+    private JTextField playerClass1;
+    private JTextField playerClass2;
+    private JTextField playerClass3;
+    private JTextField playerClass4;
+    private JTextField playerClass5;
+    private JTextField playerClass6;
+    private JTextField playerMajor2;
+    private JTextField playerMajor3;
+    private JTextField playerMajor4;
+    private JTextField playerMajor5;
+    private JTextField playerMajor6;
+    private JTextField avg2;
+    private JTextField avg3;
+    private JTextField avg4;
+    private JTextField avg5;
+    private JTextField avg6;
 }

@@ -15,6 +15,10 @@ public class MainGUI {
         cardLayout.show(mainPanel, "startScreenCard");
 
 
+        //Creating instance of ArenaScreen
+        ArenaScreen myArenaScreen = new ArenaScreen();
+
+
         //GUI Setup
         limitJSpinners(); //limit ranges of order numbers
 
@@ -89,7 +93,11 @@ public class MainGUI {
         continueButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cardLayout.show(mainPanel, "SelectVaultCard");
+                //cardLayout.show(mainPanel, "SelectVaultCard");
+
+                myArenaScreen.ArenaScreen();
+                cardLayout.show(mainPanel, "ScorekeeperCard");
+
             }
         });
         createTeamButton.addActionListener(new ActionListener() {
@@ -100,6 +108,29 @@ public class MainGUI {
                 myTeamScreen.createTeamScreen(); //call constructor
 
             }
+        });
+        startTimerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (startTimerButton.getText() == "Start Timer"){
+                    try{
+                        //convert textfield to int and call clock function from ArenaScreen to start countdown
+                        myArenaScreen.clock(Integer.parseInt(clockTextField.getText()));
+                        startTimerButton.setText("Reset Timer");
+                    }
+                    catch (Exception exception) {
+                        System.out.println("Invalid Input");
+                    }
+                }
+                else{
+                    myArenaScreen.resetClock();
+                    startTimerButton.setText("Start Timer");
+                }
+
+
+
+            }
+
         });
     }
 
@@ -154,6 +185,7 @@ public class MainGUI {
 
     }
 
+
     private JPanel mainPanel;
     private JPanel startScreen;
     private JLabel startImage;
@@ -196,6 +228,10 @@ public class MainGUI {
     private JButton goBackButton;
     private JButton continueButton;
     private JButton createTeamButton;
+    private JPanel scorekeeperScreen;
+    private JTextField clockTextField;
+    private JButton startTimerButton;
+    private JButton resetTimerButton;
 
 
 }

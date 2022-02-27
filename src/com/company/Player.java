@@ -14,9 +14,7 @@ public class Player {
         this.playerApparatus = new PlayerRole();
     }
 
-    /*
-    Below are public get functions for Player Object
-     */
+    //getters
     public String getPlayerName(){return playerName;}
 
     public String getPlayerClass(){return playerClass;}
