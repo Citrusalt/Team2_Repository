@@ -24,7 +24,6 @@ public class MainGUI {
 
 
         //Action Listeners
-
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -103,10 +102,20 @@ public class MainGUI {
         createTeamButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                CreateTeamScreen myTeamScreen = new CreateTeamScreen(); //instantiate createTeamScreen Class
-                myTeamScreen.createTeamScreen(); //call constructor
-
+                //This verifies if the user selected a valid item
+                Object homeTeam = comboBox7.getSelectedItem();
+                Object visitorTeam = comboBox8.getSelectedItem();
+                //Assuming that index 0 is default label for the comboBox
+                if(comboBox7.getSelectedIndex() == 0 || comboBox7.getSelectedIndex() == 0 ){
+                    JOptionPane.showMessageDialog(null, "Please Select a Valid Team.");
+                }
+                else if(homeTeam.toString().equals(visitorTeam.toString())){ //
+                    JOptionPane.showMessageDialog(null, "Teams cannot be the same. Try Again.");
+                }
+                else {
+                    CreateTeamScreen myTeamScreen = new CreateTeamScreen(); //instantiate createTeamScreen Class        //
+                    myTeamScreen.createTeamScreen(); //call constructor     //
+                }
             }
         });
         startTimerButton.addActionListener(new ActionListener() {
