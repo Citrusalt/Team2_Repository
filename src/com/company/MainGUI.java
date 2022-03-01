@@ -94,14 +94,6 @@ public class MainGUI {
             public void actionPerformed(ActionEvent e) {
                 //cardLayout.show(mainPanel, "SelectVaultCard");
 
-                myArenaScreen.ArenaScreen();
-                cardLayout.show(mainPanel, "ScorekeeperCard");
-
-            }
-        });
-        createTeamButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
                 //This verifies if the user selected a valid item
                 Object homeTeam = comboBox7.getSelectedItem();
                 Object visitorTeam = comboBox8.getSelectedItem();
@@ -113,9 +105,16 @@ public class MainGUI {
                     JOptionPane.showMessageDialog(null, "Teams cannot be the same. Try Again.");
                 }
                 else {
+                    myArenaScreen.ArenaScreen();
+                    cardLayout.show(mainPanel, "ScorekeeperCard");
+                }
+            }
+        });
+        createTeamButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
                     CreateTeamScreen myTeamScreen = new CreateTeamScreen(); //instantiate createTeamScreen Class        //
                     myTeamScreen.createTeamScreen(); //call constructor     //
-                }
             }
         });
         startTimerButton.addActionListener(new ActionListener() {
