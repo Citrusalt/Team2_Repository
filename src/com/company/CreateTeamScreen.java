@@ -18,7 +18,6 @@ public class CreateTeamScreen {
 
     public CreateTeamScreen(){
 
-
         createTeamButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

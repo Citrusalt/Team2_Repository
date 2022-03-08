@@ -5,19 +5,20 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainGUI {
+public class setupModeScreen {
 
-    public MainGUI(){
+    public setupModeScreen(){
+
+        JFrame frame = new JFrame ("GUI Prototype");
+        frame.setContentPane(mainPanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
 
         //Card Layout start
         cardLayout = (CardLayout) mainPanel.getLayout();
 
         cardLayout.show(mainPanel, "startScreenCard");
-
-
-        //Creating instance of ArenaScreen
-        ArenaScreen myArenaScreen = new ArenaScreen();
-
 
         //GUI Setup
         limitJSpinners(); //limit ranges of order numbers
@@ -105,8 +106,12 @@ public class MainGUI {
                     JOptionPane.showMessageDialog(null, "Teams cannot be the same. Try Again.");
                 }
                 else {
-                    myArenaScreen.ArenaScreen();
-                    cardLayout.show(mainPanel, "ScorekeeperCard");
+
+                    //Creating instance of ArenaScreen
+                    ScorekeeperScreen myScoreKeeperScreen = new ScorekeeperScreen();
+                    frame.setVisible(false);
+
+                    //cardLayout.show(mainPanel, "ScorekeeperCard");
                 }
             }
         });
@@ -116,30 +121,6 @@ public class MainGUI {
                     CreateTeamScreen myTeamScreen = new CreateTeamScreen(); //instantiate createTeamScreen Class        //
                     myTeamScreen.createTeamScreen(); //call constructor     //
             }
-        });
-        startTimerButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (startTimerButton.getText() == "Start Timer"){
-                    try{
-                            Integer.parseInt(clockTextField.getText());
-                            if(Integer.parseInt(clockTextField.getText()) > 0){
-                                myArenaScreen.clock(Integer.parseInt(clockTextField.getText()));
-                                startTimerButton.setText("Reset Timer");
-                            }
-
-                    }
-                    catch (Exception exception) {
-                        System.out.println("Invalid Input");
-                    }
-                }
-                else{
-                    myArenaScreen.resetClock();
-                    startTimerButton.setText("Start Timer");
-                }
-
-            }
-
         });
     }
 
@@ -178,19 +159,6 @@ public class MainGUI {
         spinner11.setModel(spinnerModel11);
         SpinnerNumberModel spinnerModel12 = new SpinnerNumberModel(current, min, max, step);
         spinner12.setModel(spinnerModel12);
-
-    }
-
-
-
-    //Constructor
-    public void createGUI(){
-
-        JFrame frame = new JFrame ("GUI Prototype");
-        frame.setContentPane(mainPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
 
     }
 
@@ -237,7 +205,6 @@ public class MainGUI {
     private JButton goBackButton;
     private JButton continueButton;
     private JButton createTeamButton;
-    private JPanel scorekeeperScreen;
     private JTextField clockTextField;
     private JButton startTimerButton;
     private JButton resetTimerButton;

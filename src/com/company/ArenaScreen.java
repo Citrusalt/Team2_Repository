@@ -8,18 +8,13 @@ public class ArenaScreen {
 
     public ArenaScreen(){
 
+        JFrame frame = new JFrame ("Arena Screen Prototype");
+        frame.setContentPane(arenaScreenPanel);
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
 
-    }
 
-
-    public void ArenaScreen(){
-            //In the future, I'm going to make this a JDialog instead of another JFrame
-
-            JFrame frame = new JFrame ("Arena Screen Prototype");
-            frame.setContentPane(arenaScreenPanel);
-            frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-            frame.pack();
-            frame.setVisible(true);
     }
 
 
@@ -27,20 +22,23 @@ public class ArenaScreen {
     public void clock(int mySeconds){
 
         seconds = mySeconds;
+        seconds--; //to account for second delay of timer start, should probably be changed in the future
 
         //update timer every 1000ms aka 1 second
         timer = new Timer(1000, new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                time = String.format("%02d:%02d", seconds/60, seconds % 60);
+                clockLabel.setText(time);
+
                 if (seconds <= 0){
                     resetClock();
                 }
                 else {
                     seconds--; //to account for second delay start
                 }
-                time = String.format("%02d:%02d", seconds/60, seconds % 60);
-                clockLabel.setText(time);
             }
         });
         timer.start();
@@ -70,4 +68,6 @@ public class ArenaScreen {
     private JLabel major;
     private JLabel avgApparatus;
     private JLabel clockLabel;
+
+
 }
