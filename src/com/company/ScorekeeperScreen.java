@@ -45,7 +45,6 @@ public class ScorekeeperScreen {
 
                 frame.setVisible(false);
 
-
                 PostMeetScreen myPostMeetScreen = new PostMeetScreen();
 
             }

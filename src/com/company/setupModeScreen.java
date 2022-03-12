@@ -106,20 +106,107 @@ public class setupModeScreen {
                     JOptionPane.showMessageDialog(null, "Teams cannot be the same. Try Again.");
                 }
                 else {
-
-                    //Creating instance of ArenaScreen
-                    ScorekeeperScreen myScoreKeeperScreen = new ScorekeeperScreen();
-                    frame.setVisible(false);
-
-                    //cardLayout.show(mainPanel, "ScorekeeperCard");
+                    cardLayout.show(mainPanel, "SelectVaultCard");
                 }
             }
         });
         createTeamButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    CreateTeamScreen myTeamScreen = new CreateTeamScreen(); //instantiate createTeamScreen Class        //
+                    CreateTeamScreen myTeamScreen = new CreateTeamScreen(); //instantiate createTeamScreen Class
                     myTeamScreen.createTeamScreen(); //call constructor     //
+            }
+        });
+        nextButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(mainPanel, "SelectBarCard");
+            }
+        });
+        barsBackButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(mainPanel, "SelectVaultCard");
+            }
+        });
+        barsNextButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(mainPanel, "SelectBalanceBeamCard");
+            }
+        });
+        balanceBeamBackButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(mainPanel, "SelectBarCard");
+            }
+        });
+        balanceBeamNextButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(mainPanel, "SelectFloorCard");
+            }
+        });
+        floorBackButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(mainPanel, "SelectBalanceBeamCard");
+            }
+        });
+        floorNextButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(mainPanel, "SelectJudgesCard");
+            }
+        });
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(mainPanel, "SelectFloorCard");
+            }
+        });
+        judgesNextButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(mainPanel, "SummaryCard");
+            }
+        });
+        vaultEditButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(mainPanel, "SelectVaultCard");
+            }
+        });
+        barEditButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(mainPanel, "SelectBarCard");
+            }
+        });
+        editBeamButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(mainPanel, "SelectBalanceBeamCard");
+            }
+        });
+        editFloorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(mainPanel, "SelectFloorCard");
+            }
+        });
+        editJudgesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(mainPanel, "SelectJudgesCard");
+            }
+        });
+        summaryContinueButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                frame.setVisible(false);
+                ScorekeeperScreen myScorekeeper = new ScorekeeperScreen();
             }
         });
     }
@@ -175,17 +262,13 @@ public class setupModeScreen {
     private CardLayout cardLayout;
     private JLabel selectedMeetFormat;
     private JPanel setupVault;
-    private JLabel AppLabel;
-    private JButton uploadLogoButton;
     private JComboBox comboBox1;
     private JComboBox comboBox2;
     private JComboBox comboBox3;
     private JComboBox comboBox4;
     private JComboBox comboBox5;
     private JComboBox comboBox6;
-    private JLabel selectGymNameLabel;
     private JSpinner spinner1;
-    private JLabel selectOrderLabel;
     private JButton vaultBackButton;
     private JSpinner spinner2;
     private JSpinner spinner3;
@@ -205,9 +288,36 @@ public class setupModeScreen {
     private JButton goBackButton;
     private JButton continueButton;
     private JButton createTeamButton;
+    private JButton nextButton;
+    private JCheckBox thisApparatusRequiresACheckBox;
+    private JPanel setupBars;
+    private JPanel setupFloor;
+    private JPanel setupBalanceBeam;
+    private JButton barsBackButton;
+    private JButton barsNextButton;
+    private JButton balanceBeamBackButton;
+    private JButton balanceBeamNextButton;
+    private JButton floorBackButton;
+    private JButton floorNextButton;
+    private JPanel selectJudges;
+    private JButton backButton;
+    private JComboBox comboBox9;
+    private JComboBox comboBox10;
+    private JComboBox comboBox11;
+    private JComboBox comboBox12;
+    private JButton judgesNextButton;
+    private JPanel summaryScreen;
+    private JList list1;
+    private JButton summaryContinueButton;
+    private JButton vaultEditButton;
+    private JButton barEditButton;
+    private JButton editBeamButton;
+    private JButton editFloorButton;
+    private JButton editJudgesButton;
     private JTextField clockTextField;
     private JButton startTimerButton;
     private JButton resetTimerButton;
+
 
 
 }

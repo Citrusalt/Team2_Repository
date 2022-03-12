@@ -95,4 +95,5 @@ public class CreateTeamScreen {
     private JTextField avg4;
     private JTextField avg5;
     private JTextField avg6;
+    private JButton uploadImageButton;
 }
