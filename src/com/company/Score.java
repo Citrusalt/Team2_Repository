@@ -47,7 +47,6 @@ public class Score {
     //Returns running score
     public double getRunningScore(){
         return this.floorScore + this.barScore + this.beamScore + this.vaultScore;
-
     }
 
 
