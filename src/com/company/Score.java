@@ -23,33 +23,29 @@ public class Score {
     public Score() {
     }
 
-    public void setvaultScore(double newScore)
-    {
+    public void setvaultScore(double newScore) {
         this.vaultScore = newScore;
     }
 
-    public void setbeamScore(double newScore)
-    {
+    public void setbeamScore(double newScore) {
         this.beamScore = newScore;
     }
 
-    public void setfloorScore(double newScore)
-    {
+    public void setfloorScore(double newScore) {
         this.floorScore = newScore;
     }
 
-    public void setbarScore(double newScore)
-    {
+    public void setbarScore(double newScore) {
         this.barScore = newScore;
     }
 
     // A players running score is the total score from all apparatuses
     //Returns running score
-    public double getRunningScore(){
+    public double getRunningScore() {
         return this.floorScore + this.barScore + this.beamScore + this.vaultScore;
     }
 
-
+}
 
 //need to get the top 5 score from a total of 6 individual scores for a single apparatus
 //these add up to get the team score for that apparatus
@@ -61,7 +57,7 @@ public class Score {
         int TeamApparatusScore = Math.Sum(scoresList) - minScore;
     }*/
 
-    public void calculateTeamApparatusScore(double score1, double score2, double score3, double score4, double score5, double score6 ) {
+    /*public void calculateTeamApparatusScore(double score1, double score2, double score3, double score4, double score5, double score6 ) {
         double[] scores={score1, score2, score3, score3, score4, score5, score6};
         Arrays.sort(scores);
         double sum = 0;
@@ -71,4 +67,4 @@ public class Score {
         //TeamApparatusScore = sum - score[0]
 
         }
-    }
+    }*/
