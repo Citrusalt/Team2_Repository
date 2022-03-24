@@ -7,10 +7,6 @@ import java.util.List;
 public class PlayerRole {
 
     //Order of apparatus: Vaults, Bars, Beams, Floors
-    private static int vault = 0;               //Constant Value
-    private static int bar = 1;
-    private static int beam = 2;
-    private static int floors = 3;
     private boolean[] apparatusStatus;
     private int[] orderApparatus;
 
