@@ -56,7 +56,7 @@ public class SetupModeDual {
                 Object homeTeam = comboBox7.getSelectedItem();
                 Object visitorTeam = comboBox8.getSelectedItem();
                 //Assuming that index 0 is default label for the comboBox
-                if(comboBox7.getSelectedIndex() == 0 || comboBox7.getSelectedIndex() == 0 ){
+                if(comboBox7.getSelectedIndex() == 0 || comboBox8.getSelectedIndex() == 0 ){
                     JOptionPane.showMessageDialog(null, "Please Select a Valid Team.");
                 }
                 else if(homeTeam.toString().equals(visitorTeam.toString())){ //

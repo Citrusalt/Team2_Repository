@@ -107,12 +107,6 @@ public class DualScorekeeperScreen {
                 updateRotation(myDualArenaScreen, frame, -1);
             }
         });
-        updateScoresButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
 
         team1Combo.addItemListener(new ItemListener() {
             @Override
@@ -131,6 +125,44 @@ public class DualScorekeeperScreen {
                     Object item = e.getItem();
                     myDualArenaScreen.updateGymnast(item.toString(), 2);
                 }
+            }
+        });
+        updateScoreButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                float scoreArray[] = new float[6];
+                try{
+                    //Use these scores to update score for backend and arena screen
+                    scoreArray[0] = Integer.parseInt(j11.getText());
+                    scoreArray[1] = Integer.parseInt(j12.getText());
+                    scoreArray[2] = Integer.parseInt(j13.getText());
+                    scoreArray[3] = Integer.parseInt(j14.getText());
+                    scoreArray[4] = Integer.parseInt(j15.getText());
+                    scoreArray[5] = Integer.parseInt(j16.getText());
+                } catch (Exception exception) {
+
+                    System.out.println(exception);
+                }
+            }
+        });
+        updateScoreButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                float scoreArray[] = new float[6];
+                try{
+                    //Use these scores to update score for backend and arena screen
+                    scoreArray[0] = Integer.parseInt(j21.getText());
+                    scoreArray[1] = Integer.parseInt(j22.getText());
+                    scoreArray[2] = Integer.parseInt(j23.getText());
+                    scoreArray[3] = Integer.parseInt(j24.getText());
+                    scoreArray[4] = Integer.parseInt(j25.getText());
+                    scoreArray[5] = Integer.parseInt(j26.getText());
+                } catch (Exception exception) {
+
+                    System.out.println(exception);
+                }
+
             }
         });
     }
@@ -217,8 +249,8 @@ public class DualScorekeeperScreen {
     private JTextField textField3;
     private JTextField textField4;
     private JPanel dualSimulScreen;
-    private JTextField textField25;
-    private JTextField textField26;
+    private JTextField j11;
+    private JTextField j21;
     private JComboBox team1Combo;
     private JTextField timer1Textfield;
     private JButton startTimerButton1;
@@ -229,7 +261,18 @@ public class DualScorekeeperScreen {
     private JLabel team1App;
     private JLabel team2App;
     private JLabel rotationLabel;
-    private JButton updateScoresButton;
+    private JButton updateScoreButton1;
     private JComboBox team2Combo;
+    private JButton updateScoreButton2;
+    private JTextField j13;
+    private JTextField j12;
+    private JTextField j14;
+    private JTextField j15;
+    private JTextField j16;
+    private JTextField j22;
+    private JTextField j23;
+    private JTextField j24;
+    private JTextField j25;
+    private JTextField j26;
     private CardLayout cardLayout;
 }

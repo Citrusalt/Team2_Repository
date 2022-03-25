@@ -609,7 +609,7 @@
               <text value="Judge 1"/>
             </properties>
           </component>
-          <component id="52d92" class="javax.swing.JTextField" binding="textField25" default-binding="true">
+          <component id="52d92" class="javax.swing.JTextField" binding="j11">
             <constraints>
               <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
@@ -617,9 +617,10 @@
             </constraints>
             <properties>
               <horizontalAlignment value="0"/>
+              <text value=""/>
             </properties>
           </component>
-          <component id="8a3ab" class="javax.swing.JTextField" binding="textField26" default-binding="true">
+          <component id="8a3ab" class="javax.swing.JTextField" binding="j21">
             <constraints>
               <grid row="3" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
@@ -638,7 +639,7 @@
               <text value="Judge 2"/>
             </properties>
           </component>
-          <component id="25aea" class="javax.swing.JTextField" default-binding="true">
+          <component id="25aea" class="javax.swing.JTextField" binding="j12">
             <constraints>
               <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
@@ -646,6 +647,7 @@
             </constraints>
             <properties>
               <horizontalAlignment value="0"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="76ea8" class="javax.swing.JLabel">
@@ -657,7 +659,7 @@
               <text value="Judge 3"/>
             </properties>
           </component>
-          <component id="ef70b" class="javax.swing.JTextField" default-binding="true">
+          <component id="ef70b" class="javax.swing.JTextField" binding="j13">
             <constraints>
               <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
@@ -665,6 +667,7 @@
             </constraints>
             <properties>
               <horizontalAlignment value="0"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="1ded7" class="javax.swing.JLabel">
@@ -676,7 +679,7 @@
               <text value="Judge 4"/>
             </properties>
           </component>
-          <component id="774db" class="javax.swing.JTextField" default-binding="true">
+          <component id="774db" class="javax.swing.JTextField" binding="j14">
             <constraints>
               <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
@@ -684,6 +687,7 @@
             </constraints>
             <properties>
               <horizontalAlignment value="0"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="9cdfc" class="javax.swing.JLabel">
@@ -695,7 +699,7 @@
               <text value="Judge 5"/>
             </properties>
           </component>
-          <component id="4279d" class="javax.swing.JTextField" default-binding="true">
+          <component id="4279d" class="javax.swing.JTextField" binding="j15">
             <constraints>
               <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
@@ -754,7 +758,7 @@
               <text value="Judge 6"/>
             </properties>
           </component>
-          <component id="14ea4" class="javax.swing.JTextField" default-binding="true">
+          <component id="14ea4" class="javax.swing.JTextField" binding="j22">
             <constraints>
               <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
@@ -764,7 +768,7 @@
               <horizontalAlignment value="0"/>
             </properties>
           </component>
-          <component id="3e796" class="javax.swing.JTextField" default-binding="true">
+          <component id="3e796" class="javax.swing.JTextField" binding="j23">
             <constraints>
               <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
@@ -774,7 +778,7 @@
               <horizontalAlignment value="0"/>
             </properties>
           </component>
-          <component id="17d4a" class="javax.swing.JTextField" default-binding="true">
+          <component id="17d4a" class="javax.swing.JTextField" binding="j24">
             <constraints>
               <grid row="6" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
@@ -784,7 +788,7 @@
               <horizontalAlignment value="0"/>
             </properties>
           </component>
-          <component id="a01d3" class="javax.swing.JTextField" default-binding="true">
+          <component id="a01d3" class="javax.swing.JTextField" binding="j25">
             <constraints>
               <grid row="7" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
@@ -794,7 +798,7 @@
               <horizontalAlignment value="0"/>
             </properties>
           </component>
-          <component id="a4c09" class="javax.swing.JTextField" default-binding="true">
+          <component id="a4c09" class="javax.swing.JTextField" binding="j26">
             <constraints>
               <grid row="8" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
@@ -898,7 +902,7 @@
               <text value="Bars"/>
             </properties>
           </component>
-          <component id="9ff0b" class="javax.swing.JTextField" default-binding="true">
+          <component id="9ff0b" class="javax.swing.JTextField" binding="j16">
             <constraints>
               <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
@@ -952,12 +956,25 @@
               <text value="Team 2"/>
             </properties>
           </component>
-          <component id="32a60" class="javax.swing.JButton" binding="updateScoresButton" default-binding="true">
+          <component id="32a60" class="javax.swing.JButton" binding="updateScoreButton1">
             <constraints>
-              <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Update Scores"/>
+              <text value="Update Score"/>
+            </properties>
+          </component>
+          <hspacer id="fdef">
+            <constraints>
+              <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <component id="69737" class="javax.swing.JButton" binding="updateScoreButton2">
+            <constraints>
+              <grid row="10" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Update Score"/>
             </properties>
           </component>
         </children>
