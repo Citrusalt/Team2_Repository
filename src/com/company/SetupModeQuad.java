@@ -4,29 +4,32 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PostMeetScreen {
+public class SetupModeQuad {
 
-
-    private JPanel postMeetModePanel;
-    private JButton endButton;
-
-    public PostMeetScreen(){
+    public SetupModeQuad(){
 
         JFrame frame = new JFrame ("Post-Meet Screen Prototype");
-        frame.setContentPane(postMeetModePanel);
+        frame.setContentPane(setupModeQuadPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-
-        endButton.addActionListener(new ActionListener() {
+        meetTemplateBackButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(1);
+                frame.dispose();
+                MeetFormatScreen mySetup = new MeetFormatScreen("meetFormatCard");
             }
         });
     }
 
+
+
+
+    private JPanel meetTemplate;
+    private JButton meetTemplateBackButton;
+    private JLabel selectedMeetFormat;
+    private JPanel setupModeQuadPanel;
 
 }
