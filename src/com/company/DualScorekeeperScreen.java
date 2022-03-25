@@ -2,10 +2,7 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 
 public class DualScorekeeperScreen {
 
@@ -101,32 +98,61 @@ public class DualScorekeeperScreen {
         nextRotationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                updateRotation(myDualArenaScreen.getFrame(), frame, 1);
+                updateRotation(myDualArenaScreen, frame, 1);
             }
         });
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                updateRotation(myDualArenaScreen.getFrame(), frame, -1);
+                updateRotation(myDualArenaScreen, frame, -1);
+            }
+        });
+        updateScoresButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        team1Combo.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    Object item = e.getItem();
+                    myDualArenaScreen.updateGymnast(item.toString(), 1);
+                }
+            }
+
+        });
+        team2Combo.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    Object item = e.getItem();
+                    myDualArenaScreen.updateGymnast(item.toString(), 2);
+                }
             }
         });
     }
 
     //pass in the frames that need to be handled and 1 if next rotation, -1 if previous
-    private void updateRotation(JFrame arenaScreen, JFrame thisFrame, int value){
+    private void updateRotation(DualArenaScreen myArenaScreen, JFrame thisFrame, int value){
 
         rotation = rotation + value;
+        myArenaScreen.updateRotation(rotation);
 
         if (rotation == 0){
             SetupModeDual myDualSetup = new SetupModeDual();
             myDualSetup.changeCard("SummaryCard");
-            arenaScreen.dispose();
+            myArenaScreen.getFrame().dispose();
             thisFrame.dispose();
         }
         else if (rotation == 1){
             team1App.setText("Vault");
             team2App.setText("Bars");
             rotationLabel.setText("ROTATION 1");
+
+
         }
         else if (rotation == 2){
             team1App.setText("Bars");
@@ -149,7 +175,7 @@ public class DualScorekeeperScreen {
         }
         else if(rotation == 5){
             PostMeetScreen myPostMode = new PostMeetScreen();
-            arenaScreen.dispose();
+            myArenaScreen.getFrame().dispose();
             thisFrame.dispose();
         }
 
@@ -193,7 +219,7 @@ public class DualScorekeeperScreen {
     private JPanel dualSimulScreen;
     private JTextField textField25;
     private JTextField textField26;
-    private JComboBox comboBox2;
+    private JComboBox team1Combo;
     private JTextField timer1Textfield;
     private JButton startTimerButton1;
     private JButton startTimerButton2;
@@ -203,5 +229,7 @@ public class DualScorekeeperScreen {
     private JLabel team1App;
     private JLabel team2App;
     private JLabel rotationLabel;
+    private JButton updateScoresButton;
+    private JComboBox team2Combo;
     private CardLayout cardLayout;
 }

@@ -804,7 +804,7 @@
               <horizontalAlignment value="0"/>
             </properties>
           </component>
-          <component id="b84a3" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
+          <component id="b84a3" class="javax.swing.JComboBox" binding="team1Combo">
             <constraints>
               <grid row="2" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -818,7 +818,7 @@
               </model>
             </properties>
           </component>
-          <component id="a8fbd" class="javax.swing.JComboBox" default-binding="true">
+          <component id="a8fbd" class="javax.swing.JComboBox" binding="team2Combo">
             <constraints>
               <grid row="2" column="6" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -918,13 +918,6 @@
               <text value="Vault"/>
             </properties>
           </component>
-          <hspacer id="23ee">
-            <constraints>
-              <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="50" height="-1"/>
-              </grid>
-            </constraints>
-          </hspacer>
           <component id="6d6ca" class="javax.swing.JButton" binding="backButton" default-binding="true">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
@@ -957,6 +950,14 @@
             <properties>
               <font size="20"/>
               <text value="Team 2"/>
+            </properties>
+          </component>
+          <component id="32a60" class="javax.swing.JButton" binding="updateScoresButton" default-binding="true">
+            <constraints>
+              <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Update Scores"/>
             </properties>
           </component>
         </children>

@@ -6,6 +6,23 @@ import java.awt.event.ActionListener;
 
 public class DualArenaScreen {
 
+     public void updateGymnast(String gymnast, int teamNumb){
+         if (teamNumb == 1){
+             name1.setText(gymnast);
+         }
+         else if (teamNumb == 2){
+             name2.setText(gymnast);
+         }
+     }
+     public void updateRotation(int rotationNumb){
+
+         rotationLabel.setText("Rotation " + rotationNumb);
+
+     }
+     public void updateScore(){
+
+     }
+
     public void clock1(int mySeconds){
 
         seconds1 = mySeconds;
@@ -106,6 +123,19 @@ public class DualArenaScreen {
     private JPanel arenaScreenPanel;
     private JLabel clockLabel1;
     private JLabel clockLabel2;
+    private JLabel name1;
+    private JLabel major1;
+    private JLabel year1;
+    private JLabel avg1;
+    private JLabel overall1;
+    private JLabel teamName1;
+    private JLabel teamName2;
+    private JLabel name2;
+    private JLabel major2;
+    private JLabel major3;
+    private JLabel avg2;
+    private JLabel overall2;
+    private JLabel rotationLabel;
 
 
 }
