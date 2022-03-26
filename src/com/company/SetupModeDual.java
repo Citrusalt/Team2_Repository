@@ -5,14 +5,17 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class setupModeScreen {
+public class SetupModeDual {
 
-    public setupModeScreen(){
 
-        JFrame frame = new JFrame ("GUI Prototype");
+
+    public SetupModeDual(){
+
+        JFrame frame = new JFrame ("Women's Gymnastics Scoreboard");
         frame.setContentPane(mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
         //Card Layout start
@@ -24,58 +27,11 @@ public class setupModeScreen {
         limitJSpinners(); //limit ranges of order numbers
 
 
-        //Action Listeners
-        startButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                cardLayout.show(mainPanel, "MeetSelectCard");
-                System.out.println("Button Pressed");
-            }
-        });
-
-        //Dual Meet Button Action Listener
-        dualButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                //cardLayout.show(mainPanel, "MeetTemplateCard");
-                //cardLayout.show(mainPanel, "SelectVaultCard");
-                //selectedMeetFormat.setText("Dual Meet Selected");
-
-                cardLayout.show(mainPanel, "SetUpScreen2Card");
-
-
-            }
-        });
-
-        //Triangular Meet Button Action Listener
-        triangularButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                cardLayout.show(mainPanel, "MeetTemplateCard");
-                selectedMeetFormat.setText("Triangular Meet Selected");
-
-            }
-        });
-
-        //Quadrangular Meet Button Action Listener
-        quadrangularButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                cardLayout.show(mainPanel, "MeetTemplateCard");
-                selectedMeetFormat.setText("Quadrangular Meet Selected");
-
-            }
-        });
-
         //Go Back Button Action Listener
         vaultBackButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cardLayout.show(mainPanel, "SetUpScreen2Card");
+                cardLayout.show(mainPanel, "TeamSetupCard");
             }
         });
         meetTemplateBackButton.addActionListener(new ActionListener() {
@@ -87,7 +43,8 @@ public class setupModeScreen {
         goBackButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cardLayout.show(mainPanel, "MeetSelectCard");
+                frame.dispose();
+                MeetFormatScreen myMeetFormatScreen = new MeetFormatScreen("meetFormatCard");
             }
         });
         continueButton.addActionListener(new ActionListener() {
@@ -99,7 +56,7 @@ public class setupModeScreen {
                 Object homeTeam = comboBox7.getSelectedItem();
                 Object visitorTeam = comboBox8.getSelectedItem();
                 //Assuming that index 0 is default label for the comboBox
-                if(comboBox7.getSelectedIndex() == 0 || comboBox7.getSelectedIndex() == 0 ){
+                if(comboBox7.getSelectedIndex() == 0 || comboBox8.getSelectedIndex() == 0 ){
                     JOptionPane.showMessageDialog(null, "Please Select a Valid Team.");
                 }
                 else if(homeTeam.toString().equals(visitorTeam.toString())){ //
@@ -205,8 +162,8 @@ public class setupModeScreen {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                frame.setVisible(false);
-                ScorekeeperScreen myScorekeeper = new ScorekeeperScreen();
+                frame.dispose();
+                DualScorekeeperScreen myScorekeeper = new DualScorekeeperScreen();
             }
         });
     }
@@ -249,12 +206,13 @@ public class setupModeScreen {
 
     }
 
+    public void changeCard(String cardName){
+        cardLayout.show(mainPanel, cardName);
+    }
+
 
     private JPanel mainPanel;
-    private JPanel startScreen;
-    private JLabel startImage;
     private JButton startButton;
-    private JPanel meetSelect;
     private JButton dualButton;
     private JButton triangularButton;
     private JButton quadrangularButton;
@@ -282,7 +240,6 @@ public class setupModeScreen {
     private JSpinner spinner10;
     private JSpinner spinner11;
     private JSpinner spinner12;
-    private JPanel setupScreen2;
     private JComboBox comboBox7;
     private JComboBox comboBox8;
     private JButton goBackButton;
@@ -314,6 +271,7 @@ public class setupModeScreen {
     private JButton editBeamButton;
     private JButton editFloorButton;
     private JButton editJudgesButton;
+    private JPanel teamSetup;
     private JTextField clockTextField;
     private JButton startTimerButton;
     private JButton resetTimerButton;

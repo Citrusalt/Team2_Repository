@@ -4,9 +4,7 @@ public class ProgramStart {
 
     public static void main(String[] args) {
 
-
-    setupModeScreen mySetup = new setupModeScreen();
-
+    MeetFormatScreen myMeetFormatScreen = new MeetFormatScreen("startScreen");
 
     }
 }

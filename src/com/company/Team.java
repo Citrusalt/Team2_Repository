@@ -8,22 +8,24 @@ import java.util.List;
  * Note: At some point we should add a checker if the order is valid, player is not a duplicate, etc. Maybe on this team class.
  */
 
-public class Team {private String teamName;
+public class Team {
+    private String teamName;
     private String teamLogo;                        //Contain like the path for the logo
     private  List<Player> vaultGymnast;             //
     private  List<Player> barGymnast;
     private  List<Player> beamGymnast;
     private  List<Player> floorGymnast;
 
-    //Constructor
-    public Team() {
-        this.teamName = new String();
-        this.teamLogo = new String();
+
+    public Team(String teamName, String teamLogo) {
+        this.teamName = teamName;
+        this.teamLogo = teamLogo;
         this.vaultGymnast = new ArrayList<>();
-        this.floorGymnast = new ArrayList<>();
         this.barGymnast = new ArrayList<>();
         this.beamGymnast = new ArrayList<>();
+        this.floorGymnast = new ArrayList<>();
     }
+
     //Method that adds a player to the vault list
     public void addPlayerVaultGymnast(Player p){
         vaultGymnast.add(p);
