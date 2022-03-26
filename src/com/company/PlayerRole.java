@@ -1,10 +1,11 @@
 package com.company;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class PlayerRole {
+public class PlayerRole implements Serializable {
 
     //Order of apparatus: Vaults, Bars, Beams, Floors
     private boolean[] apparatusStatus;

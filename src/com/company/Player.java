@@ -1,9 +1,12 @@
 package com.company;
+
+import java.io.Serializable;
+
 /**
  * This class will store personal information for each gymnast
  * Comment: maybe  we can add string that will contain picPath since we have to display their pic (?) -jlou
  * */
-public class Player {
+public class Player implements Serializable {
 
     //Constructor
     public Player (String playerName, String playerClass, String playerMajor, String playerAvg){

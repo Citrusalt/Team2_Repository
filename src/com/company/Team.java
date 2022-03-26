@@ -1,5 +1,6 @@
 package com.company;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
  * Note: At some point we should add a checker if the order is valid, player is not a duplicate, etc. Maybe on this team class.
  */
 
-public class Team {
+public class Team implements Serializable {
     private String teamName;
     private String teamLogo;                        //Contain like the path for the logo
     private  List<Player> vaultGymnast;             //
@@ -25,7 +26,7 @@ public class Team {
         this.beamGymnast = new ArrayList<>();
         this.floorGymnast = new ArrayList<>();
     }
-
+    public String getTeamName(){return teamName;}
     //Method that adds a player to the vault list
     public void addPlayerVaultGymnast(Player p){
         vaultGymnast.add(p);
