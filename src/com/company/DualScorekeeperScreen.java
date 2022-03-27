@@ -183,8 +183,10 @@ public class DualScorekeeperScreen {
             team1App.setText("Vault");
             team2App.setText("Bars");
             rotationLabel.setText("ROTATION 1");
-
-
+            //update judges
+            //update players
+            //update scores
+            //etc.
         }
         else if (rotation == 2){
             team1App.setText("Bars");

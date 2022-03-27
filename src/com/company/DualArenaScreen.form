@@ -26,7 +26,7 @@
             </constraints>
             <properties>
               <font size="24"/>
-              <text value="Jacob Drake"/>
+              <text value="John Smith"/>
             </properties>
           </component>
           <component id="3b73c" class="javax.swing.JLabel" binding="major1">
@@ -53,7 +53,7 @@
             </constraints>
             <properties>
               <font size="24"/>
-              <text value="98.754"/>
+              <text value="9.800"/>
             </properties>
           </component>
           <component id="5a939" class="javax.swing.JLabel">
@@ -117,7 +117,7 @@
             </constraints>
             <properties>
               <font size="24"/>
-              <text value="98.754"/>
+              <text value="9.900"/>
             </properties>
           </component>
           <component id="ecf59" class="javax.swing.JLabel" binding="clockLabel2">
@@ -153,7 +153,7 @@
             </constraints>
             <properties>
               <font size="24"/>
-              <text value="Jacob Drake"/>
+              <text value="Jane Doe"/>
             </properties>
           </component>
           <vspacer id="b8b8a">
@@ -181,7 +181,7 @@
             </constraints>
             <properties>
               <font size="24"/>
-              <text value="Overall: 00.000"/>
+              <text value="Overall: 59.175"/>
             </properties>
           </component>
           <component id="b108e" class="javax.swing.JLabel" binding="overall2">
@@ -190,7 +190,7 @@
             </constraints>
             <properties>
               <font size="24"/>
-              <text value="Overall: 00.000"/>
+              <text value="Overall: 49.375"/>
             </properties>
           </component>
         </children>

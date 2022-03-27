@@ -1,9 +1,13 @@
 package com.company;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+import java.util.Vector;
 
 public class SetupModeDual {
 
@@ -17,6 +21,16 @@ public class SetupModeDual {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
+        //create summary screen tables
+        createTeamTable(vaultTable, vaultModel, vaultRenderer);
+        createTeamTable(barsTable, barsModel, barsRenderer);
+        createTeamTable(beamTable, beamModel, beamRenderer);
+        createTeamTable(floorTable, floorModel, floorRenderer);
+        createJudgeTable(judgesTable, judgesModel, judgesRenderer);
+
+        //Test Table
+        testTable();
 
         //Card Layout start
         cardLayout = (CardLayout) mainPanel.getLayout();
@@ -125,6 +139,7 @@ public class SetupModeDual {
         judgesNextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 cardLayout.show(mainPanel, "SummaryCard");
             }
         });
@@ -210,6 +225,125 @@ public class SetupModeDual {
         cardLayout.show(mainPanel, cardName);
     }
 
+    //temporary parameters, will take in team 1 and team 2 of type Team in the future
+    private void createTeamTable(JTable table, DefaultTableModel model, DefaultTableCellRenderer cellRenderer){
+
+        model.addColumn("Team 1");
+        model.addColumn("Team 2");
+        table.setModel(model);
+        centerColumns(table, cellRenderer);
+
+        table.getTableHeader().setFont(font);
+        centerColumns(table, cellRenderer);
+
+        //individualTable.getColumnModel().getColumn(0).setPreferredWidth(1);
+    }
+
+    private void createJudgeTable(JTable table, DefaultTableModel model, DefaultTableCellRenderer cellRenderer){
+        model.addColumn("Vault");
+        model.addColumn("Bars");
+        model.addColumn("Beam");
+        model.addColumn("Floor");
+
+        table.setModel(model);
+        centerColumns(table, cellRenderer);
+
+        table.getTableHeader().setFont(font);
+        centerColumns(table, cellRenderer);
+
+        //individualTable.getColumnModel().getColumn(0).setPreferredWidth(1);
+    }
+
+    private void addRowsJudgeTable(String vaultJudge,String barJudge, String beamJudge, String floorJudge, DefaultTableModel model){
+        Vector<String> row = new Vector<String>();
+
+        row.add(vaultJudge);
+        row.add(barJudge);
+        row.add(beamJudge);
+        row.add(floorJudge);
+        model.addRow(row);
+
+}
+
+    //the parameters of this will undoubtedly change to accept either team or player class instead
+    public void addRowTeamTable(String name1, String name2, DefaultTableModel model){
+        Vector<String> row = new Vector<String>();
+        row.add(name1);
+        row.add(name2);
+        model.addRow(row);
+    }
+
+    private void centerColumns(JTable table, DefaultTableCellRenderer cellRenderer){
+        cellRenderer.setHorizontalAlignment(JLabel.CENTER);
+
+        for (int columnIndex = 0; columnIndex < table.getModel().getColumnCount(); columnIndex++){
+            table.getColumnModel().getColumn(columnIndex).setCellRenderer(cellRenderer);
+        }
+    }
+
+    //Test function
+    private void testTable(){
+
+        addRowTeamTable("Jacob Drake", "John Smith", vaultModel);
+        addRowTeamTable("Janilou Sy","Jane Doe", vaultModel);
+        addRowTeamTable("Hailey Porter", "Adriana Lanier",vaultModel);
+        addRowTeamTable("Adriana Lanier","Hailey Porter", vaultModel);
+        addRowTeamTable("John Smith", "Janilou Sy" ,vaultModel);
+        addRowTeamTable("Jane Doe", "Jacob Drake",vaultModel);
+
+        addRowTeamTable("Jacob Drake", "John Smith", barsModel);
+        addRowTeamTable("Janilou Sy","Jane Doe", barsModel);
+        addRowTeamTable("Hailey Porter", "Adriana Lanier",barsModel);
+        addRowTeamTable("Adriana Lanier","Hailey Porter", barsModel);
+        addRowTeamTable("John Smith", "Janilou Sy" ,barsModel);
+        addRowTeamTable("Jane Doe", "Jacob Drake",barsModel);
+
+        addRowTeamTable("Jacob Drake", "John Smith", beamModel);
+        addRowTeamTable("Janilou Sy","Jane Doe", beamModel);
+        addRowTeamTable("Hailey Porter", "Adriana Lanier",beamModel);
+        addRowTeamTable("Adriana Lanier","Hailey Porter", beamModel);
+        addRowTeamTable("John Smith", "Janilou Sy" ,beamModel);
+        addRowTeamTable("Jane Doe", "Jacob Drake",beamModel);
+
+        addRowTeamTable("Jacob Drake", "John Smith", floorModel);
+        addRowTeamTable("Janilou Sy","Jane Doe", floorModel);
+        addRowTeamTable("Hailey Porter", "Adriana Lanier",floorModel);
+        addRowTeamTable("Adriana Lanier","Hailey Porter", floorModel);
+        addRowTeamTable("John Smith", "Janilou Sy" ,floorModel);
+        addRowTeamTable("Jane Doe", "Jacob Drake",floorModel);
+
+
+        String[] vaultJudges = new String[]{"Jacob Drake", "Adriana Lanier", "Hailey Porter","Janilou Sy", "John Smith", "Jane Doe"};
+        String[] barJudges = new String[]{"Adriana Lanier", "Janilou Sy", "Jacob Drake","Janilou Sy", "John Smith", "Jane Doe"};
+        String[] beamJudges = new String[]{"John Smith", "Adriana Lanier", "Hailey Porter","Janilou Sy", "Jacob Drake", "Jane Doe"};
+        String[] floorJudges = new String[]{"Jacob Drake", "Jane Doe", "Hailey Porter","Janilou Sy", "John Smith", "Adriana Lanier"};
+
+        for (int i = 0; i <= 5; i++){
+            addRowsJudgeTable(vaultJudges[i], barJudges[i], beamJudges[i], floorJudges[i], judgesModel);
+        }
+
+    }
+
+
+    //Table Header Font
+    Font font = new Font ("Verdana", Font.PLAIN, 18);
+
+    //Summary Screen Table Variables
+    private DefaultTableModel vaultModel = new DefaultTableModel();
+    private DefaultTableModel barsModel = new DefaultTableModel();
+    private DefaultTableModel beamModel = new DefaultTableModel();
+    private DefaultTableModel floorModel = new DefaultTableModel();
+    private DefaultTableModel judgesModel = new DefaultTableModel();
+
+
+    private DefaultTableCellRenderer vaultRenderer = new DefaultTableCellRenderer();
+    private DefaultTableCellRenderer barsRenderer = new DefaultTableCellRenderer();
+    private DefaultTableCellRenderer beamRenderer = new DefaultTableCellRenderer();
+    private DefaultTableCellRenderer floorRenderer = new DefaultTableCellRenderer();
+    private DefaultTableCellRenderer judgesRenderer = new DefaultTableCellRenderer();
+
+
+
 
     private JPanel mainPanel;
     private JButton startButton;
@@ -264,7 +398,6 @@ public class SetupModeDual {
     private JComboBox comboBox12;
     private JButton judgesNextButton;
     private JPanel summaryScreen;
-    private JList list1;
     private JButton summaryContinueButton;
     private JButton vaultEditButton;
     private JButton barEditButton;
@@ -272,6 +405,11 @@ public class SetupModeDual {
     private JButton editFloorButton;
     private JButton editJudgesButton;
     private JPanel teamSetup;
+    private JTable vaultTable;
+    private JTable barsTable;
+    private JTable beamTable;
+    private JTable floorTable;
+    private JTable judgesTable;
     private JTextField clockTextField;
     private JButton startTimerButton;
     private JButton resetTimerButton;

@@ -1,7 +1,9 @@
 package com.company;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
@@ -54,6 +56,12 @@ public class PostMeetScreen {
         teamModel.addColumn("Team");
         teamTable.setModel(teamModel);
 
+        centerColumns(teamTable, teamRenderer); //center text in table
+        teamTable.getTableHeader().setFont(font); //messing with some table formatting
+
+        //Doesn't work right now, some conflict with gui designer
+        //teamTable.getColumnModel().getColumn(0).setPreferredWidth(10);
+
     }
 
     private void createIndividualTable(){
@@ -61,7 +69,22 @@ public class PostMeetScreen {
         individualModel.addColumn("Gymnast Name");
         individualModel.addColumn("Team");
         individualModel.addColumn("Score");
+
         individualTable.setModel(individualModel);
+
+        centerColumns(individualTable, individualRenderer);
+        individualTable.getTableHeader().setFont(font);
+
+        //individualTable.getColumnModel().getColumn(0).setPreferredWidth(1);
+
+    }
+
+    private void centerColumns(JTable table, DefaultTableCellRenderer cellRenderer){
+        cellRenderer.setHorizontalAlignment(JLabel.CENTER);
+
+        for (int columnIndex = 0; columnIndex < table.getModel().getColumnCount(); columnIndex++){
+            table.getColumnModel().getColumn(columnIndex).setCellRenderer(cellRenderer);
+        }
     }
 
     //Test function
@@ -79,8 +102,16 @@ public class PostMeetScreen {
         addRowIndividualTable(5, "John Smith", "Alabama", 8.567);
     }
 
+    //Table Header Font
+    Font font = new Font ("Verdana", Font.PLAIN, 18);
+
     private DefaultTableModel teamModel = new DefaultTableModel();
     private DefaultTableModel individualModel = new DefaultTableModel();
+
+    private DefaultTableCellRenderer teamRenderer = new DefaultTableCellRenderer();
+    private DefaultTableCellRenderer individualRenderer = new DefaultTableCellRenderer();
+
+
     private JPanel postMeetModePanel;
     private JPanel dualPost;
     private JButton endButton;
