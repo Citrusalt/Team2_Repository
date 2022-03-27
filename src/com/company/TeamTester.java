@@ -13,23 +13,19 @@ public class TeamTester {
         Player v4 = new Player("Adriana", "Freshman", "Computer Science", "93");
 
         //Adding the apparatus and their order
-        v1.playerApparatus.setApparatusStatus(ApparatusIndex.UB);
-        v1.playerApparatus.setOrderApparatus(ApparatusIndex.UB, 2);
+        v1.setApparatusStatus(ApparatusIndex.UB);
         //v1.printAll();
 
-        v2.playerApparatus.setApparatusStatus(ApparatusIndex.BB);
-        v2.playerApparatus.setOrderApparatus(ApparatusIndex.BB, 1);
+        v2.setApparatusStatus(ApparatusIndex.BB);
         //v2.printAll();
 
-        v3.playerApparatus.setApparatusStatus(ApparatusIndex.FX);
-        v3.playerApparatus.setOrderApparatus(ApparatusIndex.FX, 1);
+        v3.setApparatusStatus(ApparatusIndex.FX);
         //v3.printAll();
 
-        v4.playerApparatus.setApparatusStatus(ApparatusIndex.VT);
-        v4.playerApparatus.setApparatusStatus(ApparatusIndex.UB);
-        v4.playerApparatus.setOrderApparatus(ApparatusIndex.UB, 1);
-        v4.playerApparatus.setOrderApparatus(ApparatusIndex.VT, 1);
+        v4.setApparatusStatus(ApparatusIndex.VT);
+        v4.setApparatusStatus(ApparatusIndex.UB);
         //v4.printAll();
+
         Team team2 = new Team("TEAM12", "//SOMEPATH");
         team2.addPlayerBarGymnast(v1);
         team2.addPlayerBarGymnast(v4);

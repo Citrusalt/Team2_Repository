@@ -14,7 +14,9 @@ public class Player implements Serializable {
         this.playerClass = playerClass;
         this.playerMajor = playerMajor;
         this.playerAvg = playerAvg;
-        this.playerApparatus = new PlayerRole();
+        for(int i = 0; i<3; i++){
+            this.apparatusStatus[i] = false;
+        }
     }
 
     //getters
@@ -43,6 +45,15 @@ public class Player implements Serializable {
         this.playerAvg = playerAvg;
     }
 
+    //Method that sets if they play apparatus. Pass in the index.
+    public void setApparatusStatus(int i){
+        apparatusStatus[i] = true;
+    }
+
+    public boolean[] getApparatusStatus() {
+        return apparatusStatus;
+    }
+
     //Print all info. For testing purposes only.
     public void printAll(){
         System.out.println("----------- Player Information ----------");
@@ -53,15 +64,15 @@ public class Player implements Serializable {
 
         System.out.println("Apparatus in: ");
         for(int i = 0; i < 4; i++){
-            if(playerApparatus.getApparatusStatus()[i] == true){
+            if(apparatusStatus[i] == true){
                 switch(i){
-                    case 0: System.out.println("[Vaults]" + " order number is " + this.playerApparatus.getOrderApparatus()[i]);
+                    case 0: System.out.println("Player is in [Vaults]");
                         break;
-                    case 1: System.out.println("[Bars]" + " order number is " + this.playerApparatus.getOrderApparatus()[i]);
+                    case 1: System.out.println("Player is in [Bars]");
                         break;
-                    case 2: System.out.println("[Beams]" + " order number is " + this.playerApparatus.getOrderApparatus()[i]);
+                    case 2: System.out.println("Player is in [Beams]");
                         break;
-                    case 3: System.out.println("[Floors]" +  " order number is " + this.playerApparatus.getOrderApparatus()[i]);
+                    case 3: System.out.println("Player is in [Floors]");
                         break;
                 }
             }
@@ -74,6 +85,6 @@ public class Player implements Serializable {
     private String playerMajor;
     private String playerAvg;                   //Make it into a list double
     private String playerPic;
-    PlayerRole playerApparatus;
+    private boolean[] apparatusStatus;
 
 }
