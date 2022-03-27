@@ -1,8 +1,8 @@
 package com.company;
 /*
  At each meet, six gymnasts are selected to compete in every event.
- The top five scores from each event are taken and counted toward the team’s c
- ombined score. Then, the combined score from each event—vault, beam, floor,
+ The top five scores from each event are taken and counted toward the team’s
+ combined score. Then, the combined score from each event—vault, beam, floor,
  and bars—is added together to get the team’s final score.
  Therefore, the highest score possible score a team could have is 200.
  Source: https://www.ncsasports.org/college-gymnastics/college-gymnastics-levels

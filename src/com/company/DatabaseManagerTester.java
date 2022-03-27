@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.List;
 
+
 public class DatabaseManagerTester {
     public static void main(String[] args) {
         DatabaseManager d = new DatabaseManager();
