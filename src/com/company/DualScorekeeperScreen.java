@@ -276,5 +276,6 @@ public class DualScorekeeperScreen {
     private JTextField j24;
     private JTextField j25;
     private JTextField j26;
+    private JButton editLineupButton;
     private CardLayout cardLayout;
 }
