@@ -1,22 +1,33 @@
 package com.company;
 
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * This class will store personal information for each gymnast
- * Comment: maybe  we can add string that will contain picPath since we have to display their pic (?) -jlou
+ *
  * */
 public class Player implements Serializable {
 
+    private String playerName;
+    private String playerClass;
+    private String playerMajor;
+    private double playerAvg;                   //Make it into a list double
+    private String playerPic;
+    //private boolean[] apparatusStatus = new boolean[4];             //OMIT
+    Set<ApparatusStatus> apparatusIn;
     //Constructor
-    public Player (String playerName, String playerClass, String playerMajor, String playerAvg){
+    public Player (String playerName, String playerClass, String playerMajor, double playerAvg){
         this.playerName = playerName;
         this.playerClass = playerClass;
         this.playerMajor = playerMajor;
         this.playerAvg = playerAvg;
-        for(int i = 0; i<3; i++){
-            this.apparatusStatus[i] = false;
-        }
+        apparatusIn = new HashSet<>();
+        //apparatusStatus = new boolean[]{false,false,false,false};       //OMIT
+
     }
 
     //getters
@@ -26,7 +37,9 @@ public class Player implements Serializable {
 
     public String getPlayerMajor(){return playerMajor;}
 
-    public String getPlayerAvg(){return playerAvg;}
+    public double getPlayerAvg(){return playerAvg;}
+
+    public Set<ApparatusStatus> getApparatusIn(){return apparatusIn;}
 
     //Setters
     public void setPlayerName(String playerName) {
@@ -41,18 +54,29 @@ public class Player implements Serializable {
         this.playerMajor = playerMajor;
     }
 
-    public void setPlayerAvg(String playerAvg) {
+    public void setPlayerAvg(double playerAvg) {
         this.playerAvg = playerAvg;
     }
 
-    //Method that sets if they play apparatus. Pass in the index.
-    public void setApparatusStatus(int i){
-        apparatusStatus[i] = true;
+    //Method that adds if they participate in an apparatus
+    public void addApparatus(ApparatusStatus status){
+        apparatusIn.add(status);
     }
 
-    public boolean[] getApparatusStatus() {
-        return apparatusStatus;
+    //Method that deletes an ApparatusStatus from apparatusIn
+    public void deleteApparatus(ApparatusStatus status){
+        apparatusIn.remove(status);
     }
+
+//
+//    //Method that sets if they play apparatus. Pass in the index.           //OMIT
+//    public void setApparatusStatus(int i){
+//        apparatusStatus[i] = true;
+//    }
+//
+//    public boolean[] getApparatusStatus() {                   //OMIT
+//        return apparatusStatus;
+//    }       //OMIT
 
     //Print all info. For testing purposes only.
     public void printAll(){
@@ -63,28 +87,23 @@ public class Player implements Serializable {
         System.out.println("Average: " + this.playerAvg);
 
         System.out.println("Apparatus in: ");
-        for(int i = 0; i < 4; i++){
-            if(apparatusStatus[i] == true){
-                switch(i){
-                    case 0: System.out.println("Player is in [Vaults]");
-                        break;
-                    case 1: System.out.println("Player is in [Bars]");
-                        break;
-                    case 2: System.out.println("Player is in [Beams]");
-                        break;
-                    case 3: System.out.println("Player is in [Floors]");
-                        break;
-                }
-            }
-        }
+        System.out.println(apparatusIn.toString());
+//        for(int i = 0; i < 4; i++){                                       //OMIT
+//            if(apparatusStatus[i] == true){
+//                switch(i){
+//                    case 0: System.out.println("Player is in [Vaults]");
+//                        break;
+//                    case 1: System.out.println("Player is in [Bars]");
+//                        break;
+//                    case 2: System.out.println("Player is in [Beams]");
+//                        break;
+//                    case 3: System.out.println("Player is in [Floors]");
+//                        break;
+//                }
+//            }
+//        }
         System.out.println("------------------------------------");
     }
 
-    private String playerName;
-    private String playerClass;
-    private String playerMajor;
-    private String playerAvg;                   //Make it into a list double
-    private String playerPic;
-    private boolean[] apparatusStatus;
 
 }
