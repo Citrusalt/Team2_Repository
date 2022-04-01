@@ -17,6 +17,7 @@ public class Player implements Serializable {
     private String playerMajor;
     private double playerAvg;                   //Make it into a list double
     private String playerPic;
+    private IndividualScore playerScores;
     //private boolean[] apparatusStatus = new boolean[4];             //OMIT
     Set<ApparatusStatus> apparatusIn;
     //Constructor

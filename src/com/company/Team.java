@@ -14,6 +14,7 @@ public class Team implements Serializable {
     private String teamName;
     private String teamLogo;                        //Contain like the path for the logo
     private List<Player> allGymnasts;
+    private TeamScore teamScores;
 //    private  List<Player> vaultGymnast;             //OMIT
 //    private  List<Player> barGymnast;               //OMIT
 //    private  List<Player> beamGymnast;              //OMIT
@@ -24,6 +25,7 @@ public class Team implements Serializable {
         this.teamName = teamName;
         this.teamLogo = teamLogo;
         this.allGymnasts = new ArrayList<>();
+
     }
     //Getters
     public String getTeamName(){return teamName;}
