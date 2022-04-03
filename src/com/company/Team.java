@@ -15,16 +15,21 @@ public class Team implements Serializable {
     private String teamLogo;                        //Contain like the path for the logo
     private List<Player> allGymnasts;
     private TeamScore teamScores;
-//    private  List<Player> vaultGymnast;             //OMIT
-//    private  List<Player> barGymnast;               //OMIT
-//    private  List<Player> beamGymnast;              //OMIT
-//    private  List<Player> floorGymnast;             //OMIT
+    private  List<Player> vaultGymnast;
+    private  List<Player> barGymnast;
+    private  List<Player> beamGymnast;
+    private  List<Player> floorGymnast;
 
 
     public Team(String teamName, String teamLogo) {
         this.teamName = teamName;
         this.teamLogo = teamLogo;
         this.allGymnasts = new ArrayList<>();
+        this.vaultGymnast = new ArrayList<>();
+        this.barGymnast = new ArrayList<>();
+        this.beamGymnast = new ArrayList<>();
+        this.floorGymnast = new ArrayList<>();
+        this.teamScores = new TeamScore();
 
     }
     //Getters
@@ -76,6 +81,8 @@ public class Team implements Serializable {
     public void addGymnasts(Player p){
         allGymnasts.add(p);
     }
+
+
 }
 
 

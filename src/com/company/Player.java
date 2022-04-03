@@ -27,7 +27,9 @@ public class Player implements Serializable {
         this.playerMajor = playerMajor;
         this.playerAvg = playerAvg;
         apparatusIn = new HashSet<>();
+        this.playerScores = new IndividualScore();
         //apparatusStatus = new boolean[]{false,false,false,false};       //OMIT
+
 
     }
 
