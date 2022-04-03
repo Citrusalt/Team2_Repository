@@ -4,7 +4,8 @@ public class ProgramStart {
 
     public static void main(String[] args) {
 
-    MeetFormatScreen myMeetFormatScreen = new MeetFormatScreen("startScreen");
+    GuiCreator gC = new GuiCreator();
+    MeetFormatScreen myMeetFormatScreen = new MeetFormatScreen("startScreen", gC);
 
     }
 }
