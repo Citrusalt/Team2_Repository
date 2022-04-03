@@ -4,36 +4,30 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class DualScorekeeperScreen {
+public class TriScorekeeperScreen {
 
-    public DualScorekeeperScreen(GuiCreator gC) {
+    public TriScorekeeperScreen(GuiCreator gC){
 
-        JFrame frame = new JFrame("Scorekeeper Screen Prototype");
+        JFrame frame = new JFrame("Triangular Scorekeeper Screen Prototype");
         frame.setContentPane(mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        Dual_Tri_ArenaScreen myArenaScreen = new Dual_Tri_ArenaScreen();
+        Dual_Tri_ArenaScreen myDualTriArenaScreen = new Dual_Tri_ArenaScreen();
+
 
         //card layout start
         cardLayout = (CardLayout) mainPanel.getLayout();
         changeCard("CustomizeCard");
 
-
         defaultTemplateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                if (simultaneousCheckBox.isSelected()){
-                    cardLayout.show(mainPanel, "SimulCard");
-                    myArenaScreen.getFrame().setVisible(true);
-
-                }
-                else{
-                    //non simultaneous arena screen
-                }
+                changeCard("TriScorekeeperCard");
+                myDualTriArenaScreen.getFrame().setVisible(true);
+                updateRotation(myDualTriArenaScreen, frame, 0, gC);
             }
         });
 
@@ -44,7 +38,7 @@ public class DualScorekeeperScreen {
                     try {
                         Integer.parseInt(timer1Textfield.getText());
                         if (Integer.parseInt(timer1Textfield.getText()) > 0) {
-                            myArenaScreen.clock1(Integer.parseInt(timer1Textfield.getText()));
+                            myDualTriArenaScreen.clock1(Integer.parseInt(timer1Textfield.getText()));
                             startTimerButton1.setText("Reset Timer");
                         }
 
@@ -52,7 +46,7 @@ public class DualScorekeeperScreen {
                         System.out.println("Invalid Input");
                     }
                 } else {
-                    myArenaScreen.resetClock1();
+                    myDualTriArenaScreen.resetClock1();
                     startTimerButton1.setText("Start Timer");
                 }
             }
@@ -64,7 +58,7 @@ public class DualScorekeeperScreen {
                     try {
                         Integer.parseInt(timer2Textfield.getText());
                         if (Integer.parseInt(timer2Textfield.getText()) > 0) {
-                            myArenaScreen.clock2(Integer.parseInt(timer2Textfield.getText()));
+                            myDualTriArenaScreen.clock2(Integer.parseInt(timer2Textfield.getText()));
                             startTimerButton2.setText("Reset Timer");
                         }
 
@@ -72,7 +66,7 @@ public class DualScorekeeperScreen {
                         System.out.println("Invalid Input");
                     }
                 } else {
-                    myArenaScreen.resetClock2();
+                    myDualTriArenaScreen.resetClock2();
                     startTimerButton2.setText("Start Timer");
                 }
             }
@@ -94,13 +88,13 @@ public class DualScorekeeperScreen {
         nextRotationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                updateRotation(myArenaScreen, frame, 1, gC);
+                updateRotation(myDualTriArenaScreen, frame, 1, gC);
             }
         });
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                updateRotation(myArenaScreen, frame, -1, gC);
+                updateRotation(myDualTriArenaScreen, frame, -1, gC);
             }
         });
 
@@ -109,7 +103,7 @@ public class DualScorekeeperScreen {
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED){
                     Object item = e.getItem();
-                    myArenaScreen.updateGymnast(item.toString(), 1);
+                    myDualTriArenaScreen.updateGymnast(item.toString(), 1);
                 }
             }
 
@@ -119,7 +113,7 @@ public class DualScorekeeperScreen {
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED){
                     Object item = e.getItem();
-                    myArenaScreen.updateGymnast(item.toString(), 2);
+                    myDualTriArenaScreen.updateGymnast(item.toString(), 2);
                 }
             }
         });
@@ -129,7 +123,6 @@ public class DualScorekeeperScreen {
                 float scoreArray[] = new float[6];
                 try{
                     //Use these scores to update score for backend and arena screen
-                    //doesn't have to be entered into a "scoreArray" just an example
                     scoreArray[0] = Integer.parseInt(j11.getText());
                     scoreArray[1] = Integer.parseInt(j12.getText());
                     scoreArray[2] = Integer.parseInt(j13.getText());
@@ -149,7 +142,6 @@ public class DualScorekeeperScreen {
                 float scoreArray[] = new float[6];
                 try{
                     //Use these scores to update score for backend and arena screen
-                    //doesn't have to be entered into a "scoreArray" just an example
                     scoreArray[0] = Integer.parseInt(j21.getText());
                     scoreArray[1] = Integer.parseInt(j22.getText());
                     scoreArray[2] = Integer.parseInt(j23.getText());
@@ -172,54 +164,95 @@ public class DualScorekeeperScreen {
 
 
     //pass in the frames that need to be handled and 1 if next rotation, -1 if previous
+    //yes, a lot of this is redundant, but it's easy to read and change later
     private void updateRotation(Dual_Tri_ArenaScreen myArenaScreen, JFrame thisFrame, int value, GuiCreator gC){
 
         rotation = rotation + value;
         myArenaScreen.updateRotation(rotation);
 
         if (rotation == 0){
-            SetupModeDual myDualSetup = new SetupModeDual(gC);
-            myDualSetup.changeCard("SummaryCard");
+            SetupModeTri myTriSetup = new SetupModeTri(gC);
+            myTriSetup.changeCard("SummaryCard");
             myArenaScreen.getFrame().dispose();
             thisFrame.dispose();
         }
         else if (rotation == 1){
             team1App.setText("Vault");
             team2App.setText("Bars");
+            team1Name.setText("Home");
+            team2Name.setText("Visitor 1");
             myArenaScreen.updateEvent("Vault", 1);
             myArenaScreen.updateEvent("Bars", 2);
+            myArenaScreen.updateTeamName("Home", 1); //change to actual school names later
+            myArenaScreen.updateTeamName("Visitor 1", 2); //""
             rotationLabel.setText("ROTATION 1");
             //update judges
             //update players
             //update scores
+            //change combo boxes
             //etc.
         }
         else if (rotation == 2){
-            team1App.setText("Bars");
-            team2App.setText("Vault");
-            myArenaScreen.updateEvent("Bars", 1);
-            myArenaScreen.updateEvent("Vault", 2);
+            team1App.setText("Vault");
+            team2App.setText("Bars");
+            team1Name.setText("Visitor 2");
+            team2Name.setText("Home");
+            myArenaScreen.updateEvent("Vault", 1);
+            myArenaScreen.updateEvent("Bars", 2);
+            myArenaScreen.updateTeamName("Visitor 2", 1); //change to actual school names later
+            myArenaScreen.updateTeamName("Home", 2); //""
             rotationLabel.setText("ROTATION 2");
             //update judges
             //update players
             //update scores
+            //change combo boxes
             //etc.
         }
         else if (rotation == 3){
-            team1App.setText("Beam");
-            team2App.setText("Floor");
-            myArenaScreen.updateEvent("Beam", 1);
-            myArenaScreen.updateEvent("Floor", 2);
+            team1App.setText("Vault");
+            team2App.setText("Bars");
+            team1Name.setText("Visitor 1");
+            team2Name.setText("Visitor 2");
+            myArenaScreen.updateEvent("Vault", 1);
+            myArenaScreen.updateEvent("Bars", 2);
+            myArenaScreen.updateTeamName("Visitor 1", 1); //change to actual school names later
+            myArenaScreen.updateTeamName("Visitor 2", 2); //""
             rotationLabel.setText("ROTATION 3");
         }
         else if (rotation == 4){
-            team1App.setText("Floor");
-            team2App.setText("Beam");
-            myArenaScreen.updateEvent("Floor", 1);
-            myArenaScreen.updateEvent("Beam", 2);
+            team1App.setText("Beam");
+            team2App.setText("Floor");
+            team1Name.setText("Home");
+            team2Name.setText("Visitor 2");
+            myArenaScreen.updateEvent("Beam", 1);
+            myArenaScreen.updateEvent("Floor", 2);
+            myArenaScreen.updateTeamName("Home", 1); //change to actual school names later
+            myArenaScreen.updateTeamName("Visitor 2", 2); //""
             rotationLabel.setText("ROTATION 4");
         }
         else if(rotation == 5){
+            team1App.setText("Beam");
+            team2App.setText("Floor");
+            team1Name.setText("Visitor 2");
+            team2Name.setText("Visitor 1");
+            myArenaScreen.updateEvent("Beam", 1);
+            myArenaScreen.updateEvent("Floor", 2);
+            myArenaScreen.updateTeamName("Visitor 2", 1); //change to actual school names later
+            myArenaScreen.updateTeamName("Visitor 1", 2); //""
+            rotationLabel.setText("ROTATION 5");
+        }
+        else if (rotation == 6){
+            team1App.setText("Beam");
+            team2App.setText("Floor");
+            team1Name.setText("Visitor 1");
+            team2Name.setText("Home");
+            myArenaScreen.updateEvent("Beam", 1);
+            myArenaScreen.updateEvent("Floor", 2);
+            myArenaScreen.updateTeamName("Visitor 1", 1); //change to actual school names later
+            myArenaScreen.updateTeamName("Home", 2); //""
+            rotationLabel.setText("ROTATION 6");
+        }
+        else if (rotation == 7){
             PostMeetScreen myPostMode = new PostMeetScreen(gC);
             myArenaScreen.getFrame().dispose();
             thisFrame.dispose();
@@ -228,68 +261,47 @@ public class DualScorekeeperScreen {
     }
 
 
+
+
+
+
+
+
     private int rotation = 1;
-    private JButton startTimerButton;
-    private JTextField clockTextField;
     private JPanel mainPanel;
-    private JButton postMeetModeButton;
-    private JPanel scorekeeperScreen;
-    private JPanel customizeScreen;
-    private JButton defaultTemplateButton;
-    private JButton customizeArenaButton;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField5;
-    private JTextField textField6;
-    private JTextField textField7;
-    private JTextField textField8;
-    private JTextField textField9;
-    private JTextField textField10;
-    private JTextField textField11;
-    private JTextField textField12;
-    private JTextField textField13;
-    private JTextField textField14;
-    private JTextField textField15;
-    private JTextField textField16;
-    private JTextField textField17;
-    private JTextField textField18;
-    private JTextField textField19;
-    private JTextField textField20;
-    private JTextField textField21;
-    private JTextField textField22;
-    private JTextField textField23;
-    private JTextField textField24;
-    private JComboBox comboBox1;
-    private JTextField textField3;
-    private JTextField textField4;
-    private JPanel dualSimulScreen;
+    private JPanel triScorekeeperScreen;
+    private JLabel rotationLabel;
     private JTextField j11;
     private JTextField j21;
-    private JComboBox team1Combo;
-    private JTextField timer1Textfield;
-    private JButton startTimerButton1;
-    private JButton startTimerButton2;
-    private JTextField timer2Textfield;
-    private JButton backButton;
-    private JButton nextRotationButton;
-    private JLabel team1App;
-    private JLabel team2App;
-    private JLabel rotationLabel;
-    private JButton updateScoreButton1;
-    private JComboBox team2Combo;
-    private JButton updateScoreButton2;
-    private JTextField j13;
     private JTextField j12;
+    private JTextField j13;
     private JTextField j14;
     private JTextField j15;
-    private JTextField j16;
     private JTextField j22;
     private JTextField j23;
     private JTextField j24;
     private JTextField j25;
     private JTextField j26;
+    private JComboBox team1Combo;
+    private JComboBox team2Combo;
+    private JTextField timer1Textfield;
+    private JButton startTimerButton1;
+    private JTextField timer2Textfield;
+    private JButton startTimerButton2;
+    private JLabel team2App;
+    private JTextField j16;
+    private JLabel team1App;
+    private JButton backButton;
+    private JButton nextRotationButton;
+    private JButton updateScoreButton1;
+    private JButton updateScoreButton2;
     private JButton editLineupButton;
+    private JPanel customizeScreen;
+    private JButton defaultTemplateButton;
+    private JButton customizeArenaButton;
     private JCheckBox gymnastMajorCheckBox;
+    private JLabel team1Name;
+    private JLabel team2Name;
     private JCheckBox simultaneousCheckBox;
     private CardLayout cardLayout;
 }

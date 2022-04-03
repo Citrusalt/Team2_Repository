@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class DualArenaScreen {
+public class Dual_Tri_ArenaScreen {
 
      public void updateGymnast(String gymnast, int teamNumb){
          if (teamNumb == 1){
@@ -19,9 +19,27 @@ public class DualArenaScreen {
          rotationLabel.setText("Rotation " + rotationNumb);
 
      }
+     public void updateEvent(String event, int teamNumb){
+         if(teamNumb == 1){
+             event1.setText(event);
+         }
+         else if (teamNumb == 2){
+             event2.setText(event);
+         }
+     }
      public void updateScore(){
 
      }
+
+     public void updateTeamName (String name, int selectedTeam){
+         if(selectedTeam == 1){
+             teamName1.setText(name);
+         }
+         else if (selectedTeam == 2){
+             teamName2.setText(name);
+         }
+     }
+
 
     public void clock1(int mySeconds){
 
@@ -91,13 +109,13 @@ public class DualArenaScreen {
         }
     }
 
-    public DualArenaScreen(){
+    public Dual_Tri_ArenaScreen(){
         frame = new JFrame ("Arena Screen Prototype");
         frame.setContentPane(arenaScreenPanel);
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        frame.setVisible(false);
     }
 
 
@@ -132,10 +150,12 @@ public class DualArenaScreen {
     private JLabel teamName2;
     private JLabel name2;
     private JLabel major2;
-    private JLabel major3;
-    private JLabel avg2;
+    private JLabel year2;
+    private JLabel score2;
     private JLabel overall2;
     private JLabel rotationLabel;
+    private JLabel event1;
+    private JLabel event2;
 
 
 }
