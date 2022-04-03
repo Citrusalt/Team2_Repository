@@ -15,6 +15,7 @@ package com.company;
  Source: https://www.ncsasports.org/college-gymnastics/college-gymnastics-levels
 */
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -22,41 +23,43 @@ import java.lang.Math;
 
 public class TeamScore {
 
-    private double vaultScore =0;
-    private double beamScore=0;
-    private double floorScore=0;
-    private double barScore=0;
+
+    private double vaultScore = 0;
+    private double beamScore = 0;
+    private double floorScore = 0;
+    private double barScore = 0;
 
     public TeamScore() {
     }
 
-    //these setters are assuming we have all 6 scores already and that they are in a list!
-    public void setvaultScore(List<Double> vaultScores) {
-        this.vaultScore = calculateTeamApparatusScore(vaultScores);
+    public void setvaultScore(double vaultScore) {
+        this.vaultScore =vaultScore;
     }
 
-    public void setbeamScore(List<Double> beamScores) {
-        this.beamScore = calculateTeamApparatusScore(beamScores);
+    public void setbeamScore(double beamScore) {
+        this.beamScore = beamScore;
     }
 
-    public void setfloorScore(List<Double> floorScores) {
-        this.floorScore = calculateTeamApparatusScore(floorScores);
+    public void setfloorScore(double floorScore) {
+        this.floorScore = floorScore;
     }
 
-    public void setbarScore(List<Double> barScores) {
-        this.barScore = calculateTeamApparatusScore(barScores);
+    public void setbarScore(double barScore) {
+        this.barScore = barScore;
     }
 
-    ///////
-//updaters
-//not sure if these are necessary
-//will the score board flash for a team after each individual person? if so these might be necessary
+
+    /*
+updaters
+not sure if these are necessary
+will the score board flash for a team after each individual person? if so these might be necessary
+*/
     public void updateVault(double newVaultScore) {
         this.vaultScore += newVaultScore;
     }
 
-    public void updateBeam(double newbeamScore) {
-        this.beamScore += newbeamScore;
+    public void updateBeam(double newBeamScore) {
+        this.beamScore += newBeamScore;
     }
 
     public void updateFloor(double newFloorScore) {
@@ -78,44 +81,26 @@ public class TeamScore {
     }
 
     public double getfloorScore() {
-        return this.vaultScore;
+        return this.floorScore;
     }
 
     public double getbarScore() {
-        return this.vaultScore;
+        return this.barScore;
     }
 
     // A players running score is the total score from all apparatuses
     //Returns running score
-    public  double getRunningScore() {
+    public double getRunningScore() {
         return this.floorScore + this.barScore + this.beamScore + this.vaultScore;
     }
 
-
 //need to get the top 5 score from a total of 6 individual scores for a single apparatus
 //these add up to get the team score for that apparatus
-//this will only be necessary for a team itself not an individual participant
-//maybe make a separate type of score class for the team or have an abstract class
-
     public double calculateTeamApparatusScore(List<Double> scoresList) {
-        double minScore =  Collections.min(scoresList);
+        double minScore = Collections.min(scoresList);
         double sum = 0;
         for (double i : scoresList)
             sum = sum + i;
-        double TeamApparatusScore = sum - minScore;
-        return TeamApparatusScore;
+        return sum - minScore;
     }
-
-    public double calculateTeamApparatusScore(double score1, double score2, double score3, double score4, double score5, double score6 ) {
-        double[] scores={score1, score2, score3, score3, score4, score5, score6};
-        Arrays.sort(scores);		//sort lowest to greatest
-        double sum = 0;
-        for (double value : scores) {
-            sum += value;
-        }
-        double TeamApparatusScore = sum - scores[0];	//total minus lowest score which as at the begining of the list
-        return TeamApparatusScore;
-    }
-
 }
-	
