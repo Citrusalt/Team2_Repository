@@ -32,21 +32,20 @@ public class TeamScore {
     public TeamScore() {
     }
 
-    //these setters are assuming we have all 6 scores already and that they are in a list!
-    public void setvaultScore(List<Double> vaultScores) {
-        this.vaultScore = calculateTeamApparatusScore(vaultScores);
+    public void setvaultScore(double vaultScore) {
+        this.vaultScore =vaultScore;
     }
 
-    public void setbeamScore(List<Double> beamScores) {
-        this.beamScore = calculateTeamApparatusScore(beamScores);
+    public void setbeamScore(double beamScore) {
+        this.beamScore = beamScore;
     }
 
-    public void setfloorScore(List<Double> floorScores) {
-        this.floorScore = calculateTeamApparatusScore(floorScores);
+    public void setfloorScore(double floorScore) {
+        this.floorScore = floorScore;
     }
 
-    public void setbarScore(List<Double> barScores) {
-        this.barScore = calculateTeamApparatusScore(barScores);
+    public void setbarScore(double barScore) {
+        this.barScore = barScore;
     }
 
 
@@ -59,8 +58,8 @@ will the score board flash for a team after each individual person? if so these 
         this.vaultScore += newVaultScore;
     }
 
-    public void updateBeam(double newbeamScore) {
-        this.beamScore += newbeamScore;
+    public void updateBeam(double newBeamScore) {
+        this.beamScore += newBeamScore;
     }
 
     public void updateFloor(double newFloorScore) {
