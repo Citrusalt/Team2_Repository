@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 public class MeetFormatScreen {
 
     public MeetFormatScreen(String card) {
-
         JFrame frame = new JFrame("Meet Format Screen");
         frame.setContentPane(meetFormatPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

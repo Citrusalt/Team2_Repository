@@ -2,6 +2,7 @@ package com.company;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -16,6 +17,7 @@ public class Team implements Serializable {
     private  List<Player> barGymnast;
     private  List<Player> beamGymnast;
     private  List<Player> floorGymnast;
+    private TeamScore teamScores;
 
 
     public Team(String teamName, String teamLogo) {
@@ -25,6 +27,7 @@ public class Team implements Serializable {
         this.barGymnast = new ArrayList<>();
         this.beamGymnast = new ArrayList<>();
         this.floorGymnast = new ArrayList<>();
+        this.teamScores = new TeamScore();
     }
     public String getTeamName(){return teamName;}
     //Method that adds a player to the vault list
@@ -83,6 +86,18 @@ public class Team implements Serializable {
     public List<Player> getFloorGymnast(){
 
         return this.floorGymnast;
+    }
+    public TeamScore getTeamScores(){
+        return this.teamScores;
+    }
+
+
+}
+
+class sortByOverallScore implements Comparator<Team> {
+    public int compare(Team team1, Team team2)
+    {
+        return (int) ((team1.getTeamScores().getvaultScore() + team1.getTeamScores().getbarScore() + team1.getTeamScores().getbeamScore() + team1.getTeamScores().getfloorScore()) - (team2.getTeamScores().getvaultScore() + team2.getTeamScores().getbarScore() + team2.getTeamScores().getbeamScore() + team2.getTeamScores().getfloorScore()));
     }
 }
 

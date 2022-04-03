@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SetupModeTri {
-
+    String meetType = "tri";
     public SetupModeTri(){
 
         JFrame frame = new JFrame ("Post-Meet Screen Prototype");

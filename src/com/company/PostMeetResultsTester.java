@@ -3,6 +3,7 @@ package com.company;
 import java.io.File;  // Import the File class
 import java.io.IOException;  // Import the IOException class to handle errors
 import java.io.FileWriter;   // Import the FileWriter class
+import java.util.Arrays;
 
 public class PostMeetResultsTester {
     public static void main(String[] args) {
@@ -13,8 +14,33 @@ public class PostMeetResultsTester {
             resultsFileW.write("TEAM STANDING\n#\tTEAM\tVAULT\tBARS\tBEAM\tFLOOR\tFINAL\n\n");
 
             /*
-            * for every team print team name
-            *   print team results
+             * for every team print team name
+             *   print team results
+             *
+
+            if (meetType = "dual")
+            {
+                Team[] teamStanding = {team1, team2};
+                Arrays.sort(teamStanding, new sortByOverallScore());
+            }
+
+            if (meetType = "tri")
+            {
+                Team[] teamStanding = {team1, team2, team3};
+                Arrays.sort(teamStanding, new sortByOverallScore());
+            }
+
+            if (meetType = "quad")
+            {
+                Team[] teamStanding = {team1, team2, team3, team4};
+                Arrays.sort(teamStanding, new sortByOverallScore());
+            }
+
+
+            for (int i = 0; i < teamStanding.length; i++)
+            {
+                resultsFileW.write((i+1) + teamStanding[i].teamName + teamStanding[i].teamScores.getvaultScore() + teamStanding[i].teamScores.getbarScore() + teamStanding[i].teamScores.getbeamScore() + teamStanding[i].teamScores.getfloorScore() + teamStanding[i].teamScores.getvaultScore() + (teamStanding[i].teamScores.getvaultScore() + teamStanding[i].teamScores.getbarScore() + teamStanding[i].teamScores.getbeamScore() + teamStanding[i].teamScores.getfloorScore() + teamStanding[i].teamScores.getvaultScore()));
+            }
             */
 
             resultsFileW.write("TEAM RESULTS DETAILS\n\n");

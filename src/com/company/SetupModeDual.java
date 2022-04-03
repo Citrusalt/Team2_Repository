@@ -21,6 +21,7 @@ public class SetupModeDual {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        String meetType = "dual";
 
         //create summary screen tables
         createTeamTable(vaultTable, vaultModel, vaultRenderer);
