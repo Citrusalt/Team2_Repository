@@ -1,18 +1,18 @@
 package com.company;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class IndividualScore {
+public class PlayerScore {
 
     private double vaultScore = 0.0;
     private double beamScore = 0.0;
     private double floorScore = 0.0;
     private double barScore = 0.0;
+    double seasonAverages[] = new double[4];
 
 
-    public IndividualScore() {
+    public PlayerScore() {
     }
 
     public void setvaultScore(double newScore) {
@@ -31,6 +31,8 @@ public class IndividualScore {
         this.barScore = newScore;
     }
 
+    public void setSeasonAverages(double[] seasonAverages){this.seasonAverages = seasonAverages;}
+
     public double getvaultScore() {
         return this.vaultScore;
     }
@@ -47,6 +49,8 @@ public class IndividualScore {
         return this.barScore;
     }
 
+    public double[] getSeasonAverages() {return this.seasonAverages;}
+
     // A players running score is the total score from all apparatuses
     //Returns running score
     public double getTotalScore() {
@@ -61,21 +65,20 @@ public class IndividualScore {
         double sum = 0.0;
         double Score =0.0;
         if (scoresList.size() == 2) {
-            for (int i=0; i< scoresList.size(); i++) {
-                sum += scoresList.get(i);
+            for (Double aDouble : scoresList) {
+                sum += aDouble;
             }
             Score = sum / (scoresList.size())*1000;
             Score = Math.floor(Math.round(Score)) /1000;
         }
         else  if (scoresList.size() == 4 || scoresList.size() == 6){
-            for (int i=0; i< scoresList.size(); i++) {
-                sum += scoresList.get(i);
+            for (Double aDouble : scoresList) {
+                sum += aDouble;
             }
             sum = sum - minScore - maxScore;
             Score = (sum / (scoresList.size() -2))*1000;
             Score = Math.floor(Math.round(Score)) /1000;
         }
-
         return Score -neutralDeduction;
     }
 }
