@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 public class MeetFormatScreen {
 
-    public MeetFormatScreen(String card) {
+    public MeetFormatScreen(String card, GuiCreator gC) {
 
         JFrame frame = new JFrame("Meet Format Screen");
         frame.setContentPane(meetFormatPanel);
@@ -20,7 +20,6 @@ public class MeetFormatScreen {
         frame.setVisible(true);
 
 
-
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -30,14 +29,14 @@ public class MeetFormatScreen {
         dualButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SetupModeDual myDualMode = new SetupModeDual();
+                SetupModeDual myDualMode = new SetupModeDual(gC);
                 frame.dispose();
             }
         });
         triangularButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SetupModeTri myDualMode = new SetupModeTri();
+                SetupModeTri myDualMode = new SetupModeTri(gC);
                 frame.dispose();
 
             }
@@ -45,11 +44,12 @@ public class MeetFormatScreen {
         quadrangularButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SetupModeQuad myDualMode = new SetupModeQuad();
+                SetupModeQuad myDualMode = new SetupModeQuad(gC);
                 frame.dispose();
             }
         });
     }
+
 
 
     private CardLayout cardLayout;

@@ -8,7 +8,7 @@ import java.util.List;
 
 public class DualScorekeeperScreen {
 
-    public DualScorekeeperScreen() {
+    public DualScorekeeperScreen(GuiCreator gC) {
 
         JFrame frame = new JFrame("Scorekeeper Screen Prototype");
         frame.setContentPane(mainPanel);
@@ -17,29 +17,25 @@ public class DualScorekeeperScreen {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-
-        DualArenaScreen myDualArenaScreen = new DualArenaScreen();
-
+        Dual_Tri_ArenaScreen myArenaScreen = new Dual_Tri_ArenaScreen();
 
         //card layout start
         cardLayout = (CardLayout) mainPanel.getLayout();
-        cardLayout.show(mainPanel, "startScreenCard");
+        changeCard("CustomizeCard");
 
-        postMeetModeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
 
-                frame.dispose();
-
-                PostMeetScreen myPostMeetScreen = new PostMeetScreen();
-
-            }
-        });
         defaultTemplateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                cardLayout.show(mainPanel, "ScorekeeperCard");
+                if (simultaneousCheckBox.isSelected()){
+                    cardLayout.show(mainPanel, "SimulCard");
+                    myArenaScreen.getFrame().setVisible(true);
+
+                }
+                else{
+                    //non simultaneous arena screen
+                }
             }
         });
 
@@ -50,7 +46,7 @@ public class DualScorekeeperScreen {
                     try {
                         Integer.parseInt(timer1Textfield.getText());
                         if (Integer.parseInt(timer1Textfield.getText()) > 0) {
-                            myDualArenaScreen.clock1(Integer.parseInt(timer1Textfield.getText()));
+                            myArenaScreen.clock1(Integer.parseInt(timer1Textfield.getText()));
                             startTimerButton1.setText("Reset Timer");
                         }
 
@@ -58,7 +54,7 @@ public class DualScorekeeperScreen {
                         System.out.println("Invalid Input");
                     }
                 } else {
-                    myDualArenaScreen.resetClock1();
+                    myArenaScreen.resetClock1();
                     startTimerButton1.setText("Start Timer");
                 }
             }
@@ -70,7 +66,7 @@ public class DualScorekeeperScreen {
                     try {
                         Integer.parseInt(timer2Textfield.getText());
                         if (Integer.parseInt(timer2Textfield.getText()) > 0) {
-                            myDualArenaScreen.clock2(Integer.parseInt(timer2Textfield.getText()));
+                            myArenaScreen.clock2(Integer.parseInt(timer2Textfield.getText()));
                             startTimerButton2.setText("Reset Timer");
                         }
 
@@ -78,7 +74,7 @@ public class DualScorekeeperScreen {
                         System.out.println("Invalid Input");
                     }
                 } else {
-                    myDualArenaScreen.resetClock2();
+                    myArenaScreen.resetClock2();
                     startTimerButton2.setText("Start Timer");
                 }
             }
@@ -100,13 +96,13 @@ public class DualScorekeeperScreen {
         nextRotationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                updateRotation(myDualArenaScreen, frame, 1);
+                updateRotation(myArenaScreen, frame, 1, gC);
             }
         });
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                updateRotation(myDualArenaScreen, frame, -1);
+                updateRotation(myArenaScreen, frame, -1, gC);
             }
         });
 
@@ -115,7 +111,7 @@ public class DualScorekeeperScreen {
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED){
                     Object item = e.getItem();
-                    myDualArenaScreen.updateGymnast(item.toString(), 1);
+                    myArenaScreen.updateGymnast(item.toString(), 1);
                 }
             }
 
@@ -125,7 +121,7 @@ public class DualScorekeeperScreen {
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED){
                     Object item = e.getItem();
-                    myDualArenaScreen.updateGymnast(item.toString(), 2);
+                    myArenaScreen.updateGymnast(item.toString(), 2);
                 }
             }
         });
@@ -138,6 +134,7 @@ public class DualScorekeeperScreen {
                // Player player1 = new Player("Name", "2022", "CS", "9.9");
                 try{
                     //Use these scores to update score for backend and arena screen
+                    //doesn't have to be entered into a "scoreArray" just an example
                     scoreArray[0] = Integer.parseInt(j11.getText());
                     scoreArray[1] = Integer.parseInt(j12.getText());
                     scoreArray[2] = Integer.parseInt(j13.getText());
@@ -191,6 +188,7 @@ public class DualScorekeeperScreen {
                 float scoreArray[] = new float[6];
                 try{
                     //Use these scores to update score for backend and arena screen
+                    //doesn't have to be entered into a "scoreArray" just an example
                     scoreArray[0] = Integer.parseInt(j21.getText());
                     scoreArray[1] = Integer.parseInt(j22.getText());
                     scoreArray[2] = Integer.parseInt(j23.getText());
@@ -237,13 +235,19 @@ public class DualScorekeeperScreen {
         });
     }
 
+
+    public void changeCard(String cardName){
+        cardLayout.show(mainPanel, cardName);
+    }
+
+
     //pass in the frames that need to be handled and 1 if next rotation, -1 if previous
-    private void updateRotation(DualArenaScreen myArenaScreen, JFrame thisFrame, int value){
+    private void updateRotation(Dual_Tri_ArenaScreen myArenaScreen, JFrame thisFrame, int value, GuiCreator gC){
         rotation = rotation + value;
         myArenaScreen.updateRotation(rotation);
 
         if (rotation == 0){
-            SetupModeDual myDualSetup = new SetupModeDual();
+            SetupModeDual myDualSetup = new SetupModeDual(gC);
             myDualSetup.changeCard("SummaryCard");
             myArenaScreen.getFrame().dispose();
             thisFrame.dispose();
@@ -251,6 +255,8 @@ public class DualScorekeeperScreen {
         else if (rotation == 1){
             team1App.setText("Vault");
             team2App.setText("Bars");
+            myArenaScreen.updateEvent("Vault", 1);
+            myArenaScreen.updateEvent("Bars", 2);
             rotationLabel.setText("ROTATION 1");
             //update judges
             //update players
@@ -260,6 +266,8 @@ public class DualScorekeeperScreen {
         else if (rotation == 2){
             team1App.setText("Bars");
             team2App.setText("Vault");
+            myArenaScreen.updateEvent("Bars", 1);
+            myArenaScreen.updateEvent("Vault", 2);
             rotationLabel.setText("ROTATION 2");
             //update judges
             //update players
@@ -269,15 +277,19 @@ public class DualScorekeeperScreen {
         else if (rotation == 3){
             team1App.setText("Beam");
             team2App.setText("Floor");
+            myArenaScreen.updateEvent("Beam", 1);
+            myArenaScreen.updateEvent("Floor", 2);
             rotationLabel.setText("ROTATION 3");
         }
         else if (rotation == 4){
             team1App.setText("Floor");
             team2App.setText("Beam");
+            myArenaScreen.updateEvent("Floor", 1);
+            myArenaScreen.updateEvent("Beam", 2);
             rotationLabel.setText("ROTATION 4");
         }
         else if(rotation == 5){
-            PostMeetScreen myPostMode = new PostMeetScreen();
+            PostMeetScreen myPostMode = new PostMeetScreen(gC);
             myArenaScreen.getFrame().dispose();
             thisFrame.dispose();
         }
@@ -346,5 +358,7 @@ public class DualScorekeeperScreen {
     private JTextField j25;
     private JTextField j26;
     private JButton editLineupButton;
+    private JCheckBox gymnastMajorCheckBox;
+    private JCheckBox simultaneousCheckBox;
     private CardLayout cardLayout;
 }
