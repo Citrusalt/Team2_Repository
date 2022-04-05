@@ -4,19 +4,26 @@ import java.io.Serializable;
 
 /**
  * This class will store personal information for each gymnast
- * Comment: maybe  we can add string that will contain picPath since we have to display their pic (?) -jlou
  * */
 public class Player implements Serializable {
+    private String playerName;
+    private String playerClass;
+    private String playerMajor;
+    private double playerAvg;                   //Make it into a list double
+    private boolean[] apparatusStatus;
+    private int[] apparatusOrder;
+    private PlayerScore playerScore;
 
     //Constructor
-    public Player (String playerName, String playerClass, String playerMajor, String playerAvg){
+    public Player (String playerName, String playerClass, String playerMajor, double playerAvg){
         this.playerName = playerName;
         this.playerClass = playerClass;
         this.playerMajor = playerMajor;
+        this.playerScore = new PlayerScore();
         this.playerAvg = playerAvg;
-        for(int i = 0; i<3; i++){
-            this.apparatusStatus[i] = false;
-        }
+        //Store the playerAverage to the playerScore's playerAverage
+        this.apparatusStatus = new boolean[]{false, false, false, false};
+        this.apparatusOrder = new int[]{0,0,0,0};
     }
 
     //getters
@@ -26,7 +33,17 @@ public class Player implements Serializable {
 
     public String getPlayerMajor(){return playerMajor;}
 
-    public String getPlayerAvg(){return playerAvg;}
+    public double getPlayerAvg(){return playerAvg;}
+
+    public int[] getApparatusOrder() {return apparatusOrder;}
+
+    public PlayerScore getPlayerScore() {
+        return playerScore;
+    }
+
+    public boolean getApparatusStatus(int i) {          //Passed in the index of which apparatus they want to check
+        return apparatusStatus[i];
+    }
 
     //Setters
     public void setPlayerName(String playerName) {
@@ -41,17 +58,16 @@ public class Player implements Serializable {
         this.playerMajor = playerMajor;
     }
 
-    public void setPlayerAvg(String playerAvg) {
+    public void setPlayerAvg(double playerAvg) {
         this.playerAvg = playerAvg;
     }
 
-    //Method that sets if they play apparatus. Pass in the index.
     public void setApparatusStatus(int i){
         apparatusStatus[i] = true;
     }
 
-    public boolean[] getApparatusStatus() {
-        return apparatusStatus;
+    public void setApparatusOrder(int appIdx, int order) {
+        this.apparatusOrder[appIdx] = order;
     }
 
     //Print all info. For testing purposes only.
@@ -66,25 +82,17 @@ public class Player implements Serializable {
         for(int i = 0; i < 4; i++){
             if(apparatusStatus[i] == true){
                 switch(i){
-                    case 0: System.out.println("Player is in [Vaults]");
+                    case 0: System.out.println("Player is in [Vaults], Order: " + apparatusOrder[i]);
                         break;
-                    case 1: System.out.println("Player is in [Bars]");
+                    case 1: System.out.println("Player is in [Bars], Order: " + apparatusOrder[i]);
                         break;
-                    case 2: System.out.println("Player is in [Beams]");
+                    case 2: System.out.println("Player is in [Beams], Order: " + apparatusOrder[i]);
                         break;
-                    case 3: System.out.println("Player is in [Floors]");
+                    case 3: System.out.println("Player is in [Floors], Order: " + apparatusOrder[i]);
                         break;
                 }
             }
         }
         System.out.println("------------------------------------");
     }
-
-    private String playerName;
-    private String playerClass;
-    private String playerMajor;
-    private String playerAvg;                   //Make it into a list double
-    private String playerPic;
-    private boolean[] apparatusStatus;
-
 }

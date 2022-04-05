@@ -1,9 +1,10 @@
 package com.company;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
-public class PlayerScore {
+public class PlayerScore implements Serializable {
 
     private double vaultScore = 0.0;
     private double beamScore = 0.0;
