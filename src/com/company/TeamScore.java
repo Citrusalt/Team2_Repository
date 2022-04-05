@@ -15,11 +15,9 @@ package com.company;
  Source: https://www.ncsasports.org/college-gymnastics/college-gymnastics-levels
 */
 
-import java.text.DecimalFormat;
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
-import java.lang.Math;
 
 public class TeamScore {
 
@@ -103,4 +101,16 @@ will the score board flash for a team after each individual person? if so these 
             sum = sum + i;
         return sum - minScore;
     }
+
+    //attempt at calculating score based on list of players
+    /*public double calculateTeamVaultScore(List<Player> playersList) {
+        Player minPlayer = playersList.stream()
+                .min(Comparator.comparingDouble(Player.playerScore::getvaultScore))
+                .get();
+        double minScore = Collections.min(scoresList.get());
+        double sum = 0;
+        for (double i : scoresList)
+            sum = sum + i;
+        return sum - minScore;
+    }*/
 }
