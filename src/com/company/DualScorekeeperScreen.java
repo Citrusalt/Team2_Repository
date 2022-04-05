@@ -3,6 +3,8 @@ package com.company;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DualScorekeeperScreen {
 
@@ -127,6 +129,9 @@ public class DualScorekeeperScreen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 float scoreArray[] = new float[6];
+                //List<Double> scoresList  = new ArrayList<>();
+                //player instance here is just a placeholder
+               // Player player1 = new Player("Name", "2022", "CS", "9.9");
                 try{
                     //Use these scores to update score for backend and arena screen
                     //doesn't have to be entered into a "scoreArray" just an example
@@ -136,6 +141,38 @@ public class DualScorekeeperScreen {
                     scoreArray[3] = Integer.parseInt(j14.getText());
                     scoreArray[4] = Integer.parseInt(j15.getText());
                     scoreArray[5] = Integer.parseInt(j16.getText());
+
+                /*    // the score calculation function won't work if there is not 2, 4, or 6 judges.
+                    //probably not the cleanest way to handle this, but it works for now
+
+                    if (j11.getText().isEmpty() == false && j12.getText().isEmpty() ==false ){
+                        scoresList.add(Double.parseDouble(j11.getText()));
+                        scoresList.add(Double.parseDouble(j12.getText()));
+                    }
+                    if (j13.getText().isEmpty() == false && j14.getText().isEmpty() ==false ){
+                        scoresList.add(Double.parseDouble(j13.getText()));
+                        scoresList.add(Double.parseDouble(j14.getText()));
+                    }
+                    if (j15.getText().isEmpty() == false && j16.getText().isEmpty() ==false ){
+                        scoresList.add(Double.parseDouble(j15.getText()));
+                        scoresList.add(Double.parseDouble(j16.getText()));
+                    }
+
+                    //need to set the correct apparatus score for the player
+                    //neutral deduction set equal to 0 is a placeholder until the text field is made
+                    if (rotation == 1) {
+                        player1.playerScore.setvaultScore(player1.playerScore.calculateIndividualScore(scoresList,0));
+                    }
+                    else if (rotation == 2) {
+                        player1.playerScore.setbarScore(player1.playerScore.calculateIndividualScore(scoresList,0));
+                    }
+                    else if (rotation == 3) {
+                        player1.playerScore.setbeamScore(player1.playerScore.calculateIndividualScore(scoresList,0));
+                    }
+                    else if (rotation == 4) {
+                        player1.playerScore.setfloorScore(player1.playerScore.calculateIndividualScore(scoresList,0));
+                    }*/
+
                 } catch (Exception exception) {
 
                     System.out.println(exception);
@@ -145,7 +182,9 @@ public class DualScorekeeperScreen {
         updateScoreButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                //List<Double> scoresList  = new ArrayList<>();
+                //placeholder
+               // Player player2 = new Player("Name2", "2022", "CS", "9.9");
                 float scoreArray[] = new float[6];
                 try{
                     //Use these scores to update score for backend and arena screen
@@ -156,6 +195,37 @@ public class DualScorekeeperScreen {
                     scoreArray[3] = Integer.parseInt(j24.getText());
                     scoreArray[4] = Integer.parseInt(j25.getText());
                     scoreArray[5] = Integer.parseInt(j26.getText());
+
+                  /*  // the score calculation function won't work if there is not 2, 4, or 6 judges.
+                    //probably not the cleanest way to handle this, but it works for now
+                    if (j21.getText().isEmpty() == false && j21.getText().isEmpty() ==false ){
+                        scoresList.add(Double.parseDouble(j21.getText()));
+                        scoresList.add(Double.parseDouble(j22.getText()));
+                    }
+                    if (j23.getText().isEmpty() == false && j24.getText().isEmpty() ==false ){
+                        scoresList.add(Double.parseDouble(j23.getText()));
+                        scoresList.add(Double.parseDouble(j24.getText()));
+                    }
+                    if (j25.getText().isEmpty() == false && j26.getText().isEmpty() ==false ){
+                        scoresList.add(Double.parseDouble(j25.getText()));
+                        scoresList.add(Double.parseDouble(j26.getText()));
+                    }
+
+                    //need to set the correct apparatus score for the player
+                    //neutral deduction set equal to 0 is a placeholder until the text field is made
+                    if (rotation == 1) {
+                        player2.playerScore.setbarScore(player2.playerScore.calculateIndividualScore(scoresList,0));
+                    }
+                    else if (rotation == 2) {
+                        player2.playerScore.setvaultScore(player2.playerScore.calculateIndividualScore(scoresList,0));
+                    }
+                    else if (rotation == 3) {
+                        player2.playerScore.setfloorScore(player2.playerScore.calculateIndividualScore(scoresList,0));
+                    }
+                    else if (rotation == 4) {
+                        player2.playerScore.setbeamScore(player2.playerScore.calculateIndividualScore(scoresList,0));
+                    }*/
+
                 } catch (Exception exception) {
 
                     System.out.println(exception);
@@ -173,7 +243,6 @@ public class DualScorekeeperScreen {
 
     //pass in the frames that need to be handled and 1 if next rotation, -1 if previous
     private void updateRotation(Dual_Tri_ArenaScreen myArenaScreen, JFrame thisFrame, int value, GuiCreator gC){
-
         rotation = rotation + value;
         myArenaScreen.updateRotation(rotation);
 

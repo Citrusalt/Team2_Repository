@@ -3,9 +3,9 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IndividualScoreTester {
+public class PlayerScoreTester {
     public static void main(String[] args) {
-        IndividualScore ShaniaAdams = new IndividualScore();
+        PlayerScore ShaniaAdams = new PlayerScore();
         List<Double> barScores= new ArrayList<>();
         List<Double> vaultScores= new ArrayList<>();
         List<Double> floorScores=  new ArrayList<>();
