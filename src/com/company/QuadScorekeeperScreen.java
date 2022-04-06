@@ -17,6 +17,7 @@ public class QuadScorekeeperScreen {
         frame.setVisible(true);
 
         QuadArenaScreen myQuadArenaScreen = new QuadArenaScreen(gC);
+        myQuadArenaScreen.getFrame().setVisible(true);
 
 
         //card layout start
@@ -170,6 +171,131 @@ public class QuadScorekeeperScreen {
 
             }
         });
+        timerCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myQuadArenaScreen.clockLabel1.setVisible(true);
+                    myQuadArenaScreen.clockLabel2.setVisible(true);
+                    myQuadArenaScreen.clockLabel3.setVisible(true);
+                    myQuadArenaScreen.clockLabel4.setVisible(true);
+                }
+                else{
+                    myQuadArenaScreen.clockLabel1.setVisible(false);
+                    myQuadArenaScreen.clockLabel2.setVisible(false);
+                    myQuadArenaScreen.clockLabel3.setVisible(false);
+                    myQuadArenaScreen.clockLabel4.setVisible(false);
+                }
+            }
+        });
+        gymnastNameCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                     myQuadArenaScreen.name1.setVisible(true);
+                    myQuadArenaScreen.name2.setVisible(true);
+                    myQuadArenaScreen.name3.setVisible(true);
+                    myQuadArenaScreen.name4.setVisible(true);
+                }
+                else{
+                    myQuadArenaScreen.name1.setVisible(false);
+                    myQuadArenaScreen.name2.setVisible(false);
+                    myQuadArenaScreen.name3.setVisible(false);
+                    myQuadArenaScreen.name4.setVisible(false);
+                }
+            }
+        });
+        gymnastMajorCheckBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myQuadArenaScreen.major1.setVisible(true);
+                    myQuadArenaScreen.major2.setVisible(true);
+                    myQuadArenaScreen.major3.setVisible(true);
+                    myQuadArenaScreen.major4.setVisible(true);
+                }
+                else{
+                    myQuadArenaScreen.major1.setVisible(false);
+                    myQuadArenaScreen.major2.setVisible(false);
+                    myQuadArenaScreen.major3.setVisible(false);
+                    myQuadArenaScreen.major4.setVisible(false);
+                }
+            }
+        });
+        gymnastYearCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myQuadArenaScreen.year1.setVisible(true);
+                    myQuadArenaScreen.year2.setVisible(true);
+                    myQuadArenaScreen.year3.setVisible(true);
+                    myQuadArenaScreen.year4.setVisible(true);
+                }
+                else{
+                    myQuadArenaScreen.year1.setVisible(false);
+                    myQuadArenaScreen.year2.setVisible(false);
+                    myQuadArenaScreen.year3.setVisible(false);
+                    myQuadArenaScreen.year4.setVisible(false);
+                }
+            }
+        });
+        gymnastavgCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myQuadArenaScreen.appAvg1.setVisible(true);
+                    myQuadArenaScreen.appAvg2.setVisible(true);
+                    myQuadArenaScreen.appAvg3.setVisible(true);
+                    myQuadArenaScreen.appAvg4.setVisible(true);
+                }
+                else{
+                    myQuadArenaScreen.appAvg4.setVisible(false);
+                    myQuadArenaScreen.appAvg2.setVisible(false);
+                    myQuadArenaScreen.appAvg3.setVisible(false);
+                    myQuadArenaScreen.appAvg4.setVisible(false);
+                }
+            }
+        });
+        gymnastScoreCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myQuadArenaScreen.score1.setVisible(true);
+                    myQuadArenaScreen.score2.setVisible(true);
+                    myQuadArenaScreen.score3.setVisible(true);
+                    myQuadArenaScreen.score4.setVisible(true);
+                }
+                else{
+                    myQuadArenaScreen.score1.setVisible(false);
+                    myQuadArenaScreen.score2.setVisible(false);
+                    myQuadArenaScreen.score3.setVisible(false);
+                    myQuadArenaScreen.score4.setVisible(false);
+                }
+            }
+        });
+        gymnastPictureLogo.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myQuadArenaScreen.pic1.setVisible(true);
+                    myQuadArenaScreen.pic2.setVisible(true);
+                    myQuadArenaScreen.pic3.setVisible(true);
+                    myQuadArenaScreen.pic4.setVisible(true);
+                }
+                else{
+                    myQuadArenaScreen.pic1.setVisible(false);
+                    myQuadArenaScreen.pic2.setVisible(false);
+                    myQuadArenaScreen.pic3.setVisible(false);
+                    myQuadArenaScreen.pic4.setVisible(false);
+                }
+            }
+        });
+        teamLogoCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                //team logo logic here
+            }
+        });
     }
 
 
@@ -318,7 +444,6 @@ public class QuadScorekeeperScreen {
     private JPanel mainPanel;
     private JPanel customizeScreen;
     private JButton defaultTemplateButton;
-    private JButton customizeArenaButton;
     private JCheckBox gymnastMajorCheckBox;
     private JPanel quadScorekeeperScreen;
     private JLabel rotationLabel;
@@ -375,5 +500,12 @@ public class QuadScorekeeperScreen {
     private JLabel team3Name;
     private JLabel team4Name;
     private JButton editLineupButton;
+    private JCheckBox gymnastNameCheckbox;
+    private JCheckBox gymnastYearCheckbox;
+    private JCheckBox gymnastavgCheckbox;
+    private JCheckBox teamLogoCheckbox;
+    private JCheckBox gymnastPictureLogo;
+    private JCheckBox gymnastScoreCheckbox;
+    private JCheckBox timerCheckbox;
     private CardLayout cardLayout;
 }

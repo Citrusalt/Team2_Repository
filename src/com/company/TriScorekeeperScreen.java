@@ -16,6 +16,7 @@ public class TriScorekeeperScreen {
         frame.setVisible(true);
 
         Dual_Tri_ArenaScreen myDualTriArenaScreen = new Dual_Tri_ArenaScreen();
+        myDualTriArenaScreen.getFrame().setVisible(true);
 
 
         //card layout start
@@ -296,12 +297,19 @@ public class TriScorekeeperScreen {
     private JButton updateScoreButton1;
     private JButton updateScoreButton2;
     private JButton editLineupButton;
-    private JPanel customizeScreen;
     private JButton defaultTemplateButton;
-    private JButton customizeArenaButton;
-    private JCheckBox gymnastMajorCheckBox;
     private JLabel team1Name;
     private JLabel team2Name;
     private JCheckBox simultaneousCheckBox;
+    private JPanel customizeScreen;
+    private JCheckBox yearCheckbox;
+    private JCheckBox pictureCheckbox;
+    private JCheckBox majorCheckbox;
+    private JCheckBox teamLogoCheckbox;
+    private JCheckBox currentScoreCheckbox;
+    private JCheckBox avgCheckbox;
+    private JCheckBox teamScoreCheckbox;
+    private JCheckBox nameCheckbox;
+    private JCheckBox timerCheckbox;
     private CardLayout cardLayout;
 }

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.company.Dual_Tri_ArenaScreen">
-  <grid id="9eb1c" layout-manager="CardLayout" hgap="0" vgap="0" show="109ae">
+  <grid id="9eb1c" binding="mainPanel" layout-manager="CardLayout" hgap="0" vgap="0" show="49d08">
     <constraints>
-      <xy x="20" y="20" width="885" height="674"/>
+      <xy x="20" y="20" width="999" height="753"/>
     </constraints>
     <properties>
       <preferredSize width="700" height="700"/>
     </properties>
     <border type="none"/>
     <children>
-      <grid id="109ae" binding="arenaScreenPanel" default-binding="true" layout-manager="GridLayoutManager" row-count="19" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="109ae" binding="arenaScreenPanel" default-binding="true" layout-manager="GridLayoutManager" row-count="21" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="10" left="5" bottom="10" right="5"/>
         <constraints>
-          <card name="Card1"/>
+          <card name="SimulCard"/>
         </constraints>
         <properties>
           <minimumSize width="-1" height="-1"/>
@@ -44,10 +44,10 @@
             </constraints>
             <properties>
               <font size="24"/>
-              <text value="Score"/>
+              <text value="Apparatus Average"/>
             </properties>
           </component>
-          <component id="5a939" class="javax.swing.JLabel">
+          <component id="5a939" class="javax.swing.JLabel" binding="pic1">
             <constraints>
               <grid row="4" column="0" row-span="4" col-span="1" vsize-policy="1" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -58,7 +58,7 @@
           </component>
           <component id="936bc" class="javax.swing.JLabel" binding="clockLabel1">
             <constraints>
-              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="8" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="48"/>
@@ -67,12 +67,12 @@
           </component>
           <vspacer id="f2424">
             <constraints>
-              <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
-          <component id="e43b7" class="javax.swing.JLabel">
+          <component id="e43b7" class="javax.swing.JLabel" binding="pic2">
             <constraints>
-              <grid row="13" column="0" row-span="4" col-span="1" vsize-policy="1" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="14" column="0" row-span="4" col-span="1" vsize-policy="1" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <icon value="com/company/pictures/output-onlinepngtools.png"/>
@@ -81,7 +81,7 @@
           </component>
           <component id="845fd" class="javax.swing.JLabel" binding="major2">
             <constraints>
-              <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="15" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="24"/>
@@ -90,30 +90,30 @@
           </component>
           <vspacer id="125ab">
             <constraints>
-              <grid row="18" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="20" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
           <component id="d3fc2" class="javax.swing.JLabel" binding="year2">
             <constraints>
-              <grid row="15" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="24"/>
               <text value="Year"/>
             </properties>
           </component>
-          <component id="2fb62" class="javax.swing.JLabel" binding="score2">
+          <component id="2fb62" class="javax.swing.JLabel" binding="avg2">
             <constraints>
-              <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="17" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="24"/>
-              <text value="Running Team Score"/>
+              <text value="Apparatus Average"/>
             </properties>
           </component>
           <component id="ecf59" class="javax.swing.JLabel" binding="clockLabel2">
             <constraints>
-              <grid row="17" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="18" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="48"/>
@@ -131,7 +131,7 @@
           </component>
           <component id="82bfa" class="javax.swing.JLabel" binding="teamName2">
             <constraints>
-              <grid row="10" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="11" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="36"/>
@@ -140,18 +140,13 @@
           </component>
           <component id="84a29" class="javax.swing.JLabel" binding="name2">
             <constraints>
-              <grid row="13" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="24"/>
               <text value="Gymnast Name"/>
             </properties>
           </component>
-          <vspacer id="b8b8a">
-            <constraints>
-              <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </vspacer>
           <vspacer id="e2197">
             <constraints>
               <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
@@ -168,7 +163,7 @@
           </component>
           <component id="7dce3" class="javax.swing.JLabel" binding="overall1">
             <constraints>
-              <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="24"/>
@@ -177,11 +172,11 @@
           </component>
           <component id="b108e" class="javax.swing.JLabel" binding="overall2">
             <constraints>
-              <grid row="17" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="19" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="24"/>
-              <text value="Overall Score"/>
+              <text value="Running Team Score"/>
             </properties>
           </component>
           <component id="d309c" class="javax.swing.JLabel" binding="event1">
@@ -195,7 +190,7 @@
           </component>
           <component id="1d240" class="javax.swing.JLabel" binding="event2">
             <constraints>
-              <grid row="11" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="12" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="20"/>
@@ -209,6 +204,141 @@
             <properties>
               <font size="24"/>
               <text value="Gymnast Name"/>
+            </properties>
+          </component>
+          <component id="a93fd" class="javax.swing.JLabel" binding="gymnastCurrent2">
+            <constraints>
+              <grid row="18" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="24"/>
+              <text value="Gymnast Current Score"/>
+            </properties>
+          </component>
+          <component id="1b528" class="javax.swing.JLabel" binding="gymnastCurrent1">
+            <constraints>
+              <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="24"/>
+              <text value="Gymnast Current Score"/>
+            </properties>
+          </component>
+          <vspacer id="b8b8a">
+            <constraints>
+              <grid row="13" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+        </children>
+      </grid>
+      <grid id="49d08" binding="nonSimulPanel" layout-manager="GridLayoutManager" row-count="9" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="10" left="5" bottom="10" right="5"/>
+        <constraints>
+          <card name="NonSimulCard"/>
+        </constraints>
+        <properties>
+          <minimumSize width="-1" height="-1"/>
+          <preferredSize width="700" height="700"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="d0b56" class="javax.swing.JLabel" binding="pic">
+            <constraints>
+              <grid row="1" column="0" row-span="6" col-span="1" vsize-policy="1" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <icon value="com/company/pictures/output-onlinepngtools.png"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="47c07" class="javax.swing.JLabel" binding="teamName">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="36"/>
+              <text value="Home"/>
+            </properties>
+          </component>
+          <component id="11322" class="javax.swing.JLabel" binding="nonSimulRotation">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="20"/>
+              <text value="Rotation 1"/>
+            </properties>
+          </component>
+          <component id="ec021" class="javax.swing.JLabel" binding="event">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="20"/>
+              <text value="Current Event"/>
+            </properties>
+          </component>
+          <component id="1259f" class="javax.swing.JLabel" binding="name">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="24"/>
+              <text value="Gymnast Name"/>
+            </properties>
+          </component>
+          <component id="33f2c" class="javax.swing.JLabel" binding="major">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="24"/>
+              <text value="Major"/>
+            </properties>
+          </component>
+          <component id="a9e0b" class="javax.swing.JLabel" binding="avg">
+            <constraints>
+              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="24"/>
+              <text value="Apparatus Average"/>
+            </properties>
+          </component>
+          <component id="cc07a" class="javax.swing.JLabel" binding="year">
+            <constraints>
+              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="24"/>
+              <text value="Year"/>
+            </properties>
+          </component>
+          <component id="4ea2b" class="javax.swing.JLabel" binding="timer">
+            <constraints>
+              <grid row="7" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="48"/>
+              <text value="00:00"/>
+            </properties>
+          </component>
+          <component id="f7f8a" class="javax.swing.JLabel" binding="runningScore">
+            <constraints>
+              <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="24"/>
+              <text value="Running Team Score"/>
+            </properties>
+          </component>
+          <component id="14ea8" class="javax.swing.JLabel" binding="currentScore">
+            <constraints>
+              <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="24"/>
+              <text value="Gymnast Current Score"/>
             </properties>
           </component>
         </children>

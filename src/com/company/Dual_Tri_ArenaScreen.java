@@ -1,10 +1,13 @@
 package com.company;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Dual_Tri_ArenaScreen {
+
+
 
      public void updateGymnast(String gymnast, int teamNumb){
          if (teamNumb == 1){
@@ -111,16 +114,29 @@ public class Dual_Tri_ArenaScreen {
 
     public Dual_Tri_ArenaScreen(){
         frame = new JFrame ("Arena Screen Prototype");
-        frame.setContentPane(arenaScreenPanel);
+        frame.setContentPane(mainPanel);
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(false);
+
+        //card layout start
+        cardLayout = (CardLayout)  mainPanel.getLayout();
+        changeCard("SimulCard");
+
     }
 
 
     public final JFrame getFrame(){
         return frame;
+    }
+
+    public final JPanel getPanel(){
+         return arenaScreenPanel;
+    }
+
+    public void changeCard(String cardName){
+         cardLayout.show(mainPanel, cardName);
     }
 
 
@@ -137,25 +153,42 @@ public class Dual_Tri_ArenaScreen {
     private final JFrame frame;
 
 
-
+    public CardLayout cardLayout;
     private JPanel arenaScreenPanel;
-    private JLabel clockLabel1;
-    private JLabel clockLabel2;
-    private JLabel name1;
-    private JLabel major1;
-    private JLabel year1;
-    private JLabel avg1;
-    private JLabel overall1;
-    private JLabel teamName1;
-    private JLabel teamName2;
-    private JLabel name2;
-    private JLabel major2;
-    private JLabel year2;
-    private JLabel score2;
-    private JLabel overall2;
-    private JLabel rotationLabel;
-    private JLabel event1;
-    private JLabel event2;
+    public JLabel clockLabel1;
+    public JLabel clockLabel2;
+    public JLabel name1;
+    public JLabel major1;
+    public JLabel year1;
+    public JLabel avg1;
+    public JLabel overall1;
+    public JLabel teamName1;
+    public JLabel teamName2;
+    public JLabel name2;
+    public JLabel major2;
+    public JLabel year2;
+    public JLabel avg2;
+    public JLabel overall2;
+    public JLabel rotationLabel;
+    public JLabel event1;
+    public JLabel event2;
+    public JLabel gymnastCurrent1;
+    public JLabel gymnastCurrent2;
+    public JLabel pic1;
+    public JLabel pic2;
+    private JPanel mainPanel;
+    private JPanel nonSimulPanel;
+    private JLabel teamName;
+    private JLabel event;
+    private JLabel name;
+    private JLabel major;
+    private JLabel avg;
+    private JLabel year;
+    private JLabel currentScore;
+    private JLabel runningScore;
+    private JLabel pic;
+    private JLabel timer;
+    private JLabel nonSimulRotation;
 
 
 }

@@ -13,6 +13,7 @@ public class PostMeetResultsTester {
             resultsFileW.write("FINAL SCORES AND OVERALL PLACEMENT\n----------------------------------\n\n");
             resultsFileW.write("TEAM STANDING\n#\tTEAM\tVAULT\tBARS\tBEAM\tFLOOR\tFINAL\n\n");
 
+
             /*
              * for every team print team name
              *   print team results

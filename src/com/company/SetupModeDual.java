@@ -173,8 +173,6 @@ public class SetupModeDual {
     }
 
 
-
-
     //Test function made to fill tables
     private void testTable(GuiCreator gC){
 
