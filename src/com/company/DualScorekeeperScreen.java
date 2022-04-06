@@ -363,12 +363,6 @@ public class DualScorekeeperScreen {
                 }
             }
         });
-        timerCheckbox.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-
-            }
-        });
     }
 
 
