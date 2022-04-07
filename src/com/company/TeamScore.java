@@ -15,11 +15,12 @@ package com.company;
  Source: https://www.ncsasports.org/college-gymnastics/college-gymnastics-levels
 */
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class TeamScore {
+public class TeamScore implements Serializable {
 
 
     private double vaultScore = 0;
