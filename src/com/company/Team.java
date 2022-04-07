@@ -164,34 +164,47 @@ public class Team implements Serializable {
 
     }
     //Method that insert a player to an order
-    //IM CURRENTLY WORKING ON THIS (4.4.2022)
+    //Conditions: Player has to already exist in the Team. Number of players will not change.
     public void rearrangePlayerList(Player p, int order, int appIdx){
-//       List<Player> temp = new ArrayList<>();
-//       List<Player> list = new ArrayList<>();
-//       int indexWant = list.size();
-//       switch(appIdx){
-//           case 0: list = this.vaultGymnasts;break;
-//           case 1: list = this.barGymnasts;break;
-//           case 2: list = this.beamGymnasts;break;
-//           case 3: list = this.floorGymnasts;break;
-//       }
-//       list.remove(p);
-//       for(int i = 0; i < list.size(); i++){
-//           if(list.get(i).getApparatusOrder()[appIdx] == order){
-//               indexWant = i;
-//           }
-//       }
-//       list.subList(0,indexWant-1);
-//       list.add(p);
-//       list.add(list.subList(indexWant, list.szi))
-//
-//
-//        switch(appIdx){
-//            case 0: this.vaultGymnasts = temp;break;
-//            case 1: this.barGymnasts = temp;break;
-//            case 2: this.beamGymnasts =  temp;break;
-//            case 3: this.floorGymnasts = temp;break;
-//        }
+       List<Player> temp = new ArrayList<>();         //List that will contain the updated list
+       List<Player> list = new ArrayList<>();         //List that will contain original list
+       //Populate the list with the apparatus it's at
+       switch(appIdx){
+           case 0: list = this.vaultGymnasts;break;
+           case 1: list = this.barGymnasts;break;
+           case 2: list = this.beamGymnasts;break;
+           case 3: list = this.floorGymnasts;break;
+       }
+       int tempOrder = 0;
+       list.remove(p);
+        for (int i = 0; i < list.size(); i++){
+            if(i < (order-1)) {
+                list.get(i).setApparatusOrder(appIdx, i+1);
+                temp.add(list.get(i));
+            }
+            else if(i == (order-1)){
+                p.setApparatusOrder(appIdx, order);
+                p.setApparatusStatus(appIdx);
+                temp.add(p);
+                list.get(i).setApparatusOrder(appIdx, i+2);
+                temp.add(list.get(i));
+            }else if(i > (order - 1)){
+               list.get(i).setApparatusOrder(appIdx, i+2);
+               temp.add(list.get(i));
+            }
+        }
+        if(order == (list.size()+1) && list.size() < 6){
+            p.setApparatusOrder(appIdx, order);
+            p.setApparatusStatus(appIdx);
+            temp.add(p);
+        }
+        //Repopulate the list with the apparatus it's at
+        switch(appIdx){
+            case 0: this.vaultGymnasts = temp;break;
+            case 1: this.barGymnasts = temp;break;
+            case 2: this.beamGymnasts = temp;break;
+            case 3: this.floorGymnasts = temp;break;
+        }
     }
     //Prints all info. For testing only.
     public void printAll(){
