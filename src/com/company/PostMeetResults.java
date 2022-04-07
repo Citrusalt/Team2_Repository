@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import Team.java;
 
 public class PostMeetResults {
     private String meetType;
@@ -88,7 +87,7 @@ public class PostMeetResults {
            if (meetType == "dual")
             {
                 Team[] teamStanding = {team1, team2};
-                Arrays.sort(teamStanding, new sortByOverallScore());
+                Arrays.sort(teamStanding);
 
                 for (int i = 0; i < teamStanding.length; i++) {
                     resultsFileW.write((i + 1) + teamStanding[i].getTeamName() + teamStanding[i].getTeamScore().getvaultScore() + teamStanding[i].getTeamScore().getbarScore() + teamStanding[i].getTeamScore().getbeamScore() + teamStanding[i].getTeamScore().getfloorScore() + teamStanding[i].getTeamScore().getvaultScore() + (teamStanding[i].getTeamScore().getvaultScore() + teamStanding[i].getTeamScore().getbarScore() + teamStanding[i].getTeamScore().getbeamScore() + teamStanding[i].getTeamScore().getfloorScore() + teamStanding[i].getTeamScore().getvaultScore()));
@@ -98,7 +97,7 @@ public class PostMeetResults {
             if (meetType == "tri")
             {
                 Team[] teamStanding = {team1, team2, team3};
-                Arrays.sort(teamStanding, new sortByOverallScore());
+                Arrays.sort(teamStanding);
 
                 for (int i = 0; i < teamStanding.length; i++) {
                     resultsFileW.write((i + 1) + teamStanding[i].getTeamName() + teamStanding[i].getTeamScore().getvaultScore() + teamStanding[i].getTeamScore().getbarScore() + teamStanding[i].getTeamScore().getbeamScore() + teamStanding[i].getTeamScore().getfloorScore() + teamStanding[i].getTeamScore().getvaultScore() + (teamStanding[i].getTeamScore().getvaultScore() + teamStanding[i].getTeamScore().getbarScore() + teamStanding[i].getTeamScore().getbeamScore() + teamStanding[i].getTeamScore().getfloorScore() + teamStanding[i].getTeamScore().getvaultScore()));
@@ -108,7 +107,7 @@ public class PostMeetResults {
             if (meetType == "quad")
             {
                 Team[] teamStanding = {team1, team2, team3, team4};
-                Arrays.sort(teamStanding, new sortByOverallScore());
+                Arrays.sort(teamStanding);
 
                 for (int i = 0; i < teamStanding.length; i++) {
                     resultsFileW.write((i + 1) + teamStanding[i].getTeamName() + teamStanding[i].getTeamScore().getvaultScore() + teamStanding[i].getTeamScore().getbarScore() + teamStanding[i].getTeamScore().getbeamScore() + teamStanding[i].getTeamScore().getfloorScore() + teamStanding[i].getTeamScore().getvaultScore() + (teamStanding[i].getTeamScore().getvaultScore() + teamStanding[i].getTeamScore().getbarScore() + teamStanding[i].getTeamScore().getbeamScore() + teamStanding[i].getTeamScore().getfloorScore() + teamStanding[i].getTeamScore().getvaultScore()));
@@ -122,7 +121,7 @@ public class PostMeetResults {
         resultsFileW.write("TEAM RESULTS DETAILS\n\n");
         resultsFileW.write("TEAM:");
         //print #1 team name
-        resultsFileW.write("#\tNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALLAROUND\n");
+        resultsFileW.write("#\tNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
         /*
          * for every Player in Team
          *   print score for each apparatus
@@ -130,7 +129,7 @@ public class PostMeetResults {
 
         resultsFileW.write("TEAM:");
         //print #2 team name
-        resultsFileW.write("#\tNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALLAROUND\n");
+        resultsFileW.write("#\tNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
         /*
          * for every Player in Team
          *   print score for each apparatus
@@ -138,7 +137,7 @@ public class PostMeetResults {
 
         resultsFileW.write("TEAM:");
         //print #3 team name
-        resultsFileW.write("#\tNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALLAROUND\n");
+        resultsFileW.write("#\tNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
         /*
          * for every Player in Team
          *   print score for each apparatus
@@ -146,7 +145,7 @@ public class PostMeetResults {
 
         resultsFileW.write("TEAM:");
         //print #4 team name
-        resultsFileW.write("#\tNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALLAROUND\n");
+        resultsFileW.write("#\tNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
         /*
          * for every Player in Team
          *   print score for each apparatus

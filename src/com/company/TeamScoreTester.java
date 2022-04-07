@@ -20,7 +20,7 @@ public class TeamScoreTester {
         floorScores.add(9.950);
         floorScores.add(9.950);
         double floorScore = AlabamaScore.calculateTeamApparatusScore(floorScores);
-        AlabamaScore.setfloorScore(floorScore);
+        AlabamaScore.setFloorScore(floorScore);
         System.out.println("Floor: " + AlabamaScore.getfloorScore());
         System.out.println("Running: " + AlabamaScore.getRunningScore());
 
@@ -31,7 +31,7 @@ public class TeamScoreTester {
         vaultScores.add(9.900);
         vaultScores.add(9.925);
         double vaultScore = AlabamaScore.calculateTeamApparatusScore(vaultScores);
-        AlabamaScore.setvaultScore(vaultScore);
+        AlabamaScore.setVaultScore(vaultScore);
         System.out.println("Vault: " + AlabamaScore.getvaultScore());
         System.out.println("Running: " + AlabamaScore.getRunningScore());
 
@@ -42,7 +42,7 @@ public class TeamScoreTester {
         barsScores.add(9.950);
         barsScores.add(9.950);
         double barScore = AlabamaScore.calculateTeamApparatusScore(barsScores);
-        AlabamaScore.setbarScore(barScore);
+        AlabamaScore.setBarScore(barScore);
         System.out.println("Bar: " + AlabamaScore.getbarScore());
         System.out.println("Running: " + AlabamaScore.getRunningScore());
 
@@ -53,7 +53,7 @@ public class TeamScoreTester {
         beamScores.add(9.825);
         beamScores.add(9.950);
         double beamScore = AlabamaScore.calculateTeamApparatusScore(beamScores);
-        AlabamaScore.setbeamScore(beamScore);
+        AlabamaScore.setBeamScore(beamScore);
         System.out.println("Beam: " + AlabamaScore.getbeamScore());
         System.out.println("Running: " + AlabamaScore.getRunningScore());
 

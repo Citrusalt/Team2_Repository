@@ -1,19 +1,17 @@
 package com.company;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * This class will contain all gymnasts for each team (college).
  * Note: The Apparatus list has the players already arranged by order.
  */
 
-public class Team implements Serializable {
+public class Team implements Serializable, Comparable {
     private String teamName;
     private String teamLogo;                        //Contain like the path for the logo
     private List<Player> vaultGymnasts;
@@ -35,48 +33,22 @@ public class Team implements Serializable {
         this.teamScore = new TeamScore();
     }
 
-    //Method that will return the team name
+    //getters
     public String getTeamName(){return teamName;}
-
-    //Method that will return the teamLogo
     public String getTeamLogo(){return teamLogo;}
+    public List<Player> getVaultGymnasts() {return vaultGymnasts;}
+    public List<Player> getBarGymnasts() {return barGymnasts;}
+    public List<Player> getBeamGymnasts() {return beamGymnasts;}
+    public List<Player> getFloorGymnasts() {return floorGymnasts;}
+    public List<Player> getAllGymnasts() {return allGymnasts;}
+    public TeamScore getTeamScore() {return teamScore;}
 
-    public List<Player> getVaultGymnasts() {
-        return vaultGymnasts;
-    }
+    //setters
+    public void setTeamName(String teamName) {this.teamName = teamName;}
+    public void setTeamLogo(String teamLogo) {this.teamLogo = teamLogo;}
+    public void setTeamScore(TeamScore teamScore) {this.teamScore = teamScore;}
 
-    public List<Player> getBarGymnasts() {
-        return barGymnasts;
-    }
-
-    public List<Player> getBeamGymnasts() {
-        return beamGymnasts;
-    }
-
-    public List<Player> getFloorGymnasts() {
-        return floorGymnasts;
-    }
-
-    public List<Player> getAllGymnasts() {
-        return allGymnasts;
-    }
-
-    public TeamScore getTeamScore() {
-        return teamScore;
-    }
-
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
-    }
-
-    public void setTeamLogo(String teamLogo) {
-        this.teamLogo = teamLogo;
-    }
-
-    public void setTeamScore(TeamScore teamScore) {
-        this.teamScore = teamScore;
-    }
-
+    //methods
     //Method that will add players to allGymnasts. This will automatically add gymnast to the participating apparatus their in. Arrange the list by order
     public void addGymnasts(Player p){
         allGymnasts.add(p);
@@ -163,6 +135,26 @@ public class Team implements Serializable {
         });
 
     }
+
+    //method for post meet mode sorting
+    /*
+    public void sortByOverallScore(List<Team> list)
+    {
+        Collections.sort(list, new Comparator<Team>() {
+            public int compare(Team team1, Team team2){
+                if (team1.teamScore.getRunningScore() > team2.teamScore.getRunningScore())
+                {
+                    return 1;
+                }
+                if (team1.teamScore.getRunningScore() < team2.teamScore.getRunningScore())
+                {
+                    return -1;
+                }
+                return 0;
+            }
+        });
+    }
+    */
     //Method that insert a player to an order
     //I'M CURRENTLY WORKING ON THIS (4.4.2022)
     public void rearrangePlayerList(Player p, int order, int appIdx){
@@ -222,5 +214,23 @@ public class Team implements Serializable {
         );
         System.out.println("-----------------------END--------------------------");
 
+    }
+
+    //@Override
+    public int compareTo(Team o) {
+        if (this.teamScore.getRunningScore() > o.teamScore.getRunningScore())
+        {
+            return 1;
+        }
+        if (this.teamScore.getRunningScore() < o.teamScore.getRunningScore())
+        {
+            return -1;
+        }
+        return 0;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 }
