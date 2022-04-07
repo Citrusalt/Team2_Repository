@@ -164,7 +164,7 @@ public class Team implements Serializable {
 
     }
     //Method that insert a player to an order
-    //IM CURRENTLY WORKING ON THIS (4.4.2022)
+    //I'M CURRENTLY WORKING ON THIS (4.4.2022)
     public void rearrangePlayerList(Player p, int order, int appIdx){
 //       List<Player> temp = new ArrayList<>();
 //       List<Player> list = new ArrayList<>();

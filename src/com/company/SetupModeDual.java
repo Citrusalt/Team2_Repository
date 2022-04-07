@@ -21,7 +21,7 @@ public class SetupModeDual {
 
         //create summary screen tables
         //This will later be placed in the Judges next button action listener most likely
-        gC.createTeamTable(vaultTable, vaultModel, vaultRenderer, headerFont, 2 );
+        gC.createTeamTable(vaultTable, vaultModel, vaultRenderer, headerFont, 2);
         gC.createTeamTable(barsTable, barsModel, barsRenderer,headerFont , 2);
         gC.createTeamTable(beamTable, beamModel, beamRenderer, headerFont, 2);
         gC.createTeamTable(floorTable, floorModel, floorRenderer, headerFont, 2);
@@ -51,6 +51,7 @@ public class SetupModeDual {
                 //This verifies if the user selected a valid item
                 Object homeTeam = comboBox7.getSelectedItem();
                 Object visitorTeam = comboBox8.getSelectedItem();
+
                 //Assuming that index 0 is default label for the comboBox
                 if(comboBox7.getSelectedIndex() == 0 || comboBox8.getSelectedIndex() == 0 ){
                     JOptionPane.showMessageDialog(null, "Please Select a Valid Team.");
@@ -73,7 +74,34 @@ public class SetupModeDual {
         vaultNextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                changeCard("SelectBarCard");
+                boolean errorThrown = false;
+
+                Object gymnast1 = comboBox1.getSelectedItem();
+                Object gymnast2 = comboBox2.getSelectedItem();
+                Object gymnast3 = comboBox3.getSelectedItem();
+                Object gymnast4 = comboBox4.getSelectedItem();
+                Object gymnast5 = comboBox5.getSelectedItem();
+                Object gymnast6 = comboBox6.getSelectedItem();
+
+                String[] gyms = {gymnast1.toString(), gymnast2.toString(), gymnast3.toString(), gymnast4.toString(), gymnast5.toString(), gymnast6.toString()};
+
+                for(int i = 0; i < gyms.length - 1; i++){
+                    for(int j = i+1; i < gyms.length; j++)
+                    {
+                        if (!gyms[i].equals("Select Gymnast") && gyms[i].equals(gyms[j]))
+                        {
+                            //throw error
+                            errorThrown = true;
+                            JOptionPane.showMessageDialog(null, "Gymnasts cannot compete more than once per apparatus.");
+                        }
+                    }
+
+                }
+
+                if(!errorThrown)
+                {
+                    changeCard("SelectBarCard");
+                }
             }
         });
         vaultBackButton.addActionListener(new ActionListener() {
