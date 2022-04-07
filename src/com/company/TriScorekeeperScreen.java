@@ -156,6 +156,111 @@ public class TriScorekeeperScreen {
 
             }
         });
+
+        timerCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myDualTriArenaScreen.clockLabel1.setVisible(true);
+                    myDualTriArenaScreen.clockLabel2.setVisible(true);
+                }
+                else{
+                    myDualTriArenaScreen.clockLabel1.setVisible(false);
+                    myDualTriArenaScreen.clockLabel2.setVisible(false);
+                }
+            }
+        });
+        nameCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myDualTriArenaScreen.name1.setVisible(true);
+                    myDualTriArenaScreen.name2.setVisible(true);
+                }
+                else{
+                    myDualTriArenaScreen.name1.setVisible(false);
+                    myDualTriArenaScreen.name2.setVisible(false);
+                }
+            }
+        });
+        majorCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myDualTriArenaScreen.major1.setVisible(true);
+                    myDualTriArenaScreen.major2.setVisible(true);
+                }
+                else{
+                    myDualTriArenaScreen.major1.setVisible(false);
+                    myDualTriArenaScreen.major2.setVisible(false);
+                }
+            }
+        });
+        yearCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myDualTriArenaScreen.year1.setVisible(true);
+                    myDualTriArenaScreen.year2.setVisible(true);
+                }
+                else{
+                    myDualTriArenaScreen.year1.setVisible(false);
+                    myDualTriArenaScreen.year2.setVisible(false);
+                }
+            }
+        });
+        avgCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myDualTriArenaScreen.avg1.setVisible(true);
+                    myDualTriArenaScreen.avg2.setVisible(true);
+                }
+                else{
+                    myDualTriArenaScreen.avg1.setVisible(false);
+                    myDualTriArenaScreen.avg2.setVisible(false);
+                }
+            }
+        });
+        currentScoreCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myDualTriArenaScreen.gymnastCurrent1.setVisible(true);
+                    myDualTriArenaScreen.gymnastCurrent2.setVisible(true);
+                }
+                else{
+                    myDualTriArenaScreen.gymnastCurrent1.setVisible(false);
+                    myDualTriArenaScreen.gymnastCurrent2.setVisible(false);
+                }
+            }
+        });
+        teamScoreCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myDualTriArenaScreen.overall1.setVisible(true);
+                    myDualTriArenaScreen.overall2.setVisible(true);
+                }
+                else{
+                    myDualTriArenaScreen.overall1.setVisible(false);
+                    myDualTriArenaScreen.overall2.setVisible(false);
+                }
+            }
+        });
+        pictureCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myDualTriArenaScreen.pic1.setVisible(true);
+                    myDualTriArenaScreen.pic2.setVisible(true);
+                }
+                else{
+                    myDualTriArenaScreen.pic1.setVisible(false);
+                    myDualTriArenaScreen.pic2.setVisible(false);
+                }
+            }
+        });
     }
 
 
