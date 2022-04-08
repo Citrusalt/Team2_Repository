@@ -15,9 +15,10 @@ package com.company;
  Source: https://www.ncsasports.org/college-gymnastics/college-gymnastics-levels
 */
 
+
+import java.util.ArrayList;
 import java.io.Serializable;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class TeamScore implements Serializable {
@@ -93,7 +94,7 @@ will the score board flash for a team after each individual person? if so these 
         return this.floorScore + this.barScore + this.beamScore + this.vaultScore;
     }
 
-//need to get the top 5 score from a total of 6 individual scores for a single apparatus
+    //need to get the top 5 score from a total of 6 individual scores for a single apparatus
 //these add up to get the team score for that apparatus
     public double calculateTeamApparatusScore(List<Double> scoresList) {
         double minScore = Collections.min(scoresList);
@@ -103,15 +104,58 @@ will the score board flash for a team after each individual person? if so these 
         return sum - minScore;
     }
 
-    //attempt at calculating score based on list of players
-    /*public double calculateTeamVaultScore(List<Player> playersList) {
-        Player minPlayer = playersList.stream()
-                .min(Comparator.comparingDouble(Player.playerScore::getvaultScore))
-                .get();
-        double minScore = Collections.min(scoresList.get());
+    //different methods for calculating the apparatus scores for the team as whole, params are a list of team members
+    // thought this would be easier use than just passing in a list of the scores
+    public double calculateTeamVaultScore(List<Player> playersList) {
+        List<Double> playerScores = new ArrayList<>();      //create a list to store just the scores
+        for (int i=0; i<playersList.size(); i++)
+        {
+            playerScores.add(playersList.get(i).getPlayerScore().getvaultScore());
+        }
+        double minScore = Collections.min(playerScores);
         double sum = 0;
-        for (double i : scoresList)
+        for (double i : playerScores)
             sum = sum + i;
         return sum - minScore;
-    }*/
+    }
+
+
+    public double calculateTeamFloorScore(List<Player> playersList) {
+        List<Double> playerScores = new ArrayList<>();      //create a list to store just the scores
+        for (int i=0; i<playersList.size(); i++)
+        {
+            playerScores.add(playersList.get(i).getPlayerScore().getfloorScore());
+        }
+        double minScore = Collections.min(playerScores);
+        double sum = 0;
+        for (double i : playerScores)
+            sum = sum + i;
+        return sum - minScore;
+    }
+
+    public double calculateTeamBeamScore(List<Player> playersList) {
+        List<Double> playerScores = new ArrayList<>();      //create a list to store just the scores
+        for (int i=0; i<playersList.size(); i++)
+        {
+            playerScores.add(playersList.get(i).getPlayerScore().getbeamScore());
+        }
+        double minScore = Collections.min(playerScores);
+        double sum = 0;
+        for (double i : playerScores)
+            sum = sum + i;
+        return sum - minScore;
+    }
+
+    public double calculateTeamBarScore(List<Player> playersList) {
+        List<Double> playerScores = new ArrayList<>();      //create a list to store just the scores
+        for (int i=0; i<playersList.size(); i++)
+        {
+            playerScores.add(playersList.get(i).getPlayerScore().getbarScore());        //get that particular score from each player and add it to the list
+        }
+        double minScore = Collections.min(playerScores);
+        double sum = 0;
+        for (double i : playerScores)
+            sum = sum + i;
+        return sum - minScore;
+    }
 }
