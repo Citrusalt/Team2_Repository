@@ -86,7 +86,7 @@ public class SetupModeDual {
                 String[] gyms = {gymnast1.toString(), gymnast2.toString(), gymnast3.toString(), gymnast4.toString(), gymnast5.toString(), gymnast6.toString()};
 
                 for(int i = 0; i < gyms.length - 1; i++){
-                    for(int j = i+1; i < gyms.length; j++)
+                    for(int j = i+1; j < gyms.length; j++)
                     {
                         if (!gyms[i].equals("Select Gymnast") && gyms[i].equals(gyms[j]))
                         {
