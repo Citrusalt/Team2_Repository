@@ -6,6 +6,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashSet;
+import java.util.Set;
 
 public class SetupModeQuad {
 
@@ -51,7 +53,19 @@ public class SetupModeQuad {
         continueButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                changeCard("SelectVaultCard");
+
+                if (homeCombo.getSelectedIndex() == 0 || visitor1Combo.getSelectedIndex() == 0 || visitor2Combo.getSelectedIndex() == 0 || visitor3Combo.getSelectedIndex() == 0) {
+                    JOptionPane.showMessageDialog(null, "Please Select a Valid Team.");
+                }
+                else {
+                    Object[] teams = {homeCombo.getSelectedItem(), visitor1Combo.getSelectedItem(), visitor2Combo.getSelectedItem(), visitor3Combo.getSelectedItem()};
+                    if (gC.checkUnique(teams)){
+                        changeCard("SelectVaultCard");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Teams cannot be the same. Try Again.");
+                    }
+                }
             }
         });
 
@@ -252,8 +266,8 @@ public class SetupModeQuad {
     private JPanel setupModeQuadPanel;
     private JPanel teamSetup;
     private JButton goBackButton;
-    private JComboBox comboBox7;
-    private JComboBox comboBox8;
+    private JComboBox homeCombo;
+    private JComboBox visitor2Combo;
     private JButton continueButton;
     private JButton createTeamButton;
     private JPanel setupVault;
@@ -294,5 +308,7 @@ public class SetupModeQuad {
     private JButton balanceBeamNextButton;
     private JButton floorBackButton;
     private JButton floorNextButton;
+    private JComboBox visitor1Combo;
+    private JComboBox visitor3Combo;
 
 }

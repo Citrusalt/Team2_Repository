@@ -145,6 +145,10 @@ public class QuadScorekeeperScreen {
                     scoreArray[3] = Integer.parseInt(j14.getText());
                     scoreArray[4] = Integer.parseInt(j15.getText());
                     scoreArray[5] = Integer.parseInt(j16.getText());
+
+                    //Update Arena Screen Flash
+                    updateColor(1, myQuadArenaScreen);
+
                 } catch (Exception exception) {
 
                     System.out.println(exception);
@@ -164,6 +168,58 @@ public class QuadScorekeeperScreen {
                     scoreArray[3] = Integer.parseInt(j24.getText());
                     scoreArray[4] = Integer.parseInt(j25.getText());
                     scoreArray[5] = Integer.parseInt(j26.getText());
+
+                    //Update Arena Screen Flash
+                    updateColor(2, myQuadArenaScreen);
+
+                } catch (Exception exception) {
+
+                    System.out.println(exception);
+                }
+
+            }
+        });
+        updateScoreButton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                float scoreArray[] = new float[6];
+                try{
+                    //Use these scores to update score for backend and arena screen
+                    scoreArray[0] = Integer.parseInt(j21.getText());
+                    scoreArray[1] = Integer.parseInt(j22.getText());
+                    scoreArray[2] = Integer.parseInt(j23.getText());
+                    scoreArray[3] = Integer.parseInt(j24.getText());
+                    scoreArray[4] = Integer.parseInt(j25.getText());
+                    scoreArray[5] = Integer.parseInt(j26.getText());
+
+                    //Update Arena Screen Flash
+                    updateColor(3, myQuadArenaScreen);
+
+                } catch (Exception exception) {
+
+                    System.out.println(exception);
+                }
+
+            }
+        });
+        updateScoreButton4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                float scoreArray[] = new float[6];
+                try{
+                    //Use these scores to update score for backend and arena screen
+                    scoreArray[0] = Integer.parseInt(j21.getText());
+                    scoreArray[1] = Integer.parseInt(j22.getText());
+                    scoreArray[2] = Integer.parseInt(j23.getText());
+                    scoreArray[3] = Integer.parseInt(j24.getText());
+                    scoreArray[4] = Integer.parseInt(j25.getText());
+                    scoreArray[5] = Integer.parseInt(j26.getText());
+
+                    //Update Arena Screen Flash
+                    updateColor(4, myQuadArenaScreen);
+
                 } catch (Exception exception) {
 
                     System.out.println(exception);
@@ -435,11 +491,56 @@ public class QuadScorekeeperScreen {
 
     }
 
+    private void updateColor(int selectedUpdate, QuadArenaScreen q){
+        switch(selectedUpdate) {
+            case 1:
+                q.score1.setForeground(Color.RED);
+                q.score2.setForeground(defaultColor);
+                q.score3.setForeground(defaultColor);
+                q.score4.setForeground(defaultColor);
+                q.overall1.setForeground(Color.RED);
+                q.overall2.setForeground(defaultColor);
+                q.overall3.setForeground(defaultColor);
+                q.overall4.setForeground(defaultColor);
 
+                break;
+            case 2:
+                q.score1.setForeground(defaultColor);
+                q.score2.setForeground(Color.RED);
+                q.score3.setForeground(defaultColor);
+                q.score4.setForeground(defaultColor);
+                q.overall1.setForeground(defaultColor);
+                q.overall2.setForeground(Color.RED);
+                q.overall3.setForeground(defaultColor);
+                q.overall4.setForeground(defaultColor);
+                break;
+            case 3:
+                q.score1.setForeground(defaultColor);
+                q.score2.setForeground(defaultColor);
+                q.score3.setForeground(Color.RED);
+                q.score4.setForeground(defaultColor);
+                q.overall1.setForeground(defaultColor);
+                q.overall2.setForeground(defaultColor);
+                q.overall3.setForeground(Color.RED);
+                q.overall4.setForeground(defaultColor);
+                break;
+            case 4:
+                q.score1.setForeground(defaultColor);
+                q.score2.setForeground(defaultColor);
+                q.score3.setForeground(defaultColor);
+                q.score4.setForeground(Color.RED);
+                q.overall1.setForeground(defaultColor);
+                q.overall2.setForeground(defaultColor);
+                q.overall3.setForeground(defaultColor);
+                q.overall4.setForeground(Color.RED);
+                break;
+        }
+    }
 
     private int rotation = 1;
 
 
+    private Color defaultColor = new Color(51, 51, 51); //default font color
 
     private JPanel mainPanel;
     private JPanel customizeScreen;
@@ -507,5 +608,9 @@ public class QuadScorekeeperScreen {
     private JCheckBox gymnastPictureLogo;
     private JCheckBox gymnastScoreCheckbox;
     private JCheckBox timerCheckbox;
+    private JTextField nD1;
+    private JTextField nD2;
+    private JTextField nD3;
+    private JTextField nD4;
     private CardLayout cardLayout;
 }

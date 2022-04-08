@@ -4,6 +4,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Vector;
 
 public class GuiCreator {
@@ -103,7 +105,7 @@ public class GuiCreator {
         model.addRow(row);
     }
 
-
+    //used to center JTable elements
     public void centerColumns(JTable table, DefaultTableCellRenderer cellRenderer){
         cellRenderer.setHorizontalAlignment(JLabel.CENTER);
 
@@ -112,5 +114,23 @@ public class GuiCreator {
         }
     }
 
+    //pass in an array of objects to see if they are all unique, returns true if yes, no if not
+    public Boolean checkUnique(Object[] objects){
 
+        int size = objects.length;
+
+        Set<Object> set = new HashSet<Object>();
+
+        for (Object i : objects){
+            set.add(i);
+        }
+        boolean unique = set.size() == size;
+
+        if (unique){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

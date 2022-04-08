@@ -54,7 +54,7 @@
               <text value="Visitor 2"/>
             </properties>
           </component>
-          <component id="6798e" class="javax.swing.JComboBox" binding="comboBox7" default-binding="true">
+          <component id="6798e" class="javax.swing.JComboBox" binding="homeCombo">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -65,10 +65,11 @@
                 <item value="Auburn"/>
                 <item value="Alabama"/>
                 <item value="LSU"/>
+                <item value="Florida"/>
               </model>
             </properties>
           </component>
-          <component id="5e071" class="javax.swing.JComboBox" binding="comboBox8" default-binding="true">
+          <component id="5e071" class="javax.swing.JComboBox" binding="visitor2Combo">
             <constraints>
               <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -78,10 +79,11 @@
                 <item value="Auburn"/>
                 <item value="Alabama"/>
                 <item value="LSU"/>
+                <item value="Florida"/>
               </model>
             </properties>
           </component>
-          <component id="13af0" class="javax.swing.JComboBox" default-binding="true">
+          <component id="13af0" class="javax.swing.JComboBox" binding="visitor1Combo">
             <constraints>
               <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -91,6 +93,7 @@
                 <item value="Auburn"/>
                 <item value="Alabama"/>
                 <item value="LSU"/>
+                <item value="Florida"/>
               </model>
             </properties>
           </component>
@@ -110,7 +113,7 @@
               <text value="Visitor 3"/>
             </properties>
           </component>
-          <component id="15a8e" class="javax.swing.JComboBox" default-binding="true">
+          <component id="15a8e" class="javax.swing.JComboBox" binding="visitor3Combo">
             <constraints>
               <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -120,6 +123,7 @@
                 <item value="Auburn"/>
                 <item value="Alabama"/>
                 <item value="LSU"/>
+                <item value="Florida"/>
               </model>
             </properties>
           </component>

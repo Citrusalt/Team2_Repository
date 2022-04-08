@@ -130,6 +130,15 @@ public class TriScorekeeperScreen {
                     scoreArray[3] = Integer.parseInt(j14.getText());
                     scoreArray[4] = Integer.parseInt(j15.getText());
                     scoreArray[5] = Integer.parseInt(j16.getText());
+
+                    myDualTriArenaScreen.gymnastCurrent1.setForeground(Color.RED);
+                    myDualTriArenaScreen.overall1.setForeground(Color.RED);
+
+                    myDualTriArenaScreen.gymnastCurrent2.setForeground(defaultColor);
+                    myDualTriArenaScreen.overall2.setForeground(defaultColor);
+
+
+
                 } catch (Exception exception) {
 
                     System.out.println(exception);
@@ -149,6 +158,14 @@ public class TriScorekeeperScreen {
                     scoreArray[3] = Integer.parseInt(j24.getText());
                     scoreArray[4] = Integer.parseInt(j25.getText());
                     scoreArray[5] = Integer.parseInt(j26.getText());
+
+                    myDualTriArenaScreen.gymnastCurrent2.setForeground(Color.RED);
+                    myDualTriArenaScreen.overall2.setForeground(Color.RED);
+
+                    myDualTriArenaScreen.gymnastCurrent1.setForeground(defaultColor);
+                    myDualTriArenaScreen.overall1.setForeground(defaultColor);
+
+
                 } catch (Exception exception) {
 
                     System.out.println(exception);
@@ -367,12 +384,7 @@ public class TriScorekeeperScreen {
     }
 
 
-
-
-
-
-
-
+    private Color defaultColor = new Color(51, 51, 51); //default font color
     private int rotation = 1;
     private JPanel mainPanel;
     private JPanel triScorekeeperScreen;
@@ -416,5 +428,7 @@ public class TriScorekeeperScreen {
     private JCheckBox teamScoreCheckbox;
     private JCheckBox nameCheckbox;
     private JCheckBox timerCheckbox;
+    private JTextField nD1;
+    private JTextField nD2;
     private CardLayout cardLayout;
 }

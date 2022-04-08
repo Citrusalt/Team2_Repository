@@ -143,7 +143,7 @@ public class DualScorekeeperScreen {
         updateScoreButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                float scoreArray[] = new float[6];
+                float scoreArray[] = new float[7];
                 //List<Double> scoresList  = new ArrayList<>();
                 //player instance here is just a placeholder
                // Player player1 = new Player("Name", "2022", "CS", "9.9");
@@ -156,6 +156,25 @@ public class DualScorekeeperScreen {
                     scoreArray[3] = Integer.parseInt(j14.getText());
                     scoreArray[4] = Integer.parseInt(j15.getText());
                     scoreArray[5] = Integer.parseInt(j16.getText());
+                    scoreArray[6] = Integer.parseInt(nD1.getText()); //deduction textboxes are called nD1, nD2, nD3, nD4
+
+
+                    System.out.println(myArenaScreen.gymnastCurrent1.getForeground());
+
+                    myArenaScreen.gymnastCurrent1.setForeground(Color.RED);
+                    myArenaScreen.overall1.setForeground(Color.RED);
+
+                    myArenaScreen.gymnastCurrent2.setForeground(defaultColor);
+                    myArenaScreen.overall2.setForeground(defaultColor);
+
+                    //This is just a test input
+//                    float avg = 0;
+//
+//                    for (float i : scoreArray){
+//                        avg += i;
+//                    }
+//                    avg = avg/6;
+//                    myArenaScreen.gymnastCurrent1.setText(String.valueOf(avg));
 
                 /*    // the score calculation function won't work if there is not 2, 4, or 6 judges.
                     //probably not the cleanest way to handle this, but it works for now
@@ -199,7 +218,7 @@ public class DualScorekeeperScreen {
                 //List<Double> scoresList  = new ArrayList<>();
                 //placeholder
                // Player player2 = new Player("Name2", "2022", "CS", "9.9");
-                float scoreArray[] = new float[6];
+                float scoreArray[] = new float[7];
                 try{
                     //Use these scores to update score for backend and arena screen
                     //doesn't have to be entered into a "scoreArray" just an example
@@ -209,6 +228,15 @@ public class DualScorekeeperScreen {
                     scoreArray[3] = Integer.parseInt(j24.getText());
                     scoreArray[4] = Integer.parseInt(j25.getText());
                     scoreArray[5] = Integer.parseInt(j26.getText());
+                    scoreArray[6] = Integer.parseInt(nD2.getText());
+
+                    myArenaScreen.gymnastCurrent2.setForeground(Color.RED);
+                    myArenaScreen.overall2.setForeground(Color.RED);
+
+                    myArenaScreen.gymnastCurrent1.setForeground(defaultColor);
+                    myArenaScreen.overall1.setForeground(defaultColor);
+
+
 
                   /*  // the score calculation function won't work if there is not 2, 4, or 6 judges.
                     //probably not the cleanest way to handle this, but it works for now
@@ -363,6 +391,26 @@ public class DualScorekeeperScreen {
                 }
             }
         });
+
+        editLineupButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EditLineupScreen myScreen = new EditLineupScreen();
+            }
+        });
+        teamLogoCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myArenaScreen.logo1.setVisible(true);
+                    myArenaScreen.logo2.setVisible(true);
+                }
+                else{
+                    myArenaScreen.logo1.setVisible(false);
+                    myArenaScreen.logo2.setVisible(false);
+                }
+            }
+        });
     }
 
 
@@ -480,7 +528,7 @@ public class DualScorekeeperScreen {
 
     }
 
-
+    private Color defaultColor = new Color(51, 51, 51);
     private int selectedMode = 0;
     private int rotation = 1;
     private JButton startTimerButton;
@@ -552,5 +600,7 @@ public class DualScorekeeperScreen {
     private JCheckBox teamScoreCheckbox;
     private JCheckBox pictureCheckbox;
     private JCheckBox teamLogoCheckbox;
+    private JTextField nD1;
+    private JTextField nD2;
     private CardLayout cardLayout;
 }

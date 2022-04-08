@@ -189,6 +189,8 @@ public class Dual_Tri_ArenaScreen {
     private JLabel pic;
     private JLabel timer;
     private JLabel nonSimulRotation;
+    public JLabel logo1;
+    public JLabel logo2;
 
 
 }
