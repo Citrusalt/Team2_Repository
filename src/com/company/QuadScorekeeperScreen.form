@@ -2,14 +2,14 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.company.QuadScorekeeperScreen">
   <grid id="27dc6" binding="mainPanel" layout-manager="CardLayout" hgap="0" vgap="0" show="91c11">
     <constraints>
-      <xy x="20" y="20" width="1523" height="446"/>
+      <xy x="20" y="20" width="1523" height="478"/>
     </constraints>
     <properties>
       <preferredSize width="1200" height="720"/>
     </properties>
     <border type="none"/>
     <children>
-      <grid id="91c11" binding="customizeScreen" layout-manager="GridLayoutManager" row-count="10" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="91c11" binding="customizeScreen" layout-manager="GridLayoutManager" row-count="12" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <card name="CustomizeCard"/>
@@ -17,72 +17,61 @@
         <properties/>
         <border type="none" title=""/>
         <children>
-          <component id="8ab9f" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="3" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Display what the default looks like"/>
-            </properties>
-          </component>
           <component id="7c23b" class="javax.swing.JButton" binding="defaultTemplateButton">
             <constraints>
-              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="3" column="0" row-span="8" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Begin Run with Default Template"/>
             </properties>
           </component>
-          <component id="963df" class="javax.swing.JButton" binding="customizeArenaButton">
-            <constraints>
-              <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Begin Run with Parameters"/>
-            </properties>
-          </component>
           <component id="e8a98" class="javax.swing.JCheckBox" binding="gymnastMajorCheckBox" default-binding="true">
             <constraints>
-              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <selected value="true"/>
               <text value="Gymnast Major"/>
             </properties>
           </component>
           <vspacer id="9d3c4">
             <constraints>
-              <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
-          <component id="22998" class="javax.swing.JCheckBox" default-binding="true">
-            <constraints>
-              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Gymnast Year"/>
-            </properties>
-          </component>
-          <component id="37048" class="javax.swing.JCheckBox" default-binding="true">
+          <component id="22998" class="javax.swing.JCheckBox" binding="gymnastYearCheckbox">
             <constraints>
               <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Gymnast Average Score"/>
+              <selected value="true"/>
+              <text value="Gymnast Year"/>
             </properties>
           </component>
-          <component id="58256" class="javax.swing.JCheckBox" default-binding="true">
+          <component id="37048" class="javax.swing.JCheckBox" binding="gymnastavgCheckbox">
             <constraints>
               <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Gymnasst Picture"/>
+              <selected value="true"/>
+              <text value="Gymnast Average Score"/>
             </properties>
           </component>
-          <component id="4f7e4" class="javax.swing.JCheckBox" default-binding="true">
+          <component id="58256" class="javax.swing.JCheckBox" binding="gymnastPictureLogo">
+            <constraints>
+              <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <selected value="true"/>
+              <text value="Gymnast Picture"/>
+            </properties>
+          </component>
+          <component id="4f7e4" class="javax.swing.JCheckBox" binding="timerCheckbox">
             <constraints>
               <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <selected value="true"/>
               <text value="Timer"/>
             </properties>
           </component>
@@ -108,9 +97,36 @@
               <text value="work in progress"/>
             </properties>
           </component>
+          <component id="7628d" class="javax.swing.JCheckBox" binding="gymnastNameCheckbox">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <selected value="true"/>
+              <text value="Gymnast Name"/>
+            </properties>
+          </component>
+          <component id="289f4" class="javax.swing.JCheckBox" binding="teamLogoCheckbox">
+            <constraints>
+              <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <selected value="true"/>
+              <text value="Team Logo"/>
+            </properties>
+          </component>
+          <component id="b7e0e" class="javax.swing.JCheckBox" binding="gymnastScoreCheckbox">
+            <constraints>
+              <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <selected value="true"/>
+              <text value="Gymnast Current Score"/>
+            </properties>
+          </component>
         </children>
       </grid>
-      <grid id="d9a9" binding="quadScorekeeperScreen" layout-manager="GridLayoutManager" row-count="13" column-count="17" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="d9a9" binding="quadScorekeeperScreen" layout-manager="GridLayoutManager" row-count="14" column-count="17" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <card name="QuadScorekeeperCard"/>
@@ -157,7 +173,7 @@
           </component>
           <component id="e6f24" class="javax.swing.JTextField" binding="timer2Textfield">
             <constraints>
-              <grid row="10" column="5" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+              <grid row="11" column="5" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
               </grid>
             </constraints>
@@ -168,7 +184,7 @@
           </component>
           <component id="a6cf4" class="javax.swing.JButton" binding="startTimerButton2" default-binding="true">
             <constraints>
-              <grid row="10" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="11" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Start Timer"/>
@@ -202,7 +218,7 @@
           </component>
           <component id="49c63" class="javax.swing.JButton" binding="updateScoreButton2">
             <constraints>
-              <grid row="11" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="12" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Update Score"/>
@@ -316,7 +332,7 @@
           </component>
           <component id="fe114" class="javax.swing.JTextField" binding="timer3Textfield">
             <constraints>
-              <grid row="10" column="9" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="11" column="9" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
               </grid>
             </constraints>
@@ -327,7 +343,7 @@
           </component>
           <component id="22da" class="javax.swing.JButton" binding="startTimerButton3">
             <constraints>
-              <grid row="10" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="11" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Start Timer"/>
@@ -335,7 +351,7 @@
           </component>
           <component id="adb9e" class="javax.swing.JButton" binding="startTimerButton4">
             <constraints>
-              <grid row="10" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="11" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Start Timer"/>
@@ -343,7 +359,7 @@
           </component>
           <component id="6ba29" class="javax.swing.JButton" binding="updateScoreButton3">
             <constraints>
-              <grid row="11" column="9" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="12" column="9" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Update Score"/>
@@ -632,7 +648,7 @@
           </component>
           <component id="95232" class="javax.swing.JButton" binding="startTimerButton1" default-binding="true">
             <constraints>
-              <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="11" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <borderPainted value="true"/>
@@ -642,7 +658,7 @@
           </component>
           <component id="4dc57" class="javax.swing.JTextField" binding="timer1Textfield">
             <constraints>
-              <grid row="10" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="11" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
               </grid>
             </constraints>
@@ -653,7 +669,7 @@
           </component>
           <component id="ff50c" class="javax.swing.JButton" binding="updateScoreButton1">
             <constraints>
-              <grid row="11" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="12" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Update Score"/>
@@ -816,7 +832,7 @@
           </component>
           <component id="79547" class="javax.swing.JButton" binding="updateScoreButton4">
             <constraints>
-              <grid row="11" column="13" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="12" column="13" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Update Score"/>
@@ -824,7 +840,7 @@
           </component>
           <component id="ada48" class="javax.swing.JButton" binding="nextButton" default-binding="true">
             <constraints>
-              <grid row="12" column="16" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="6" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="13" column="16" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="6" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Next"/>
@@ -832,7 +848,7 @@
           </component>
           <component id="3661a" class="javax.swing.JTextField" binding="timer4Textfield">
             <constraints>
-              <grid row="10" column="13" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="11" column="13" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="-1"/>
               </grid>
             </constraints>
@@ -869,6 +885,83 @@
               <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
+          <component id="e5e7b" class="javax.swing.JTextField" binding="nD1">
+            <constraints>
+              <grid row="10" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="100" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <horizontalAlignment value="0"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="1debe" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <alignmentX value="0.0"/>
+              <text value="Deduction"/>
+            </properties>
+          </component>
+          <component id="53caa" class="javax.swing.JTextField" binding="nD2">
+            <constraints>
+              <grid row="10" column="6" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="100" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <horizontalAlignment value="0"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="96c21" class="javax.swing.JTextField" binding="nD3">
+            <constraints>
+              <grid row="10" column="10" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="100" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <horizontalAlignment value="0"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="31293" class="javax.swing.JTextField" binding="nD4">
+            <constraints>
+              <grid row="10" column="14" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="100" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <horizontalAlignment value="0"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="8af9c" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="10" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Deduction"/>
+            </properties>
+          </component>
+          <component id="2253a" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="10" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Deduction"/>
+            </properties>
+          </component>
+          <component id="13a25" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="10" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Deduction"/>
+            </properties>
+          </component>
         </children>
       </grid>
       <tabbedpane id="917c1" binding="tabbedPane1" default-binding="true">

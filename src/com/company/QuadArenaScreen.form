@@ -9,7 +9,7 @@
     </properties>
     <border type="none"/>
     <children>
-      <grid id="5effe" binding="arenaScreenPanel" default-binding="true" layout-manager="GridLayoutManager" row-count="19" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="5effe" binding="arenaScreenPanel" default-binding="true" layout-manager="GridLayoutManager" row-count="21" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="10" left="5" bottom="10" right="5"/>
         <constraints>
           <card name="Card1"/>
@@ -47,15 +47,6 @@
               <text value="Year"/>
             </properties>
           </component>
-          <component id="52fab" class="javax.swing.JLabel" binding="score1">
-            <constraints>
-              <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font size="24"/>
-              <text value="Score"/>
-            </properties>
-          </component>
           <component id="2d6be" class="javax.swing.JLabel" binding="pic1">
             <constraints>
               <grid row="4" column="0" row-span="4" col-span="1" vsize-policy="1" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -67,7 +58,7 @@
           </component>
           <component id="da368" class="javax.swing.JLabel" binding="clockLabel1">
             <constraints>
-              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="8" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="48"/>
@@ -76,12 +67,12 @@
           </component>
           <vspacer id="b0675">
             <constraints>
-              <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
           <component id="a9674" class="javax.swing.JLabel" binding="pic2">
             <constraints>
-              <grid row="13" column="0" row-span="4" col-span="1" vsize-policy="1" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="14" column="0" row-span="4" col-span="1" vsize-policy="1" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <icon value="com/company/pictures/output-onlinepngtools.png"/>
@@ -90,7 +81,7 @@
           </component>
           <component id="9ff70" class="javax.swing.JLabel" binding="major2">
             <constraints>
-              <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="15" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="24"/>
@@ -99,30 +90,21 @@
           </component>
           <vspacer id="3ca96">
             <constraints>
-              <grid row="18" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="20" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
           <component id="24952" class="javax.swing.JLabel" binding="year2">
             <constraints>
-              <grid row="15" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="24"/>
               <text value="Year"/>
             </properties>
           </component>
-          <component id="62365" class="javax.swing.JLabel" binding="score2">
-            <constraints>
-              <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font size="24"/>
-              <text value="Score"/>
-            </properties>
-          </component>
           <component id="c85d2" class="javax.swing.JLabel" binding="clockLabel2">
             <constraints>
-              <grid row="17" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="18" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="48"/>
@@ -140,7 +122,7 @@
           </component>
           <component id="959c4" class="javax.swing.JLabel" binding="teamName2">
             <constraints>
-              <grid row="10" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="11" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="36"/>
@@ -149,7 +131,7 @@
           </component>
           <component id="7fb68" class="javax.swing.JLabel" binding="name2">
             <constraints>
-              <grid row="13" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="24"/>
@@ -158,7 +140,7 @@
           </component>
           <vspacer id="ac990">
             <constraints>
-              <grid row="12" column="1" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="13" column="1" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
           <vspacer id="ef462">
@@ -177,7 +159,7 @@
           </component>
           <component id="38986" class="javax.swing.JLabel" binding="overall1">
             <constraints>
-              <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="24"/>
@@ -186,7 +168,7 @@
           </component>
           <component id="3be23" class="javax.swing.JLabel" binding="overall2">
             <constraints>
-              <grid row="17" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="19" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="24"/>
@@ -204,7 +186,7 @@
           </component>
           <component id="1540" class="javax.swing.JLabel" binding="event2">
             <constraints>
-              <grid row="11" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="12" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="20"/>
@@ -240,7 +222,7 @@
           </component>
           <component id="9c521" class="javax.swing.JLabel" binding="clockLabel3">
             <constraints>
-              <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="8" column="2" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="48"/>
@@ -249,20 +231,11 @@
           </component>
           <component id="2dcd8" class="javax.swing.JLabel" binding="overall3">
             <constraints>
-              <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="24"/>
               <text value="Running Team Score"/>
-            </properties>
-          </component>
-          <component id="bf0ad" class="javax.swing.JLabel" binding="score3">
-            <constraints>
-              <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font size="24"/>
-              <text value="Score"/>
             </properties>
           </component>
           <component id="cbfb9" class="javax.swing.JLabel" binding="year3">
@@ -294,7 +267,7 @@
           </component>
           <component id="70884" class="javax.swing.JLabel">
             <constraints>
-              <grid row="10" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="11" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="36"/>
@@ -303,7 +276,7 @@
           </component>
           <component id="27863" class="javax.swing.JLabel" binding="pic4">
             <constraints>
-              <grid row="13" column="2" row-span="4" col-span="1" vsize-policy="1" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="14" column="2" row-span="4" col-span="1" vsize-policy="1" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <icon value="com/company/pictures/output-onlinepngtools.png"/>
@@ -312,7 +285,7 @@
           </component>
           <component id="77de" class="javax.swing.JLabel" binding="clockLabel4">
             <constraints>
-              <grid row="17" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="18" column="2" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="48"/>
@@ -321,7 +294,7 @@
           </component>
           <component id="9174f" class="javax.swing.JLabel" binding="name4">
             <constraints>
-              <grid row="13" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="14" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="24"/>
@@ -330,7 +303,7 @@
           </component>
           <component id="3d9ac" class="javax.swing.JLabel" binding="major4">
             <constraints>
-              <grid row="14" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="15" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="24"/>
@@ -339,25 +312,16 @@
           </component>
           <component id="3b9fd" class="javax.swing.JLabel" binding="year4">
             <constraints>
-              <grid row="15" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="16" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="24"/>
               <text value="Year"/>
             </properties>
           </component>
-          <component id="88e61" class="javax.swing.JLabel" binding="score4">
-            <constraints>
-              <grid row="16" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font size="24"/>
-              <text value="Score"/>
-            </properties>
-          </component>
           <component id="458c5" class="javax.swing.JLabel" binding="overall4">
             <constraints>
-              <grid row="17" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="19" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="24"/>
@@ -366,11 +330,83 @@
           </component>
           <component id="230ae" class="javax.swing.JLabel" binding="event4">
             <constraints>
-              <grid row="11" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="12" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="20"/>
               <text value="Current Event"/>
+            </properties>
+          </component>
+          <component id="7e80b" class="javax.swing.JLabel" binding="appAvg1">
+            <constraints>
+              <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="24"/>
+              <text value="Apparatus Average"/>
+            </properties>
+          </component>
+          <component id="9ac82" class="javax.swing.JLabel" binding="score1">
+            <constraints>
+              <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="24"/>
+              <text value="Current Gymnast Score"/>
+            </properties>
+          </component>
+          <component id="bf0ad" class="javax.swing.JLabel" binding="score3">
+            <constraints>
+              <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="24"/>
+              <text value="Current Gymnast Score"/>
+            </properties>
+          </component>
+          <component id="88e61" class="javax.swing.JLabel" binding="score4">
+            <constraints>
+              <grid row="18" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="24"/>
+              <text value="Current Gymnast Score"/>
+            </properties>
+          </component>
+          <component id="62365" class="javax.swing.JLabel" binding="score2">
+            <constraints>
+              <grid row="18" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="24"/>
+              <text value="Current Gymnast Score"/>
+            </properties>
+          </component>
+          <component id="22e3f" class="javax.swing.JLabel" binding="appAvg3">
+            <constraints>
+              <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="24"/>
+              <text value="Apparatus Average"/>
+            </properties>
+          </component>
+          <component id="116df" class="javax.swing.JLabel" binding="appAvg2">
+            <constraints>
+              <grid row="17" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="24"/>
+              <text value="Apparatus Average"/>
+            </properties>
+          </component>
+          <component id="b384c" class="javax.swing.JLabel" binding="appAvg4">
+            <constraints>
+              <grid row="17" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="24"/>
+              <text value="Apparatus Average"/>
             </properties>
           </component>
         </children>

@@ -49,7 +49,22 @@ public class SetupModeTri {
         continueButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                changeCard("SelectVaultCard");
+
+                //This verifies if the user selected a valid item
+                Object homeTeam = homeCombo.getSelectedItem();
+                Object visitor1Team = visitor1Combo.getSelectedItem();
+                Object visitor2Team = visitor2Combo.getSelectedItem();
+                //Assuming that index 0 is default label for the comboBox
+                if(homeCombo.getSelectedIndex() == 0 || visitor1Combo.getSelectedIndex() == 0 ||  visitor2Combo.getSelectedIndex() == 0){
+                    JOptionPane.showMessageDialog(null, "Please Select a Valid Team.");
+                }
+                else if(homeTeam.toString().equals(visitor1Team.toString()) || homeTeam.toString().equals(visitor2Team.toString()) || visitor1Team.toString().equals(visitor2Team.toString())){
+                    JOptionPane.showMessageDialog(null, "Teams cannot be the same. Try Again.");
+                }
+                else {
+                    changeCard("SelectVaultCard");
+                }
+
             }
         });
 
@@ -249,8 +264,8 @@ public class SetupModeTri {
     private JButton meetTemplateBackButton;
     private JPanel teamSetup;
     private JButton goBackButton;
-    private JComboBox comboBox7;
-    private JComboBox comboBox8;
+    private JComboBox homeCombo;
+    private JComboBox visitor2Combo;
     private JButton continueButton;
     private JButton createTeamButton;
     private JPanel setupVault;
@@ -291,5 +306,6 @@ public class SetupModeTri {
     private JButton editFloorButton;
     private JButton editBeamButton;
     private JButton editJudgesButton;
+    private JComboBox visitor1Combo;
 
 }

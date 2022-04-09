@@ -3,8 +3,6 @@ package com.company;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class DualScorekeeperScreen {
 
@@ -18,6 +16,8 @@ public class DualScorekeeperScreen {
         frame.setVisible(true);
 
         Dual_Tri_ArenaScreen myArenaScreen = new Dual_Tri_ArenaScreen();
+        myArenaScreen.getFrame().setVisible(true);
+
 
         //card layout start
         cardLayout = (CardLayout) mainPanel.getLayout();
@@ -27,14 +27,20 @@ public class DualScorekeeperScreen {
         defaultTemplateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                if (simultaneousCheckBox.isSelected()){
-                    cardLayout.show(mainPanel, "SimulCard");
-                    myArenaScreen.getFrame().setVisible(true);
-
+                changeCard("SimulCard");
+                if (selectedMode == 0){
+                    team1App.setText("Vault");
+                    team2App.setText("Bar");
+                    myArenaScreen.event1.setText("Vault");
+                    myArenaScreen.event2.setText("Bar");
+                    //Fill Arena Screen
                 }
-                else{
-                    //non simultaneous arena screen
+                else if (selectedMode == 1){
+                    team1App.setText("Vault");
+                    team2App.setText("Vault");
+                    myArenaScreen.event1.setText("Vault");
+                    myArenaScreen.event2.setText("Vault");
+                    //Fill Arena Screen
                 }
             }
         });
@@ -79,8 +85,6 @@ public class DualScorekeeperScreen {
                 }
             }
         });
-
-
         timer1Textfield.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -96,13 +100,24 @@ public class DualScorekeeperScreen {
         nextRotationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                updateRotation(myArenaScreen, frame, 1, gC);
+                if (selectedMode == 0){
+                    updateRotationSimul(myArenaScreen, frame, 1, gC);
+                }
+                else if (selectedMode == 1){
+                    updateRotationNonSimul(myArenaScreen, frame, 1, gC);
+                }
             }
         });
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                updateRotation(myArenaScreen, frame, -1, gC);
+                if (selectedMode == 0){
+                    updateRotationSimul(myArenaScreen, frame, -1, gC);
+
+                }
+                else if (selectedMode == 1){
+                    updateRotationNonSimul(myArenaScreen, frame, -1, gC);
+                }
             }
         });
 
@@ -128,7 +143,7 @@ public class DualScorekeeperScreen {
         updateScoreButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                float scoreArray[] = new float[6];
+                float scoreArray[] = new float[7];
                 //List<Double> scoresList  = new ArrayList<>();
                 //player instance here is just a placeholder
                // Player player1 = new Player("Name", "2022", "CS", "9.9");
@@ -141,6 +156,25 @@ public class DualScorekeeperScreen {
                     scoreArray[3] = Integer.parseInt(j14.getText());
                     scoreArray[4] = Integer.parseInt(j15.getText());
                     scoreArray[5] = Integer.parseInt(j16.getText());
+                    scoreArray[6] = Integer.parseInt(nD1.getText()); //deduction textboxes are called nD1, nD2, nD3, nD4
+
+
+                    System.out.println(myArenaScreen.gymnastCurrent1.getForeground());
+
+                    myArenaScreen.gymnastCurrent1.setForeground(Color.RED);
+                    myArenaScreen.overall1.setForeground(Color.RED);
+
+                    myArenaScreen.gymnastCurrent2.setForeground(defaultColor);
+                    myArenaScreen.overall2.setForeground(defaultColor);
+
+                    //This is just a test input
+//                    float avg = 0;
+//
+//                    for (float i : scoreArray){
+//                        avg += i;
+//                    }
+//                    avg = avg/6;
+//                    myArenaScreen.gymnastCurrent1.setText(String.valueOf(avg));
 
                 /*    // the score calculation function won't work if there is not 2, 4, or 6 judges.
                     //probably not the cleanest way to handle this, but it works for now
@@ -174,7 +208,6 @@ public class DualScorekeeperScreen {
                     }*/
 
                 } catch (Exception exception) {
-
                     System.out.println(exception);
                 }
             }
@@ -185,7 +218,7 @@ public class DualScorekeeperScreen {
                 //List<Double> scoresList  = new ArrayList<>();
                 //placeholder
                // Player player2 = new Player("Name2", "2022", "CS", "9.9");
-                float scoreArray[] = new float[6];
+                float scoreArray[] = new float[7];
                 try{
                     //Use these scores to update score for backend and arena screen
                     //doesn't have to be entered into a "scoreArray" just an example
@@ -195,6 +228,15 @@ public class DualScorekeeperScreen {
                     scoreArray[3] = Integer.parseInt(j24.getText());
                     scoreArray[4] = Integer.parseInt(j25.getText());
                     scoreArray[5] = Integer.parseInt(j26.getText());
+                    scoreArray[6] = Integer.parseInt(nD2.getText());
+
+                    myArenaScreen.gymnastCurrent2.setForeground(Color.RED);
+                    myArenaScreen.overall2.setForeground(Color.RED);
+
+                    myArenaScreen.gymnastCurrent1.setForeground(defaultColor);
+                    myArenaScreen.overall1.setForeground(defaultColor);
+
+
 
                   /*  // the score calculation function won't work if there is not 2, 4, or 6 judges.
                     //probably not the cleanest way to handle this, but it works for now
@@ -233,6 +275,142 @@ public class DualScorekeeperScreen {
 
             }
         });
+
+        timerCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myArenaScreen.clockLabel1.setVisible(true);
+                    myArenaScreen.clockLabel2.setVisible(true);
+                }
+                else{
+                    myArenaScreen.clockLabel1.setVisible(false);
+                    myArenaScreen.clockLabel2.setVisible(false);
+                }
+            }
+        });
+        nameCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myArenaScreen.name1.setVisible(true);
+                    myArenaScreen.name2.setVisible(true);
+                }
+                else{
+                    myArenaScreen.name1.setVisible(false);
+                    myArenaScreen.name2.setVisible(false);
+                }
+            }
+        });
+        majorCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myArenaScreen.major1.setVisible(true);
+                    myArenaScreen.major2.setVisible(true);
+                }
+                else{
+                    myArenaScreen.major1.setVisible(false);
+                    myArenaScreen.major2.setVisible(false);
+                }
+            }
+        });
+        yearCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myArenaScreen.year1.setVisible(true);
+                    myArenaScreen.year2.setVisible(true);
+                }
+                else{
+                    myArenaScreen.year1.setVisible(false);
+                    myArenaScreen.year2.setVisible(false);
+                }
+            }
+        });
+        avgCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myArenaScreen.avg1.setVisible(true);
+                    myArenaScreen.avg2.setVisible(true);
+                }
+                else{
+                    myArenaScreen.avg1.setVisible(false);
+                    myArenaScreen.avg2.setVisible(false);
+                }
+            }
+        });
+        currentScoreCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myArenaScreen.gymnastCurrent1.setVisible(true);
+                    myArenaScreen.gymnastCurrent2.setVisible(true);
+                }
+                else{
+                    myArenaScreen.gymnastCurrent1.setVisible(false);
+                    myArenaScreen.gymnastCurrent2.setVisible(false);
+                }
+            }
+        });
+        teamScoreCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myArenaScreen.overall1.setVisible(true);
+                    myArenaScreen.overall2.setVisible(true);
+                }
+                else{
+                    myArenaScreen.overall1.setVisible(false);
+                    myArenaScreen.overall2.setVisible(false);
+                }
+            }
+        });
+        pictureCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myArenaScreen.pic1.setVisible(true);
+                    myArenaScreen.pic2.setVisible(true);
+                }
+                else{
+                    myArenaScreen.pic1.setVisible(false);
+                    myArenaScreen.pic2.setVisible(false);
+                }
+            }
+        });
+        simultaneousCheckBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    selectedMode = 0;
+                }
+                else{
+                    selectedMode = 1;
+                }
+            }
+        });
+
+        editLineupButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EditLineupScreen myScreen = new EditLineupScreen();
+            }
+        });
+        teamLogoCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myArenaScreen.logo1.setVisible(true);
+                    myArenaScreen.logo2.setVisible(true);
+                }
+                else{
+                    myArenaScreen.logo1.setVisible(false);
+                    myArenaScreen.logo2.setVisible(false);
+                }
+            }
+        });
     }
 
 
@@ -242,13 +420,13 @@ public class DualScorekeeperScreen {
 
 
     //pass in the frames that need to be handled and 1 if next rotation, -1 if previous
-    private void updateRotation(Dual_Tri_ArenaScreen myArenaScreen, JFrame thisFrame, int value, GuiCreator gC){
+    private void updateRotationSimul(Dual_Tri_ArenaScreen myArenaScreen, JFrame thisFrame, int value, GuiCreator gC){
         rotation = rotation + value;
         myArenaScreen.updateRotation(rotation);
 
         if (rotation == 0){
-            SetupModeDual myDualSetup = new SetupModeDual(gC);
-            myDualSetup.changeCard("SummaryCard");
+            DualScorekeeperScreen myScoreKeeperScreen = new DualScorekeeperScreen(gC);
+            myScoreKeeperScreen.changeCard("CustomizeCard");
             myArenaScreen.getFrame().dispose();
             thisFrame.dispose();
         }
@@ -296,7 +474,62 @@ public class DualScorekeeperScreen {
 
     }
 
+    private void updateRotationNonSimul(Dual_Tri_ArenaScreen myArenaScreen, JFrame thisFrame, int value, GuiCreator gC){
+        rotation = rotation + value;
+        myArenaScreen.updateRotation(rotation);
 
+        if (rotation == 0){
+            DualScorekeeperScreen myScoreKeeperScreen = new DualScorekeeperScreen(gC);
+            myScoreKeeperScreen.changeCard("CustomizeCard");
+            myArenaScreen.getFrame().dispose();
+            thisFrame.dispose();
+        }
+        else if (rotation == 1){
+            team1App.setText("Vault");
+            team2App.setText("Vault");
+            myArenaScreen.updateEvent("Vault", 1);
+            myArenaScreen.updateEvent("Vault", 2);
+            rotationLabel.setText("ROTATION 1");
+            //update judges
+            //update players
+            //update scores
+            //etc.
+        }
+        else if (rotation == 2){
+            team1App.setText("Bars");
+            team2App.setText("Bars");
+            myArenaScreen.updateEvent("Bars", 1);
+            myArenaScreen.updateEvent("Bars", 2);
+            rotationLabel.setText("ROTATION 2");
+            //update judges
+            //update players
+            //update scores
+            //etc.
+        }
+        else if (rotation == 3){
+            team1App.setText("Beam");
+            team2App.setText("Beam");
+            myArenaScreen.updateEvent("Beam", 1);
+            myArenaScreen.updateEvent("Beam", 2);
+            rotationLabel.setText("ROTATION 3");
+        }
+        else if (rotation == 4){
+            team1App.setText("Floor");
+            team2App.setText("Floor");
+            myArenaScreen.updateEvent("Floor", 1);
+            myArenaScreen.updateEvent("Floor", 2);
+            rotationLabel.setText("ROTATION 4");
+        }
+        else if(rotation == 5){
+            PostMeetScreen myPostMode = new PostMeetScreen(gC);
+            myArenaScreen.getFrame().dispose();
+            thisFrame.dispose();
+        }
+
+    }
+
+    private Color defaultColor = new Color(51, 51, 51);
+    private int selectedMode = 0;
     private int rotation = 1;
     private JButton startTimerButton;
     private JTextField clockTextField;
@@ -305,7 +538,6 @@ public class DualScorekeeperScreen {
     private JPanel scorekeeperScreen;
     private JPanel customizeScreen;
     private JButton defaultTemplateButton;
-    private JButton customizeArenaButton;
     private JTextField textField1;
     private JTextField textField2;
     private JTextField textField5;
@@ -358,7 +590,17 @@ public class DualScorekeeperScreen {
     private JTextField j25;
     private JTextField j26;
     private JButton editLineupButton;
-    private JCheckBox gymnastMajorCheckBox;
+    private JCheckBox nameCheckbox;
     private JCheckBox simultaneousCheckBox;
+    private JCheckBox timerCheckbox;
+    private JCheckBox majorCheckbox;
+    private JCheckBox yearCheckbox;
+    private JCheckBox avgCheckbox;
+    private JCheckBox currentScoreCheckbox;
+    private JCheckBox teamScoreCheckbox;
+    private JCheckBox pictureCheckbox;
+    private JCheckBox teamLogoCheckbox;
+    private JTextField nD1;
+    private JTextField nD2;
     private CardLayout cardLayout;
 }

@@ -21,7 +21,7 @@
         </properties>
         <border type="none" title=""/>
         <children>
-          <component id="68cf9" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+          <component id="68cf9" class="javax.swing.JComboBox" binding="v16">
             <constraints>
               <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -38,7 +38,7 @@
               </model>
             </properties>
           </component>
-          <component id="9dac6" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
+          <component id="9dac6" class="javax.swing.JComboBox" binding="v11">
             <constraints>
               <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -56,7 +56,7 @@
               </model>
             </properties>
           </component>
-          <component id="75c60" class="javax.swing.JComboBox" binding="comboBox3" default-binding="true">
+          <component id="75c60" class="javax.swing.JComboBox" binding="v14">
             <constraints>
               <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -73,7 +73,7 @@
               </model>
             </properties>
           </component>
-          <component id="d5348" class="javax.swing.JComboBox" binding="comboBox4" default-binding="true">
+          <component id="d5348" class="javax.swing.JComboBox" binding="v15">
             <constraints>
               <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -90,7 +90,7 @@
               </model>
             </properties>
           </component>
-          <component id="1a114" class="javax.swing.JComboBox" binding="comboBox5" default-binding="true">
+          <component id="1a114" class="javax.swing.JComboBox" binding="v13">
             <constraints>
               <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -107,7 +107,7 @@
               </model>
             </properties>
           </component>
-          <component id="f9607" class="javax.swing.JComboBox" binding="comboBox6" default-binding="true">
+          <component id="f9607" class="javax.swing.JComboBox" binding="v12">
             <constraints>
               <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -124,7 +124,7 @@
               </model>
             </properties>
           </component>
-          <component id="78282" class="javax.swing.JComboBox" default-binding="true">
+          <component id="78282" class="javax.swing.JComboBox" binding="v21">
             <constraints>
               <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -141,7 +141,7 @@
               </model>
             </properties>
           </component>
-          <component id="f3bd1" class="javax.swing.JComboBox" default-binding="true">
+          <component id="f3bd1" class="javax.swing.JComboBox" binding="v24">
             <constraints>
               <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -157,7 +157,7 @@
               </model>
             </properties>
           </component>
-          <component id="b072a" class="javax.swing.JComboBox" default-binding="true">
+          <component id="b072a" class="javax.swing.JComboBox" binding="v25">
             <constraints>
               <grid row="7" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -173,7 +173,7 @@
               </model>
             </properties>
           </component>
-          <component id="4e4a" class="javax.swing.JComboBox" default-binding="true">
+          <component id="4e4a" class="javax.swing.JComboBox" binding="v23">
             <constraints>
               <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -189,7 +189,7 @@
               </model>
             </properties>
           </component>
-          <component id="ad415" class="javax.swing.JComboBox" default-binding="true">
+          <component id="ad415" class="javax.swing.JComboBox" binding="v22">
             <constraints>
               <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -246,7 +246,7 @@
               <text value="This apparatus requires a timer."/>
             </properties>
           </component>
-          <component id="e0597" class="javax.swing.JComboBox" default-binding="true">
+          <component id="e0597" class="javax.swing.JComboBox" binding="v26">
             <constraints>
               <grid row="8" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -517,7 +517,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="4a8ea" class="javax.swing.JComboBox" default-binding="true">
+          <component id="4a8ea" class="javax.swing.JComboBox" binding="b16">
             <constraints>
               <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -533,7 +533,7 @@
               </model>
             </properties>
           </component>
-          <component id="221" class="javax.swing.JComboBox" default-binding="true">
+          <component id="221" class="javax.swing.JComboBox" binding="b11">
             <constraints>
               <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -550,7 +550,7 @@
               </model>
             </properties>
           </component>
-          <component id="78bd4" class="javax.swing.JComboBox" default-binding="true">
+          <component id="78bd4" class="javax.swing.JComboBox" binding="b14">
             <constraints>
               <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -566,7 +566,7 @@
               </model>
             </properties>
           </component>
-          <component id="c9511" class="javax.swing.JComboBox" default-binding="true">
+          <component id="c9511" class="javax.swing.JComboBox" binding="b15">
             <constraints>
               <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -582,7 +582,7 @@
               </model>
             </properties>
           </component>
-          <component id="95919" class="javax.swing.JComboBox" default-binding="true">
+          <component id="95919" class="javax.swing.JComboBox" binding="b13">
             <constraints>
               <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -598,7 +598,7 @@
               </model>
             </properties>
           </component>
-          <component id="cb593" class="javax.swing.JComboBox" default-binding="true">
+          <component id="cb593" class="javax.swing.JComboBox" binding="b12">
             <constraints>
               <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -614,7 +614,7 @@
               </model>
             </properties>
           </component>
-          <component id="9360c" class="javax.swing.JComboBox" default-binding="true">
+          <component id="9360c" class="javax.swing.JComboBox" binding="b26">
             <constraints>
               <grid row="8" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -629,7 +629,7 @@
               </model>
             </properties>
           </component>
-          <component id="4a615" class="javax.swing.JComboBox" default-binding="true">
+          <component id="4a615" class="javax.swing.JComboBox" binding="b21">
             <constraints>
               <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -645,7 +645,7 @@
               </model>
             </properties>
           </component>
-          <component id="c1694" class="javax.swing.JComboBox" default-binding="true">
+          <component id="c1694" class="javax.swing.JComboBox" binding="b24">
             <constraints>
               <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -660,7 +660,7 @@
               </model>
             </properties>
           </component>
-          <component id="4bf14" class="javax.swing.JComboBox" default-binding="true">
+          <component id="4bf14" class="javax.swing.JComboBox" binding="b25">
             <constraints>
               <grid row="7" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -675,7 +675,7 @@
               </model>
             </properties>
           </component>
-          <component id="127de" class="javax.swing.JComboBox" default-binding="true">
+          <component id="127de" class="javax.swing.JComboBox" binding="b23">
             <constraints>
               <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -690,7 +690,7 @@
               </model>
             </properties>
           </component>
-          <component id="c8c6b" class="javax.swing.JComboBox" default-binding="true">
+          <component id="c8c6b" class="javax.swing.JComboBox" binding="b22">
             <constraints>
               <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -889,7 +889,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="93416" class="javax.swing.JComboBox" default-binding="true">
+          <component id="93416" class="javax.swing.JComboBox" binding="f16">
             <constraints>
               <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -905,7 +905,7 @@
               </model>
             </properties>
           </component>
-          <component id="791e3" class="javax.swing.JComboBox" default-binding="true">
+          <component id="791e3" class="javax.swing.JComboBox" binding="f11">
             <constraints>
               <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -922,7 +922,7 @@
               </model>
             </properties>
           </component>
-          <component id="7c057" class="javax.swing.JComboBox" default-binding="true">
+          <component id="7c057" class="javax.swing.JComboBox" binding="f14">
             <constraints>
               <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -938,7 +938,7 @@
               </model>
             </properties>
           </component>
-          <component id="66c3a" class="javax.swing.JComboBox" default-binding="true">
+          <component id="66c3a" class="javax.swing.JComboBox" binding="f15">
             <constraints>
               <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -954,7 +954,7 @@
               </model>
             </properties>
           </component>
-          <component id="a2350" class="javax.swing.JComboBox" default-binding="true">
+          <component id="a2350" class="javax.swing.JComboBox" binding="f13">
             <constraints>
               <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -970,7 +970,7 @@
               </model>
             </properties>
           </component>
-          <component id="2625" class="javax.swing.JComboBox" default-binding="true">
+          <component id="2625" class="javax.swing.JComboBox" binding="f12">
             <constraints>
               <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -986,7 +986,7 @@
               </model>
             </properties>
           </component>
-          <component id="f13a8" class="javax.swing.JComboBox" default-binding="true">
+          <component id="f13a8" class="javax.swing.JComboBox" binding="f26">
             <constraints>
               <grid row="8" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1001,7 +1001,7 @@
               </model>
             </properties>
           </component>
-          <component id="3e032" class="javax.swing.JComboBox" default-binding="true">
+          <component id="3e032" class="javax.swing.JComboBox" binding="f21">
             <constraints>
               <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1017,7 +1017,7 @@
               </model>
             </properties>
           </component>
-          <component id="e89b6" class="javax.swing.JComboBox" default-binding="true">
+          <component id="e89b6" class="javax.swing.JComboBox" binding="f24">
             <constraints>
               <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1032,7 +1032,7 @@
               </model>
             </properties>
           </component>
-          <component id="d9ee1" class="javax.swing.JComboBox" default-binding="true">
+          <component id="d9ee1" class="javax.swing.JComboBox" binding="f25">
             <constraints>
               <grid row="7" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1047,7 +1047,7 @@
               </model>
             </properties>
           </component>
-          <component id="d6525" class="javax.swing.JComboBox" default-binding="true">
+          <component id="d6525" class="javax.swing.JComboBox" binding="f23">
             <constraints>
               <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1062,7 +1062,7 @@
               </model>
             </properties>
           </component>
-          <component id="44986" class="javax.swing.JComboBox" default-binding="true">
+          <component id="44986" class="javax.swing.JComboBox" binding="f22">
             <constraints>
               <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1261,7 +1261,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="5fe7" class="javax.swing.JComboBox" default-binding="true">
+          <component id="5fe7" class="javax.swing.JComboBox" binding="bb16">
             <constraints>
               <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1277,7 +1277,7 @@
               </model>
             </properties>
           </component>
-          <component id="65a6c" class="javax.swing.JComboBox" default-binding="true">
+          <component id="65a6c" class="javax.swing.JComboBox" binding="bb11">
             <constraints>
               <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1294,7 +1294,7 @@
               </model>
             </properties>
           </component>
-          <component id="90ce7" class="javax.swing.JComboBox" default-binding="true">
+          <component id="90ce7" class="javax.swing.JComboBox" binding="bb14">
             <constraints>
               <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1310,7 +1310,7 @@
               </model>
             </properties>
           </component>
-          <component id="bdbe0" class="javax.swing.JComboBox" default-binding="true">
+          <component id="bdbe0" class="javax.swing.JComboBox" binding="bb15">
             <constraints>
               <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1326,7 +1326,7 @@
               </model>
             </properties>
           </component>
-          <component id="f3cbe" class="javax.swing.JComboBox" default-binding="true">
+          <component id="f3cbe" class="javax.swing.JComboBox" binding="bb13">
             <constraints>
               <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1342,7 +1342,7 @@
               </model>
             </properties>
           </component>
-          <component id="c7fd1" class="javax.swing.JComboBox" default-binding="true">
+          <component id="c7fd1" class="javax.swing.JComboBox" binding="bb12">
             <constraints>
               <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1358,7 +1358,7 @@
               </model>
             </properties>
           </component>
-          <component id="40df4" class="javax.swing.JComboBox" default-binding="true">
+          <component id="40df4" class="javax.swing.JComboBox" binding="bb26">
             <constraints>
               <grid row="8" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1373,7 +1373,7 @@
               </model>
             </properties>
           </component>
-          <component id="d5128" class="javax.swing.JComboBox" default-binding="true">
+          <component id="d5128" class="javax.swing.JComboBox" binding="bb21">
             <constraints>
               <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1389,7 +1389,7 @@
               </model>
             </properties>
           </component>
-          <component id="e465d" class="javax.swing.JComboBox" default-binding="true">
+          <component id="e465d" class="javax.swing.JComboBox" binding="bb24">
             <constraints>
               <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1404,7 +1404,7 @@
               </model>
             </properties>
           </component>
-          <component id="e314a" class="javax.swing.JComboBox" default-binding="true">
+          <component id="e314a" class="javax.swing.JComboBox" binding="bb25">
             <constraints>
               <grid row="7" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1419,7 +1419,7 @@
               </model>
             </properties>
           </component>
-          <component id="cb357" class="javax.swing.JComboBox" default-binding="true">
+          <component id="cb357" class="javax.swing.JComboBox" binding="bb23">
             <constraints>
               <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1434,7 +1434,7 @@
               </model>
             </properties>
           </component>
-          <component id="4dbac" class="javax.swing.JComboBox" default-binding="true">
+          <component id="4dbac" class="javax.swing.JComboBox" binding="bb22">
             <constraints>
               <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1686,7 +1686,7 @@
               <text value="FLOORS"/>
             </properties>
           </component>
-          <component id="9c97" class="javax.swing.JComboBox" binding="comboBox9" default-binding="true">
+          <component id="9c97" class="javax.swing.JComboBox" binding="j11">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1701,7 +1701,7 @@
               </model>
             </properties>
           </component>
-          <component id="e5f3" class="javax.swing.JComboBox" binding="comboBox10" default-binding="true">
+          <component id="e5f3" class="javax.swing.JComboBox" binding="j21">
             <constraints>
               <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1716,7 +1716,7 @@
               </model>
             </properties>
           </component>
-          <component id="49841" class="javax.swing.JComboBox" binding="comboBox11" default-binding="true">
+          <component id="49841" class="javax.swing.JComboBox" binding="j31">
             <constraints>
               <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1731,7 +1731,7 @@
               </model>
             </properties>
           </component>
-          <component id="4af35" class="javax.swing.JComboBox" binding="comboBox12" default-binding="true">
+          <component id="4af35" class="javax.swing.JComboBox" binding="j41">
             <constraints>
               <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1746,7 +1746,7 @@
               </model>
             </properties>
           </component>
-          <component id="f1fad" class="javax.swing.JComboBox" default-binding="true">
+          <component id="f1fad" class="javax.swing.JComboBox" binding="j12">
             <constraints>
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1761,7 +1761,7 @@
               </model>
             </properties>
           </component>
-          <component id="6bb8e" class="javax.swing.JComboBox" default-binding="true">
+          <component id="6bb8e" class="javax.swing.JComboBox" binding="j13">
             <constraints>
               <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1776,7 +1776,7 @@
               </model>
             </properties>
           </component>
-          <component id="89f03" class="javax.swing.JComboBox" default-binding="true">
+          <component id="89f03" class="javax.swing.JComboBox" binding="j14">
             <constraints>
               <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1791,7 +1791,7 @@
               </model>
             </properties>
           </component>
-          <component id="30b2e" class="javax.swing.JComboBox" default-binding="true">
+          <component id="30b2e" class="javax.swing.JComboBox" binding="j15">
             <constraints>
               <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1806,7 +1806,7 @@
               </model>
             </properties>
           </component>
-          <component id="7e416" class="javax.swing.JComboBox" default-binding="true">
+          <component id="7e416" class="javax.swing.JComboBox" binding="j16">
             <constraints>
               <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1821,7 +1821,7 @@
               </model>
             </properties>
           </component>
-          <component id="5a9e9" class="javax.swing.JComboBox" default-binding="true">
+          <component id="5a9e9" class="javax.swing.JComboBox" binding="j22">
             <constraints>
               <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1836,7 +1836,7 @@
               </model>
             </properties>
           </component>
-          <component id="79789" class="javax.swing.JComboBox" default-binding="true">
+          <component id="79789" class="javax.swing.JComboBox" binding="j23">
             <constraints>
               <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1851,7 +1851,7 @@
               </model>
             </properties>
           </component>
-          <component id="1836" class="javax.swing.JComboBox" default-binding="true">
+          <component id="1836" class="javax.swing.JComboBox" binding="j24">
             <constraints>
               <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1866,7 +1866,7 @@
               </model>
             </properties>
           </component>
-          <component id="1e01" class="javax.swing.JComboBox" default-binding="true">
+          <component id="1e01" class="javax.swing.JComboBox" binding="j25">
             <constraints>
               <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1881,7 +1881,7 @@
               </model>
             </properties>
           </component>
-          <component id="6cdc2" class="javax.swing.JComboBox" default-binding="true">
+          <component id="6cdc2" class="javax.swing.JComboBox" binding="j26">
             <constraints>
               <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1896,7 +1896,7 @@
               </model>
             </properties>
           </component>
-          <component id="5f390" class="javax.swing.JComboBox" default-binding="true">
+          <component id="5f390" class="javax.swing.JComboBox" binding="j32">
             <constraints>
               <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1911,7 +1911,7 @@
               </model>
             </properties>
           </component>
-          <component id="98fd8" class="javax.swing.JComboBox" default-binding="true">
+          <component id="98fd8" class="javax.swing.JComboBox" binding="j33">
             <constraints>
               <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1926,7 +1926,7 @@
               </model>
             </properties>
           </component>
-          <component id="2e1b5" class="javax.swing.JComboBox" default-binding="true">
+          <component id="2e1b5" class="javax.swing.JComboBox" binding="j34">
             <constraints>
               <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1941,7 +1941,7 @@
               </model>
             </properties>
           </component>
-          <component id="1cccf" class="javax.swing.JComboBox" default-binding="true">
+          <component id="1cccf" class="javax.swing.JComboBox" binding="j35">
             <constraints>
               <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1956,7 +1956,7 @@
               </model>
             </properties>
           </component>
-          <component id="232fa" class="javax.swing.JComboBox" default-binding="true">
+          <component id="232fa" class="javax.swing.JComboBox" binding="j36">
             <constraints>
               <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1971,7 +1971,7 @@
               </model>
             </properties>
           </component>
-          <component id="beb1b" class="javax.swing.JComboBox" default-binding="true">
+          <component id="beb1b" class="javax.swing.JComboBox" binding="j42">
             <constraints>
               <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1986,7 +1986,7 @@
               </model>
             </properties>
           </component>
-          <component id="a549e" class="javax.swing.JComboBox" default-binding="true">
+          <component id="a549e" class="javax.swing.JComboBox" binding="j43">
             <constraints>
               <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -2001,7 +2001,7 @@
               </model>
             </properties>
           </component>
-          <component id="4364b" class="javax.swing.JComboBox" default-binding="true">
+          <component id="4364b" class="javax.swing.JComboBox" binding="j44">
             <constraints>
               <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -2016,7 +2016,7 @@
               </model>
             </properties>
           </component>
-          <component id="d4603" class="javax.swing.JComboBox" default-binding="true">
+          <component id="d4603" class="javax.swing.JComboBox" binding="j45">
             <constraints>
               <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -2031,7 +2031,7 @@
               </model>
             </properties>
           </component>
-          <component id="c0d99" class="javax.swing.JComboBox" default-binding="true">
+          <component id="c0d99" class="javax.swing.JComboBox" binding="j46">
             <constraints>
               <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>

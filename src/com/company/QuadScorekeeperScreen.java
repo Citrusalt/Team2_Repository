@@ -17,6 +17,7 @@ public class QuadScorekeeperScreen {
         frame.setVisible(true);
 
         QuadArenaScreen myQuadArenaScreen = new QuadArenaScreen(gC);
+        myQuadArenaScreen.getFrame().setVisible(true);
 
 
         //card layout start
@@ -144,6 +145,10 @@ public class QuadScorekeeperScreen {
                     scoreArray[3] = Integer.parseInt(j14.getText());
                     scoreArray[4] = Integer.parseInt(j15.getText());
                     scoreArray[5] = Integer.parseInt(j16.getText());
+
+                    //Update Arena Screen Flash
+                    updateColor(1, myQuadArenaScreen);
+
                 } catch (Exception exception) {
 
                     System.out.println(exception);
@@ -163,11 +168,188 @@ public class QuadScorekeeperScreen {
                     scoreArray[3] = Integer.parseInt(j24.getText());
                     scoreArray[4] = Integer.parseInt(j25.getText());
                     scoreArray[5] = Integer.parseInt(j26.getText());
+
+                    //Update Arena Screen Flash
+                    updateColor(2, myQuadArenaScreen);
+
                 } catch (Exception exception) {
 
                     System.out.println(exception);
                 }
 
+            }
+        });
+        updateScoreButton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                float scoreArray[] = new float[6];
+                try{
+                    //Use these scores to update score for backend and arena screen
+                    scoreArray[0] = Integer.parseInt(j21.getText());
+                    scoreArray[1] = Integer.parseInt(j22.getText());
+                    scoreArray[2] = Integer.parseInt(j23.getText());
+                    scoreArray[3] = Integer.parseInt(j24.getText());
+                    scoreArray[4] = Integer.parseInt(j25.getText());
+                    scoreArray[5] = Integer.parseInt(j26.getText());
+
+                    //Update Arena Screen Flash
+                    updateColor(3, myQuadArenaScreen);
+
+                } catch (Exception exception) {
+
+                    System.out.println(exception);
+                }
+
+            }
+        });
+        updateScoreButton4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                float scoreArray[] = new float[6];
+                try{
+                    //Use these scores to update score for backend and arena screen
+                    scoreArray[0] = Integer.parseInt(j21.getText());
+                    scoreArray[1] = Integer.parseInt(j22.getText());
+                    scoreArray[2] = Integer.parseInt(j23.getText());
+                    scoreArray[3] = Integer.parseInt(j24.getText());
+                    scoreArray[4] = Integer.parseInt(j25.getText());
+                    scoreArray[5] = Integer.parseInt(j26.getText());
+
+                    //Update Arena Screen Flash
+                    updateColor(4, myQuadArenaScreen);
+
+                } catch (Exception exception) {
+
+                    System.out.println(exception);
+                }
+
+            }
+        });
+        timerCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myQuadArenaScreen.clockLabel1.setVisible(true);
+                    myQuadArenaScreen.clockLabel2.setVisible(true);
+                    myQuadArenaScreen.clockLabel3.setVisible(true);
+                    myQuadArenaScreen.clockLabel4.setVisible(true);
+                }
+                else{
+                    myQuadArenaScreen.clockLabel1.setVisible(false);
+                    myQuadArenaScreen.clockLabel2.setVisible(false);
+                    myQuadArenaScreen.clockLabel3.setVisible(false);
+                    myQuadArenaScreen.clockLabel4.setVisible(false);
+                }
+            }
+        });
+        gymnastNameCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                     myQuadArenaScreen.name1.setVisible(true);
+                    myQuadArenaScreen.name2.setVisible(true);
+                    myQuadArenaScreen.name3.setVisible(true);
+                    myQuadArenaScreen.name4.setVisible(true);
+                }
+                else{
+                    myQuadArenaScreen.name1.setVisible(false);
+                    myQuadArenaScreen.name2.setVisible(false);
+                    myQuadArenaScreen.name3.setVisible(false);
+                    myQuadArenaScreen.name4.setVisible(false);
+                }
+            }
+        });
+        gymnastMajorCheckBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myQuadArenaScreen.major1.setVisible(true);
+                    myQuadArenaScreen.major2.setVisible(true);
+                    myQuadArenaScreen.major3.setVisible(true);
+                    myQuadArenaScreen.major4.setVisible(true);
+                }
+                else{
+                    myQuadArenaScreen.major1.setVisible(false);
+                    myQuadArenaScreen.major2.setVisible(false);
+                    myQuadArenaScreen.major3.setVisible(false);
+                    myQuadArenaScreen.major4.setVisible(false);
+                }
+            }
+        });
+        gymnastYearCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myQuadArenaScreen.year1.setVisible(true);
+                    myQuadArenaScreen.year2.setVisible(true);
+                    myQuadArenaScreen.year3.setVisible(true);
+                    myQuadArenaScreen.year4.setVisible(true);
+                }
+                else{
+                    myQuadArenaScreen.year1.setVisible(false);
+                    myQuadArenaScreen.year2.setVisible(false);
+                    myQuadArenaScreen.year3.setVisible(false);
+                    myQuadArenaScreen.year4.setVisible(false);
+                }
+            }
+        });
+        gymnastavgCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myQuadArenaScreen.appAvg1.setVisible(true);
+                    myQuadArenaScreen.appAvg2.setVisible(true);
+                    myQuadArenaScreen.appAvg3.setVisible(true);
+                    myQuadArenaScreen.appAvg4.setVisible(true);
+                }
+                else{
+                    myQuadArenaScreen.appAvg4.setVisible(false);
+                    myQuadArenaScreen.appAvg2.setVisible(false);
+                    myQuadArenaScreen.appAvg3.setVisible(false);
+                    myQuadArenaScreen.appAvg4.setVisible(false);
+                }
+            }
+        });
+        gymnastScoreCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myQuadArenaScreen.score1.setVisible(true);
+                    myQuadArenaScreen.score2.setVisible(true);
+                    myQuadArenaScreen.score3.setVisible(true);
+                    myQuadArenaScreen.score4.setVisible(true);
+                }
+                else{
+                    myQuadArenaScreen.score1.setVisible(false);
+                    myQuadArenaScreen.score2.setVisible(false);
+                    myQuadArenaScreen.score3.setVisible(false);
+                    myQuadArenaScreen.score4.setVisible(false);
+                }
+            }
+        });
+        gymnastPictureLogo.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myQuadArenaScreen.pic1.setVisible(true);
+                    myQuadArenaScreen.pic2.setVisible(true);
+                    myQuadArenaScreen.pic3.setVisible(true);
+                    myQuadArenaScreen.pic4.setVisible(true);
+                }
+                else{
+                    myQuadArenaScreen.pic1.setVisible(false);
+                    myQuadArenaScreen.pic2.setVisible(false);
+                    myQuadArenaScreen.pic3.setVisible(false);
+                    myQuadArenaScreen.pic4.setVisible(false);
+                }
+            }
+        });
+        teamLogoCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                //team logo logic here
             }
         });
     }
@@ -309,16 +491,60 @@ public class QuadScorekeeperScreen {
 
     }
 
+    private void updateColor(int selectedUpdate, QuadArenaScreen q){
+        switch(selectedUpdate) {
+            case 1:
+                q.score1.setForeground(Color.RED);
+                q.score2.setForeground(defaultColor);
+                q.score3.setForeground(defaultColor);
+                q.score4.setForeground(defaultColor);
+                q.overall1.setForeground(Color.RED);
+                q.overall2.setForeground(defaultColor);
+                q.overall3.setForeground(defaultColor);
+                q.overall4.setForeground(defaultColor);
 
+                break;
+            case 2:
+                q.score1.setForeground(defaultColor);
+                q.score2.setForeground(Color.RED);
+                q.score3.setForeground(defaultColor);
+                q.score4.setForeground(defaultColor);
+                q.overall1.setForeground(defaultColor);
+                q.overall2.setForeground(Color.RED);
+                q.overall3.setForeground(defaultColor);
+                q.overall4.setForeground(defaultColor);
+                break;
+            case 3:
+                q.score1.setForeground(defaultColor);
+                q.score2.setForeground(defaultColor);
+                q.score3.setForeground(Color.RED);
+                q.score4.setForeground(defaultColor);
+                q.overall1.setForeground(defaultColor);
+                q.overall2.setForeground(defaultColor);
+                q.overall3.setForeground(Color.RED);
+                q.overall4.setForeground(defaultColor);
+                break;
+            case 4:
+                q.score1.setForeground(defaultColor);
+                q.score2.setForeground(defaultColor);
+                q.score3.setForeground(defaultColor);
+                q.score4.setForeground(Color.RED);
+                q.overall1.setForeground(defaultColor);
+                q.overall2.setForeground(defaultColor);
+                q.overall3.setForeground(defaultColor);
+                q.overall4.setForeground(Color.RED);
+                break;
+        }
+    }
 
     private int rotation = 1;
 
 
+    private Color defaultColor = new Color(51, 51, 51); //default font color
 
     private JPanel mainPanel;
     private JPanel customizeScreen;
     private JButton defaultTemplateButton;
-    private JButton customizeArenaButton;
     private JCheckBox gymnastMajorCheckBox;
     private JPanel quadScorekeeperScreen;
     private JLabel rotationLabel;
@@ -375,5 +601,16 @@ public class QuadScorekeeperScreen {
     private JLabel team3Name;
     private JLabel team4Name;
     private JButton editLineupButton;
+    private JCheckBox gymnastNameCheckbox;
+    private JCheckBox gymnastYearCheckbox;
+    private JCheckBox gymnastavgCheckbox;
+    private JCheckBox teamLogoCheckbox;
+    private JCheckBox gymnastPictureLogo;
+    private JCheckBox gymnastScoreCheckbox;
+    private JCheckBox timerCheckbox;
+    private JTextField nD1;
+    private JTextField nD2;
+    private JTextField nD3;
+    private JTextField nD4;
     private CardLayout cardLayout;
 }

@@ -17,5 +17,8 @@ public class DatabaseManagerTester {
         System.out.println("This is from reading from the Database: " + testTeam.get(0).getTeamName());
         Player cz = new Player("Cole", "Senior", "CompSci",99);
 
+        sampleTeam.printAll();
+        sampleTeam.rearrangePlayerList(sampleTeam.getBarGymnasts().get(5), 2, ApparatusIndex.UB);
+        sampleTeam.printAll();
     }
 }
