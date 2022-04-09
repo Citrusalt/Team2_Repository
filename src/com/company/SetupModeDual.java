@@ -21,7 +21,7 @@ public class SetupModeDual {
 
         //create summary screen tables
         //This will later be placed in the Judges next button action listener most likely
-        gC.createTeamTable(vaultTable, vaultModel, vaultRenderer, headerFont, 2 );
+        gC.createTeamTable(vaultTable, vaultModel, vaultRenderer, headerFont, 2);
         gC.createTeamTable(barsTable, barsModel, barsRenderer,headerFont , 2);
         gC.createTeamTable(beamTable, beamModel, beamRenderer, headerFont, 2);
         gC.createTeamTable(floorTable, floorModel, floorRenderer, headerFont, 2);
@@ -51,6 +51,7 @@ public class SetupModeDual {
                 //This verifies if the user selected a valid item
                 Object homeTeam = comboBox7.getSelectedItem();
                 Object visitorTeam = comboBox8.getSelectedItem();
+
                 //Assuming that index 0 is default label for the comboBox
                 if(comboBox7.getSelectedIndex() == 0 || comboBox8.getSelectedIndex() == 0 ){
                     JOptionPane.showMessageDialog(null, "Please Select a Valid Team.");
@@ -63,37 +64,44 @@ public class SetupModeDual {
                 }
             }
         });
-        createTeamButton.addActionListener(e -> {
-                CreateTeamScreen myTeamScreen = new CreateTeamScreen(); //instantiate createTeamScreen Class
-                myTeamScreen.createTeamScreen(); //call constructor     //
+        createTeamButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    CreateTeamScreen myTeamScreen = new CreateTeamScreen(); //instantiate createTeamScreen Class
+                    myTeamScreen.createTeamScreen(); //call constructor     //
+            }
         });
         vaultNextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                Object[] team1 = {
-//                        v11.getSelectedItem(),
-//                        v12.getSelectedItem(),
-//                        v13.getSelectedItem(),
-//                        v14.getSelectedItem(),
-//                        v15.getSelectedItem(),
-//                        v16.getSelectedItem(),
-//                };
-//                Object[] team2 = {
-//                        v21.getSelectedItem(),
-//                        v22.getSelectedItem(),
-//                        v23.getSelectedItem(),
-//                        v24.getSelectedItem(),
-//                        v25.getSelectedItem(),
-//                        v26.getSelectedItem(),
-//                };
-//                if (gC.checkUnique(team1) && gC.checkUnique(team2)) {
-//                    changeCard("SelectBarCard");
-//                }
-//                else{
-//                    JOptionPane.showMessageDialog(null, "Team members cannot be the same. Try Again.");
-//                }
-                changeCard("SelectBarCard");
+                boolean errorThrown = false;
 
+                Object gymnast1 = comboBox1.getSelectedItem();
+                Object gymnast2 = comboBox2.getSelectedItem();
+                Object gymnast3 = comboBox3.getSelectedItem();
+                Object gymnast4 = comboBox4.getSelectedItem();
+                Object gymnast5 = comboBox5.getSelectedItem();
+                Object gymnast6 = comboBox6.getSelectedItem();
+
+                String[] gyms = {gymnast1.toString(), gymnast2.toString(), gymnast3.toString(), gymnast4.toString(), gymnast5.toString(), gymnast6.toString()};
+
+                for(int i = 0; i < gyms.length - 1; i++){
+                    for(int j = i+1; j < gyms.length; j++)
+                    {
+                        if (!gyms[i].equals("Select Gymnast") && gyms[i].equals(gyms[j]))
+                        {
+                            //throw error
+                            errorThrown = true;
+                            JOptionPane.showMessageDialog(null, "Gymnasts cannot compete more than once per apparatus.");
+                        }
+                    }
+
+                }
+
+                if(!errorThrown)
+                {
+                    changeCard("SelectBarCard");
+                }
             }
         });
         vaultBackButton.addActionListener(new ActionListener() {
@@ -111,28 +119,6 @@ public class SetupModeDual {
         barsNextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                Object[] team1 = {
-//                        b11.getSelectedItem(),
-//                        b12.getSelectedItem(),
-//                        b13.getSelectedItem(),
-//                        b14.getSelectedItem(),
-//                        b15.getSelectedItem(),
-//                        b16.getSelectedItem(),
-//                };
-//                Object[] team2 = {
-//                        b21.getSelectedItem(),
-//                        b22.getSelectedItem(),
-//                        b23.getSelectedItem(),
-//                        b24.getSelectedItem(),
-//                        b25.getSelectedItem(),
-//                        b26.getSelectedItem(),
-//                };
-//                if (gC.checkUnique(team1) && gC.checkUnique(team2)) {
-//                    changeCard("SelectBalanceBeamCard");
-//                }
-//                else{
-//                    JOptionPane.showMessageDialog(null, "Team members cannot be the same. Try Again.");
-//                }
                 changeCard("SelectBalanceBeamCard");
             }
         });
@@ -145,28 +131,6 @@ public class SetupModeDual {
         balanceBeamNextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                Object[] team1 = {
-//                        bb11.getSelectedItem(),
-//                        bb12.getSelectedItem(),
-//                        bb13.getSelectedItem(),
-//                        bb14.getSelectedItem(),
-//                        bb15.getSelectedItem(),
-//                        bb16.getSelectedItem(),
-//                };
-//                Object[] team2 = {
-//                        bb21.getSelectedItem(),
-//                        bb22.getSelectedItem(),
-//                        bb23.getSelectedItem(),
-//                        bb24.getSelectedItem(),
-//                        bb25.getSelectedItem(),
-//                        bb26.getSelectedItem(),
-//                };
-//                if (gC.checkUnique(team1) && gC.checkUnique(team2)) {
-//                    changeCard("SelectFloorCard");
-//                }
-//                else{
-//                    JOptionPane.showMessageDialog(null, "Team members cannot be the same. Try Again.");
-//                }
                 changeCard("SelectFloorCard");
             }
         });
@@ -179,29 +143,6 @@ public class SetupModeDual {
         floorNextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-//                Object[] team1 = {
-//                        f11.getSelectedItem(),
-//                        f12.getSelectedItem(),
-//                        f13.getSelectedItem(),
-//                        f14.getSelectedItem(),
-//                        f15.getSelectedItem(),
-//                        f16.getSelectedItem(),
-//                };
-//                Object[] team2 = {
-//                        f21.getSelectedItem(),
-//                        f22.getSelectedItem(),
-//                        f23.getSelectedItem(),
-//                        f24.getSelectedItem(),
-//                        f25.getSelectedItem(),
-//                        f26.getSelectedItem(),
-//                };
-//                if (gC.checkUnique(team1) && gC.checkUnique(team2)) {
-//                    changeCard("SelectJudgesCard");
-//                }
-//                else{
-//                    JOptionPane.showMessageDialog(null, "Team members cannot be the same. Try Again.");
-//                }
                 changeCard("SelectJudgesCard");
             }
         });
@@ -213,48 +154,7 @@ public class SetupModeDual {
         });
         judgesNextButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-//                Object[] vaultJudges = {
-//                        j11.getSelectedItem(),
-//                        j12.getSelectedItem(),
-//                        j13.getSelectedItem(),
-//                        j14.getSelectedItem(),
-//                        j15.getSelectedItem(),
-//                        j16.getSelectedItem(),
-//                };
-//                Object[] barJudges = {
-//                        j21.getSelectedItem(),
-//                        j22.getSelectedItem(),
-//                        j23.getSelectedItem(),
-//                        j24.getSelectedItem(),
-//                        j25.getSelectedItem(),
-//                        j26.getSelectedItem(),
-//                };
-//                Object[] beamJudges = {
-//                        j31.getSelectedItem(),
-//                        j32.getSelectedItem(),
-//                        j33.getSelectedItem(),
-//                        j34.getSelectedItem(),
-//                        j35.getSelectedItem(),
-//                        j36.getSelectedItem(),
-//                };
-//                Object[] floorJudges = {
-//                        j41.getSelectedItem(),
-//                        j42.getSelectedItem(),
-//                        j43.getSelectedItem(),
-//                        j44.getSelectedItem(),
-//                        j45.getSelectedItem(),
-//                        j46.getSelectedItem(),
-//                };
-//                if (gC.checkUnique(vaultJudges) && gC.checkUnique(barJudges) && gC.checkUnique(beamJudges) && gC.checkUnique(floorJudges)) {
-//                    changeCard("SummaryCard");
-//                }
-//                else{
-//                    JOptionPane.showMessageDialog(null, "Judges cannot be the same. Try Again.");
-//                }
-
-                changeCard("SummaryCard");
-            }
+            public void actionPerformed(ActionEvent e) {changeCard("SummaryCard");}
         });
         vaultEditButton.addActionListener(new ActionListener() {
             @Override
@@ -299,6 +199,7 @@ public class SetupModeDual {
     public void changeCard(String cardName){
         cardLayout.show(mainPanel, cardName);
     }
+
 
 
 
@@ -398,12 +299,12 @@ public class SetupModeDual {
     private JButton quadrangularButton;
     private CardLayout cardLayout;
     private JPanel setupVault;
-    private JComboBox v16;
-    private JComboBox v11;
-    private JComboBox v14;
-    private JComboBox v15;
-    private JComboBox v13;
-    private JComboBox v12;
+    private JComboBox comboBox1;
+    private JComboBox comboBox2;
+    private JComboBox comboBox3;
+    private JComboBox comboBox4;
+    private JComboBox comboBox5;
+    private JComboBox comboBox6;
     private JButton vaultBackButton;
     private JButton meetTemplateBackButton;
     private JComboBox comboBox7;
@@ -424,10 +325,10 @@ public class SetupModeDual {
     private JButton floorNextButton;
     private JPanel selectJudges;
     private JButton judgesBackButton;
-    private JComboBox j11;
-    private JComboBox j21;
-    private JComboBox j31;
-    private JComboBox j41;
+    private JComboBox comboBox9;
+    private JComboBox comboBox10;
+    private JComboBox comboBox11;
+    private JComboBox comboBox12;
     private JButton judgesNextButton;
     private JPanel summaryScreen;
     private JButton summaryContinueButton;
@@ -442,68 +343,6 @@ public class SetupModeDual {
     private JTable beamTable;
     private JTable floorTable;
     private JTable judgesTable;
-    private JComboBox v21;
-    private JComboBox v22;
-    private JComboBox v23;
-    private JComboBox v24;
-    private JComboBox v25;
-    private JComboBox v26;
-    private JComboBox b11;
-    private JComboBox b12;
-    private JComboBox b13;
-    private JComboBox b14;
-    private JComboBox b15;
-    private JComboBox b16;
-    private JComboBox b21;
-    private JComboBox b22;
-    private JComboBox b23;
-    private JComboBox b24;
-    private JComboBox b25;
-    private JComboBox b26;
-    private JComboBox bb11;
-    private JComboBox bb12;
-    private JComboBox bb13;
-    private JComboBox bb14;
-    private JComboBox bb15;
-    private JComboBox bb16;
-    private JComboBox bb21;
-    private JComboBox bb22;
-    private JComboBox bb23;
-    private JComboBox bb24;
-    private JComboBox bb25;
-    private JComboBox bb26;
-    private JComboBox f11;
-    private JComboBox f12;
-    private JComboBox f13;
-    private JComboBox f14;
-    private JComboBox f15;
-    private JComboBox f16;
-    private JComboBox f21;
-    private JComboBox f22;
-    private JComboBox f23;
-    private JComboBox f24;
-    private JComboBox f25;
-    private JComboBox f26;
-    private JComboBox j12;
-    private JComboBox j13;
-    private JComboBox j14;
-    private JComboBox j15;
-    private JComboBox j16;
-    private JComboBox j22;
-    private JComboBox j23;
-    private JComboBox j24;
-    private JComboBox j25;
-    private JComboBox j26;
-    private JComboBox j32;
-    private JComboBox j33;
-    private JComboBox j34;
-    private JComboBox j35;
-    private JComboBox j36;
-    private JComboBox j42;
-    private JComboBox j43;
-    private JComboBox j44;
-    private JComboBox j45;
-    private JComboBox j46;
     private JTextField clockTextField;
     private JButton startTimerButton;
     private JButton resetTimerButton;

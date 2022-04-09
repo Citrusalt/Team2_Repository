@@ -1,19 +1,17 @@
 package com.company;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * This class will contain all gymnasts for each team (college).
  * Note: The Apparatus list has the players already arranged by order.
  */
 
-public class Team implements Serializable {
+public class Team implements Serializable, Comparable {
     private String teamName;
     private String teamLogo;                        //Contain like the path for the logo
     private List<Player> vaultGymnasts;
@@ -35,48 +33,22 @@ public class Team implements Serializable {
         this.teamScore = new TeamScore();
     }
 
-    //Method that will return the team name
+    //getters
     public String getTeamName(){return teamName;}
-
-    //Method that will return the teamLogo
     public String getTeamLogo(){return teamLogo;}
+    public List<Player> getVaultGymnasts() {return vaultGymnasts;}
+    public List<Player> getBarGymnasts() {return barGymnasts;}
+    public List<Player> getBeamGymnasts() {return beamGymnasts;}
+    public List<Player> getFloorGymnasts() {return floorGymnasts;}
+    public List<Player> getAllGymnasts() {return allGymnasts;}
+    public TeamScore getTeamScore() {return teamScore;}
 
-    public List<Player> getVaultGymnasts() {
-        return vaultGymnasts;
-    }
+    //setters
+    public void setTeamName(String teamName) {this.teamName = teamName;}
+    public void setTeamLogo(String teamLogo) {this.teamLogo = teamLogo;}
+    public void setTeamScore(TeamScore teamScore) {this.teamScore = teamScore;}
 
-    public List<Player> getBarGymnasts() {
-        return barGymnasts;
-    }
-
-    public List<Player> getBeamGymnasts() {
-        return beamGymnasts;
-    }
-
-    public List<Player> getFloorGymnasts() {
-        return floorGymnasts;
-    }
-
-    public List<Player> getAllGymnasts() {
-        return allGymnasts;
-    }
-
-    public TeamScore getTeamScore() {
-        return teamScore;
-    }
-
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
-    }
-
-    public void setTeamLogo(String teamLogo) {
-        this.teamLogo = teamLogo;
-    }
-
-    public void setTeamScore(TeamScore teamScore) {
-        this.teamScore = teamScore;
-    }
-
+    //methods
     //Method that will add players to allGymnasts. This will automatically add gymnast to the participating apparatus their in. Arrange the list by order
     public void addGymnasts(Player p){
         allGymnasts.add(p);
@@ -163,48 +135,55 @@ public class Team implements Serializable {
         });
 
     }
+
+    //method for post meet mode sorting
+    /*
+    public void sortByOverallScore(List<Team> list)
+    {
+        Collections.sort(list, new Comparator<Team>() {
+            public int compare(Team team1, Team team2){
+                if (team1.teamScore.getRunningScore() > team2.teamScore.getRunningScore())
+                {
+                    return 1;
+                }
+                if (team1.teamScore.getRunningScore() < team2.teamScore.getRunningScore())
+                {
+                    return -1;
+                }
+                return 0;
+            }
+        });
+    }
+    */
     //Method that insert a player to an order
-    //Conditions: Player has to already exist in the Team. Number of players will not change.
+    //I'M CURRENTLY WORKING ON THIS (4.4.2022)
     public void rearrangePlayerList(Player p, int order, int appIdx){
-       List<Player> temp = new ArrayList<>();         //List that will contain the updated list
-       List<Player> list = new ArrayList<>();         //List that will contain original list
-       //Populate the list with the apparatus it's at
-       switch(appIdx){
-           case 0: list = this.vaultGymnasts;break;
-           case 1: list = this.barGymnasts;break;
-           case 2: list = this.beamGymnasts;break;
-           case 3: list = this.floorGymnasts;break;
-       }
-       int tempOrder = 0;
-       list.remove(p);
-        for (int i = 0; i < list.size(); i++){
-            if(i < (order-1)) {
-                list.get(i).setApparatusOrder(appIdx, i+1);
-                temp.add(list.get(i));
-            }
-            else if(i == (order-1)){
-                p.setApparatusOrder(appIdx, order);
-                p.setApparatusStatus(appIdx);
-                temp.add(p);
-                list.get(i).setApparatusOrder(appIdx, i+2);
-                temp.add(list.get(i));
-            }else if(i > (order - 1)){
-               list.get(i).setApparatusOrder(appIdx, i+2);
-               temp.add(list.get(i));
-            }
-        }
-        if(order == (list.size()+1) && list.size() < 6){
-            p.setApparatusOrder(appIdx, order);
-            p.setApparatusStatus(appIdx);
-            temp.add(p);
-        }
-        //Repopulate the list with the apparatus it's at
-        switch(appIdx){
-            case 0: this.vaultGymnasts = temp;break;
-            case 1: this.barGymnasts = temp;break;
-            case 2: this.beamGymnasts = temp;break;
-            case 3: this.floorGymnasts = temp;break;
-        }
+//       List<Player> temp = new ArrayList<>();
+//       List<Player> list = new ArrayList<>();
+//       int indexWant = list.size();
+//       switch(appIdx){
+//           case 0: list = this.vaultGymnasts;break;
+//           case 1: list = this.barGymnasts;break;
+//           case 2: list = this.beamGymnasts;break;
+//           case 3: list = this.floorGymnasts;break;
+//       }
+//       list.remove(p);
+//       for(int i = 0; i < list.size(); i++){
+//           if(list.get(i).getApparatusOrder()[appIdx] == order){
+//               indexWant = i;
+//           }
+//       }
+//       list.subList(0,indexWant-1);
+//       list.add(p);
+//       list.add(list.subList(indexWant, list.szi))
+//
+//
+//        switch(appIdx){
+//            case 0: this.vaultGymnasts = temp;break;
+//            case 1: this.barGymnasts = temp;break;
+//            case 2: this.beamGymnasts =  temp;break;
+//            case 3: this.floorGymnasts = temp;break;
+//        }
     }
     //Prints all info. For testing only.
     public void printAll(){
@@ -235,5 +214,23 @@ public class Team implements Serializable {
         );
         System.out.println("-----------------------END--------------------------");
 
+    }
+
+    //@Override
+    public int compareTo(Team o) {
+        if (this.teamScore.getRunningScore() > o.teamScore.getRunningScore())
+        {
+            return 1;
+        }
+        if (this.teamScore.getRunningScore() < o.teamScore.getRunningScore())
+        {
+            return -1;
+        }
+        return 0;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 }

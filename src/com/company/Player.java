@@ -28,19 +28,13 @@ public class Player implements Serializable {
 
     //getters
     public String getPlayerName(){return playerName;}
-
     public String getPlayerClass(){return playerClass;}
-
     public String getPlayerMajor(){return playerMajor;}
-
     public double getPlayerAvg(){return playerAvg;}
-
     public int[] getApparatusOrder() {return apparatusOrder;}
-
     public PlayerScore getPlayerScore() {
         return playerScore;
     }
-
     public boolean getApparatusStatus(int i) {          //Passed in the index of which apparatus they want to check
         return apparatusStatus[i];
     }
@@ -49,23 +43,18 @@ public class Player implements Serializable {
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
-
     public void setPlayerClass(String playerClass) {
         this.playerClass = playerClass;
     }
-
     public void setPlayerMajor(String playerMajor) {
         this.playerMajor = playerMajor;
     }
-
     public void setPlayerAvg(double playerAvg) {
         this.playerAvg = playerAvg;
     }
-
     public void setApparatusStatus(int i){
         apparatusStatus[i] = true;
     }
-
     public void setApparatusOrder(int appIdx, int order) {
         this.apparatusOrder[appIdx] = order;
     }
