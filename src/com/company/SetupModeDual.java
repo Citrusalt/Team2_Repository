@@ -63,9 +63,16 @@ public class SetupModeDual {
                 }
             }
         });
-        createTeamButton.addActionListener(e -> {
-                CreateTeamScreen myTeamScreen = new CreateTeamScreen(); //instantiate createTeamScreen Class
-                myTeamScreen.createTeamScreen(); //call constructor     //
+        createTeamButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+//                    CreateTeamScreen myTeamScreen = new CreateTeamScreen(); //instantiate createTeamScreen Class
+//                    myTeamScreen.createTeamScreen(); //call constructor     //
+
+//                frame.dispose();
+                CreateTeamScreen2 myScreen = new CreateTeamScreen2 (); //numb of teams
+
+            }
         });
         vaultNextButton.addActionListener(new ActionListener() {
             @Override

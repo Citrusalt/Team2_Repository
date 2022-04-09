@@ -20,8 +20,14 @@ public class DatabaseManager {
     String teamDBPath;
     File teamDB;
 
+    //******** ALL OUR TEAM DATA IS HERE *******
+    List<Team> allTeams;
+    //******************************************
+
     //Constructor
     public DatabaseManager() {
+        allTeams = new ArrayList<>();
+
         //Creates the Database Directory for all Teams
         teamDBPath = System.getProperty("user.dir");
         for(int i  = 0; i < teamDBPath.length(); i++){
@@ -37,10 +43,15 @@ public class DatabaseManager {
                 System.out.println("TeamDatabase Created");
             } else {
                 System.out.println("TeamDatabase already exist");
+                allTeams = loadAllTeams();  // Loads all the teams to the allTeams list
             }
         } catch(Exception e){
             e.printStackTrace();
         }
+    }
+    //Getter for allTeams
+    public List<Team> getAllTeams() {
+        return allTeams;
     }
 
     //Method that will save EACH team into the TeamDatabase
@@ -105,4 +116,6 @@ public class DatabaseManager {
             }
         }
     }
+
+
 }
