@@ -112,5 +112,19 @@ public class GuiCreator {
         }
     }
 
+    public void createAddGymnastTable(JTable table, DefaultTableModel model, DefaultTableCellRenderer cellRenderer, Font font){
+        model.addColumn("Current Gymnasts");
+        table.setModel(model);
+        centerColumns(table, cellRenderer); //center text in table
+        table.getTableHeader().setFont(font); //messing with some table formatting
+
+        //Doesn't work right now, some conflict with gui designer
+        //teamTable.getColumnModel().getColumn(0).setPreferredWidth(10);
+    }
+    public void addRow(String firstName, String lastName, DefaultTableModel model){
+        Vector<String> row = new Vector<String>();
+        row.add (firstName + " " + lastName);
+        model.addRow(row);
+    }
 
 }

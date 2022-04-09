@@ -26,27 +26,29 @@ public class CreateTeamScreen2 extends JDialog {
                 } else {
                     //We have to check if you can add images too
                     String userInput = textField1.getText().replaceAll("\\\s", "");    //Removes whitespace of textField1
-//                    new DatabaseManager().getAllTeams().stream().forEach(
-//                            team -> {
-//                                if (team.getTeamName().toUpperCase().equals(userInput.toUpperCase())) {
-//                                    JOptionPane.showMessageDialog(null, "Team already exist");
-//                                } else {
-//                                    //Continue to add Gymnast
+                    new DatabaseManager().getAllTeams().stream().forEach(
+                            team -> {
+                                if (team.getTeamName().toUpperCase().equals(userInput.toUpperCase())) {
+                                    JOptionPane.showMessageDialog(null, "Team already exist");
+                                } else {
+                                    //Continue to add Gymnast
 //                                    JOptionPane.showMessageDialog(null, "Team does not exist");
-//                                }
-//                            }
-//                    );
-                    List<Team> temp = new DatabaseManager().getAllTeams();
-                    for(int i = 0; i < temp.size(); i++){
-                        if (temp.get(i).getTeamName().toUpperCase().equals(userInput.toUpperCase())){
-                            JOptionPane.showMessageDialog(null, "Team already exist");
-                        }else{
-                            //Continue to the Gymnast Panel!!!!!!!
-                            //Remove this OptionPane to a redirection the the addGymnast Panel
-                            JOptionPane.showMessageDialog(null, "Team does not exist");
-                        }
-
-                    }
+                                    dispose();
+                                    AddGymnasts myAddGymnasts = new AddGymnasts(); //pass in team object here through add gymnast constructor maybe?
+                                }
+                            }
+                    );
+//                    List<Team> temp = new DatabaseManager().getAllTeams();
+//                    for(int i = 0; i < temp.size(); i++){
+//                        if (temp.get(i).getTeamName().toUpperCase().equals(userInput.toUpperCase())){
+//                            JOptionPane.showMessageDialog(null, "Team already exist");
+//                        }else{
+//                            //Continue to the Gymnast Panel!!!!!!!
+//                            //Remove this OptionPane to a redirection the the addGymnast Panel
+//                            JOptionPane.showMessageDialog(null, "Team does not exist");
+//                        }
+//
+//                    }
 
                 }
             }

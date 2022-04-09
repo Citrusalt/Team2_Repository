@@ -1,50 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.company.AddGymnasts">
-  <grid id="27dc6" binding="addGymnasts" layout-manager="GridLayoutManager" row-count="8" column-count="10" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="addGymnasts" layout-manager="GridLayoutManager" row-count="13" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="10" left="10" bottom="10" right="10"/>
     <constraints>
-      <xy x="20" y="20" width="759" height="400"/>
+      <xy x="20" y="20" width="759" height="504"/>
     </constraints>
-    <properties/>
+    <properties>
+      <preferredSize width="600" height="400"/>
+    </properties>
     <border type="none"/>
     <children>
-      <grid id="dc9e3" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
-        <constraints>
-          <grid row="0" column="0" row-span="1" col-span="8" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties/>
-        <border type="none"/>
-        <children>
-          <component id="16931" class="javax.swing.JLabel" binding="teamNameLabel">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Team Name: "/>
-            </properties>
-          </component>
-          <component id="b83fe" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="*ACTUAL TEAM NAME*"/>
-            </properties>
-          </component>
-        </children>
-      </grid>
       <component id="9687a" class="javax.swing.JLabel">
         <constraints>
-          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Gymnast Student Classification:"/>
+          <text value="Year:"/>
         </properties>
       </component>
       <component id="aaee6" class="javax.swing.JLabel">
         <constraints>
-          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Last Name:"/>
@@ -52,7 +28,7 @@
       </component>
       <component id="f4e2" class="javax.swing.JLabel">
         <constraints>
-          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="First Name:"/>
@@ -60,7 +36,7 @@
       </component>
       <component id="a3026" class="javax.swing.JLabel">
         <constraints>
-          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Upload Image:"/>
@@ -68,94 +44,215 @@
       </component>
       <vspacer id="643c3">
         <constraints>
-          <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
       <component id="474b4" class="javax.swing.JButton" binding="addGymnastButton" default-binding="true">
         <constraints>
-          <grid row="7" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Add Gymnast"/>
         </properties>
       </component>
-      <component id="e8c1d" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="e8c1d" class="javax.swing.JTextField" binding="fname">
         <constraints>
-          <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="9e9ec" class="javax.swing.JTextField" binding="textField2" default-binding="true">
-        <constraints>
-          <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="628db" class="javax.swing.JTextField" binding="textField3" default-binding="true">
-        <constraints>
-          <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
         <properties>
+          <horizontalAlignment value="10"/>
+        </properties>
+      </component>
+      <component id="9e9ec" class="javax.swing.JTextField" binding="lname">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <horizontalAlignment value="10"/>
+        </properties>
+      </component>
+      <component id="628db" class="javax.swing.JTextField" binding="year">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <horizontalAlignment value="10"/>
           <text value=""/>
         </properties>
       </component>
       <component id="2ba7b" class="javax.swing.JButton" binding="browseFilesButton" default-binding="true">
         <constraints>
-          <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Browse Files"/>
         </properties>
       </component>
-      <grid id="772fa" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
+      <component id="9ae01" class="javax.swing.JLabel">
         <constraints>
-          <grid row="0" column="9" row-span="7" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font size="14"/>
+          <text value="Create Gymnast"/>
+        </properties>
+      </component>
+      <scrollpane id="864f7" binding="scrollPane">
+        <constraints>
+          <grid row="1" column="3" row-span="11" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
-          <scrollpane id="56456" binding="currentGymnastTable">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties/>
-            <border type="none"/>
-            <children>
-              <component id="361c" class="javax.swing.JTable" binding="table1" default-binding="true">
-                <constraints/>
-                <properties>
-                  <preferredScrollableViewportSize width="300" height="0"/>
-                </properties>
-              </component>
-            </children>
-          </scrollpane>
+          <component id="361c" class="javax.swing.JTable" binding="table">
+            <constraints/>
+            <properties>
+              <preferredScrollableViewportSize width="300" height="0"/>
+            </properties>
+          </component>
         </children>
-      </grid>
-      <component id="9ae01" class="javax.swing.JLabel">
+      </scrollpane>
+      <component id="d4093" class="javax.swing.JTextField" binding="major">
         <constraints>
-          <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
         </constraints>
         <properties>
-          <font size="22"/>
-          <text value="Create Gymnast"/>
+          <horizontalAlignment value="10"/>
+          <text value=""/>
         </properties>
       </component>
-      <grid id="59563" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
+      <component id="c62cb" class="javax.swing.JLabel">
         <constraints>
-          <grid row="4" column="8" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
-        <border type="none"/>
-        <children/>
-      </grid>
+        <properties>
+          <text value="Major:"/>
+        </properties>
+      </component>
+      <component id="b83fe" class="javax.swing.JLabel" binding="teamName">
+        <constraints>
+          <grid row="0" column="1" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font/>
+          <text value="*ACTUAL TEAM NAME*"/>
+        </properties>
+      </component>
+      <component id="16931" class="javax.swing.JLabel" binding="teamNameLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font/>
+          <text value="Team Name: "/>
+        </properties>
+      </component>
+      <component id="d3032" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Vault Average:"/>
+        </properties>
+      </component>
+      <component id="8d26e" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Bars Average:"/>
+        </properties>
+      </component>
+      <component id="9afdd" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Beam Average:"/>
+        </properties>
+      </component>
+      <component id="b1920" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Floor Average:"/>
+        </properties>
+      </component>
+      <component id="a043c" class="javax.swing.JTextField" binding="vaultAvg">
+        <constraints>
+          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <horizontalAlignment value="10"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="b0b55" class="javax.swing.JTextField" binding="barsAvg">
+        <constraints>
+          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <horizontalAlignment value="10"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="59deb" class="javax.swing.JTextField" binding="BeamAvg">
+        <constraints>
+          <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <horizontalAlignment value="10"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="d7fec" class="javax.swing.JTextField" binding="floorAvg">
+        <constraints>
+          <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <horizontalAlignment value="10"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="14b4c" class="javax.swing.JButton" binding="saveTeamButton" default-binding="true">
+        <constraints>
+          <grid row="12" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Save Team"/>
+        </properties>
+      </component>
+      <component id="a4edb" class="javax.swing.JLabel" binding="logoLabel">
+        <constraints>
+          <grid row="0" column="2" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font/>
+          <text value="LOGO"/>
+        </properties>
+      </component>
+      <hspacer id="8dcee">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
     </children>
   </grid>
 </form>
