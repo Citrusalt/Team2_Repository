@@ -32,42 +32,58 @@ public class TeamScore implements Serializable {
     public TeamScore() {
     }
 
-    //setters
-    public void setVaultScore(double vaultScore) {this.vaultScore =vaultScore;}
-    public void setBeamScore(double beamScore) {this.beamScore = beamScore;}
-    public void setFloorScore(double floorScore) {this.floorScore = floorScore;}
-    public void setBarScore(double barScore) {this.barScore = barScore;}
+    public void setvaultScore(double vaultScore) {
+        this.vaultScore =vaultScore;
+    }
+
+    public void setbeamScore(double beamScore) {
+        this.beamScore = beamScore;
+    }
+
+    public void setfloorScore(double floorScore) {
+        this.floorScore = floorScore;
+    }
+
+    public void setbarScore(double barScore) {
+        this.barScore = barScore;
+    }
 
 
     /*
-    updaters
-    not sure if these are necessary
-    will the score board flash for a team after each individual person? if so these might be necessary
-    */
-
+updaters
+not sure if these are necessary
+will the score board flash for a team after each individual person? if so these might be necessary
+*/
     public void updateVault(double newVaultScore) {
         this.vaultScore += newVaultScore;
     }
+
     public void updateBeam(double newBeamScore) {
         this.beamScore += newBeamScore;
     }
+
     public void updateFloor(double newFloorScore) {
         this.floorScore += newFloorScore;
     }
+
     public void updateBar(double newBarScore) {
         this.barScore += newBarScore;
     }
 
-    //getters
+//getters
+
     public double getvaultScore() {
         return this.vaultScore;
     }
+
     public double getbeamScore() {
         return this.beamScore;
     }
+
     public double getfloorScore() {
         return this.floorScore;
     }
+
     public double getbarScore() {
         return this.barScore;
     }
