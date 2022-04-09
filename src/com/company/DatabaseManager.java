@@ -48,7 +48,6 @@ public class DatabaseManager {
         } catch(Exception e){
             e.printStackTrace();
         }
-
     }
     //Getter for allTeams
     public List<Team> getAllTeams() {
