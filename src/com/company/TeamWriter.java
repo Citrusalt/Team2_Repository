@@ -17,7 +17,8 @@ public class TeamWriter {
             FileWriter writer = new FileWriter(teamName + ".txt", true);
 
             for ( int i = 0;  i < myPlayerList.size(); i++){
-                writer.write(myPlayerList.get(i).getPlayerName()+ ", ");
+                writer.write(myPlayerList.get(i).getPlayerfName()+ ", ");
+                writer.write(myPlayerList.get(i).getPlayerlName()+ ", ");
                 writer.write(myPlayerList.get(i).getPlayerClass() + ", ");
                 writer.write(myPlayerList.get(i).getPlayerMajor() + ", ");
                 writer.write(myPlayerList.get(i).getPlayerAvg() + "\r\n");

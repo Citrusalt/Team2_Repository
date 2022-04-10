@@ -13,12 +13,10 @@ public class DatabaseManagerTester {
         Team sampleTeam = t.team2;        //The sample class is in the first index of the list
         System.out.println("This is the class from the TeamTester: " + sampleTeam.getTeamName());
         d.saveTeam(sampleTeam);
-        List<Team> testTeam = d.loadAllTeams();     //Reads from the Database
-        System.out.println("This is from reading from the Database: " + testTeam.get(0).getTeamName());
-        Player cz = new Player("Cole", "Senior", "CompSci",99);
+        List<Team> testTeam = d.getAllTeams();     //Reads from the Database
+        System.out.println("Size of the list:" + d.getAllTeams().size());
+        Player cz = new Player("Cole", "Zandy","Senior", "CompSci",99);
+        testTeam.get(0).getAllGymnasts().get(0).printAll();
 
-        sampleTeam.printAll();
-        sampleTeam.rearrangePlayerList(sampleTeam.getBarGymnasts().get(5), 2, ApparatusIndex.UB);
-        sampleTeam.printAll();
     }
 }

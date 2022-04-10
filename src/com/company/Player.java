@@ -6,7 +6,8 @@ import java.io.Serializable;
  * This class will store personal information for each gymnast
  * */
 public class Player implements Serializable {
-    private String playerName;
+    private String playerfName;
+    private String playerlName;
     private String playerClass;
     private String playerMajor;
     private double playerAvg;                   //Make it into a list double
@@ -15,8 +16,9 @@ public class Player implements Serializable {
     private PlayerScore playerScore;
 
     //Constructor
-    public Player (String playerName, String playerClass, String playerMajor, double playerAvg){
-        this.playerName = playerName;
+    public Player (String playerfName, String playerlName, String playerClass, String playerMajor, double playerAvg){
+        this.playerfName = playerfName;
+        this.playerlName = playerlName;
         this.playerClass = playerClass;
         this.playerMajor = playerMajor;
         this.playerScore = new PlayerScore();
@@ -27,7 +29,9 @@ public class Player implements Serializable {
     }
 
     //getters
-    public String getPlayerName(){return playerName;}
+    public String getPlayerfName(){return playerfName;}
+
+    public String getPlayerlName(){return playerlName;}
 
     public String getPlayerClass(){return playerClass;}
 
@@ -46,8 +50,11 @@ public class Player implements Serializable {
     }
 
     //Setters
-    public void setPlayerName(String playerName) {
-        this.playerName = playerName;
+    public void setPlayerfName(String playerfName) {
+        this.playerfName = playerfName;
+    }
+    public void setPlayerlName(String playerlName) {
+        this.playerlName = playerlName;
     }
 
     public void setPlayerClass(String playerClass) {
@@ -73,7 +80,8 @@ public class Player implements Serializable {
     //Print all info. For testing purposes only.
     public void printAll(){
         System.out.println("----------- Player Information ----------");
-        System.out.println("Name: " + this.playerName);
+        System.out.println("First Name: " + this.playerfName);
+        System.out.println("Last Name: " + this.playerlName);
         System.out.println("Class: " + this.playerClass);
         System.out.println("Major: " + this.playerMajor);
         System.out.println("Average: " + this.playerAvg);

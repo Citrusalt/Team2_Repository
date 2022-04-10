@@ -34,12 +34,12 @@ public class CreateTeamScreen {
 
     private void fillPlayerInfo(){
 
-        playerList.add(new Player(playerName1.getText(), playerClass1.getText(), playerMajor1.getText(), Double.valueOf(avg1.getText())));
-        playerList.add(new Player(playerName2.getText(), playerClass2.getText(), playerMajor2.getText(), Double.valueOf(avg2.getText())));
-        playerList.add(new Player(playerName3.getText(), playerClass3.getText(), playerMajor3.getText(), Double.valueOf(avg3.getText())));
-        playerList.add(new Player(playerName4.getText(), playerClass4.getText(), playerMajor4.getText(), Double.valueOf(avg4.getText())));
-        playerList.add(new Player(playerName5.getText(), playerClass5.getText(), playerMajor5.getText(), Double.valueOf(avg5.getText())));
-        playerList.add(new Player(playerName6.getText(), playerClass6.getText(), playerMajor6.getText(), Double.valueOf(avg6.getText())));
+//        playerList.add(new Player(playerName1.getText(), playerClass1.getText(), playerMajor1.getText(), Double.valueOf(avg1.getText())));
+//        playerList.add(new Player(playerName2.getText(), playerClass2.getText(), playerMajor2.getText(), Double.valueOf(avg2.getText())));
+//        playerList.add(new Player(playerName3.getText(), playerClass3.getText(), playerMajor3.getText(), Double.valueOf(avg3.getText())));
+//        playerList.add(new Player(playerName4.getText(), playerClass4.getText(), playerMajor4.getText(), Double.valueOf(avg4.getText())));
+//        playerList.add(new Player(playerName5.getText(), playerClass5.getText(), playerMajor5.getText(), Double.valueOf(avg5.getText())));
+//        playerList.add(new Player(playerName6.getText(), playerClass6.getText(), playerMajor6.getText(), Double.valueOf(avg6.getText())));
 
     }
 

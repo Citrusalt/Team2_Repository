@@ -6,6 +6,9 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+
+import com.company.Team;
 
 public class SetupModeDual {
 
@@ -18,6 +21,8 @@ public class SetupModeDual {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         String meetType = "dual";
+        DatabaseManager db = new DatabaseManager();         //Creates instance of DatabaseManager
+        List<Team>allTeamfromDB = db.getAllTeams();
 
         //create summary screen tables
         //This will later be placed in the Judges next button action listener most likely
@@ -35,6 +40,15 @@ public class SetupModeDual {
 
         changeCard("StartScreenCard");
 
+
+        //Puts value in ComboBoxes
+        comboBox7.addItem("-Select Team-");
+        comboBox8.addItem("-Select Team-");
+        for(int i = 0; i < allTeamfromDB.size(); i++){
+            comboBox7.addItem(allTeamfromDB.get(i).getTeamName());
+            comboBox8.addItem(allTeamfromDB.get(i).getTeamName());
+        }
+        int homeIndex =0, visitorIndex = 0;             //Stores the index of the user selection
 
         goBackButton.addActionListener(new ActionListener() {
             @Override
@@ -59,7 +73,42 @@ public class SetupModeDual {
                     JOptionPane.showMessageDialog(null, "Teams cannot be the same. Try Again.");
                 }
                 else {
+                    int homeIndex = comboBox7.getSelectedIndex();//Stores the index of the user selection
+                    int visitorIndex = comboBox8.getSelectedIndex();
+
+                    Team home = allTeamfromDB.get(homeIndex-1);             //This has the team data for the home team
+                    Team visitor = allTeamfromDB.get(visitorIndex-1);       //This has the team data for the visitor team
+
                     changeCard("SelectVaultCard");
+                    //Change the label for the team name
+                    homeNameLabel.setText(home.getTeamName());
+                    visitorNameLabel.setText(visitor.getTeamName());
+                    //Populates ComboBox for the HomeTeam
+                    v11.removeAllItems(); v12.removeAllItems(); v13.removeAllItems();
+                    v14.removeAllItems(); v15.removeAllItems(); v16.removeAllItems();
+                    v11.addItem("-Select Gymnast-"); v12.addItem("-Select Gymnast-"); v13.addItem("-Select Gymnast-");
+                    v14.addItem("-Select Gymnast-"); v15.addItem("-Select Gymnast-"); v16.addItem("-Select Gymnast-");
+                    for(int i = 0; i < home.getAllGymnasts().size(); i++){
+                        v11.addItem(home.getAllGymnasts().get(i).getPlayerfName() + " " +home.getAllGymnasts().get(i).getPlayerlName());
+                        v12.addItem(home.getAllGymnasts().get(i).getPlayerfName() + " " +home.getAllGymnasts().get(i).getPlayerlName());
+                        v13.addItem(home.getAllGymnasts().get(i).getPlayerfName() + " " +home.getAllGymnasts().get(i).getPlayerlName());
+                        v14.addItem(home.getAllGymnasts().get(i).getPlayerfName() + " " +home.getAllGymnasts().get(i).getPlayerlName());
+                        v15.addItem(home.getAllGymnasts().get(i).getPlayerfName() + " " +home.getAllGymnasts().get(i).getPlayerlName());
+                        v16.addItem(home.getAllGymnasts().get(i).getPlayerfName() + " " +home.getAllGymnasts().get(i).getPlayerlName());
+                    }
+                    //Populates ComboBox for the Visitor
+                    v21.removeAllItems(); v22.removeAllItems(); v23.removeAllItems();
+                    v24.removeAllItems(); v25.removeAllItems(); v26.removeAllItems();
+                    v21.addItem("-Select Gymnast-"); v22.addItem("-Select Gymnast-"); v23.addItem("-Select Gymnast-");
+                    v24.addItem("-Select Gymnast-"); v25.addItem("-Select Gymnast-"); v26.addItem("-Select Gymnast-");
+                    for(int i = 0; i < visitor.getAllGymnasts().size(); i++){
+                        v21.addItem(visitor.getAllGymnasts().get(i).getPlayerfName() + " " + visitor.getAllGymnasts().get(i).getPlayerlName());
+                        v22.addItem(visitor.getAllGymnasts().get(i).getPlayerfName() + " " + visitor.getAllGymnasts().get(i).getPlayerlName());
+                        v23.addItem(visitor.getAllGymnasts().get(i).getPlayerfName() + " " + visitor.getAllGymnasts().get(i).getPlayerlName());
+                        v24.addItem(visitor.getAllGymnasts().get(i).getPlayerfName() + " " + visitor.getAllGymnasts().get(i).getPlayerlName());
+                        v25.addItem(visitor.getAllGymnasts().get(i).getPlayerfName() + " " + visitor.getAllGymnasts().get(i).getPlayerlName());
+                        v26.addItem(visitor.getAllGymnasts().get(i).getPlayerfName() + " " + visitor.getAllGymnasts().get(i).getPlayerlName());
+                    }
                 }
             }
         });
@@ -99,6 +148,8 @@ public class SetupModeDual {
 //                else{
 //                    JOptionPane.showMessageDialog(null, "Team members cannot be the same. Try Again.");
 //                }
+                //Verify stuff if they're valid
+
                 changeCard("SelectBarCard");
 
             }
@@ -107,6 +158,7 @@ public class SetupModeDual {
             @Override
             public void actionPerformed(ActionEvent e) {
                 changeCard("TeamSetupCard");
+
             }
         });
         barsBackButton.addActionListener(new ActionListener() {
@@ -511,6 +563,8 @@ public class SetupModeDual {
     private JComboBox j44;
     private JComboBox j45;
     private JComboBox j46;
+    private JLabel homeNameLabel;
+    private JLabel visitorNameLabel;
     private JTextField clockTextField;
     private JButton startTimerButton;
     private JButton resetTimerButton;
