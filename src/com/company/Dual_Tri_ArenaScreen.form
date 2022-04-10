@@ -52,7 +52,7 @@
               <grid row="4" column="0" row-span="4" col-span="1" vsize-policy="1" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <icon value="com/company/pictures/output-onlinepngtools.png"/>
+              <icon value="com/company/pictures/AdamsSh_Mugs_JH0180.png"/>
               <text value=""/>
             </properties>
           </component>
