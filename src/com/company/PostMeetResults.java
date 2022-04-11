@@ -84,7 +84,7 @@ public class PostMeetResults {
     {
         resultsFileW.write("TEAM STANDING\n#\tTEAM\tVAULT\tBARS\tBEAM\tFLOOR\tFINAL\n\n");
 
-        if (meetType == "dual")
+        if (meetType.equals("dual"))
         {
             Team[] teamStanding = {team1, team2};
             Arrays.sort(teamStanding);
@@ -94,7 +94,7 @@ public class PostMeetResults {
             }
         }
 
-        if (meetType == "tri")
+        if (meetType.equals("tri"))
         {
             Team[] teamStanding = {team1, team2, team3};
             Arrays.sort(teamStanding);
@@ -104,7 +104,7 @@ public class PostMeetResults {
             }
         }
 
-        if (meetType == "quad")
+        if (meetType.equals("quad"))
         {
             Team[] teamStanding = {team1, team2, team3, team4};
             Arrays.sort(teamStanding);
