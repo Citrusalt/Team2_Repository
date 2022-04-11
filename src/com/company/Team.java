@@ -38,6 +38,26 @@ public class Team implements Serializable {
     //Method that will return the team name
     public String getTeamName(){return teamName;}
 
+    public void setVaultGymnasts(List<Player> vaultGymnasts) {
+        this.vaultGymnasts = vaultGymnasts;
+    }
+
+    public void setBarGymnasts(List<Player> barGymnasts) {
+        this.barGymnasts = barGymnasts;
+    }
+
+    public void setBeamGymnasts(List<Player> beamGymnasts) {
+        this.beamGymnasts = beamGymnasts;
+    }
+
+    public void setFloorGymnasts(List<Player> floorGymnasts) {
+        this.floorGymnasts = floorGymnasts;
+    }
+
+    public void setAllGymnasts(List<Player> allGymnasts) {
+        this.allGymnasts = allGymnasts;
+    }
+
     //Method that will return the teamLogo
     public String getTeamLogo(){return teamLogo;}
 

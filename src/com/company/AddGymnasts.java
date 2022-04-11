@@ -13,7 +13,7 @@ import java.io.File;
 
 public class AddGymnasts extends JDialog{
 
-    public AddGymnasts(String teamName){
+    public AddGymnasts(String teamName, String teamLogo){
 
         setContentPane(addGymnasts);
         setTitle("Add Gymnast Screen");
@@ -29,8 +29,9 @@ public class AddGymnasts extends JDialog{
         yearCB.addItem("Sophomore");
         yearCB.addItem( "Junior");
         yearCB.addItem( "Senior");
-        DatabaseManager db = new DatabaseManager();         //This is the DatabaseManager instance
-        Team currentTeam = new Team(teamName, "");      //This is the team instance
+        yearCB.addItem( "Graduate Student");
+        DatabaseManager db = new DatabaseManager();              //This is the DatabaseManager instance
+        Team currentTeam = new Team(teamName, teamLogo);      //This is the team instance
 
         addGymnastButton.addActionListener(new ActionListener() {
             @Override
@@ -111,14 +112,13 @@ public class AddGymnasts extends JDialog{
                     gC.addRow(fname.getText(), lname.getText(), tableModel);        //For Display
 
                     //Creates the Player
-//                    Player temp = new Player(fName_str, lName_str, yearCB.getSelectedItem().toString(),major_str, VT);
-//                    currentTeam.addGymnasts(temp);
-
+                    double[] scores = {VT, UB, BB, FX};
+                    Player temp = new Player(fName_str, lName_str, yearCB.getSelectedItem().toString(), major_str, playerImage, scores);
+                    currentTeam.addGymnasts(temp);
                     //Resets the widgets back to default
                     fname.setText(""); lname.setText(""); major.setText("");
                     vaultAvg.setText(""); barsAvg.setText(""); beamAvg.setText(""); floorAvg.setText("");
                     yearCB.setSelectedIndex(0);
-
                 }
                 else{
                     //JOptionPane.showMessageDialog(null, "Player was not able to added"); //or whatever error message you want to say
@@ -139,13 +139,13 @@ public class AddGymnasts extends JDialog{
         browseFilesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                uploadImg();
+                playerImage = uploadImg();
             }
         });
         setVisible(true);
     }
 
-private void uploadImg(){
+private String uploadImg(){
 
         //WIP still trying to figure this out...
     JFileChooser fileChooser = new JFileChooser();
@@ -154,13 +154,14 @@ private void uploadImg(){
     fileChooser.setFileFilter(new FileNameExtensionFilter("*.png", "png"));
 
     BufferedImage img;
-
+    boolean valid = true;
+    String fileName ="";
     int returnval = fileChooser.showOpenDialog(this);
     if (returnval == JFileChooser.APPROVE_OPTION)
     {
         File file = fileChooser.getSelectedFile();
         try{
-            String fileName = file.getName();
+            fileName = file.getName();
             img = ImageIO.read(file);
             ImageIO.write(img, "png", new File ("src/com/company/pictures/" + fileName));
             JOptionPane.showMessageDialog(null, fileName + " was saved as the gymnast's photo.");
@@ -169,9 +170,13 @@ private void uploadImg(){
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error. Selected file was not saved.");
             System.out.println("Error. Selected file was not saved.");
+            valid = false;
         }
         this.pack();
     }
+    if(valid){
+        return fileName;
+    }else return "";
 }
 
     private DefaultTableModel tableModel = new DefaultTableModel(){
@@ -185,7 +190,7 @@ private void uploadImg(){
 
     //Table Header Font
     Font headerFont = new Font ("Verdana", Font.PLAIN, 18);
-
+    String playerImage;
     private JPanel addGymnasts;
     private JLabel teamNameLabel;
     private JTextField fname;
