@@ -340,6 +340,7 @@ public class SetupModeDual {
 //                    JOptionPane.showMessageDialog(null, "Judges cannot be the same. Try Again.");
 //                }
                 //Calls the testTable class
+                resetTables(); //resets tables so that table isnt still filled with old values
                 testTable(gC);
 
                 changeCard("SummaryCard");
@@ -483,6 +484,15 @@ public class SetupModeDual {
 //            gC.addRowsJudgeTable(vaultJudges[i], barJudges[i], beamJudges[i], floorJudges[i], judgesModel);
             gC.addRowsJudgeTable(judgesNames[i],judgesNames[i+6],judgesNames[i+12],judgesNames[i+18], judgesModel);
         }
+    }
+
+    //clears tables
+    private void resetTables(){
+        vaultModel.setRowCount(0);
+        barsModel.setRowCount(0);
+        beamModel.setRowCount(0);
+        floorModel.setRowCount(0);
+        judgesModel.setRowCount(0);
     }
 
     //Table Header Font

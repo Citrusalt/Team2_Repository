@@ -147,4 +147,5 @@ public class GuiCreator {
         row.add (firstName + " " + lastName);
         model.addRow(row);
     }
+
 }
