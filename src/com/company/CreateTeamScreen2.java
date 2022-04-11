@@ -1,8 +1,12 @@
 package com.company;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class CreateTeamScreen2 extends JDialog {
@@ -50,9 +54,15 @@ public class CreateTeamScreen2 extends JDialog {
             }
         });
 
+        browseFilesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                teamLogo = uploadImg();
+            }
+        });
+
         //had to move after action listeners for modal
         setVisible(true);
-
     }
 
 //    //Use for test
@@ -61,7 +71,38 @@ public class CreateTeamScreen2 extends JDialog {
 //
 //    }
 
+    private String uploadImg(){
 
+        //WIP still trying to figure this out...
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Choose Your Picture");
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fileChooser.setFileFilter(new FileNameExtensionFilter("*.png", "png"));
+
+        BufferedImage img;
+
+        int returnval = fileChooser.showOpenDialog(this);
+        if (returnval == JFileChooser.APPROVE_OPTION)
+        {
+            File file = fileChooser.getSelectedFile();
+            try{
+                String fileName = file.getName();
+                img = ImageIO.read(file);
+                ImageIO.write(img, "png", new File ("src/com/company/pictures/" + fileName));
+                //save file name to teamlogo string
+                JOptionPane.showMessageDialog(null, fileName + " was saved as the team logo.");
+
+                return fileName;
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error. Selected file not saved");
+                System.out.println("Error. Selected file was not saved.");
+            }
+            this.pack();
+        }
+        return "";
+    }
+
+    private String teamLogo;
 
     private JTextField textField1;
     private JButton browseFilesButton;

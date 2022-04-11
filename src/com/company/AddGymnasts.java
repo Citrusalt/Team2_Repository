@@ -1,11 +1,14 @@
 package com.company;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class AddGymnasts extends JDialog{
@@ -148,17 +151,25 @@ private void uploadImg(){
     JFileChooser fileChooser = new JFileChooser();
     fileChooser.setDialogTitle("Choose Your Picture");
     fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+    fileChooser.setFileFilter(new FileNameExtensionFilter("*.png", "png"));
+
+    BufferedImage img;
 
     int returnval = fileChooser.showOpenDialog(this);
     if (returnval == JFileChooser.APPROVE_OPTION)
     {
+        File file = fileChooser.getSelectedFile();
         try{
-            File file = fileChooser.getSelectedFile();
+            String fileName = file.getName();
+            img = ImageIO.read(file);
+            ImageIO.write(img, "png", new File ("src/com/company/pictures/" + fileName));
+            JOptionPane.showMessageDialog(null, fileName + " was saved as the gymnast's photo.");
+            //save file name to gymnast picture string
 
         } catch (Exception e) {
-
+            JOptionPane.showMessageDialog(null, "Error. Selected file was not saved.");
+            System.out.println("Error. Selected file was not saved.");
         }
-
         this.pack();
     }
 }
