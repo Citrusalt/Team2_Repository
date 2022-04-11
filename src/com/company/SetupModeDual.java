@@ -81,6 +81,12 @@ public class SetupModeDual {
                     Team home = allTeamfromDB.get(homeIndex-1);             //This has the team data for the home team
                     Team visitor = allTeamfromDB.get(visitorIndex-1);       //This has the team data for the visitor team
 
+//                    home.printAll();
+//                    for (int i = 0; i < home.getAllGymnasts().size(); i++){
+//                        home.getAllGymnasts().get(i).printAll();
+//                    }
+//                    visitor.printAll();
+
                     changeCard("SelectVaultCard");
 
                     //Change the label for the team name
@@ -379,8 +385,11 @@ public class SetupModeDual {
         summaryContinueButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                List<Team> myTeams = updateTeamOrder(db);
+                Team home = myTeams.get(0);
+                Team visitor = myTeams.get(1);
                 frame.dispose();
-                DualScorekeeperScreen myScorekeeper = new DualScorekeeperScreen(gC);
+                DualScorekeeperScreen myScorekeeper = new DualScorekeeperScreen(gC, home, visitor);
             }
         });
 
@@ -412,6 +421,97 @@ public class SetupModeDual {
                 j31, j32, j33, j34, j35, j36,                   //Beams
                 j41, j42, j43, j44, j45, j46);                  //Floors
     }
+
+    private List<Team> updateTeamOrder(DatabaseManager db){
+
+        int homeIndex = comboBox7.getSelectedIndex();
+        int visitorIndex = comboBox8.getSelectedIndex();
+
+        List<Team>allTeamfromDB = db.getAllTeams();
+
+        Team home = allTeamfromDB.get(homeIndex-1);             //This has the team data for the home team
+        Team visitor = allTeamfromDB.get(visitorIndex-1);
+
+        List <Player> homePlayers = home.getAllGymnasts();
+
+        List<JComboBox> homeBoxes = gethomeCombo();
+        List<JComboBox> visitorBoxes = getvisitorCombo();
+        //may god have mercy on me for this logic
+        for (int i = 0; i < 6; i++){
+            for(int j = 0; j < home.getAllGymnasts().size(); j++){
+                if (homeBoxes.get(i).getSelectedItem().toString() .equals (home.getAllGymnasts().get(j).getPlayerfName() + " " +  home.getAllGymnasts().get(j).getPlayerlName())){
+                   home.getAllGymnasts().get(j).setApparatusStatusByIndex(ApparatusIndex.VT, true);
+                   home.getAllGymnasts().get(j).setApparatusOrderByIndex(ApparatusIndex.VT, i + 1);
+                }
+            }
+            for(int j = 0; j < visitor.getAllGymnasts().size(); j++){
+                if (visitorBoxes.get(i).getSelectedItem().toString() .equals (visitor.getAllGymnasts().get(j).getPlayerfName() + " " +  visitor.getAllGymnasts().get(j).getPlayerlName())){
+                    visitor.getAllGymnasts().get(j).setApparatusStatusByIndex(ApparatusIndex.VT, true);
+                    visitor.getAllGymnasts().get(j).setApparatusOrderByIndex(ApparatusIndex.VT, i + 1);
+                }
+            }
+        }
+        for (int i = 6; i < 12; i++){
+            for(int j = 0; j < home.getAllGymnasts().size(); j++){
+                if (homeBoxes.get(i).getSelectedItem().toString() .equals (home.getAllGymnasts().get(j).getPlayerfName() + " " +  home.getAllGymnasts().get(j).getPlayerlName())){
+                    home.getAllGymnasts().get(j).setApparatusStatusByIndex(ApparatusIndex.UB, true);
+                    home.getAllGymnasts().get(j).setApparatusOrderByIndex(ApparatusIndex.UB, i - 5);
+                }
+            }
+            for(int j = 0; j < visitor.getAllGymnasts().size(); j++){
+                if (visitorBoxes.get(i).getSelectedItem().toString() .equals (visitor.getAllGymnasts().get(j).getPlayerfName() + " " +  visitor.getAllGymnasts().get(j).getPlayerlName())){
+                    visitor.getAllGymnasts().get(j).setApparatusStatusByIndex(ApparatusIndex.UB, true);
+                    visitor.getAllGymnasts().get(j).setApparatusOrderByIndex(ApparatusIndex.UB, i - 5);
+                }
+            }
+        }
+        for (int i = 12; i < 18; i++){
+            for(int j = 0; j < home.getAllGymnasts().size(); j++){
+                if (homeBoxes.get(i).getSelectedItem().toString() .equals (home.getAllGymnasts().get(j).getPlayerfName() + " " +  home.getAllGymnasts().get(j).getPlayerlName())){
+                    home.getAllGymnasts().get(j).setApparatusStatusByIndex(ApparatusIndex.BB, true);
+                    home.getAllGymnasts().get(j).setApparatusOrderByIndex(ApparatusIndex.BB, i -11);
+                }
+            }
+            for(int j = 0; j < visitor.getAllGymnasts().size(); j++){
+                if (visitorBoxes.get(i).getSelectedItem().toString() .equals (visitor.getAllGymnasts().get(j).getPlayerfName() + " " +  visitor.getAllGymnasts().get(j).getPlayerlName())){
+                    visitor.getAllGymnasts().get(j).setApparatusStatusByIndex(ApparatusIndex.BB, true);
+                    visitor.getAllGymnasts().get(j).setApparatusOrderByIndex(ApparatusIndex.BB, i - 11);
+                }
+            }
+        }
+        for (int i = 18; i < 24; i++){
+            for(int j = 0; j < home.getAllGymnasts().size(); j++){
+                if (homeBoxes.get(i).getSelectedItem().toString() .equals (home.getAllGymnasts().get(j).getPlayerfName() + " " +  home.getAllGymnasts().get(j).getPlayerlName())){
+                    home.getAllGymnasts().get(j).setApparatusStatusByIndex(ApparatusIndex.FX, true);
+                    home.getAllGymnasts().get(j).setApparatusOrderByIndex(ApparatusIndex.FX, i -17);
+                }
+            }
+            for(int j = 0; j < visitor.getAllGymnasts().size(); j++){
+                if (visitorBoxes.get(i).getSelectedItem().toString() .equals (visitor.getAllGymnasts().get(j).getPlayerfName() + " " +  visitor.getAllGymnasts().get(j).getPlayerlName())){
+                    visitor.getAllGymnasts().get(j).setApparatusStatusByIndex(ApparatusIndex.FX, true);
+                    visitor.getAllGymnasts().get(j).setApparatusOrderByIndex(ApparatusIndex.FX, i - 17);
+                }
+            }
+        }
+        home.printAll();
+        for (int i = 0; i < home.getAllGymnasts().size(); i++){
+                home.getAllGymnasts().get(i).printAll();
+            }
+        for (int i = 0; i < visitor.getAllGymnasts().size(); i++){
+            visitor.getAllGymnasts().get(i).printAll();
+        }
+
+        //Save teams to database here
+
+        List<Team>myTeams = new ArrayList<>();
+        myTeams.add(home);
+        myTeams.add(visitor);
+
+        return myTeams;
+
+    }
+
+
 
     //Test function made to fill tables
     private void testTable(GuiCreator gC){

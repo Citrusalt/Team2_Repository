@@ -6,7 +6,7 @@ import java.awt.event.*;
 
 public class DualScorekeeperScreen {
 
-    public DualScorekeeperScreen(GuiCreator gC) {
+    public DualScorekeeperScreen(GuiCreator gC, Team home, Team visitor) {
 
         JFrame frame = new JFrame("Scorekeeper Screen Prototype");
         frame.setContentPane(mainPanel);
@@ -15,7 +15,17 @@ public class DualScorekeeperScreen {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
+        DatabaseManager db = new DatabaseManager();
+
+
         Dual_Tri_ArenaScreen myArenaScreen = new Dual_Tri_ArenaScreen();
+
+        //Set Arena Screen Fields
+        myArenaScreen.teamName1.setText(home.getTeamName());
+        myArenaScreen.teamName2.setText(visitor.getTeamName());
+        //logo
+        //etc.
+
         myArenaScreen.getFrame().setVisible(true);
 
 
@@ -101,10 +111,10 @@ public class DualScorekeeperScreen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (selectedMode == 0){
-                    updateRotationSimul(myArenaScreen, frame, 1, gC);
+                    updateRotationSimul(myArenaScreen, frame, 1, gC, home, visitor);
                 }
                 else if (selectedMode == 1){
-                    updateRotationNonSimul(myArenaScreen, frame, 1, gC);
+                    updateRotationNonSimul(myArenaScreen, frame, 1, gC, home, visitor);
                 }
             }
         });
@@ -112,11 +122,11 @@ public class DualScorekeeperScreen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (selectedMode == 0){
-                    updateRotationSimul(myArenaScreen, frame, -1, gC);
+                    updateRotationSimul(myArenaScreen, frame, -1, gC, home, visitor);
 
                 }
                 else if (selectedMode == 1){
-                    updateRotationNonSimul(myArenaScreen, frame, -1, gC);
+                    updateRotationNonSimul(myArenaScreen, frame, -1, gC, home, visitor);
                 }
             }
         });
@@ -420,12 +430,12 @@ public class DualScorekeeperScreen {
 
 
     //pass in the frames that need to be handled and 1 if next rotation, -1 if previous
-    private void updateRotationSimul(Dual_Tri_ArenaScreen myArenaScreen, JFrame thisFrame, int value, GuiCreator gC){
+    private void updateRotationSimul(Dual_Tri_ArenaScreen myArenaScreen, JFrame thisFrame, int value, GuiCreator gC, Team home, Team visitor){
         rotation = rotation + value;
         myArenaScreen.updateRotation(rotation);
 
         if (rotation == 0){
-            DualScorekeeperScreen myScoreKeeperScreen = new DualScorekeeperScreen(gC);
+            DualScorekeeperScreen myScoreKeeperScreen = new DualScorekeeperScreen(gC, home, visitor);
             myScoreKeeperScreen.changeCard("CustomizeCard");
             myArenaScreen.getFrame().dispose();
             thisFrame.dispose();
@@ -474,12 +484,12 @@ public class DualScorekeeperScreen {
 
     }
 
-    private void updateRotationNonSimul(Dual_Tri_ArenaScreen myArenaScreen, JFrame thisFrame, int value, GuiCreator gC){
+    private void updateRotationNonSimul(Dual_Tri_ArenaScreen myArenaScreen, JFrame thisFrame, int value, GuiCreator gC, Team home, Team visitor){
         rotation = rotation + value;
         myArenaScreen.updateRotation(rotation);
 
         if (rotation == 0){
-            DualScorekeeperScreen myScoreKeeperScreen = new DualScorekeeperScreen(gC);
+            DualScorekeeperScreen myScoreKeeperScreen = new DualScorekeeperScreen(gC, home, visitor);
             myScoreKeeperScreen.changeCard("CustomizeCard");
             myArenaScreen.getFrame().dispose();
             thisFrame.dispose();
