@@ -10,22 +10,25 @@ public class Player implements Serializable {
     private String playerlName;
     private String playerClass;
     private String playerMajor;
-    private double playerAvg;                   //Make it into a list double
+    private String playerPicture;
+    private double[] playerAvg;                   //Make it into a list double
+
     private boolean[] apparatusStatus;
     private int[] apparatusOrder;
     private PlayerScore playerScore;
 
     //Constructor
-    public Player (String playerfName, String playerlName, String playerClass, String playerMajor, double playerAvg){
+    public Player (String playerfName, String playerlName, String playerClass, String playerMajor, String playerPicture, double[] playerAvg){
         this.playerfName = playerfName;
         this.playerlName = playerlName;
         this.playerClass = playerClass;
         this.playerMajor = playerMajor;
-        this.playerScore = new PlayerScore();
+        this.playerPicture = playerPicture;
         this.playerAvg = playerAvg;
         //Store the playerAverage to the playerScore's playerAverage
         this.apparatusStatus = new boolean[]{false, false, false, false};
         this.apparatusOrder = new int[]{0,0,0,0};
+        this.playerScore = new PlayerScore();
     }
 
     //getters
@@ -37,22 +40,21 @@ public class Player implements Serializable {
 
     public String getPlayerMajor(){return playerMajor;}
 
-    public double getPlayerAvg(){return playerAvg;}
-
-    public int[] getApparatusOrder() {return apparatusOrder;}
+    public int[] getApparatusOrder() {return apparatusOrder;}           //Returns the whole array
 
     public PlayerScore getPlayerScore() {
         return playerScore;
     }
 
-    public boolean getApparatusStatus(int i) {          //Passed in the index of which apparatus they want to check
+    public boolean getApparatusStatusByIndex(int i) {          //Passed in the index of which apparatus they want to check
         return apparatusStatus[i];
-    }
+    }       //Returns the Status by Index
 
     //Setters
     public void setPlayerfName(String playerfName) {
         this.playerfName = playerfName;
     }
+
     public void setPlayerlName(String playerlName) {
         this.playerlName = playerlName;
     }
@@ -65,16 +67,42 @@ public class Player implements Serializable {
         this.playerMajor = playerMajor;
     }
 
-    public void setPlayerAvg(double playerAvg) {
+    public void setApparatusStatusByIndex(int i, boolean b){apparatusStatus[i] = b; }   //Sets the apparatus status by Index
+
+    public void setApparatusOrderByIndex(int appIdx, int order) {
+        this.apparatusOrder[appIdx] = order;
+    }      //Sets the apparatus order by index
+
+    public String getPlayerPicture() {
+        return playerPicture;
+    }
+
+    public void setPlayerPicture(String playerPicture) {
+        this.playerPicture = playerPicture;
+    }
+
+    public double[] getPlayerAvg() {
+        return playerAvg;
+    }
+
+    public void setPlayerAvg(double[] playerAvg) {
         this.playerAvg = playerAvg;
     }
 
-    public void setApparatusStatus(int i){
-        apparatusStatus[i] = true;
+    public boolean[] getApparatusStatus() {
+        return apparatusStatus;
     }
 
-    public void setApparatusOrder(int appIdx, int order) {
-        this.apparatusOrder[appIdx] = order;
+    public void setApparatusStatus(boolean[] apparatusStatus) {
+        this.apparatusStatus = apparatusStatus;
+    }
+
+    public void setApparatusOrder(int[] apparatusOrder) {
+        this.apparatusOrder = apparatusOrder;
+    }
+
+    public void setPlayerScore(PlayerScore playerScore) {
+        this.playerScore = playerScore;
     }
 
     //Print all info. For testing purposes only.
@@ -84,7 +112,11 @@ public class Player implements Serializable {
         System.out.println("Last Name: " + this.playerlName);
         System.out.println("Class: " + this.playerClass);
         System.out.println("Major: " + this.playerMajor);
-        System.out.println("Average: " + this.playerAvg);
+        System.out.println("Vault Average: " + this.playerAvg[ApparatusIndex.VT]);
+        System.out.println("Bar Average: " + this.playerAvg[ApparatusIndex.UB]);
+        System.out.println("Beam Average: " + this.playerAvg[ApparatusIndex.BB]);
+        System.out.println("Floor Average: " + this.playerAvg[ApparatusIndex.FX]);
+
 
         System.out.println("Apparatus in: ");
         for(int i = 0; i < 4; i++){

@@ -15,8 +15,11 @@ public class DatabaseManagerTester {
         d.saveTeam(sampleTeam);
         List<Team> testTeam = d.getAllTeams();     //Reads from the Database
         System.out.println("Size of the list:" + d.getAllTeams().size());
-        Player cz = new Player("Cole", "Zandy","Senior", "CompSci",99);
-        testTeam.get(0).getAllGymnasts().get(0).printAll();
+        double[] score = {8.5, 9, 10, 9};
+        Player cz = new Player("Cole", "Zandy","Senior", "CompSci","", score);
 
+        for(int i = 0; i < testTeam.get(0).getVaultGymnasts().size(); i++){
+            testTeam.get(0).getVaultGymnasts().get(i).printAll();
+        }
     }
 }

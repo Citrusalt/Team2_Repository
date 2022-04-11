@@ -10,27 +10,27 @@ public class TeamTester {
         //This will be long.
         //Create Instances of the players
         team2 = new Team("TEAM2", "//SOMEPATH");
-
-        Player v1 = new Player("Janilou","Sy", "Senior", "Computer Science", 95);
-        Player v2 = new Player("Jacob", "Drake","Junior", "Cybersecurity", 96);
-        Player v3 = new Player("Hailey", "Porter","Sophomore", "Humanities", 95);
-        Player v4 = new Player("Adriana", "Lanier","Freshman", "Art", 98);
-        Player v5 = new Player("Kevin", "Preston","Junior", "Business", 67);
-        Player v6 = new Player("Preston","Leston", "Freshman", "Law", 89);
+        double[] score = {8.5, 9, 10, 9};
+        Player v1 = new Player("Janilou","Sy", "Senior", "Computer Science","", score );
+        Player v2 = new Player("Jacob", "Drake","Junior", "Cybersecurity", "", score);
+        Player v3 = new Player("Hailey", "Porter","Sophomore", "Humanities", "", score);
+        Player v4 = new Player("Adriana", "Lanier","Freshman", "Art", "", score);
+        Player v5 = new Player("Kevin", "Preston","Junior", "Business", "", score);
+        Player v6 = new Player("Preston","Leston", "Freshman", "Law", "", score);
 
         //Adding to the same apparatus
-        v1.setApparatusStatus(ApparatusIndex.VT);
-        v1.setApparatusOrder(ApparatusIndex.VT, 1);
-        v2.setApparatusStatus(ApparatusIndex.VT);
-        v2.setApparatusOrder(ApparatusIndex.VT, 3);
-        v3.setApparatusStatus(ApparatusIndex.VT);
-        v3.setApparatusOrder(ApparatusIndex.VT, 4);
-        v4.setApparatusStatus(ApparatusIndex.VT);
-        v4.setApparatusOrder(ApparatusIndex.VT, 2);
-        v5.setApparatusStatus(ApparatusIndex.VT);
-        v5.setApparatusOrder(ApparatusIndex.VT, 6);
-        v6.setApparatusStatus(ApparatusIndex.VT);
-        v6.setApparatusOrder(ApparatusIndex.VT, 5);
+        v1.setApparatusStatusByIndex(ApparatusIndex.VT, true);
+        v1.setApparatusOrderByIndex(ApparatusIndex.VT, 1);
+        v2.setApparatusStatusByIndex(ApparatusIndex.VT, true);
+        v2.setApparatusOrderByIndex(ApparatusIndex.VT, 3);
+        v3.setApparatusStatusByIndex(ApparatusIndex.VT, true);
+        v3.setApparatusOrderByIndex(ApparatusIndex.VT, 4);
+        v4.setApparatusStatusByIndex(ApparatusIndex.VT, true);
+        v4.setApparatusOrderByIndex(ApparatusIndex.VT, 2);
+        v5.setApparatusStatusByIndex(ApparatusIndex.VT, true);
+        v5.setApparatusOrderByIndex(ApparatusIndex.VT, 6);
+        v6.setApparatusStatusByIndex(ApparatusIndex.VT, true);
+        v6.setApparatusOrderByIndex(ApparatusIndex.VT, 5);
 
         team2.addGymnasts(v1);
         team2.addGymnasts(v2);
@@ -40,26 +40,26 @@ public class TeamTester {
         team2.addGymnasts(v6);
 
 
-        Player b1 = new Player("Rebecca","Black", "Senior", "Computer Science", 93);
-        Player b2 = new Player("Sarah","Nancy", "Junior", "Law", 86);
-        Player b3 = new Player("Courtney","Miller", "Sophomore", "Humanities", 85);
-        Player b4 = new Player("Olivia", "Sui","Freshman", "Art", 88);
-        Player b5 = new Player("Lara", "Croft","Junior", "Business", 87);
-        Player b6 = new Player("Shayne", "Topp","Freshman", "Humanities", 99);
+        Player b1 = new Player("Rebecca","Black", "Senior", "Computer Science", "", score);
+        Player b2 = new Player("Sarah","Nancy", "Junior", "Law", "", score);
+        Player b3 = new Player("Courtney","Miller", "Sophomore", "Humanities", "", score);
+        Player b4 = new Player("Olivia", "Sui","Freshman", "Art", "", score);
+        Player b5 = new Player("Lara", "Croft","Junior", "Business", "", score);
+        Player b6 = new Player("Shayne", "Topp","Freshman", "Humanities", "", score);
 
         //Adding to the same apparatus
-        b1.setApparatusStatus(ApparatusIndex.UB);
-        b1.setApparatusOrder(ApparatusIndex.UB, 1);
-        b2.setApparatusStatus(ApparatusIndex.UB);
-        b2.setApparatusOrder(ApparatusIndex.UB, 3);
-        b3.setApparatusStatus(ApparatusIndex.UB);
-        b3.setApparatusOrder(ApparatusIndex.UB, 4);
-        b4.setApparatusStatus(ApparatusIndex.UB);
-        b4.setApparatusOrder(ApparatusIndex.UB, 2);
-        b5.setApparatusStatus(ApparatusIndex.UB);
-        b5.setApparatusOrder(ApparatusIndex.UB, 6);
-        b6.setApparatusStatus(ApparatusIndex.UB);
-        b6.setApparatusOrder(ApparatusIndex.UB, 5);
+        b1.setApparatusStatusByIndex(ApparatusIndex.UB, true);
+        b1.setApparatusOrderByIndex(ApparatusIndex.UB, 1);
+        b2.setApparatusStatusByIndex(ApparatusIndex.UB, true);
+        b2.setApparatusOrderByIndex(ApparatusIndex.UB, 3);
+        b3.setApparatusStatusByIndex(ApparatusIndex.UB, true);
+        b3.setApparatusOrderByIndex(ApparatusIndex.UB, 4);
+        b4.setApparatusStatusByIndex(ApparatusIndex.UB, true);
+        b4.setApparatusOrderByIndex(ApparatusIndex.UB, 2);
+        b5.setApparatusStatusByIndex(ApparatusIndex.UB, true);
+        b5.setApparatusOrderByIndex(ApparatusIndex.UB, 6);
+        b6.setApparatusStatusByIndex(ApparatusIndex.UB, true);
+        b6.setApparatusOrderByIndex(ApparatusIndex.UB, 5);
 
         team2.addGymnasts(b1);
         team2.addGymnasts(b2);
@@ -68,26 +68,26 @@ public class TeamTester {
         team2.addGymnasts(b5);
         team2.addGymnasts(b6);
 
-        Player bb1 = new Player("Hannah", "Pangilinan","Senior", "Arts", 83);
-        Player bb2 = new Player("Emily", "Wesley","Junior", "Graphic Design", 86);
-        Player bb3 = new Player("Maddie", "Lee", "Sophomore", "Humanities", 95);
-        Player bb4 = new Player("Olivia","Smith", "Freshman", "Law", 88);
-        Player bb5 = new Player("Sara", "Smith", "Junior", "Gender Studies", 87);
-        Player bb6 = new Player("Lisa", "Newmann", "Freshman", "Humanities", 79);
+        Player bb1 = new Player("Hannah", "Pangilinan","Senior", "Arts", "", score);
+        Player bb2 = new Player("Emily", "Wesley","Junior", "Graphic Design", "", score);
+        Player bb3 = new Player("Maddie", "Lee", "Sophomore", "Humanities", "", score);
+        Player bb4 = new Player("Olivia","Smith", "Freshman", "Law", "", score);
+        Player bb5 = new Player("Sara", "Smith", "Junior", "Gender Studies", "", score);
+        Player bb6 = new Player("Lisa", "Newmann", "Freshman", "Humanities", "", score);
 
         //Adding to the same apparatus
-        bb1.setApparatusStatus(ApparatusIndex.BB);
-        bb1.setApparatusOrder(ApparatusIndex.BB, 1);
-        bb2.setApparatusStatus(ApparatusIndex.BB);
-        bb2.setApparatusOrder(ApparatusIndex.BB, 3);
-        bb3.setApparatusStatus(ApparatusIndex.BB);
-        bb3.setApparatusOrder(ApparatusIndex.BB, 4);
-        bb4.setApparatusStatus(ApparatusIndex.BB);
-        bb4.setApparatusOrder(ApparatusIndex.BB, 2);
-        bb5.setApparatusStatus(ApparatusIndex.BB);
-        bb5.setApparatusOrder(ApparatusIndex.BB, 6);
-        bb6.setApparatusStatus(ApparatusIndex.BB);
-        bb6.setApparatusOrder(ApparatusIndex.BB, 5);
+        bb1.setApparatusStatusByIndex(ApparatusIndex.BB, true);
+        bb1.setApparatusOrderByIndex(ApparatusIndex.BB, 1);
+        bb2.setApparatusStatusByIndex(ApparatusIndex.BB, true);
+        bb2.setApparatusOrderByIndex(ApparatusIndex.BB, 3);
+        bb3.setApparatusStatusByIndex(ApparatusIndex.BB, true);
+        bb3.setApparatusOrderByIndex(ApparatusIndex.BB, 4);
+        bb4.setApparatusStatusByIndex(ApparatusIndex.BB, true);
+        bb4.setApparatusOrderByIndex(ApparatusIndex.BB, 2);
+        bb5.setApparatusStatusByIndex(ApparatusIndex.BB, true);
+        bb5.setApparatusOrderByIndex(ApparatusIndex.BB, 6);
+        bb6.setApparatusStatusByIndex(ApparatusIndex.BB, true);
+        bb6.setApparatusOrderByIndex(ApparatusIndex.BB, 5);
 
         team2.addGymnasts(bb1);
         team2.addGymnasts(bb2);
@@ -96,26 +96,26 @@ public class TeamTester {
         team2.addGymnasts(bb5);
         team2.addGymnasts(bb6);
 
-        Player f1 = new Player("Saddie", "William","Senior", "Mathematics", 83);
-        Player f2 = new Player("Isabella","Doe", "Junior", "Aerospace", 86);
-        Player f3 = new Player("Paula", "Deen","Sophomore", "Computer Engineering", 95);
-        Player f4 = new Player("Adeline","Bermudez", "Freshman", "Nursing", 88);
-        Player f5 = new Player("Aubrie", "Chanel","Junior", "Law", 87);
-        Player f6 = new Player("Allysa","Torres", "Freshman", "Humanities", 79);
+        Player f1 = new Player("Saddie", "William","Senior", "Mathematics", "", score);
+        Player f2 = new Player("Isabella","Doe", "Junior", "Aerospace", "", score);
+        Player f3 = new Player("Paula", "Deen","Sophomore", "Computer Engineering", "", score);
+        Player f4 = new Player("Adeline","Bermudez", "Freshman", "Nursing", "", score);
+        Player f5 = new Player("Aubrie", "Chanel","Junior", "Law", "", score);
+        Player f6 = new Player("Allysa","Torres", "Freshman", "Humanities", "", score);
 
         //Adding to the same apparatus
-        f1.setApparatusStatus(ApparatusIndex.FX);
-        f1.setApparatusOrder(ApparatusIndex.FX, 1);
-        f2.setApparatusStatus(ApparatusIndex.FX);
-        f2.setApparatusOrder(ApparatusIndex.FX, 3);
-        f3.setApparatusStatus(ApparatusIndex.FX);
-        f3.setApparatusOrder(ApparatusIndex.FX, 4);
-        f4.setApparatusStatus(ApparatusIndex.FX);
-        f4.setApparatusOrder(ApparatusIndex.FX, 2);
-        f5.setApparatusStatus(ApparatusIndex.FX);
-        f5.setApparatusOrder(ApparatusIndex.FX, 6);
-        f6.setApparatusStatus(ApparatusIndex.FX);
-        f6.setApparatusOrder(ApparatusIndex.FX, 5);
+        f1.setApparatusStatusByIndex(ApparatusIndex.FX, true);
+        f1.setApparatusOrderByIndex(ApparatusIndex.FX, 1);
+        f2.setApparatusStatusByIndex(ApparatusIndex.FX, true);
+        f2.setApparatusOrderByIndex(ApparatusIndex.FX, 3);
+        f3.setApparatusStatusByIndex(ApparatusIndex.FX, true);
+        f3.setApparatusOrderByIndex(ApparatusIndex.FX, 4);
+        f4.setApparatusStatusByIndex(ApparatusIndex.FX, true);
+        f4.setApparatusOrderByIndex(ApparatusIndex.FX, 2);
+        f5.setApparatusStatusByIndex(ApparatusIndex.FX, true);
+        f5.setApparatusOrderByIndex(ApparatusIndex.FX, 6);
+        f6.setApparatusStatusByIndex(ApparatusIndex.FX, true);
+        f6.setApparatusOrderByIndex(ApparatusIndex.FX, 5);
 
         team2.addGymnasts(f1);
         team2.addGymnasts(f2);

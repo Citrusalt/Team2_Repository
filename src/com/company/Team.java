@@ -107,7 +107,7 @@ public class Team implements Serializable {
         List<Player> temp = new ArrayList<>();
         this.allGymnasts.stream().forEach(
                 gymnast ->{
-                    if(gymnast.getApparatusStatus(ApparatusIndex.VT)){
+                    if(gymnast.getApparatusStatusByIndex(ApparatusIndex.VT)){
                         temp.add(gymnast);
                     }
                 }
@@ -119,7 +119,7 @@ public class Team implements Serializable {
         List<Player> temp = new ArrayList<>();
         this.allGymnasts.stream().forEach(
                 gymnast ->{
-                    if(gymnast.getApparatusStatus(ApparatusIndex.UB)){
+                    if(gymnast.getApparatusStatusByIndex(ApparatusIndex.UB)){
                         temp.add(gymnast);
                     }
                 }
@@ -131,7 +131,7 @@ public class Team implements Serializable {
         List<Player> temp = new ArrayList<>();
         this.allGymnasts.stream().forEach(
                 gymnast ->{
-                    if(gymnast.getApparatusStatus(ApparatusIndex.BB)){
+                    if(gymnast.getApparatusStatusByIndex(ApparatusIndex.BB)){
                         temp.add(gymnast);
                     }
                 }
@@ -143,7 +143,7 @@ public class Team implements Serializable {
         List<Player> temp = new ArrayList<>();
         this.allGymnasts.stream().forEach(
                 gymnast ->{
-                    if(gymnast.getApparatusStatus(ApparatusIndex.FX)){
+                    if(gymnast.getApparatusStatusByIndex(ApparatusIndex.FX)){
                         temp.add(gymnast);
                     }
                 }
@@ -179,23 +179,23 @@ public class Team implements Serializable {
        list.remove(p);
         for (int i = 0; i < list.size(); i++){
             if(i < (order-1)) {
-                list.get(i).setApparatusOrder(appIdx, i+1);
+                list.get(i).setApparatusOrderByIndex(appIdx, i+1);
                 temp.add(list.get(i));
             }
             else if(i == (order-1)){
-                p.setApparatusOrder(appIdx, order);
-                p.setApparatusStatus(appIdx);
+                p.setApparatusOrderByIndex(appIdx, order);
+                p.setApparatusStatusByIndex(appIdx, true);
                 temp.add(p);
-                list.get(i).setApparatusOrder(appIdx, i+2);
+                list.get(i).setApparatusOrderByIndex(appIdx, i+2);
                 temp.add(list.get(i));
             }else if(i > (order - 1)){
-               list.get(i).setApparatusOrder(appIdx, i+2);
+               list.get(i).setApparatusOrderByIndex(appIdx, i+2);
                temp.add(list.get(i));
             }
         }
         if(order == (list.size()+1) && list.size() < 6){
-            p.setApparatusOrder(appIdx, order);
-            p.setApparatusStatus(appIdx);
+            p.setApparatusOrderByIndex(appIdx, order);
+            p.setApparatusStatusByIndex(appIdx, true);
             temp.add(p);
         }
         //Repopulate the list with the apparatus it's at

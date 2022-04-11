@@ -111,8 +111,8 @@ public class AddGymnasts extends JDialog{
                     gC.addRow(fname.getText(), lname.getText(), tableModel);        //For Display
 
                     //Creates the Player
-                    Player temp = new Player(fName_str, lName_str, yearCB.getSelectedItem().toString(),major_str, VT);
-                    currentTeam.addGymnasts(temp);
+//                    Player temp = new Player(fName_str, lName_str, yearCB.getSelectedItem().toString(),major_str, VT);
+//                    currentTeam.addGymnasts(temp);
 
                     //Resets the widgets back to default
                     fname.setText(""); lname.setText(""); major.setText("");

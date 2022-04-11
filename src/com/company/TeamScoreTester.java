@@ -56,14 +56,15 @@ public class TeamScoreTester {
         AlabamaScore.setbeamScore(beamScore);
         System.out.println("Beam: " + AlabamaScore.getbeamScore());
         System.out.println("Running: " + AlabamaScore.getRunningScore());
+        double[] score = {8.5, 9, 10, 9};
 
 //alternative method of calculating score
-        Player v1 = new Player("Janilou", "Sy","Senior", "Computer Science", 95);
-        Player v2 = new Player("Jacob", "Drake", "Junior", "Cybersecurity", 96);
-        Player v3 = new Player("Hailey", "Porter","Sophomore", "Humanities", 95);
-        Player v4 = new Player("Adriana", "Lanier","Freshman", "Art", 98);
-        Player v5 = new Player("Tyler", "Oakley","Junior", "Business", 67);
-        Player v6 = new Player("Hunter", "Huntress","Freshman", "Law", 89);
+        Player v1 = new Player("Janilou", "Sy","Senior", "Computer Science", "", score);
+        Player v2 = new Player("Jacob", "Drake", "Junior", "Cybersecurity", "", score);
+        Player v3 = new Player("Hailey", "Porter","Sophomore", "Humanities", "", score);
+        Player v4 = new Player("Adriana", "Lanier","Freshman", "Art", "", score);
+        Player v5 = new Player("Tyler", "Oakley","Junior", "Business", "", score);
+        Player v6 = new Player("Hunter", "Huntress","Freshman", "Law", "", score);
 
         v1.getPlayerScore().setbeamScore(9.85);
         v2.getPlayerScore().setbeamScore(9.85);

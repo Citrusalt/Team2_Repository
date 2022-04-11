@@ -10,8 +10,7 @@ public class PlayerScore implements Serializable {
     private double beamScore = 0.0;
     private double floorScore = 0.0;
     private double barScore = 0.0;
-    double seasonAverages[] = new double[4];
-
+//    double seasonAverages[] = new double[4];
 
     public PlayerScore() {
     }
@@ -32,8 +31,6 @@ public class PlayerScore implements Serializable {
         this.barScore = newScore;
     }
 
-    public void setSeasonAverages(double[] seasonAverages){this.seasonAverages = seasonAverages;}
-
     public double getvaultScore() {
         return this.vaultScore;
     }
@@ -49,8 +46,6 @@ public class PlayerScore implements Serializable {
     public double getbarScore() {
         return this.barScore;
     }
-
-    public double[] getSeasonAverages() {return this.seasonAverages;}
 
     // A players running score is the total score from all apparatuses
     //Returns running score
