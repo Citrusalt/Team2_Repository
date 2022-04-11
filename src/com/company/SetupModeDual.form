@@ -599,7 +599,7 @@
               <model/>
             </properties>
           </component>
-          <component id="e352" class="javax.swing.JLabel">
+          <component id="e352" class="javax.swing.JLabel" binding="homeNameLabelUB">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -607,7 +607,7 @@
               <text value="Team Name: TEAM NAME"/>
             </properties>
           </component>
-          <component id="ae468" class="javax.swing.JLabel">
+          <component id="ae468" class="javax.swing.JLabel" binding="visitorNameLabelUB">
             <constraints>
               <grid row="2" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -971,7 +971,7 @@
               </model>
             </properties>
           </component>
-          <component id="48f36" class="javax.swing.JLabel">
+          <component id="48f36" class="javax.swing.JLabel" binding="visitorNameLabelFX">
             <constraints>
               <grid row="2" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1135,7 +1135,7 @@
               <text value="6."/>
             </properties>
           </component>
-          <component id="8f6c" class="javax.swing.JLabel">
+          <component id="8f6c" class="javax.swing.JLabel" binding="homeNameLabelFX">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1343,7 +1343,7 @@
               </model>
             </properties>
           </component>
-          <component id="2bc50" class="javax.swing.JLabel">
+          <component id="2bc50" class="javax.swing.JLabel" binding="homeNameLabelBB">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1351,7 +1351,7 @@
               <text value="Team Name: TEAM NAME"/>
             </properties>
           </component>
-          <component id="adda6" class="javax.swing.JLabel">
+          <component id="adda6" class="javax.swing.JLabel" binding="visitorNameLabelBB">
             <constraints>
               <grid row="2" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>

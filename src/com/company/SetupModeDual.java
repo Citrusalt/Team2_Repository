@@ -6,6 +6,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.company.Team;
@@ -31,9 +33,8 @@ public class SetupModeDual {
         gC.createTeamTable(beamTable, beamModel, beamRenderer, headerFont, 2);
         gC.createTeamTable(floorTable, floorModel, floorRenderer, headerFont, 2);
         gC.createJudgeTable(judgesTable, judgesModel, judgesRenderer, headerFont);
-
         //Test Table
-        testTable(gC);
+//        testTable(gC);
 
         //Card Layout start
         cardLayout = (CardLayout) mainPanel.getLayout();
@@ -73,6 +74,7 @@ public class SetupModeDual {
                     JOptionPane.showMessageDialog(null, "Teams cannot be the same. Try Again.");
                 }
                 else {
+                    //************POPULATES ALL COMBOBOXES*************
                     int homeIndex = comboBox7.getSelectedIndex();//Stores the index of the user selection
                     int visitorIndex = comboBox8.getSelectedIndex();
 
@@ -80,35 +82,37 @@ public class SetupModeDual {
                     Team visitor = allTeamfromDB.get(visitorIndex-1);       //This has the team data for the visitor team
 
                     changeCard("SelectVaultCard");
+
                     //Change the label for the team name
                     homeNameLabel.setText(home.getTeamName());
                     visitorNameLabel.setText(visitor.getTeamName());
-                    //Populates ComboBox for the HomeTeam
-                    v11.removeAllItems(); v12.removeAllItems(); v13.removeAllItems();
-                    v14.removeAllItems(); v15.removeAllItems(); v16.removeAllItems();
-                    v11.addItem("-Select Gymnast-"); v12.addItem("-Select Gymnast-"); v13.addItem("-Select Gymnast-");
-                    v14.addItem("-Select Gymnast-"); v15.addItem("-Select Gymnast-"); v16.addItem("-Select Gymnast-");
-                    for(int i = 0; i < home.getAllGymnasts().size(); i++){
-                        v11.addItem(home.getAllGymnasts().get(i).getPlayerfName() + " " +home.getAllGymnasts().get(i).getPlayerlName());
-                        v12.addItem(home.getAllGymnasts().get(i).getPlayerfName() + " " +home.getAllGymnasts().get(i).getPlayerlName());
-                        v13.addItem(home.getAllGymnasts().get(i).getPlayerfName() + " " +home.getAllGymnasts().get(i).getPlayerlName());
-                        v14.addItem(home.getAllGymnasts().get(i).getPlayerfName() + " " +home.getAllGymnasts().get(i).getPlayerlName());
-                        v15.addItem(home.getAllGymnasts().get(i).getPlayerfName() + " " +home.getAllGymnasts().get(i).getPlayerlName());
-                        v16.addItem(home.getAllGymnasts().get(i).getPlayerfName() + " " +home.getAllGymnasts().get(i).getPlayerlName());
+                    homeNameLabelUB.setText(home.getTeamName());
+                    visitorNameLabelUB.setText(visitor.getTeamName());
+                    homeNameLabelBB.setText(home.getTeamName());
+                    visitorNameLabelBB.setText(visitor.getTeamName());
+                    homeNameLabelFX.setText(home.getTeamName());
+                    visitorNameLabelFX.setText(visitor.getTeamName());
+
+
+                    //Populates ALL ComboBoxes for the HomeTeam; This is where those Lists of comboboxes are used
+                    List<JComboBox> homeCombo = gethomeCombo();
+                    for(int i = 0; i < homeCombo.size(); i++){
+                        homeCombo.get(i).removeAllItems();
+                        homeCombo.get(i).addItem("- Select Gymnast -");
+                        for(int j = 0; j < home.getAllGymnasts().size(); j++){
+                            homeCombo.get(i).addItem(home.getAllGymnasts().get(j).getPlayerfName() + " " +home.getAllGymnasts().get(j).getPlayerlName());
+                        }
                     }
-                    //Populates ComboBox for the Visitor
-                    v21.removeAllItems(); v22.removeAllItems(); v23.removeAllItems();
-                    v24.removeAllItems(); v25.removeAllItems(); v26.removeAllItems();
-                    v21.addItem("-Select Gymnast-"); v22.addItem("-Select Gymnast-"); v23.addItem("-Select Gymnast-");
-                    v24.addItem("-Select Gymnast-"); v25.addItem("-Select Gymnast-"); v26.addItem("-Select Gymnast-");
-                    for(int i = 0; i < visitor.getAllGymnasts().size(); i++){
-                        v21.addItem(visitor.getAllGymnasts().get(i).getPlayerfName() + " " + visitor.getAllGymnasts().get(i).getPlayerlName());
-                        v22.addItem(visitor.getAllGymnasts().get(i).getPlayerfName() + " " + visitor.getAllGymnasts().get(i).getPlayerlName());
-                        v23.addItem(visitor.getAllGymnasts().get(i).getPlayerfName() + " " + visitor.getAllGymnasts().get(i).getPlayerlName());
-                        v24.addItem(visitor.getAllGymnasts().get(i).getPlayerfName() + " " + visitor.getAllGymnasts().get(i).getPlayerlName());
-                        v25.addItem(visitor.getAllGymnasts().get(i).getPlayerfName() + " " + visitor.getAllGymnasts().get(i).getPlayerlName());
-                        v26.addItem(visitor.getAllGymnasts().get(i).getPlayerfName() + " " + visitor.getAllGymnasts().get(i).getPlayerlName());
+                    //Populates ALL ComboBox for the VisitorTeam
+                    List<JComboBox> visitorCombo = getvisitorCombo();
+                    for(int i = 0; i < visitorCombo.size(); i++){
+                        visitorCombo.get(i).removeAllItems();
+                        visitorCombo.get(i).addItem("- Select Gymnast -");
+                        for(int j = 0; j < visitor.getAllGymnasts().size(); j++){
+                            visitorCombo.get(i).addItem(visitor.getAllGymnasts().get(j).getPlayerfName() + " " +visitor.getAllGymnasts().get(j).getPlayerlName());
+                        }
                     }
+                    //************END POPULATE******************
                 }
             }
         });
@@ -117,8 +121,8 @@ public class SetupModeDual {
             public void actionPerformed(ActionEvent e) {
 //                    CreateTeamScreen myTeamScreen = new CreateTeamScreen(); //instantiate createTeamScreen Class
 //                    myTeamScreen.createTeamScreen(); //call constructor     //
-
 //                frame.dispose();
+
                 CreateTeamScreen2 myScreen = new CreateTeamScreen2 (); //numb of teams
 
             }
@@ -148,6 +152,7 @@ public class SetupModeDual {
 //                else{
 //                    JOptionPane.showMessageDialog(null, "Team members cannot be the same. Try Again.");
 //                }
+
                 //Verify stuff if they're valid
 
                 changeCard("SelectBarCard");
@@ -192,10 +197,12 @@ public class SetupModeDual {
 //                else{
 //                    JOptionPane.showMessageDialog(null, "Team members cannot be the same. Try Again.");
 //                }
+
                 changeCard("SelectBalanceBeamCard");
             }
         });
         balanceBeamBackButton.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 changeCard("SelectBarCard");
@@ -261,6 +268,18 @@ public class SetupModeDual {
 //                else{
 //                    JOptionPane.showMessageDialog(null, "Team members cannot be the same. Try Again.");
 //                }
+
+                //Populate Judges Combobox
+                String[] judgesNames = {"Kevin McNamara", "Patricia Boudreaux", "Kaitlyn Adams", "Michelle Martin"};
+                List<JComboBox> judgesCombo = getjudgesCombo();
+                for (int k = 0; k<judgesCombo.size(); k++){
+                    judgesCombo.get(k).removeAllItems();
+                    judgesCombo.get(k).addItem("- Select Judges -");
+                    for (int l = 0 ; l < judgesNames.length; l++){
+                        judgesCombo.get(k).addItem(judgesNames[l]);
+                    }
+                }
+
                 changeCard("SelectJudgesCard");
             }
         });
@@ -305,12 +324,23 @@ public class SetupModeDual {
 //                        j45.getSelectedItem(),
 //                        j46.getSelectedItem(),
 //                };
+
+
+                //!!!!!!!!!!!
+                // If u look at the scoresheet for NCAA, a judge can judge 2 events.
+                // I notice that on the scoresheet for dual, there's 4 (2^2) judges, quad there was 16 (2^4)
+                // Coincidence?                 -jlou (4.11.2022)
+                //!!!!!!!!!!!
+
+
 //                if (gC.checkUnique(vaultJudges) && gC.checkUnique(barJudges) && gC.checkUnique(beamJudges) && gC.checkUnique(floorJudges)) {
 //                    changeCard("SummaryCard");
 //                }
 //                else{
 //                    JOptionPane.showMessageDialog(null, "Judges cannot be the same. Try Again.");
 //                }
+                //Calls the testTable class
+                testTable(gC);
 
                 changeCard("SummaryCard");
             }
@@ -358,11 +388,48 @@ public class SetupModeDual {
     public void changeCard(String cardName){
         cardLayout.show(mainPanel, cardName);
     }
+    //Method that contains the comboboxes for the home team
+    public List<JComboBox> gethomeCombo(){
+        return Arrays.asList(v11, v12, v13, v14, v15, v16,          //Vaults
+                b11, b12, b13, b14, b15, b16,                       //Bars
+                bb11, bb12, bb13, bb14, bb15, bb16,                 //Beams
+                f11, f12, f13, f14, f15, f16);                      //Floors
+    }
 
+    //Method that contains the comboboxes for the visitor team
+    public List<JComboBox> getvisitorCombo(){
+        return Arrays.asList(v21, v22, v23, v24, v25, v26,         //Vaults
+                b21, b22, b23, b24, b25, b26,                      //Bars
+                bb21, bb22, bb23,bb24, bb25, bb26,                 //Beams
+                f21, f22,f23,f24, f25,f26);                        //Floors
+    }
 
+    //Method that contains the comboboxes for the visitor
+    public List<JComboBox> getjudgesCombo(){
+        return Arrays.asList(j11, j12, j13, j14, j15, j16,      //Vaults
+                j21, j22, j23, j24, j25, j26,                   //Bars
+                j31, j32, j33, j34, j35, j36,                   //Beams
+                j41, j42, j43, j44, j45, j46);                  //Floors
+    }
 
     //Test function made to fill tables
     private void testTable(GuiCreator gC){
+        List<JComboBox> home = gethomeCombo();
+        List<JComboBox> visitor = getvisitorCombo();
+        List<JComboBox> judges = getjudgesCombo();
+
+        String[] homeGymnasts= new String[24];
+        for(int i = 0; i < home.size(); i++){
+            homeGymnasts[i] = home.get(i).getSelectedItem().toString();
+        }
+        String[] visitorGymnasts = new String[24];
+        for(int i = 0; i < visitor.size(); i++){
+            visitorGymnasts[i] = visitor.get(i).getSelectedItem().toString();
+        }
+        String[] judgesNames = new String[24];
+        for(int i = 0; i < judges.size(); i++){
+            judgesNames[i] = judges.get(i).getSelectedItem().toString();
+        }
 
         String[] team1Example = {"Jacob Drake", "Janilou Sy", "Hailey Porter", "Adriana Lanier", "John Smith", "Jane Doe"};
         String[] team2Example = {"John Smith", "Jane Doe", "Adriana Lanier", "Hailey Porter", "Janilou Sy", "Jacob Drake"};
@@ -370,33 +437,51 @@ public class SetupModeDual {
         //Fill Vault Table Example
         // This can all be combined into a single for-loop, just showing how to do one at a time
         //Use different string []'s for different events obviously
-        for (int i = 0; i <= 5; i++){
-            String[] row = {team1Example[i], team2Example[i]};
+//        for (int i = 0; i <= 5; i++){
+//            String[] row = {team1Example[i], team2Example[i]};
+//            gC.addRowTeamTable(row, vaultModel);
+//        }
+
+        for (int i = 0; i < 6; i++){
+            String[] row = {homeGymnasts[i], visitorGymnasts[i]};
             gC.addRowTeamTable(row, vaultModel);
         }
+
         //Fill Bar Table Example
-        for (int i = 0; i <= 5; i++){
-            String[] row = {team1Example[i], team2Example[i]};
+//        for (int i = 0; i <= 5; i++){
+//            String[] row = {team1Example[i], team2Example[i]};
+//            gC.addRowTeamTable(row, barsModel);
+//        }
+        for (int i = 6; i < 12; i++){
+            String[] row = {homeGymnasts[i], visitorGymnasts[i]};
             gC.addRowTeamTable(row, barsModel);
         }
         //Fill Beam Table Example
-        for (int i = 0; i <= 5; i++){
-            String[] row = {team1Example[i], team2Example[i]};
+//        for (int i = 0; i <= 5; i++){
+//            String[] row = {team1Example[i], team2Example[i]};
+//            gC.addRowTeamTable(row, beamModel);
+//        }
+        for (int i = 12; i < 18; i++){
+            String[] row = {homeGymnasts[i], visitorGymnasts[i]};
             gC.addRowTeamTable(row, beamModel);
         }
         //Fill Floor Table Example
-        for (int i = 0; i <= 5; i++){
-            String[] row = {team1Example[i], team2Example[i]};
+//        for (int i = 0; i <= 5; i++){
+//            String[] row = {team1Example[i], team2Example[i]};
+//            gC.addRowTeamTable(row, floorModel);
+//        }
+        for (int i = 18; i < 24; i++){
+            String[] row = {homeGymnasts[i], visitorGymnasts[i]};
             gC.addRowTeamTable(row, floorModel);
         }
-
-        String[] vaultJudges = new String[]{"Jacob Drake", "Adriana Lanier", "Hailey Porter","Janilou Sy", "John Smith", "Jane Doe"};
-        String[] barJudges = new String[]{"Adriana Lanier", "Janilou Sy", "Jacob Drake","Janilou Sy", "John Smith", "Jane Doe"};
-        String[] beamJudges = new String[]{"John Smith", "Adriana Lanier", "Hailey Porter","Janilou Sy", "Jacob Drake", "Jane Doe"};
-        String[] floorJudges = new String[]{"Jacob Drake", "Jane Doe", "Hailey Porter","Janilou Sy", "John Smith", "Adriana Lanier"};
+//        String[] vaultJudges = new String[]{"Jacob Drake", "Adriana Lanier", "Hailey Porter","Janilou Sy", "John Smith", "Jane Doe"};
+//        String[] barJudges = new String[]{"Adriana Lanier", "Janilou Sy", "Jacob Drake","Janilou Sy", "John Smith", "Jane Doe"};
+//        String[] beamJudges = new String[]{"John Smith", "Adriana Lanier", "Hailey Porter","Janilou Sy", "Jacob Drake", "Jane Doe"};
+//        String[] floorJudges = new String[]{"Jacob Drake", "Jane Doe", "Hailey Porter","Janilou Sy", "John Smith", "Adriana Lanier"};
 
         for (int i = 0; i <= 5; i++){
-            gC.addRowsJudgeTable(vaultJudges[i], barJudges[i], beamJudges[i], floorJudges[i], judgesModel);
+//            gC.addRowsJudgeTable(vaultJudges[i], barJudges[i], beamJudges[i], floorJudges[i], judgesModel);
+            gC.addRowsJudgeTable(judgesNames[i],judgesNames[i+6],judgesNames[i+12],judgesNames[i+18], judgesModel);
         }
     }
 
@@ -446,9 +531,6 @@ public class SetupModeDual {
     private DefaultTableCellRenderer beamRenderer = new DefaultTableCellRenderer();
     private DefaultTableCellRenderer floorRenderer = new DefaultTableCellRenderer();
     private DefaultTableCellRenderer judgesRenderer = new DefaultTableCellRenderer();
-
-
-
 
     private JPanel mainPanel;
     private JButton startButton;
@@ -565,6 +647,12 @@ public class SetupModeDual {
     private JComboBox j46;
     private JLabel homeNameLabel;
     private JLabel visitorNameLabel;
+    private JLabel homeNameLabelUB;
+    private JLabel visitorNameLabelUB;
+    private JLabel homeNameLabelBB;
+    private JLabel visitorNameLabelBB;
+    private JLabel homeNameLabelFX;
+    private JLabel visitorNameLabelFX;
     private JTextField clockTextField;
     private JButton startTimerButton;
     private JButton resetTimerButton;
