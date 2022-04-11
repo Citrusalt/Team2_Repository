@@ -493,15 +493,19 @@ public class SetupModeDual {
                 }
             }
         }
-        home.printAll();
-        for (int i = 0; i < home.getAllGymnasts().size(); i++){
-                home.getAllGymnasts().get(i).printAll();
-            }
-        for (int i = 0; i < visitor.getAllGymnasts().size(); i++){
-            visitor.getAllGymnasts().get(i).printAll();
-        }
+//        for (int i = 0; i < home.getAllGymnasts().size(); i++){
+//                home.getAllGymnasts().get(i).printAll();
+//            }
+//        for (int i = 0; i < visitor.getAllGymnasts().size(); i++){
+//            visitor.getAllGymnasts().get(i).printAll();
+//        }
 
         //Save teams to database here
+        home.updateApparatusLists();
+        visitor.updateApparatusLists();
+
+        home.printAll();
+
 
         List<Team>myTeams = new ArrayList<>();
         myTeams.add(home);

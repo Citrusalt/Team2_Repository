@@ -1,8 +1,10 @@
 package com.company;
 
+import javax.sound.midi.SysexMessage;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Arrays;
 
 public class DualScorekeeperScreen {
 
@@ -23,6 +25,16 @@ public class DualScorekeeperScreen {
         //Set Arena Screen Fields
         myArenaScreen.teamName1.setText(home.getTeamName());
         myArenaScreen.teamName2.setText(visitor.getTeamName());
+        myArenaScreen.logo1.setIcon(new ImageIcon("src/com/company/pictures/" + home.getTeamLogo()));
+        myArenaScreen.logo2.setIcon(new ImageIcon("src/com/company/pictures/" + visitor.getTeamLogo()));
+
+        homeTeamName.setText(home.getTeamName());
+        visitorTeamName.setText(visitor.getTeamName());
+
+
+        Player team1ActivePlayer;
+        Player team2ActivePlayer;
+
         //logo
         //etc.
 
@@ -39,10 +51,8 @@ public class DualScorekeeperScreen {
             public void actionPerformed(ActionEvent e) {
                 changeCard("SimulCard");
                 if (selectedMode == 0){
-                    team1App.setText("Vault");
-                    team2App.setText("Bar");
-                    myArenaScreen.event1.setText("Vault");
-                    myArenaScreen.event2.setText("Bar");
+
+                    updateRotationSimul(myArenaScreen, frame, 0, gC, home, visitor);
                     //Fill Arena Screen
                 }
                 else if (selectedMode == 1){
@@ -136,6 +146,9 @@ public class DualScorekeeperScreen {
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED){
                     Object item = e.getItem();
+
+
+
                     myArenaScreen.updateGymnast(item.toString(), 1);
                 }
             }
@@ -446,10 +459,10 @@ public class DualScorekeeperScreen {
             myArenaScreen.updateEvent("Vault", 1);
             myArenaScreen.updateEvent("Bars", 2);
             rotationLabel.setText("ROTATION 1");
-            //update judges
-            //update players
-            //update scores
-            //etc.
+
+            gC.updateCombobox(team1Combo, home.getVaultGymnasts());
+            gC.updateCombobox(team2Combo, visitor.getBarGymnasts());
+
         }
         else if (rotation == 2){
             team1App.setText("Bars");
@@ -457,10 +470,8 @@ public class DualScorekeeperScreen {
             myArenaScreen.updateEvent("Bars", 1);
             myArenaScreen.updateEvent("Vault", 2);
             rotationLabel.setText("ROTATION 2");
-            //update judges
-            //update players
-            //update scores
-            //etc.
+            gC.updateCombobox(team1Combo, home.getBarGymnasts());
+            gC.updateCombobox(team2Combo, visitor.getVaultGymnasts());
         }
         else if (rotation == 3){
             team1App.setText("Beam");
@@ -468,6 +479,8 @@ public class DualScorekeeperScreen {
             myArenaScreen.updateEvent("Beam", 1);
             myArenaScreen.updateEvent("Floor", 2);
             rotationLabel.setText("ROTATION 3");
+            gC.updateCombobox(team1Combo, home.getBeamGymnasts());
+            gC.updateCombobox(team2Combo, visitor.getFloorGymnasts());
         }
         else if (rotation == 4){
             team1App.setText("Floor");
@@ -475,6 +488,8 @@ public class DualScorekeeperScreen {
             myArenaScreen.updateEvent("Floor", 1);
             myArenaScreen.updateEvent("Beam", 2);
             rotationLabel.setText("ROTATION 4");
+            gC.updateCombobox(team1Combo, home.getFloorGymnasts());
+            gC.updateCombobox(team2Combo, visitor.getBeamGymnasts());
         }
         else if(rotation == 5){
             PostMeetScreen myPostMode = new PostMeetScreen(gC);
@@ -612,5 +627,7 @@ public class DualScorekeeperScreen {
     private JCheckBox teamLogoCheckbox;
     private JTextField nD1;
     private JTextField nD2;
+    private JLabel homeTeamName;
+    private JLabel visitorTeamName;
     private CardLayout cardLayout;
 }

@@ -5,6 +5,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.Vector;
 
@@ -146,5 +147,18 @@ public class GuiCreator {
         Vector<String> row = new Vector<String>();
         row.add (firstName + " " + lastName);
         model.addRow(row);
+    }
+
+
+    public void updateCombobox(JComboBox comboBox, List<Player> playerList) {
+//        comboBox.removeAll(); //don't use this
+
+        comboBox.removeAllItems();
+
+        comboBox.addItem("- Select Gymnast -");
+
+        for (Player p : playerList){
+            comboBox.addItem(p.getPlayerfName() + " " + p.getPlayerlName());
+        }
     }
 }

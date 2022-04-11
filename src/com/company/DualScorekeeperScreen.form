@@ -888,11 +888,7 @@
             </constraints>
             <properties>
               <model>
-                <item value="Select Current Gymnast"/>
-                <item value="Jacob Drake"/>
-                <item value="Adriana Lanier"/>
-                <item value="Hailey Porter"/>
-                <item value="Janilou Sy"/>
+                <item value="-Select Current Gymnast-"/>
               </model>
             </properties>
           </component>
@@ -902,11 +898,7 @@
             </constraints>
             <properties>
               <model>
-                <item value="Select Current Gymnast"/>
-                <item value="Jacob Drake"/>
-                <item value="Adriana Lanier"/>
-                <item value="Hailey Porter"/>
-                <item value="Janilou Sy"/>
+                <item value="-Select Current Gymnast-"/>
               </model>
             </properties>
           </component>
@@ -1012,7 +1004,7 @@
               <text value="Next"/>
             </properties>
           </component>
-          <component id="55008" class="javax.swing.JLabel">
+          <component id="55008" class="javax.swing.JLabel" binding="homeTeamName">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1021,7 +1013,7 @@
               <text value="Team 1"/>
             </properties>
           </component>
-          <component id="9e6f8" class="javax.swing.JLabel">
+          <component id="9e6f8" class="javax.swing.JLabel" binding="visitorTeamName">
             <constraints>
               <grid row="1" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
