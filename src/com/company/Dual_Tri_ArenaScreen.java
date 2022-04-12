@@ -112,17 +112,23 @@ public class Dual_Tri_ArenaScreen {
         }
     }
 
-    public void updateGymnastInfo(Player player, int teamNumb){
+    public void updateGymnastInfo(Player player, int teamNumb, int event){
 
          if (teamNumb == 1){
-             gymnastCurrent1.setText(player.getPlayerfName() + " " + player.getPlayerlName());
+             name1.setText(player.getPlayerfName() + " " + player.getPlayerlName());
              major1.setText(player.getPlayerMajor());
              year1.setText(player.getPlayerClass());
+             avg1.setText(String.valueOf(player.getPlayerAvg()[event]));
 
-
-
+            pic1.setIcon(new ImageIcon ("src/com/company/pictures/" + player.getPlayerPicture()));
          }
          else if (teamNumb == 2){
+             name2.setText(player.getPlayerfName() + " " + player.getPlayerlName());
+             major2.setText(player.getPlayerMajor());
+             year2.setText(player.getPlayerClass());
+             avg2.setText(String.valueOf(player.getPlayerAvg()[event]));
+
+             pic2.setIcon(new ImageIcon ("src/com/company/pictures/" + player.getPlayerPicture()));
 
          }
 

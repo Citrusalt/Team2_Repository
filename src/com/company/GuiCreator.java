@@ -155,8 +155,6 @@ public class GuiCreator {
 
         comboBox.removeAllItems();
 
-        comboBox.addItem("- Select Gymnast -");
-
         for (Player p : playerList){
             comboBox.addItem(p.getPlayerfName() + " " + p.getPlayerlName());
         }

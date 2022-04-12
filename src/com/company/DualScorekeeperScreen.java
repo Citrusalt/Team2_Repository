@@ -141,15 +141,21 @@ public class DualScorekeeperScreen {
         team1Combo.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
-                if (e.getStateChange() == ItemEvent.SELECTED){
+                if (e.getStateChange() == ItemEvent.SELECTED) {
                     Object item = e.getItem();
 
-                if (currentevent1 == "Vault"){
-                    myArenaScreen.updateGymnastInfo(home.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1);
-                }
-
-
-                    myArenaScreen.updateGymnast(item.toString(), 1);
+                    if (currentevent1 == "Vault") {
+                        myArenaScreen.updateGymnastInfo(home.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 0);
+                    }
+                    else if (currentevent1 == "Bar") {
+                        myArenaScreen.updateGymnastInfo(home.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 1);
+                    }
+                    else if (currentevent1 == "Beam"){
+                        myArenaScreen.updateGymnastInfo(home.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 2);
+                    }
+                    else if (currentevent1 == "Floor"){
+                        myArenaScreen.updateGymnastInfo(home.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 3);
+                    }
                 }
             }
 
@@ -157,9 +163,21 @@ public class DualScorekeeperScreen {
         team2Combo.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
-                if (e.getStateChange() == ItemEvent.SELECTED){
+                if (e.getStateChange() == ItemEvent.SELECTED) {
                     Object item = e.getItem();
-                    myArenaScreen.updateGymnast(item.toString(), 2);
+
+                    if (currentevent1 == "Vault") {
+                        myArenaScreen.updateGymnastInfo(visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 0);
+                    }
+                    else if (currentevent1 == "Bar") {
+                        myArenaScreen.updateGymnastInfo(visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 1);
+                    }
+                    else if (currentevent1 == "Beam"){
+                        myArenaScreen.updateGymnastInfo(visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 2);
+                    }
+                    else if (currentevent1 == "Floor"){
+                        myArenaScreen.updateGymnastInfo(visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 3);
+                    }
                 }
             }
         });
