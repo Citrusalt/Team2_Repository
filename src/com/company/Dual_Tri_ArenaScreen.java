@@ -127,7 +127,6 @@ public class Dual_Tri_ArenaScreen {
              major2.setText(player.getPlayerMajor());
              year2.setText(player.getPlayerClass());
              avg2.setText(String.valueOf(player.getPlayerAvg()[event]));
-
              pic2.setIcon(new ImageIcon ("src/com/company/pictures/" + player.getPlayerPicture()));
 
          }

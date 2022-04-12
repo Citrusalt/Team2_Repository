@@ -142,7 +142,6 @@ public class DualScorekeeperScreen {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    Object item = e.getItem();
 
                     if (currentevent1 == "Vault") {
                         myArenaScreen.updateGymnastInfo(home.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 0);
@@ -164,18 +163,17 @@ public class DualScorekeeperScreen {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    Object item = e.getItem();
 
-                    if (currentevent1 == "Vault") {
+                    if (currentevent2 == "Vault") {
                         myArenaScreen.updateGymnastInfo(visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 0);
                     }
-                    else if (currentevent1 == "Bar") {
+                    else if (currentevent2 == "Bar") {
                         myArenaScreen.updateGymnastInfo(visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 1);
                     }
-                    else if (currentevent1 == "Beam"){
+                    else if (currentevent2 == "Beam"){
                         myArenaScreen.updateGymnastInfo(visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 2);
                     }
-                    else if (currentevent1 == "Floor"){
+                    else if (currentevent2 == "Floor"){
                         myArenaScreen.updateGymnastInfo(visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 3);
                     }
                 }
