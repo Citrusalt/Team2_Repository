@@ -6,11 +6,12 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Vector;
+import java.util.List;
+
 
 public class PostMeetScreen {
 
-    public PostMeetScreen(GuiCreator gC){
+    public PostMeetScreen(GuiCreator gC, List<Team> teams){
 
         JFrame frame = new JFrame ("Post-Meet Screen");
         frame.setContentPane(postMeetModePanel);
@@ -23,7 +24,19 @@ public class PostMeetScreen {
         gC.createTeamTablePost(teamTable, teamModel, teamRenderer, font);
         gC.createIndividualTable(individualTable, individualModel, individualRenderer, font);
 
-        testTable(gC, teamModel, individualModel); //for testing and demonstration
+
+        if (teams.size() == 2){
+
+            Team home = teams.get(0);
+            Team visitor1 = teams.get(1);
+
+            dualTable(gC, teamModel, individualModel, home, visitor1);
+
+        }
+        else{
+            testTable(gC, teamModel, individualModel); //for testing and demonstration
+        }
+
 
 
         endButton.addActionListener(new ActionListener() {
@@ -38,10 +51,10 @@ public class PostMeetScreen {
     private void testTable(GuiCreator gC, DefaultTableModel teamModel, DefaultTableModel individualModel){
 
 
-        gC.addRowTeamTablePost(1, "UAH", teamModel);
-        gC.addRowTeamTablePost(2, "Auburn", teamModel);
-        gC.addRowTeamTablePost(3, "Alabama", teamModel);
-        gC.addRowTeamTablePost(4, "LSU", teamModel);
+        gC.addRowTeamTablePost(1, "UAH",150, teamModel);
+        gC.addRowTeamTablePost(2, "Auburn", 135, teamModel);
+        gC.addRowTeamTablePost(3, "Alabama", 124,  teamModel);
+        gC.addRowTeamTablePost(4, "LSU", 100, teamModel);
 
         gC.addRowIndividualTable(1, "Jacob Drake", "UAH", 9.874, individualModel);
         gC.addRowIndividualTable(2, "Hailey Porter", "Auburn", 9.562, individualModel);
@@ -49,6 +62,24 @@ public class PostMeetScreen {
         gC.addRowIndividualTable(4, "Janilou Sy", "LSU", 9.123, individualModel);
         gC.addRowIndividualTable(5, "John Smith", "Alabama", 8.567, individualModel);
     }
+
+    //Test function
+    private void dualTable(GuiCreator gC, DefaultTableModel teamModel, DefaultTableModel individualModel, Team home, Team visitor1){
+
+        if (home.getTeamScore().getRunningScore() > visitor1.getTeamScore().getRunningScore()){
+            gC.addRowTeamTablePost(1, home.getTeamName(), home.getTeamScore().getRunningScore(), teamModel);
+            gC.addRowTeamTablePost(2, visitor1.getTeamName(), visitor1.getTeamScore().getRunningScore(), teamModel);
+        }
+        else
+        {
+            gC.addRowTeamTablePost(1, visitor1.getTeamName(), visitor1.getTeamScore().getRunningScore(), teamModel);
+            gC.addRowTeamTablePost(2, home.getTeamName(), home.getTeamScore().getRunningScore(), teamModel);
+        }
+
+
+    }
+
+
 
     //Table Header Font
     Font font = new Font ("Verdana", Font.PLAIN, 18);

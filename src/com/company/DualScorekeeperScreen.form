@@ -666,7 +666,7 @@
               <text value="ROTATION 1"/>
             </properties>
           </component>
-          <component id="c3f3a" class="javax.swing.JLabel">
+          <component id="c3f3a" class="javax.swing.JLabel" binding="jL21">
             <constraints>
               <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -674,7 +674,7 @@
               <text value="Judge 1"/>
             </properties>
           </component>
-          <component id="8292" class="javax.swing.JLabel">
+          <component id="8292" class="javax.swing.JLabel" binding="jL11">
             <constraints>
               <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -704,7 +704,7 @@
               <horizontalAlignment value="0"/>
             </properties>
           </component>
-          <component id="b551f" class="javax.swing.JLabel">
+          <component id="b551f" class="javax.swing.JLabel" binding="jL12">
             <constraints>
               <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -724,7 +724,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="76ea8" class="javax.swing.JLabel">
+          <component id="76ea8" class="javax.swing.JLabel" binding="jL13">
             <constraints>
               <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -744,7 +744,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="1ded7" class="javax.swing.JLabel">
+          <component id="1ded7" class="javax.swing.JLabel" binding="jL14">
             <constraints>
               <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -764,7 +764,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="9cdfc" class="javax.swing.JLabel">
+          <component id="9cdfc" class="javax.swing.JLabel" binding="jL15">
             <constraints>
               <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -783,7 +783,7 @@
               <horizontalAlignment value="0"/>
             </properties>
           </component>
-          <component id="818f6" class="javax.swing.JLabel">
+          <component id="818f6" class="javax.swing.JLabel" binding="jL16">
             <constraints>
               <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -792,7 +792,7 @@
               <text value="Judge 6"/>
             </properties>
           </component>
-          <component id="43222" class="javax.swing.JLabel">
+          <component id="43222" class="javax.swing.JLabel" binding="jL22">
             <constraints>
               <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -800,7 +800,7 @@
               <text value="Judge 2"/>
             </properties>
           </component>
-          <component id="a294f" class="javax.swing.JLabel">
+          <component id="a294f" class="javax.swing.JLabel" binding="jL23">
             <constraints>
               <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -808,7 +808,7 @@
               <text value="Judge 3"/>
             </properties>
           </component>
-          <component id="a2942" class="javax.swing.JLabel">
+          <component id="a2942" class="javax.swing.JLabel" binding="jL24">
             <constraints>
               <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -816,7 +816,7 @@
               <text value="Judge 4"/>
             </properties>
           </component>
-          <component id="2ab3d" class="javax.swing.JLabel">
+          <component id="2ab3d" class="javax.swing.JLabel" binding="jL25">
             <constraints>
               <grid row="7" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -824,7 +824,7 @@
               <text value="Judge 5"/>
             </properties>
           </component>
-          <component id="5ce12" class="javax.swing.JLabel">
+          <component id="5ce12" class="javax.swing.JLabel" binding="jL26">
             <constraints>
               <grid row="8" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>

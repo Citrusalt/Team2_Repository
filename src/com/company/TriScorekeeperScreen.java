@@ -3,6 +3,8 @@ package com.company;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TriScorekeeperScreen {
 
@@ -376,7 +378,8 @@ public class TriScorekeeperScreen {
             rotationLabel.setText("ROTATION 6");
         }
         else if (rotation == 7){
-            PostMeetScreen myPostMode = new PostMeetScreen(gC);
+            List<Team> teams = new ArrayList<>();
+            PostMeetScreen myPostMode = new PostMeetScreen(gC, teams);
             myArenaScreen.getFrame().dispose();
             thisFrame.dispose();
         }

@@ -89,6 +89,7 @@ public class GuiCreator {
     public void createTeamTablePost(JTable table, DefaultTableModel model, DefaultTableCellRenderer cellRenderer, Font font){
         model.addColumn("Place");
         model.addColumn("Team");
+        model.addColumn("Final Score");
         table.setModel(model);
 
         centerColumns(table, cellRenderer); //center text in table
@@ -99,10 +100,11 @@ public class GuiCreator {
     }
 
     //the parameters of this will undoubtedly change to accept either team or player class instead
-    public void addRowTeamTablePost(int place, String name, DefaultTableModel model){
+    public void addRowTeamTablePost(int place, String name, double score, DefaultTableModel model){
         Vector<String> row = new Vector<String>();
         row.add(String.valueOf(place));
         row.add(name);
+        row.add(String.valueOf(score));
         model.addRow(row);
     }
 

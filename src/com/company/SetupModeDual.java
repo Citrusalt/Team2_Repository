@@ -118,6 +118,16 @@ public class SetupModeDual {
                             visitorCombo.get(i).addItem(visitor.getAllGymnasts().get(j).getPlayerfName() + " " +visitor.getAllGymnasts().get(j).getPlayerlName());
                         }
                     }
+                    //Populate Judges Comboboxes
+                    String[] judgesNames = {"Kevin McNamara", "Patricia Boudreaux", "Kaitlyn Adams", "Michelle Martin", "John Smith", "Jane Doe", "Jacob Drake", "Janilou Sy", "Adriana Lanier", "Hailey Porter"};
+                    List<JComboBox> judgesCombo = getjudgesCombo();
+                    for (int k = 0; k<judgesCombo.size(); k++){
+                        judgesCombo.get(k).removeAllItems();
+                        judgesCombo.get(k).addItem("- Select Judges -");
+                        for (int l = 0 ; l < judgesNames.length; l++){
+                            judgesCombo.get(k).addItem(judgesNames[l]);
+                        }
+                    }
                     //************END POPULATE******************
                 }
             }
@@ -269,22 +279,14 @@ public class SetupModeDual {
 //                        f26.getSelectedItem(),
 //                };
 //                if (gC.checkUnique(team1) && gC.checkUnique(team2)) {
+//                    //Populate Judges Combobox
+//                    //Judge Names After Michelle are ones I added -- PLACEHOLDER
+//
 //                    changeCard("SelectJudgesCard");
 //                }
 //                else{
 //                    JOptionPane.showMessageDialog(null, "Team members cannot be the same. Try Again.");
 //                }
-
-                //Populate Judges Combobox
-                String[] judgesNames = {"Kevin McNamara", "Patricia Boudreaux", "Kaitlyn Adams", "Michelle Martin"};
-                List<JComboBox> judgesCombo = getjudgesCombo();
-                for (int k = 0; k<judgesCombo.size(); k++){
-                    judgesCombo.get(k).removeAllItems();
-                    judgesCombo.get(k).addItem("- Select Judges -");
-                    for (int l = 0 ; l < judgesNames.length; l++){
-                        judgesCombo.get(k).addItem(judgesNames[l]);
-                    }
-                }
 
                 changeCard("SelectJudgesCard");
             }
@@ -340,14 +342,17 @@ public class SetupModeDual {
 
 
 //                if (gC.checkUnique(vaultJudges) && gC.checkUnique(barJudges) && gC.checkUnique(beamJudges) && gC.checkUnique(floorJudges)) {
+//                    //Calls the testTable class
+//                    resetTables(); //resets tables so that table isnt still filled with old values
+//                    testTable(gC);
 //                    changeCard("SummaryCard");
 //                }
 //                else{
 //                    JOptionPane.showMessageDialog(null, "Judges cannot be the same. Try Again.");
 //                }
                 //Calls the testTable class
-                resetTables(); //resets tables so that table isnt still filled with old values
-                testTable(gC);
+//                resetTables(); //resets tables so that table isnt still filled with old values
+//                testTable(gC);
 
                 changeCard("SummaryCard");
             }
@@ -389,7 +394,7 @@ public class SetupModeDual {
                 Team home = myTeams.get(0);
                 Team visitor = myTeams.get(1);
                 frame.dispose();
-                DualScorekeeperScreen myScorekeeper = new DualScorekeeperScreen(gC, home, visitor);
+                DualScorekeeperScreen myScorekeeper = new DualScorekeeperScreen(gC, home, visitor, allJudges);
             }
         });
 
@@ -504,7 +509,7 @@ public class SetupModeDual {
         home.updateApparatusLists();
         visitor.updateApparatusLists();
 
-        home.printAll();
+//        home.printAll();
 
 
         List<Team>myTeams = new ArrayList<>();
@@ -522,6 +527,13 @@ public class SetupModeDual {
         List<JComboBox> home = gethomeCombo();
         List<JComboBox> visitor = getvisitorCombo();
         List<JComboBox> judges = getjudgesCombo();
+
+        //clear judges list
+        allJudges.clear();
+        vaultJudges.clear();
+        barJudges.clear();
+        beamJudges.clear();
+        floorJudges.clear();
 
         String[] homeGymnasts= new String[24];
         for(int i = 0; i < home.size(); i++){
@@ -587,7 +599,21 @@ public class SetupModeDual {
         for (int i = 0; i <= 5; i++){
 //            gC.addRowsJudgeTable(vaultJudges[i], barJudges[i], beamJudges[i], floorJudges[i], judgesModel);
             gC.addRowsJudgeTable(judgesNames[i],judgesNames[i+6],judgesNames[i+12],judgesNames[i+18], judgesModel);
+            vaultJudges.add(judgesNames[i]);
+            barJudges.add(judgesNames[i+6]);
+            beamJudges.add(judgesNames[i+12]);
+            floorJudges.add(judgesNames[i+18]);
         }
+        allJudges.add(vaultJudges);
+        allJudges.add(barJudges);
+        allJudges.add(beamJudges);
+        allJudges.add(floorJudges);
+
+//        for (int i = 0 ; i < allJudges.size(); i++){
+//            for (int j = 0; j < allJudges.get(i).size(); j++){
+//                System.out.println(allJudges.get(i).get(j).toString());
+//            }
+//        }
     }
 
     //clears tables
@@ -645,6 +671,12 @@ public class SetupModeDual {
     private DefaultTableCellRenderer beamRenderer = new DefaultTableCellRenderer();
     private DefaultTableCellRenderer floorRenderer = new DefaultTableCellRenderer();
     private DefaultTableCellRenderer judgesRenderer = new DefaultTableCellRenderer();
+
+    private List<List<String>> allJudges = new ArrayList<>();
+    private List<String> vaultJudges = new ArrayList<>();
+    private List<String> barJudges  = new ArrayList<>();
+    private List<String> beamJudges = new ArrayList<>();
+    private List<String> floorJudges = new ArrayList<>();
 
     private JPanel mainPanel;
     private JButton startButton;
