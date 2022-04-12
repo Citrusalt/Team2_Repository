@@ -48,7 +48,6 @@ public class DualScorekeeperScreen {
             public void actionPerformed(ActionEvent e) {
                 changeCard("SimulCard");
                 if (selectedMode == 0){
-
                     updateRotationSimul(myArenaScreen, frame, 0, gC, home, visitor);
                     //Fill Arena Screen
                 }
@@ -147,13 +146,13 @@ public class DualScorekeeperScreen {
                         myArenaScreen.updateGymnastInfo(home.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 0);
                     }
                     else if (currentevent1 == "Bar") {
-                        myArenaScreen.updateGymnastInfo(home.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 1);
+                        myArenaScreen.updateGymnastInfo(home.getBarGymnasts().get(team1Combo.getSelectedIndex()), 1, 1);
                     }
                     else if (currentevent1 == "Beam"){
-                        myArenaScreen.updateGymnastInfo(home.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 2);
+                        myArenaScreen.updateGymnastInfo(home.getBeamGymnasts().get(team1Combo.getSelectedIndex()), 1, 2);
                     }
                     else if (currentevent1 == "Floor"){
-                        myArenaScreen.updateGymnastInfo(home.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 3);
+                        myArenaScreen.updateGymnastInfo(home.getFloorGymnasts().get(team1Combo.getSelectedIndex()), 1, 3);
                     }
                 }
             }
@@ -168,13 +167,13 @@ public class DualScorekeeperScreen {
                         myArenaScreen.updateGymnastInfo(visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 0);
                     }
                     else if (currentevent2 == "Bar") {
-                        myArenaScreen.updateGymnastInfo(visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 1);
+                        myArenaScreen.updateGymnastInfo(visitor.getBarGymnasts().get(team2Combo.getSelectedIndex()), 2, 1);
                     }
                     else if (currentevent2 == "Beam"){
-                        myArenaScreen.updateGymnastInfo(visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 2);
+                        myArenaScreen.updateGymnastInfo(visitor.getBeamGymnasts().get(team2Combo.getSelectedIndex()), 2, 2);
                     }
                     else if (currentevent2 == "Floor"){
-                        myArenaScreen.updateGymnastInfo(visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 3);
+                        myArenaScreen.updateGymnastInfo(visitor.getFloorGymnasts().get(team2Combo.getSelectedIndex()), 2, 3);
                     }
                 }
             }
@@ -471,7 +470,7 @@ public class DualScorekeeperScreen {
         }
         else if (rotation == 1){
             currentevent1 = "Vault";
-            currentevent2 = "Bars";
+            currentevent2 = "Bar";
             team1App.setText(currentevent1);
             team2App.setText(currentevent2);
             myArenaScreen.updateEvent(currentevent1, 1);
@@ -483,7 +482,7 @@ public class DualScorekeeperScreen {
 
         }
         else if (rotation == 2){
-            currentevent1 = "Bars";
+            currentevent1 = "Bar";
             currentevent2 = "Vault";
             team1App.setText(currentevent1);
             team2App.setText(currentevent2);
