@@ -254,20 +254,21 @@ public class DualScorekeeperScreen {
                     //these set the appropriate gymnast's apparatus score depending on rotation and team score
                     if (rotation == 1) {
                         home.getVaultGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setvaultScore(pscore);
-                        myArenaScreen.overall1.setText(String.valueOf(home.getTeamScore().calculateTeamVaultScore(home.getVaultGymnasts())));
+                        home.getTeamScore().setvaultScore(home.getTeamScore().calculateTeamVaultScore(home.getVaultGymnasts()));
                     }
                     else if (rotation == 2) {
                         home.getBarGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setbarScore(pscore);
-                        myArenaScreen.overall1.setText(String.valueOf(home.getTeamScore().calculateTeamBarScore(home.getBarGymnasts())));
+                        home.getTeamScore().setbarScore(home.getTeamScore().calculateTeamBarScore(home.getBarGymnasts()));
                     }
                     else if (rotation == 3) {
                         home.getBeamGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setbeamScore(pscore);
-                        myArenaScreen.overall1.setText(String.valueOf(home.getTeamScore().calculateTeamBeamScore(home.getBeamGymnasts())));
+                        home.getTeamScore().setbeamScore(home.getTeamScore().calculateTeamBeamScore(home.getBeamGymnasts()));
                     }
                     else if (rotation == 4) {
                         home.getFloorGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setfloorScore(pscore);
-                        myArenaScreen.overall1.setText(String.valueOf(home.getTeamScore().calculateTeamFloorScore(home.getFloorGymnasts())));
+                        home.getTeamScore().setfloorScore(home.getTeamScore().calculateTeamFloorScore(home.getFloorGymnasts()));
                     }
+                    myArenaScreen.overall1.setText(String.valueOf(home.getTeamScore().getRunningScore()));
 
                 } catch (Exception exception) {
                     System.out.println(exception);
@@ -283,13 +284,13 @@ public class DualScorekeeperScreen {
                 try{
                     //Use these scores to update score for backend and arena screen
                     //doesn't have to be entered into a "scoreArray" just an example
-                    scoreArray[0] = Integer.parseInt(j21.getText());
+                   /* scoreArray[0] = Integer.parseInt(j21.getText());
                     scoreArray[1] = Integer.parseInt(j22.getText());
                     scoreArray[2] = Integer.parseInt(j23.getText());
                     scoreArray[3] = Integer.parseInt(j24.getText());
                     scoreArray[4] = Integer.parseInt(j25.getText());
                     scoreArray[5] = Integer.parseInt(j26.getText());
-                    scoreArray[6] = Integer.parseInt(nD2.getText());
+                    scoreArray[6] = Integer.parseInt(nD2.getText());*/
 
                     myArenaScreen.gymnastCurrent2.setForeground(Color.RED);
                     myArenaScreen.overall2.setForeground(Color.RED);
@@ -343,21 +344,21 @@ public class DualScorekeeperScreen {
                     //these set the appropriate gymnast's apparatus score depending on rotation and team score
                     if (rotation == 1) {
                         visitor.getBarGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setbarScore(pscore);
-                        myArenaScreen.overall2.setText(String.valueOf(visitor.getTeamScore().calculateTeamBarScore(visitor.getBarGymnasts())));
+                        visitor.getTeamScore().setbarScore(visitor.getTeamScore().calculateTeamBarScore(visitor.getBarGymnasts()));
                     }
                     else if (rotation == 2) {
                         visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setvaultScore(pscore);
-                        myArenaScreen.overall2.setText(String.valueOf(visitor.getTeamScore().calculateTeamVaultScore(visitor.getVaultGymnasts())));
+                        visitor.getTeamScore().setvaultScore(visitor.getTeamScore().calculateTeamVaultScore(visitor.getVaultGymnasts()));
                     }
                     else if (rotation == 3) {
                         visitor.getFloorGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setfloorScore(pscore);
-                        myArenaScreen.overall2.setText(String.valueOf(visitor.getTeamScore().calculateTeamFloorScore(visitor.getFloorGymnasts())));
+                        visitor.getTeamScore().setfloorScore(visitor.getTeamScore().calculateTeamFloorScore(visitor.getFloorGymnasts()));
                     }
                     else if (rotation == 4) {
                         visitor.getBeamGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setbeamScore(pscore);
-                        myArenaScreen.overall2.setText(String.valueOf(visitor.getTeamScore().calculateTeamBeamScore(visitor.getBeamGymnasts())));
+                        visitor.getTeamScore().setbeamScore(visitor.getTeamScore().calculateTeamBeamScore(visitor.getBeamGymnasts()));
                     }
-
+                    myArenaScreen.overall2.setText(String.valueOf(home.getTeamScore().getRunningScore()));
                 } catch (Exception exception) {
 
                     System.out.println(exception);
