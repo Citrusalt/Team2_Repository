@@ -350,9 +350,10 @@ public class SetupModeDual {
 //                else{
 //                    JOptionPane.showMessageDialog(null, "Judges cannot be the same. Try Again.");
 //                }
-                //Calls the testTable class
-//                resetTables(); //resets tables so that table isnt still filled with old values
-//                testTable(gC);
+//                Calls the testTable class
+                testTable(gC);
+                resetTables(); //resets tables so that table isnt still filled with old values
+                testTable(gC);
 
                 changeCard("SummaryCard");
             }
