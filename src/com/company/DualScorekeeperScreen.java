@@ -4,7 +4,9 @@ import javax.sound.midi.SysexMessage;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class DualScorekeeperScreen {
 
@@ -182,19 +184,20 @@ public class DualScorekeeperScreen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 float scoreArray[] = new float[7];
+                List<Double> scoresList = new ArrayList<>();
                 //List<Double> scoresList  = new ArrayList<>();
                 //player instance here is just a placeholder
-               // Player player1 = new Player("Name", "2022", "CS", "9.9");
+                // Player player1 = new Player("Name", "2022", "CS", "9.9");
                 try{
                     //Use these scores to update score for backend and arena screen
                     //doesn't have to be entered into a "scoreArray" just an example
-                    scoreArray[0] = Integer.parseInt(j11.getText());
+               /*     scoreArray[0] = Integer.parseInt(j11.getText());
                     scoreArray[1] = Integer.parseInt(j12.getText());
                     scoreArray[2] = Integer.parseInt(j13.getText());
                     scoreArray[3] = Integer.parseInt(j14.getText());
                     scoreArray[4] = Integer.parseInt(j15.getText());
                     scoreArray[5] = Integer.parseInt(j16.getText());
-                    scoreArray[6] = Integer.parseInt(nD1.getText()); //deduction textboxes are called nD1, nD2, nD3, nD4
+                    scoreArray[6] = Integer.parseInt(nD1.getText()); //deduction textboxes are called nD1, nD2, nD3, nD4*/
 
 
                     System.out.println(myArenaScreen.gymnastCurrent1.getForeground());
@@ -214,36 +217,57 @@ public class DualScorekeeperScreen {
 //                    avg = avg/6;
 //                    myArenaScreen.gymnastCurrent1.setText(String.valueOf(avg));
 
-                /*    // the score calculation function won't work if there is not 2, 4, or 6 judges.
-                    //probably not the cleanest way to handle this, but it works for now
+                    if (j11.getText().isEmpty() == false && j12.getText().isEmpty() == false) {
+                        if (Double.parseDouble(j11.getText()) > 10 || Double.parseDouble(j12.getText()) > 10) {
+                            JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
+                        } else {
+                            scoresList.add(Double.parseDouble(j11.getText()));
+                            scoresList.add(Double.parseDouble(j12.getText()));
+                        }
+                    }
+                    if (j13.getText().isEmpty() == false && j14.getText().isEmpty() == false) {
+                        if (Double.parseDouble(j13.getText()) > 10 || Double.parseDouble(j14.getText()) > 10) {
+                            JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
+                        } else {
+                            scoresList.add(Double.parseDouble(j13.getText()));
+                            scoresList.add(Double.parseDouble(j14.getText()));
+                        }
+                    }
+                    if (j15.getText().isEmpty() == false && j16.getText().isEmpty() == false) {
+                        if (Double.parseDouble(j15.getText()) > 10 || Double.parseDouble(j16.getText()) > 10) {
+                            JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
+                        } else {
+                            scoresList.add(Double.parseDouble(j15.getText()));
+                            scoresList.add(Double.parseDouble(j16.getText()));
+                        }
+                    }
+                    double deduction = 0;
+                    if (!nD1.getText().isEmpty()) {
+                        deduction = Double.parseDouble(nD1.getText());
+                    }
+                    PlayerScore tempScore = new PlayerScore(); //holder to use calculation method
+                    double pscore = tempScore.calculateIndividualScore(scoresList, deduction);
 
-                    if (j11.getText().isEmpty() == false && j12.getText().isEmpty() ==false ){
-                        scoresList.add(Double.parseDouble(j11.getText()));
-                        scoresList.add(Double.parseDouble(j12.getText()));
-                    }
-                    if (j13.getText().isEmpty() == false && j14.getText().isEmpty() ==false ){
-                        scoresList.add(Double.parseDouble(j13.getText()));
-                        scoresList.add(Double.parseDouble(j14.getText()));
-                    }
-                    if (j15.getText().isEmpty() == false && j16.getText().isEmpty() ==false ){
-                        scoresList.add(Double.parseDouble(j15.getText()));
-                        scoresList.add(Double.parseDouble(j16.getText()));
-                    }
+                    myArenaScreen.gymnastCurrent1.setText(String.valueOf(pscore));       //update score on arena screen
 
-                    //need to set the correct apparatus score for the player
-                    //neutral deduction set equal to 0 is a placeholder until the text field is made
+                    //these set the appropriate gymnast's apparatus score depending on rotation and team score
                     if (rotation == 1) {
-                        player1.playerScore.setvaultScore(player1.playerScore.calculateIndividualScore(scoresList,0));
+                        home.getVaultGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setvaultScore(pscore);
+                        home.getTeamScore().setvaultScore(home.getTeamScore().calculateTeamVaultScore(home.getVaultGymnasts()));
                     }
                     else if (rotation == 2) {
-                        player1.playerScore.setbarScore(player1.playerScore.calculateIndividualScore(scoresList,0));
+                        home.getBarGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setbarScore(pscore);
+                        home.getTeamScore().setbarScore(home.getTeamScore().calculateTeamBarScore(home.getBarGymnasts()));
                     }
                     else if (rotation == 3) {
-                        player1.playerScore.setbeamScore(player1.playerScore.calculateIndividualScore(scoresList,0));
+                        home.getBeamGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setbeamScore(pscore);
+                        home.getTeamScore().setbeamScore(home.getTeamScore().calculateTeamBeamScore(home.getBeamGymnasts()));
                     }
                     else if (rotation == 4) {
-                        player1.playerScore.setfloorScore(player1.playerScore.calculateIndividualScore(scoresList,0));
-                    }*/
+                        home.getFloorGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setfloorScore(pscore);
+                        home.getTeamScore().setfloorScore(home.getTeamScore().calculateTeamFloorScore(home.getFloorGymnasts()));
+                    }
+                    myArenaScreen.overall1.setText(String.valueOf(home.getTeamScore().getRunningScore()));
 
                 } catch (Exception exception) {
                     System.out.println(exception);
@@ -253,20 +277,19 @@ public class DualScorekeeperScreen {
         updateScoreButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //List<Double> scoresList  = new ArrayList<>();
-                //placeholder
-               // Player player2 = new Player("Name2", "2022", "CS", "9.9");
+                List<Double> scoresList  = new ArrayList<>();
+
                 float scoreArray[] = new float[7];
                 try{
                     //Use these scores to update score for backend and arena screen
                     //doesn't have to be entered into a "scoreArray" just an example
-                    scoreArray[0] = Integer.parseInt(j21.getText());
+                   /* scoreArray[0] = Integer.parseInt(j21.getText());
                     scoreArray[1] = Integer.parseInt(j22.getText());
                     scoreArray[2] = Integer.parseInt(j23.getText());
                     scoreArray[3] = Integer.parseInt(j24.getText());
                     scoreArray[4] = Integer.parseInt(j25.getText());
                     scoreArray[5] = Integer.parseInt(j26.getText());
-                    scoreArray[6] = Integer.parseInt(nD2.getText());
+                    scoreArray[6] = Integer.parseInt(nD2.getText());*/
 
                     myArenaScreen.gymnastCurrent2.setForeground(Color.RED);
                     myArenaScreen.overall2.setForeground(Color.RED);
@@ -276,36 +299,65 @@ public class DualScorekeeperScreen {
 
 
 
-                  /*  // the score calculation function won't work if there is not 2, 4, or 6 judges.
-                    //probably not the cleanest way to handle this, but it works for now
-                    if (j21.getText().isEmpty() == false && j21.getText().isEmpty() ==false ){
-                        scoresList.add(Double.parseDouble(j21.getText()));
-                        scoresList.add(Double.parseDouble(j22.getText()));
+                    if (!j21.getText().isEmpty() && !j22.getText().isEmpty()){
+                        if (Double.parseDouble(j21.getText()) > 10 || Double.parseDouble(j22.getText()) >10)
+                        {
+                            JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
+                        }
+                        else {
+                            scoresList.add(Double.parseDouble(j21.getText()));
+                            scoresList.add(Double.parseDouble(j22.getText()));
+                        }
                     }
-                    if (j23.getText().isEmpty() == false && j24.getText().isEmpty() ==false ){
-                        scoresList.add(Double.parseDouble(j23.getText()));
-                        scoresList.add(Double.parseDouble(j24.getText()));
+                    if (!j23.getText().isEmpty() && !j24.getText().isEmpty()){
+                        if (Double.parseDouble(j23.getText()) > 10 || Double.parseDouble(j24.getText()) >10)
+                        {
+                            JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
+                        }
+                        else {
+                            scoresList.add(Double.parseDouble(j23.getText()));
+                            scoresList.add(Double.parseDouble(j24.getText()));
+                        }
                     }
-                    if (j25.getText().isEmpty() == false && j26.getText().isEmpty() ==false ){
-                        scoresList.add(Double.parseDouble(j25.getText()));
-                        scoresList.add(Double.parseDouble(j26.getText()));
+                    if (!j25.getText().isEmpty() && !j26.getText().isEmpty()){
+                        if (Double.parseDouble(j25.getText()) > 10 || Double.parseDouble(j26.getText()) >10)
+                        {
+                            JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
+                        }
+                        else {
+                            scoresList.add(Double.parseDouble(j25.getText()));
+                            scoresList.add(Double.parseDouble(j26.getText()));
+                        }
                     }
 
-                    //need to set the correct apparatus score for the player
-                    //neutral deduction set equal to 0 is a placeholder until the text field is made
+                    double deduction = 0;
+                    if (!nD1.getText().isEmpty()) {
+                        deduction = Double.parseDouble(nD1.getText());
+                    }
+
+                    PlayerScore tempScore = new PlayerScore(); //holder to use calculation method
+                    double pscore = tempScore.calculateIndividualScore(scoresList, deduction);
+
+                    myArenaScreen.gymnastCurrent2.setText(String.valueOf(pscore));       //update score on arena screen
+
+                    //these set the appropriate gymnast's apparatus score depending on rotation and team score
                     if (rotation == 1) {
-                        player2.playerScore.setbarScore(player2.playerScore.calculateIndividualScore(scoresList,0));
+                        visitor.getBarGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setbarScore(pscore);
+                        visitor.getTeamScore().setbarScore(visitor.getTeamScore().calculateTeamBarScore(visitor.getBarGymnasts()));
                     }
                     else if (rotation == 2) {
-                        player2.playerScore.setvaultScore(player2.playerScore.calculateIndividualScore(scoresList,0));
+                        visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setvaultScore(pscore);
+                        visitor.getTeamScore().setvaultScore(visitor.getTeamScore().calculateTeamVaultScore(visitor.getVaultGymnasts()));
                     }
                     else if (rotation == 3) {
-                        player2.playerScore.setfloorScore(player2.playerScore.calculateIndividualScore(scoresList,0));
+                        visitor.getFloorGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setfloorScore(pscore);
+                        visitor.getTeamScore().setfloorScore(visitor.getTeamScore().calculateTeamFloorScore(visitor.getFloorGymnasts()));
                     }
                     else if (rotation == 4) {
-                        player2.playerScore.setbeamScore(player2.playerScore.calculateIndividualScore(scoresList,0));
-                    }*/
-
+                        visitor.getBeamGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setbeamScore(pscore);
+                        visitor.getTeamScore().setbeamScore(visitor.getTeamScore().calculateTeamBeamScore(visitor.getBeamGymnasts()));
+                    }
+                    myArenaScreen.overall2.setText(String.valueOf(home.getTeamScore().getRunningScore()));
                 } catch (Exception exception) {
 
                     System.out.println(exception);
