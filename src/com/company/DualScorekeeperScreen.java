@@ -32,9 +32,6 @@ public class DualScorekeeperScreen {
         visitorTeamName.setText(visitor.getTeamName());
 
 
-        Player team1ActivePlayer;
-        Player team2ActivePlayer;
-
         //logo
         //etc.
 
@@ -147,6 +144,9 @@ public class DualScorekeeperScreen {
                 if (e.getStateChange() == ItemEvent.SELECTED){
                     Object item = e.getItem();
 
+                if (currentevent1 == "Vault"){
+                    myArenaScreen.updateGymnastInfo(home.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1);
+                }
 
 
                     myArenaScreen.updateGymnast(item.toString(), 1);
@@ -454,10 +454,12 @@ public class DualScorekeeperScreen {
             thisFrame.dispose();
         }
         else if (rotation == 1){
-            team1App.setText("Vault");
-            team2App.setText("Bars");
-            myArenaScreen.updateEvent("Vault", 1);
-            myArenaScreen.updateEvent("Bars", 2);
+            currentevent1 = "Vault";
+            currentevent2 = "Bars";
+            team1App.setText(currentevent1);
+            team2App.setText(currentevent2);
+            myArenaScreen.updateEvent(currentevent1, 1);
+            myArenaScreen.updateEvent(currentevent2, 2);
             rotationLabel.setText("ROTATION 1");
 
             gC.updateCombobox(team1Combo, home.getVaultGymnasts());
@@ -465,28 +467,34 @@ public class DualScorekeeperScreen {
 
         }
         else if (rotation == 2){
-            team1App.setText("Bars");
-            team2App.setText("Vault");
-            myArenaScreen.updateEvent("Bars", 1);
-            myArenaScreen.updateEvent("Vault", 2);
+            currentevent1 = "Bars";
+            currentevent2 = "Vault";
+            team1App.setText(currentevent1);
+            team2App.setText(currentevent2);
+            myArenaScreen.updateEvent(currentevent1, 1);
+            myArenaScreen.updateEvent(currentevent2, 2);
             rotationLabel.setText("ROTATION 2");
             gC.updateCombobox(team1Combo, home.getBarGymnasts());
             gC.updateCombobox(team2Combo, visitor.getVaultGymnasts());
         }
         else if (rotation == 3){
-            team1App.setText("Beam");
-            team2App.setText("Floor");
-            myArenaScreen.updateEvent("Beam", 1);
-            myArenaScreen.updateEvent("Floor", 2);
+            currentevent1 = "Beam";
+            currentevent2 = "Floor";
+            team1App.setText(currentevent1);
+            team2App.setText(currentevent2);
+            myArenaScreen.updateEvent(currentevent1, 1);
+            myArenaScreen.updateEvent(currentevent2, 2);
             rotationLabel.setText("ROTATION 3");
             gC.updateCombobox(team1Combo, home.getBeamGymnasts());
             gC.updateCombobox(team2Combo, visitor.getFloorGymnasts());
         }
         else if (rotation == 4){
-            team1App.setText("Floor");
-            team2App.setText("Beam");
-            myArenaScreen.updateEvent("Floor", 1);
-            myArenaScreen.updateEvent("Beam", 2);
+            currentevent1 = "Floor";
+            currentevent2 = "Beam";
+            team1App.setText(currentevent1);
+            team2App.setText(currentevent2);
+            myArenaScreen.updateEvent(currentevent1, 1);
+            myArenaScreen.updateEvent(currentevent2, 2);
             rotationLabel.setText("ROTATION 4");
             gC.updateCombobox(team1Combo, home.getFloorGymnasts());
             gC.updateCombobox(team2Combo, visitor.getBeamGymnasts());
@@ -552,6 +560,10 @@ public class DualScorekeeperScreen {
         }
 
     }
+
+    public String currentevent1 = "Vault";
+    public String currentevent2 = "Bar";
+
 
     private Color defaultColor = new Color(51, 51, 51);
     private int selectedMode = 0;

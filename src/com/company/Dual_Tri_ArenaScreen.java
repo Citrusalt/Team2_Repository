@@ -112,6 +112,26 @@ public class Dual_Tri_ArenaScreen {
         }
     }
 
+    public void updateGymnastInfo(Player player, int teamNumb){
+
+         if (teamNumb == 1){
+             gymnastCurrent1.setText(player.getPlayerfName() + " " + player.getPlayerlName());
+             major1.setText(player.getPlayerMajor());
+             year1.setText(player.getPlayerClass());
+
+
+
+         }
+         else if (teamNumb == 2){
+
+         }
+
+
+
+
+
+    }
+
     public Dual_Tri_ArenaScreen(){
         frame = new JFrame ("Arena Screen Prototype");
         frame.setContentPane(mainPanel);
