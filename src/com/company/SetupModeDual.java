@@ -139,8 +139,9 @@ public class SetupModeDual {
 //                    myTeamScreen.createTeamScreen(); //call constructor     //
 //                frame.dispose();
 
-                CreateTeamScreen2 myScreen = new CreateTeamScreen2 (); //numb of teams
-
+                CreateTeamScreen2 myScreen = new CreateTeamScreen2 ();
+                MeetFormatScreen mf = new MeetFormatScreen("meetFormatCard", gC);
+                frame.dispose();
             }
         });
         vaultNextButton.addActionListener(new ActionListener() {

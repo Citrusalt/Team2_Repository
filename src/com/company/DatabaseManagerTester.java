@@ -18,9 +18,9 @@ public class DatabaseManagerTester {
         double[] score = {8.5, 9, 10, 9};
         Player cz = new Player("Cole", "Zandy","Senior", "CompSci","", score);
 
-        System.out.println(testTeam.get(0).getTeamLogo());
-//        for(int i = 0; i < testTeam.get(0).getVaultGymnasts().size(); i++){
-//            testTeam.get(0).getVaultGymnasts().get(i).printAll();
-//        }
+//        System.out.println(testTeam.get(0).getTeamLogo());
+        for(int i = 0; i < testTeam.get(2).getAllGymnasts().size(); i++){
+            testTeam.get(2).getAllGymnasts().get(i).printAll();
+        }
     }
 }

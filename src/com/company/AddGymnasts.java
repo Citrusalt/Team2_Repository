@@ -6,14 +6,13 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class AddGymnasts extends JDialog{
 
-    public AddGymnasts(String teamName, String teamLogo){
+    public AddGymnasts(String teamNameDisplay, String teamName, String teamLogo){
 
         setContentPane(addGymnasts);
         setTitle("Add Gymnast Screen");
@@ -23,7 +22,7 @@ public class AddGymnasts extends JDialog{
         setModalityType(ModalityType.APPLICATION_MODAL);
         GuiCreator gC = new GuiCreator();
         gC.createAddGymnastTable(table, tableModel, tableRenderer, headerFont);
-        this.teamName.setText(teamName);        //Sets the jLabel for team name to the user input
+        this.teamName.setText(teamNameDisplay);        //Sets the jLabel for team name to the user input
         yearCB.addItem("- Select Year -");      //Sets value of yearCombobox
         yearCB.addItem("Freshman");
         yearCB.addItem("Sophomore");
@@ -107,21 +106,43 @@ public class AddGymnasts extends JDialog{
                         }
                     }
                 }
-
+                boolean DNE = true;
+                int match = 0;
                 if (valid){
-                    gC.addRow(fname.getText(), lname.getText(), tableModel);        //For Display
+                    for(int i = 0; i<currentTeam.getAllGymnasts().size(); i++){
+                        //Checks if the name from the team passed in is the same as the value in the table
+                        if((currentTeam.getAllGymnasts().get(i).getPlayerfName() + " " +currentTeam.getAllGymnasts().get(i).getPlayerlName()).equals(
+                                fname.getText() + " " + lname.getText())){
+                            DNE = false;        //It exists
+                            match = i;
+                        }
+                    }
+                    if(DNE){
+                        gC.addRow(fname.getText(), lname.getText(), tableModel);        //For Display
+                        //Creates the Player
+                        double[] scores = {VT, UB, BB, FX};
+                        Player temp = new Player(fName_str, lName_str, yearCB.getSelectedItem().toString(), major_str, playerImage, scores);
+                        currentTeam.addGymnasts(temp);
+                    }else{
+                        //Asks if they want to keep their changes
+                        int option = JOptionPane.showConfirmDialog(null, "Gymnast Already Exist.\n Do you want to keep your changes?");
+                        //Yes
+                        if (option == 0){
+                            //Delete Player
+                            Player toDelete = currentTeam.getAllGymnasts().get(match);
+                            currentTeam.deleteGymnasts(toDelete);
 
-                    //Creates the Player
-                    double[] scores = {VT, UB, BB, FX};
-                    Player temp = new Player(fName_str, lName_str, yearCB.getSelectedItem().toString(), major_str, playerImage, scores);
-                    currentTeam.addGymnasts(temp);
+                            //Creates the Player
+                            double[] scores = {VT, UB, BB, FX};
+                            Player temp = new Player(fName_str, lName_str, yearCB.getSelectedItem().toString(), major_str, playerImage, scores);
+                            currentTeam.addGymnasts(temp);
+                        }
+                    }
+
                     //Resets the widgets back to default
                     fname.setText(""); lname.setText(""); major.setText("");
                     vaultAvg.setText(""); barsAvg.setText(""); beamAvg.setText(""); floorAvg.setText("");
                     yearCB.setSelectedIndex(0);
-                }
-                else{
-                    //JOptionPane.showMessageDialog(null, "Player was not able to added"); //or whatever error message you want to say
                 }
             }
         });
@@ -131,9 +152,17 @@ public class AddGymnasts extends JDialog{
             public void actionPerformed(ActionEvent e) {
                 //save team object and return setup mode, update combo boxes in team selection screen
                 //Verifies Save
-                db.saveTeam(currentTeam);
-                JOptionPane.showMessageDialog(null, "Successfully Saved");
-                dispose();
+                int option = JOptionPane.showConfirmDialog(null, "Are you sure you want to Save Team?");
+                //Yes
+                if (option == 0){
+                    db.saveTeam(currentTeam);
+                    JOptionPane.showMessageDialog(null, "Successfully Saved");
+                    dispose();
+
+
+                }
+
+
             }
         });
         browseFilesButton.addActionListener(new ActionListener() {
@@ -142,8 +171,76 @@ public class AddGymnasts extends JDialog{
                 playerImage = uploadImg();
             }
         });
-        setVisible(true);
+
+        table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(e.getClickCount() == 2){
+                    //Display all info back to the textFields
+                    editSelectedGymnast(currentTeam, table.getSelectedRow(), table.getSelectedColumn());
+                }
+            }
+        });
+        deleteGymnastButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //int option = JOptionPane.showConfirmDialog(null, "Gymnast Already Exist.\n Do you want to keep your changes?");
+                if(table.getSelectedRow() > -1){
+                    deleteSelectedGymnast(currentTeam, table.getSelectedRow(), 0);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Nothing to Delete.\n Please Double Click on a Gymnast from the table before Selecting this Button.");
+                }
+            }
+        });
+
+
+
+        setVisible(true);   //SA BABA LANG TO
+
     }
+
+    public void editSelectedGymnast(Team team, int row, int col){
+        String name = (String)table.getValueAt(row, col);       //Has the name
+       for(int i = 0; i<team.getAllGymnasts().size(); i++){
+            //Checks if the name from the team passed in is the same as the value in the table
+            if((team.getAllGymnasts().get(i).getPlayerfName() + " " +team.getAllGymnasts().get(i).getPlayerlName()).equals(name)){
+                fname.setText(team.getAllGymnasts().get(i).getPlayerfName());
+                lname.setText(team.getAllGymnasts().get(i).getPlayerlName());
+                major.setText(team.getAllGymnasts().get(i).getPlayerMajor());
+                switch(team.getAllGymnasts().get(i).getPlayerClass()){
+                    case "Freshman": yearCB.setSelectedIndex(1); break;
+                    case "Sophomore": yearCB.setSelectedIndex(2); break;
+                    case "Junior": yearCB.setSelectedIndex(3); break;
+                    case "Senior": yearCB.setSelectedIndex(4); break;
+                    case "Graduate Student": yearCB.setSelectedIndex(5); break;
+                }
+                vaultAvg.setText(String.valueOf(team.getAllGymnasts().get(i).getPlayerAvg()[ApparatusIndex.VT]));
+                barsAvg.setText(String.valueOf(team.getAllGymnasts().get(i).getPlayerAvg()[ApparatusIndex.UB]));
+                beamAvg.setText(String.valueOf(team.getAllGymnasts().get(i).getPlayerAvg()[ApparatusIndex.BB]));
+                floorAvg.setText(String.valueOf(team.getAllGymnasts().get(i).getPlayerAvg()[ApparatusIndex.FX]));
+
+            }
+        }
+    }
+private void deleteSelectedGymnast(Team team, int row, int col){
+    String name = (String)table.getValueAt(row, col);       //Has the name
+    int option = JOptionPane.showConfirmDialog(null, "Gymnast Selected: "
+            + table.getValueAt(table.getSelectedRow(), 0)
+            + "\nAre you sure you want to delete player?");
+    if(option == 0){
+        for(int i = 0; i<team.getAllGymnasts().size(); i++){
+            //Checks if the name from the team passed in is the same as the value in the table
+            if((team.getAllGymnasts().get(i).getPlayerfName() + " " + team.getAllGymnasts().get(i).getPlayerlName()).equals(name)){
+                team.deleteGymnasts(team.getAllGymnasts().get(i));
+                tableModel.removeRow(row);
+            }
+        }
+    }
+    //Resets the widgets back to default
+    fname.setText(""); lname.setText(""); major.setText("");
+    vaultAvg.setText(""); barsAvg.setText(""); beamAvg.setText(""); floorAvg.setText("");
+    yearCB.setSelectedIndex(0);
+}
 
 private String uploadImg(){
 
@@ -208,5 +305,6 @@ private String uploadImg(){
     private JLabel teamName;
     private JLabel logoLabel;
     private JComboBox yearCB;
+    private JButton deleteGymnastButton;
 
 }

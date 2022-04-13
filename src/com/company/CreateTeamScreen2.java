@@ -41,7 +41,7 @@ public class CreateTeamScreen2 extends JDialog {
                     if(status.get()){
                         JOptionPane.showMessageDialog(null, "Team does not exist");
                         dispose();
-                        AddGymnasts myAddGymnasts = new AddGymnasts(userInput, teamLogo); //pass in team object here through add gymnast constructor maybe?
+                        AddGymnasts myAddGymnasts = new AddGymnasts(textField1.getText(),userInput, teamLogo); //pass in team object here through add gymnast constructor maybe?
                     }
                 }
             }
