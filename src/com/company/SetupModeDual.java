@@ -132,18 +132,6 @@ public class SetupModeDual {
                 }
             }
         });
-        createTeamButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-//                    CreateTeamScreen myTeamScreen = new CreateTeamScreen(); //instantiate createTeamScreen Class
-//                    myTeamScreen.createTeamScreen(); //call constructor     //
-//                frame.dispose();
-
-                CreateTeamScreen2 myScreen = new CreateTeamScreen2 ();
-                MeetFormatScreen mf = new MeetFormatScreen("meetFormatCard", gC);
-                frame.dispose();
-            }
-        });
         vaultNextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -699,7 +687,6 @@ public class SetupModeDual {
     private JComboBox comboBox8;
     private JButton goBackButton;
     private JButton continueButton;
-    private JButton createTeamButton;
     private JButton vaultNextButton;
     private JCheckBox thisApparatusRequiresACheckBox;
     private JPanel setupBars;

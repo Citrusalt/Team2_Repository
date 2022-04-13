@@ -36,13 +36,6 @@ public class SetupModeQuad {
         testTable(gC);
 
 
-        createTeamButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                CreateTeamScreen myTeamScreen = new CreateTeamScreen(); //instantiate createTeamScreen Class
-                myTeamScreen.createTeamScreen(); //call constructor
-            }
-        });
         goBackButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -269,7 +262,6 @@ public class SetupModeQuad {
     private JComboBox homeCombo;
     private JComboBox visitor2Combo;
     private JButton continueButton;
-    private JButton createTeamButton;
     private JPanel setupVault;
     private JComboBox comboBox1;
     private JComboBox comboBox2;

@@ -48,6 +48,12 @@ public class MeetFormatScreen {
                 frame.dispose();
             }
         });
+        addNewTeamButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CreateTeamScreen2 myScreen = new CreateTeamScreen2 ();
+            }
+        });
     }
 
 
@@ -61,4 +67,5 @@ public class MeetFormatScreen {
     private JPanel startScreen;
     private JLabel startImage;
     private JButton startButton;
+    private JButton addNewTeamButton;
 }

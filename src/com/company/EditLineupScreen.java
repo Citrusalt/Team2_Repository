@@ -3,21 +3,26 @@ package com.company;
 import javax.swing.*;
 import java.awt.*;
 
-public class EditLineupScreen {
+public class EditLineupScreen  extends JDialog{
 
     public EditLineupScreen(){
 
-        frame = new JFrame ("Edit Lineup Screen Prototype");
-        frame.setContentPane(mainPanel);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        setContentPane(mainPanel);
+        setTitle("Edit Lineup Screen");
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        pack();
+        setLocationRelativeTo(null);
+
+        setModalityType(ModalityType.APPLICATION_MODAL);
+
 
         //card layout start
         cardLayout = (CardLayout)  mainPanel.getLayout();
         changeCard("DefaultCard");
 
+
+
+        setVisible(true);
     }
 
     public void changeCard(String cardName){
