@@ -118,7 +118,7 @@ public class Dual_Tri_ArenaScreen {
              name1.setText(player.getPlayerfName() + " " + player.getPlayerlName());
              major1.setText(player.getPlayerMajor());
              year1.setText(player.getPlayerClass());
-             avg1.setText(String.valueOf(player.getPlayerAvg()[event]));
+             avg1.setText(String.valueOf("Event Average: " + player.getPlayerAvg()[event]));
 
             pic1.setIcon(new ImageIcon ("src/com/company/pictures/" + player.getPlayerPicture()));
          }
@@ -126,7 +126,7 @@ public class Dual_Tri_ArenaScreen {
              name2.setText(player.getPlayerfName() + " " + player.getPlayerlName());
              major2.setText(player.getPlayerMajor());
              year2.setText(player.getPlayerClass());
-             avg2.setText(String.valueOf(player.getPlayerAvg()[event]));
+             avg2.setText(String.valueOf("Event Average: " + player.getPlayerAvg()[event]));
              pic2.setIcon(new ImageIcon ("src/com/company/pictures/" + player.getPlayerPicture()));
 
              System.out.println(pic2.getIcon().toString());

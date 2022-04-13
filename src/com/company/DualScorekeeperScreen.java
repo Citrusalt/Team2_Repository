@@ -247,7 +247,7 @@ public class DualScorekeeperScreen {
                     PlayerScore tempScore = new PlayerScore(); //holder to use calculation method
                     double pscore = tempScore.calculateIndividualScore(scoresList, deduction);
 
-                    myArenaScreen.gymnastCurrent1.setText(String.valueOf(pscore));       //update score on arena screen
+                    myArenaScreen.gymnastCurrent1.setText("Gymnast Current Score: " + String.valueOf(pscore));       //update score on arena screen
 
                     //these set the appropriate gymnast's apparatus score depending on rotation and team score
                     if (rotation == 1) {
@@ -266,7 +266,7 @@ public class DualScorekeeperScreen {
                         home.getFloorGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setfloorScore(pscore);
                         home.getTeamScore().setfloorScore(home.getTeamScore().calculateTeamFloorScore(home.getFloorGymnasts()));
                     }
-                    myArenaScreen.overall1.setText(String.valueOf(home.getTeamScore().getRunningScore()));
+                    myArenaScreen.overall1.setText(String.valueOf("Running Team Score:     " + home.getTeamScore().getRunningScore()));
 
                 } catch (Exception exception) {
                     System.out.println(exception);
@@ -337,7 +337,7 @@ public class DualScorekeeperScreen {
                     PlayerScore tempScore = new PlayerScore(); //holder to use calculation method
                     double pscore = tempScore.calculateIndividualScore(scoresList, deduction);
 
-                    myArenaScreen.gymnastCurrent2.setText(String.valueOf(pscore));       //update score on arena screen
+                    myArenaScreen.gymnastCurrent2.setText(String.valueOf("Gymnast Current Score: " + pscore));       //update score on arena screen
 
                     //these set the appropriate gymnast's apparatus score depending on rotation and team score
                     if (rotation == 1) {
@@ -356,7 +356,7 @@ public class DualScorekeeperScreen {
                         visitor.getBeamGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setbeamScore(pscore);
                         visitor.getTeamScore().setbeamScore(visitor.getTeamScore().calculateTeamBeamScore(visitor.getBeamGymnasts()));
                     }
-                    myArenaScreen.overall2.setText(String.valueOf(home.getTeamScore().getRunningScore()));
+                    myArenaScreen.overall2.setText(String.valueOf("Running Team Score:     " + home.getTeamScore().getRunningScore()));
                 } catch (Exception exception) {
 
                     System.out.println(exception);

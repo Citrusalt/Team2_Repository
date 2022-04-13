@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.company.Dual_Tri_ArenaScreen">
   <grid id="9eb1c" binding="mainPanel" layout-manager="CardLayout" hgap="0" vgap="0" show="109ae">
     <constraints>
-      <xy x="20" y="20" width="999" height="753"/>
+      <xy x="-379" y="-84" width="1398" height="886"/>
     </constraints>
     <properties>
       <preferredSize width="700" height="850"/>
@@ -44,7 +44,7 @@
             </constraints>
             <properties>
               <font size="24"/>
-              <text value="Apparatus Average"/>
+              <text value="Event Average: "/>
             </properties>
           </component>
           <component id="5a939" class="javax.swing.JLabel" binding="pic1">
@@ -108,7 +108,7 @@
             </constraints>
             <properties>
               <font size="24"/>
-              <text value="Apparatus Average"/>
+              <text value="Event Average: "/>
             </properties>
           </component>
           <component id="ecf59" class="javax.swing.JLabel" binding="clockLabel2">
@@ -167,7 +167,7 @@
             </constraints>
             <properties>
               <font size="24"/>
-              <text value="Running Team Score"/>
+              <text value="Running Team Score:   "/>
             </properties>
           </component>
           <component id="b108e" class="javax.swing.JLabel" binding="overall2">
@@ -176,7 +176,7 @@
             </constraints>
             <properties>
               <font size="24"/>
-              <text value="Running Team Score"/>
+              <text value="Running Team Score:   "/>
             </properties>
           </component>
           <component id="d309c" class="javax.swing.JLabel" binding="event1">
@@ -212,7 +212,7 @@
             </constraints>
             <properties>
               <font size="24"/>
-              <text value="Gymnast Current Score"/>
+              <text value="Gymnast Current Score: "/>
             </properties>
           </component>
           <component id="1b528" class="javax.swing.JLabel" binding="gymnastCurrent1">
@@ -221,7 +221,7 @@
             </constraints>
             <properties>
               <font size="24"/>
-              <text value="Gymnast Current Score"/>
+              <text value="Gymnast Current Score: "/>
             </properties>
           </component>
           <vspacer id="b8b8a">
