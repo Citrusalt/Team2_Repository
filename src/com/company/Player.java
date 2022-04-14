@@ -120,16 +120,12 @@ public class Player implements Serializable {
 
         System.out.println("Apparatus in: ");
         for(int i = 0; i < 4; i++){
-            if(apparatusStatus[i] == true){
-                switch(i){
-                    case 0: System.out.println("Player is in [Vaults], Order: " + apparatusOrder[i]);
-                        break;
-                    case 1: System.out.println("Player is in [Bars], Order: " + apparatusOrder[i]);
-                        break;
-                    case 2: System.out.println("Player is in [Beams], Order: " + apparatusOrder[i]);
-                        break;
-                    case 3: System.out.println("Player is in [Floors], Order: " + apparatusOrder[i]);
-                        break;
+            if(apparatusStatus[i]){
+                switch (i) {
+                    case 0 -> System.out.println("Player is in [Vaults], Order: " + apparatusOrder[i]);
+                    case 1 -> System.out.println("Player is in [Bars], Order: " + apparatusOrder[i]);
+                    case 2 -> System.out.println("Player is in [Beams], Order: " + apparatusOrder[i]);
+                    case 3 -> System.out.println("Player is in [Floors], Order: " + apparatusOrder[i]);
                 }
             }
         }

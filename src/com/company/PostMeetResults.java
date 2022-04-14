@@ -176,7 +176,7 @@ public class PostMeetResults {
         resultsFileW.write("ALL AROUND RESULTS\n\n");
         resultsFileW.write("PLACE\tNAME\tTEAM\tVAULT\tBARS\tBEAM\tFLOOR\tSCORE\n");
 
-        List<Player> AA_Gymnasts = new ArrayList<Player>();
+        List<Player> AA_Gymnasts = new ArrayList<>();
 
         for (int i = 0; i < team1.getAllGymnasts().size(); i++)
         {
@@ -226,7 +226,7 @@ public class PostMeetResults {
 
 
         //sort aa_array
-        Collections.sort(AA_Gymnasts, (o1, o2) -> 0);
+        AA_Gymnasts.sort((o1, o2) -> 0);
 
         for (int i = 0; i < AA_Gymnasts.size(); i++)
         {
@@ -269,7 +269,7 @@ public class PostMeetResults {
         resultsFileW.write("INDIVIDUAL VAULT\n\n");
         resultsFileW.write("NAME\tSCORE\tTEAM\tSCORE\n");
 
-        List<Player> vault_Gymnasts = new ArrayList<Player>();
+        List<Player> vault_Gymnasts = new ArrayList<>();
 
         for (int i = 0; i < team1.getAllGymnasts().size(); i++)
         {
@@ -318,7 +318,7 @@ public class PostMeetResults {
         }
 
         //sort vault_gymnasts
-        Collections.sort(vault_Gymnasts, (o1, o2) -> 0);
+        vault_Gymnasts.sort((o1, o2) -> 0);
 
         for (int i = 0; i < vault_Gymnasts.size(); i++)
         {
@@ -358,7 +358,7 @@ public class PostMeetResults {
         resultsFileW.write("INDIVIDUAL BARS\n\n");
         resultsFileW.write("NAME\tSCORE\tTEAM\tSCORE\n");
 
-        List<Player> bar_Gymnasts = new ArrayList<Player>();
+        List<Player> bar_Gymnasts = new ArrayList<>();
 
         for (int i = 0; i < team1.getAllGymnasts().size(); i++)
         {
@@ -407,7 +407,7 @@ public class PostMeetResults {
         }
 
         //sort vault_gymnasts
-        Collections.sort(bar_Gymnasts, (o1, o2) -> 0);
+        bar_Gymnasts.sort((o1, o2) -> 0);
 
         for (int i = 0; i < bar_Gymnasts.size(); i++)
         {
@@ -446,7 +446,7 @@ public class PostMeetResults {
     {
         resultsFileW.write("INDIVIDUAL BEAM\n\n");
         resultsFileW.write("NAME\tSCORE\tTEAM\tSCORE\n");
-        List<Player> beam_Gymnasts = new ArrayList<Player>();
+        List<Player> beam_Gymnasts = new ArrayList<>();
 
         for (int i = 0; i < team1.getAllGymnasts().size(); i++)
         {
@@ -495,7 +495,7 @@ public class PostMeetResults {
         }
 
         //sort vault_gymnasts
-        Collections.sort(beam_Gymnasts, (o1, o2) -> 0);
+        beam_Gymnasts.sort((o1, o2) -> 0);
 
         for (int i = 0; i < beam_Gymnasts.size(); i++)
         {
@@ -534,7 +534,7 @@ public class PostMeetResults {
     {
         resultsFileW.write("INDIVIDUAL FLOOR\n\n");
         resultsFileW.write("NAME\tSCORE\tTEAM\tSCORE\n");
-        List<Player> fl_Gymnasts = new ArrayList<Player>();
+        List<Player> fl_Gymnasts = new ArrayList<>();
 
         for (int i = 0; i < team1.getAllGymnasts().size(); i++)
         {
@@ -583,7 +583,7 @@ public class PostMeetResults {
         }
 
         //sort vault_gymnasts
-        Collections.sort(fl_Gymnasts, (o1, o2) -> 0);
+        fl_Gymnasts.sort((o1, o2) -> 0);
 
         for (int i = 0; i < fl_Gymnasts.size(); i++)
         {
@@ -624,5 +624,20 @@ public class PostMeetResults {
         addIndividualBarsToFile();
         addIndividualBeamToFile();
         addIndividualFloorToFile();
+    }
+
+    public void addJudgesInfoToFile() throws IOException
+    {
+        resultsFileW.write("Judges Information\n");
+
+        /*
+        for (int i = 0; i < allJudges; i++)
+        {
+            for (int j = 0; j < allJudges.get(i).getScores(); j++)
+            {
+                resultsFileW.write(judgeFirstName + judgeLastName + Player + apparatus + apparatusScore);
+            }
+        }
+         */
     }
 }
