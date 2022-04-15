@@ -117,7 +117,8 @@ public class PostMeetResults {
 
     }
 
-    public void writeTeamResults(Team team1) throws IOException {
+    public void writeTeamResults(Team team1) throws IOException
+    {
         for(int i = 0; i < team1.getAllGymnasts().size(); i++)
         {
             String firstName = team1.getAllGymnasts().get(i).getPlayerfName();
