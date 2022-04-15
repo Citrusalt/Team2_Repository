@@ -484,7 +484,7 @@ public class DualScorekeeperScreen {
         editLineupButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EditLineupScreen myScreen = new EditLineupScreen();
+                EditLineupScreen myScreen = new EditLineupScreen(home, visitor);
             }
         });
         teamLogoCheckbox.addItemListener(new ItemListener() {

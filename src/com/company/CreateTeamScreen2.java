@@ -50,7 +50,6 @@ public class CreateTeamScreen2 extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                System.out.println("test");
             }
         });
 
