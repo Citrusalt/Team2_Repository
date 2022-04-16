@@ -68,4 +68,5 @@ public class MeetFormatScreen {
     private JLabel startImage;
     private JButton startButton;
     private JButton addNewTeamButton;
+    private JMenuBar menuBar;
 }
