@@ -21,7 +21,7 @@ public class PostMeetScreen {
         frame.setVisible(true);
 
         //placeholder functions
-        gC.createTeamTablePost(teamTable, teamModel, teamRenderer, font);
+        gC.createTeamTablePost(teamTable, teamModel, teamRenderer, font, "Final Score");
         gC.createIndividualTable(individualTable, individualModel, individualRenderer, font);
 
 
