@@ -83,35 +83,44 @@ public class PostMeetResults {
 
     public void addTeamStandingToFile() throws IOException
     {
-        resultsFileW.write("TEAM STANDING\n#\tTEAM\tVAULT\tBARS\tBEAM\tFLOOR\tFINAL\n\n");
+        resultsFileW.write("TEAM STANDING\n#\tTEAM\tVAULT\t\tBARS\tBEAM\tFLOOR\tFINAL\n");
 
         if (meetType.equals("dual"))
         {
-            Team[] teamStanding = {team1, team2};
-            Arrays.sort(teamStanding);
+            List <Team> teamStanding = new ArrayList<>();
+            teamStanding.add(team1);
+            teamStanding.add(team2);
+            teamStanding.sort((Team a, Team b) -> (int) (a.getTeamScore().getRunningScore() - b.getTeamScore().getRunningScore()));
 
-            for (int i = 0; i < teamStanding.length; i++) {
-                resultsFileW.write((i + 1) + teamStanding[i].getTeamName() + teamStanding[i].getTeamScore().getvaultScore() + teamStanding[i].getTeamScore().getbarScore() + teamStanding[i].getTeamScore().getbeamScore() + teamStanding[i].getTeamScore().getfloorScore() + teamStanding[i].getTeamScore().getvaultScore() + (teamStanding[i].getTeamScore().getvaultScore() + teamStanding[i].getTeamScore().getbarScore() + teamStanding[i].getTeamScore().getbeamScore() + teamStanding[i].getTeamScore().getfloorScore() + teamStanding[i].getTeamScore().getvaultScore()));
+           for (int i = 0; i < teamStanding.size(); i++) {
+                resultsFileW.write("\n" + (i + 1) + "\t" + teamStanding.get(i).getTeamName() + teamStanding.get(i).getTeamScore().getvaultScore() + teamStanding.get(i).getTeamScore().getbarScore() + teamStanding.get(i).getTeamScore().getbeamScore() + teamStanding.get(i).getTeamScore().getfloorScore() + teamStanding.get(i).getTeamScore().getvaultScore() + (teamStanding.get(i).getTeamScore().getvaultScore() + teamStanding.get(i).getTeamScore().getbarScore() + teamStanding.get(i).getTeamScore().getbeamScore() + teamStanding.get(i).getTeamScore().getfloorScore() + teamStanding.get(i).getTeamScore().getvaultScore()));
             }
         }
 
         if (meetType.equals("tri"))
         {
-            Team[] teamStanding = {team1, team2, team3};
-            Arrays.sort(teamStanding);
+            List <Team> teamStanding = new ArrayList<>();
+            teamStanding.add(team1);
+            teamStanding.add(team2);
+            teamStanding.add(team3);
+            teamStanding.sort((Team a, Team b) -> (int) (a.getTeamScore().getRunningScore() - b.getTeamScore().getRunningScore()));
 
-            for (int i = 0; i < teamStanding.length; i++) {
-                resultsFileW.write((i + 1) + teamStanding[i].getTeamName() + teamStanding[i].getTeamScore().getvaultScore() + teamStanding[i].getTeamScore().getbarScore() + teamStanding[i].getTeamScore().getbeamScore() + teamStanding[i].getTeamScore().getfloorScore() + teamStanding[i].getTeamScore().getvaultScore() + (teamStanding[i].getTeamScore().getvaultScore() + teamStanding[i].getTeamScore().getbarScore() + teamStanding[i].getTeamScore().getbeamScore() + teamStanding[i].getTeamScore().getfloorScore() + teamStanding[i].getTeamScore().getvaultScore()));
+            for (int i = 0; i < teamStanding.size(); i++) {
+                resultsFileW.write("\n" + (i + 1) + "\t" + teamStanding.get(i).getTeamName() + teamStanding.get(i).getTeamScore().getvaultScore() + teamStanding.get(i).getTeamScore().getbarScore() + teamStanding.get(i).getTeamScore().getbeamScore() + teamStanding.get(i).getTeamScore().getfloorScore() + teamStanding.get(i).getTeamScore().getvaultScore() + (teamStanding.get(i).getTeamScore().getvaultScore() + teamStanding.get(i).getTeamScore().getbarScore() + teamStanding.get(i).getTeamScore().getbeamScore() + teamStanding.get(i).getTeamScore().getfloorScore() + teamStanding.get(i).getTeamScore().getvaultScore()));
             }
         }
 
         if (meetType.equals("quad"))
         {
-            Team[] teamStanding = {team1, team2, team3, team4};
-            Arrays.sort(teamStanding);
+            List <Team> teamStanding = new ArrayList<>();
+            teamStanding.add(team1);
+            teamStanding.add(team2);
+            teamStanding.add(team3);
+            teamStanding.add(team4);
+            teamStanding.sort((Team a, Team b) -> (int) (a.getTeamScore().getRunningScore() - b.getTeamScore().getRunningScore()));
 
-            for (int i = 0; i < teamStanding.length; i++) {
-                resultsFileW.write((i + 1) + teamStanding[i].getTeamName() + teamStanding[i].getTeamScore().getvaultScore() + teamStanding[i].getTeamScore().getbarScore() + teamStanding[i].getTeamScore().getbeamScore() + teamStanding[i].getTeamScore().getfloorScore() + teamStanding[i].getTeamScore().getvaultScore() + (teamStanding[i].getTeamScore().getvaultScore() + teamStanding[i].getTeamScore().getbarScore() + teamStanding[i].getTeamScore().getbeamScore() + teamStanding[i].getTeamScore().getfloorScore() + teamStanding[i].getTeamScore().getvaultScore()));
+            for (int i = 0; i < teamStanding.size(); i++) {
+                resultsFileW.write("\n" + (i + 1) + "\t" + teamStanding.get(i).getTeamName() + teamStanding.get(i).getTeamScore().getvaultScore() + teamStanding.get(i).getTeamScore().getbarScore() + teamStanding.get(i).getTeamScore().getbeamScore() + teamStanding.get(i).getTeamScore().getfloorScore() + teamStanding.get(i).getTeamScore().getvaultScore() + (teamStanding.get(i).getTeamScore().getvaultScore() + teamStanding.get(i).getTeamScore().getbarScore() + teamStanding.get(i).getTeamScore().getbeamScore() + teamStanding.get(i).getTeamScore().getfloorScore() + teamStanding.get(i).getTeamScore().getvaultScore()));
             }
         }
 
@@ -134,39 +143,39 @@ public class PostMeetResults {
                 allAround = team1.getAllGymnasts().get(i).getPlayerScore().getTotalScore();
             }
 
-            resultsFileW.write( (i+1) + firstName + "\t" + lastName + "\t" + vault + "\t" + bars + "\t" + beam + "\t" + floor + "\t" + allAround);
+            resultsFileW.write( (i+1) + "\t" + firstName + " " + lastName + "\t" + vault + "\t" + bars + "\t" + beam + "\t" + floor + "\t" + allAround + "\n");
         }
     }
 
     public void addTeamResultsToFile() throws IOException
     {
-        resultsFileW.write("TEAM RESULTS DETAILS\n\n");
-        resultsFileW.write("TEAM: " + team1.getTeamName());
-        resultsFileW.write("#\tNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
+        resultsFileW.write("\n\nTEAM RESULTS DETAILS\n");
+        resultsFileW.write("\nTEAM:\t" + team1.getTeamName());
+        resultsFileW.write("\n\n#\tNAME\t\tVAULT\t\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
 
         writeTeamResults(team1);
 
-        resultsFileW.write("TEAM: " + team2.getTeamName());
-        resultsFileW.write("#\tNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
+        resultsFileW.write("\nTEAM:\t" + team2.getTeamName());
+        resultsFileW.write("\n\n#\tNAME\t\tVAULT\t\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
 
         writeTeamResults(team2);
 
         if (meetType.equals("tri"))
         {
-            resultsFileW.write("TEAM: " + team3.getTeamName());
-            resultsFileW.write("#\tNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
+            resultsFileW.write("\nTEAM:\t" + team3.getTeamName());
+            resultsFileW.write("\n\n#\tNAME\t\tVAULT\t\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
             writeTeamResults(team3);
         }
 
         if (meetType.equals("quad"))
         {
-            resultsFileW.write("TEAM: " + team3.getTeamName());
-            resultsFileW.write("#\tNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
+            resultsFileW.write("\nTEAM:\t" + team3.getTeamName());
+            resultsFileW.write("\n\n#\tNAME\t\tVAULT\t\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
 
             writeTeamResults(team3);
 
-            resultsFileW.write("TEAM: " + team4.getTeamName());
-            resultsFileW.write("#\tNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
+            resultsFileW.write("\nTEAM:\t" + team4.getTeamName());
+            resultsFileW.write("\n\n#\tNAME\t\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
 
             writeTeamResults(team4);
         }
@@ -174,8 +183,8 @@ public class PostMeetResults {
 
     public void addAllAroundToFile() throws IOException
     {
-        resultsFileW.write("ALL AROUND RESULTS\n\n");
-        resultsFileW.write("PLACE\tNAME\tTEAM\tVAULT\tBARS\tBEAM\tFLOOR\tSCORE\n");
+        resultsFileW.write("\nALL AROUND RESULTS\n");
+        resultsFileW.write("#\tNAME\t\tTEAM\tVAULT\t\tBARS\tBEAM\tFLOOR\tSCORE\n");
 
         List<Player> AA_Gymnasts = new ArrayList<>();
 
@@ -261,14 +270,14 @@ public class PostMeetResults {
                 teamName = team2.getTeamName();
             }
 
-            resultsFileW.write((i+1) + "\t" + fName + "\t" + lName + "\t" + teamName + "\t" + vault + "\t" + bars + "\t" + beam + "\t" + floor + "\t" + overall);
+            resultsFileW.write((i+1) + "\t" + fName + " " + lName + "\t" + teamName + "\t" + vault + "\t" + bars + "\t" + beam + "\t" + floor + "\t" + overall + "\n");
         }
     }
 
     public void addIndividualVaultToFile() throws IOException
     {
-        resultsFileW.write("INDIVIDUAL VAULT\n\n");
-        resultsFileW.write("NAME\tSCORE\tTEAM\tSCORE\n");
+        resultsFileW.write("\nINDIVIDUAL VAULT\n");
+        resultsFileW.write("#\tNAME\t\tSCORE\tTEAM\tSCORE\n");
 
         List<Player> vault_Gymnasts = new ArrayList<>();
 
@@ -350,14 +359,14 @@ public class PostMeetResults {
                 teamName = team2.getTeamName();
             }
 
-            resultsFileW.write((i+1) + "\t" + fName + "\t" + lName + "\t" + vault + "\t" + teamName + "\t" + overall);
+            resultsFileW.write((i+1) + "\t" + fName + " " + lName + "\t" + vault + "\t" + teamName + "\t" + overall + "\n");
         }
     }
 
     public void addIndividualBarsToFile() throws IOException
     {
-        resultsFileW.write("INDIVIDUAL BARS\n\n");
-        resultsFileW.write("NAME\tSCORE\tTEAM\tSCORE\n");
+        resultsFileW.write("\nINDIVIDUAL BARS\n");
+        resultsFileW.write("#\tNAME\t\tSCORE\tTEAM\tSCORE\n");
 
         List<Player> bar_Gymnasts = new ArrayList<>();
 
@@ -439,14 +448,14 @@ public class PostMeetResults {
                 teamName = team2.getTeamName();
             }
 
-            resultsFileW.write((i+1) + "\t" + fName + "\t" + lName + "\t" + bars + "\t" + teamName + "\t" + overall);
+            resultsFileW.write((i+1) + "\t" + fName + " " + lName + "\t" + bars + "\t" + teamName + "\t" + overall + "\n");
         }
     }
 
     public void addIndividualBeamToFile() throws IOException
     {
-        resultsFileW.write("INDIVIDUAL BEAM\n\n");
-        resultsFileW.write("NAME\tSCORE\tTEAM\tSCORE\n");
+        resultsFileW.write("\nINDIVIDUAL BEAM\n");
+        resultsFileW.write("#\tNAME\t\tSCORE\tTEAM\tSCORE\n");
         List<Player> beam_Gymnasts = new ArrayList<>();
 
         for (int i = 0; i < team1.getAllGymnasts().size(); i++)
@@ -527,14 +536,14 @@ public class PostMeetResults {
                 teamName = team2.getTeamName();
             }
 
-            resultsFileW.write((i+1) + "\t" + fName + "\t" + lName + "\t" + beam + "\t" + teamName + "\t" + overall);
+            resultsFileW.write((i+1) + "\t" + fName + " " + lName + "\t" + beam + "\t" + teamName + "\t" + overall + "\n");
         }
     }
 
     public void addIndividualFloorToFile() throws IOException
     {
-        resultsFileW.write("INDIVIDUAL FLOOR\n\n");
-        resultsFileW.write("NAME\tSCORE\tTEAM\tSCORE\n");
+        resultsFileW.write("\nINDIVIDUAL FLOOR\n");
+        resultsFileW.write("#\tNAME\t\tSCORE\tTEAM\tSCORE\n");
         List<Player> fl_Gymnasts = new ArrayList<>();
 
         for (int i = 0; i < team1.getAllGymnasts().size(); i++)
@@ -615,7 +624,7 @@ public class PostMeetResults {
                 teamName = team2.getTeamName();
             }
 
-            resultsFileW.write((i+1) + "\t" + fName + "\t" + lName + "\t" + floor + "\t" + teamName + "\t" + overall);
+            resultsFileW.write((i+1) + "\t" + fName + " " + lName + "\t" + floor + "\t" + teamName + "\t" + overall + "\n");
         }
     }
 

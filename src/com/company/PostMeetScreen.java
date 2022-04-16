@@ -6,6 +6,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 
@@ -42,6 +44,39 @@ public class PostMeetScreen {
         endButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                File resultsFile = new File("RESULTS_FILE.txt");
+
+                if (teams.size() == 2)
+                {
+                    try {
+                        PostMeetResults postMeetResults = new PostMeetResults("dual", teams.get(0), teams.get(1), resultsFile);
+                        postMeetResults.writeResultsToFile();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+
+                if (teams.size() == 3)
+                {
+                    try {
+                        PostMeetResults postMeetResults = new PostMeetResults("tri", teams.get(0), teams.get(1), teams.get(2), resultsFile);
+                        postMeetResults.writeResultsToFile();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+
+                if (teams.size() == 4)
+                {
+                    try {
+                        PostMeetResults postMeetResults = new PostMeetResults("quad", teams.get(0), teams.get(1), teams.get(2), teams.get(3), resultsFile);
+                        postMeetResults.writeResultsToFile();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+
                 System.exit(1);
             }
         });
