@@ -193,8 +193,6 @@ public class AddGymnasts extends JDialog{
             }
         });
 
-
-
         setVisible(true);   //SA BABA LANG TO
 
     }
