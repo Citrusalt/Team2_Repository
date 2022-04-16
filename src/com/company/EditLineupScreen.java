@@ -40,12 +40,14 @@ public class EditLineupScreen extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Home Team Substitute Player Button Press");
+                changeCard("SubGymnastCard");
             }
         });
         visitorSubButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Visitor Team Substitute Player Button Press");
+                changeCard("SubGymnastCard");
             }
         });
         saveChangesButton.addActionListener(new ActionListener() {
