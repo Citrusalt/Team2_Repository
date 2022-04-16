@@ -216,7 +216,6 @@ public class AddGymnasts extends JDialog{
                 barsAvg.setText(String.valueOf(team.getAllGymnasts().get(i).getPlayerAvg()[ApparatusIndex.UB]));
                 beamAvg.setText(String.valueOf(team.getAllGymnasts().get(i).getPlayerAvg()[ApparatusIndex.BB]));
                 floorAvg.setText(String.valueOf(team.getAllGymnasts().get(i).getPlayerAvg()[ApparatusIndex.FX]));
-
             }
         }
     }

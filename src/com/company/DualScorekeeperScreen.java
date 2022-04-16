@@ -18,10 +18,7 @@ public class DualScorekeeperScreen {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
         DatabaseManager db = new DatabaseManager();
-
-
         Dual_Tri_ArenaScreen myArenaScreen = new Dual_Tri_ArenaScreen();
 
         //Set Arena Screen Fields
@@ -43,6 +40,32 @@ public class DualScorekeeperScreen {
         //card layout start
         cardLayout = (CardLayout) mainPanel.getLayout();
         changeCard("CustomizeCard");
+
+
+        //*************************************
+        // Sets the team participants. So tired setting up in the set-up mode smh.
+        List<Player> vaultHome = new ArrayList<>();
+        home.getVaultGymnasts().clear();
+        home.getBarGymnasts().clear();
+        for(int i = 0; i < 6; i++){
+            home.getAllGymnasts().get(i).setApparatusOrderByIndex(ApparatusIndex.VT, i+1);
+            home.getAllGymnasts().get(i).setApparatusStatusByIndex(ApparatusIndex.VT, true);
+            vaultHome.add(home.getAllGymnasts().get(i));
+        }
+        home.setVaultGymnasts(vaultHome);
+        home.setBarGymnasts(vaultHome);
+        List<Player> barVisitor = new ArrayList<>();
+        visitor.getBarGymnasts().clear();
+        visitor.getVaultGymnasts().clear();
+        for(int i = 0; i < 6; i++){
+            visitor.getAllGymnasts().get(i).setApparatusOrderByIndex(ApparatusIndex.UB, i+1);
+            visitor.getAllGymnasts().get(i).setApparatusStatusByIndex(ApparatusIndex.UB, true);
+            barVisitor.add(visitor.getAllGymnasts().get(i));
+        }
+        visitor.setBarGymnasts(barVisitor);
+        visitor.setVaultGymnasts(barVisitor);
+        //************************************
+
 
 
         defaultTemplateButton.addActionListener(new ActionListener() {
@@ -485,6 +508,8 @@ public class DualScorekeeperScreen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 EditLineupScreen myScreen = new EditLineupScreen(home, visitor, rotation);
+                //home = myScreen.getEditHome();
+                //visitor = myScreen.getEditVisitor();
             }
         });
         teamLogoCheckbox.addItemListener(new ItemListener() {
