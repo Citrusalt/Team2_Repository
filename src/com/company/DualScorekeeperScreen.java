@@ -141,23 +141,56 @@ public class DualScorekeeperScreen {
         nextRotationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (selectedMode == 0){
-                    updateRotationSimul(myArenaScreen, frame, 1, gC, home, visitor, allJudges);
+
+                if (showUpdate == false){
+                    if (selectedMode == 0){
+                        updateRotationSimul(myArenaScreen, frame, 1, gC, home, visitor, allJudges);
+                        //show update on arena screen
+                        myArenaScreen.nextUpdateDual(home, visitor, rotation);
+                        myArenaScreen.changeCard("SimulCard");
+                    }
+                    else if (selectedMode == 1){
+                        updateRotationNonSimul(myArenaScreen, frame, 1, gC, home, visitor, allJudges);
+                        myArenaScreen.changeCard("NonSimulCard");
+                    }
+                    myArenaScreen.resetArenaTables(); //reset tables
+                    showUpdate = true;
                 }
-                else if (selectedMode == 1){
-                    updateRotationNonSimul(myArenaScreen, frame, 1, gC, home, visitor, allJudges);
+                else{
+                    myArenaScreen.nextUpdateDual(home, visitor, rotation);
+                    showUpdate = false;
                 }
+
             }
         });
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (selectedMode == 0){
-                    updateRotationSimul(myArenaScreen, frame, -1, gC, home, visitor, allJudges);
+                if (showUpdate == true){
+
+                    if (selectedMode == 0){
+                        updateRotationSimul(myArenaScreen, frame, -1, gC, home, visitor, allJudges);
+                    }
+                    else if (selectedMode == 1 ){
+                        updateRotationNonSimul(myArenaScreen, frame, -1, gC, home, visitor, allJudges);
+                    }
+                    myArenaScreen.resetArenaTables();
+                    myArenaScreen.nextUpdateDual(home, visitor, rotation);
+                    myArenaScreen.changeCard("UpdatePanel");
+                    showUpdate = false;
                 }
-                else if (selectedMode == 1){
-                    updateRotationNonSimul(myArenaScreen, frame, -1, gC, home, visitor, allJudges);
+                else{
+                    if (selectedMode == 0){
+                        myArenaScreen.changeCard("SimulCard");
+                    }
+                    else if (selectedMode == 1){
+                        myArenaScreen.changeCard("NonSimulCard");
+                    }
+
+                    myArenaScreen.resetArenaTables();
+                    showUpdate = true;
                 }
+
             }
         });
 
@@ -291,6 +324,10 @@ public class DualScorekeeperScreen {
                     }
                     myArenaScreen.overall1.setText(String.valueOf("Running Team Score:     " + home.getTeamScore().getRunningScore()));
 
+                    System.out.println(home.getTeamScore().getRunningScore()); //why is this 0?
+                    System.out.println(visitor.getTeamScore().getRunningScore());
+
+
                 } catch (Exception exception) {
                     System.out.println(exception);
                 }
@@ -379,7 +416,7 @@ public class DualScorekeeperScreen {
                         visitor.getBeamGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setbeamScore(pscore);
                         visitor.getTeamScore().setbeamScore(visitor.getTeamScore().calculateTeamBeamScore(visitor.getBeamGymnasts()));
                     }
-                    myArenaScreen.overall2.setText(String.valueOf("Running Team Score:     " + home.getTeamScore().getRunningScore()));
+                    myArenaScreen.overall2.setText(String.valueOf("Running Team Score:     " + visitor.getTeamScore().getRunningScore()));
                 } catch (Exception exception) {
 
                     System.out.println(exception);
@@ -558,6 +595,7 @@ public class DualScorekeeperScreen {
             gC.updateCombobox(team1Combo, home.getVaultGymnasts());
             gC.updateCombobox(team2Combo, visitor.getBarGymnasts());
 
+
         }
         else if (rotation == 2){
             currentevent1 = "Bar";
@@ -728,6 +766,7 @@ public class DualScorekeeperScreen {
     public String currentevent2 = "Bar";
 
 
+    private Boolean showUpdate = true; //if true, it's time to show update, if false, go to next rotation
     private Color defaultColor = new Color(51, 51, 51);
     private int selectedMode = 0;
     private int rotation = 1;
