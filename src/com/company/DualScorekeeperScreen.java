@@ -612,6 +612,8 @@ public class DualScorekeeperScreen {
                 EditLineupScreen myScreen = new EditLineupScreen(homeCopy, visitorCopy, rotation);
                 homeCopy = myScreen.getEditHome();
                 visitorCopy = myScreen.getEditVisitor();
+                homeCopy.updateApparatusLists();
+                visitorCopy.updateApparatusLists();
                 updateDisplay(myArenaScreen, gC, homeCopy, visitorCopy, rotation);
 
             }
@@ -806,8 +808,8 @@ public class DualScorekeeperScreen {
     }
 
     public void updateDisplay(Dual_Tri_ArenaScreen myArenaScreen, GuiCreator gC, Team home, Team visitor, int rotation) {
-        team1Combo.removeAll();
-        team2Combo.removeAll();
+        team1Combo.removeAllItems();
+        team2Combo.removeAllItems();
         System.out.println("Rotation: " + rotation);
         switch (rotation) {
             case 1:
@@ -841,13 +843,13 @@ public class DualScorekeeperScreen {
 
         //Updates the arena display for home
         if (currentevent2 == "Vault") {
-            myArenaScreen.updateGymnastInfo(visitorCopy.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 0);
+            myArenaScreen.updateGymnastInfo(visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 0);
         } else if (currentevent2 == "Bar") {
-            myArenaScreen.updateGymnastInfo(visitorCopy.getBarGymnasts().get(team2Combo.getSelectedIndex()), 2, 1);
+            myArenaScreen.updateGymnastInfo(visitor.getBarGymnasts().get(team2Combo.getSelectedIndex()), 2, 1);
         } else if (currentevent2 == "Beam") {
-            myArenaScreen.updateGymnastInfo(visitorCopy.getBeamGymnasts().get(team2Combo.getSelectedIndex()), 2, 2);
+            myArenaScreen.updateGymnastInfo(visitor.getBeamGymnasts().get(team2Combo.getSelectedIndex()), 2, 2);
         } else if (currentevent2 == "Floor") {
-            myArenaScreen.updateGymnastInfo(visitorCopy.getFloorGymnasts().get(team2Combo.getSelectedIndex()), 2, 3);
+            myArenaScreen.updateGymnastInfo(visitor.getFloorGymnasts().get(team2Combo.getSelectedIndex()), 2, 3);
         }
     }
 
