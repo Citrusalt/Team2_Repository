@@ -15,6 +15,10 @@ public class EditLineupScreen extends JDialog {
     //Passing in home and visitor team into constructor, you might need to pass in more info
     public EditLineupScreen(Team home, Team visitor, int currentRotation) {
 
+
+        System.out.println("============== PRINTING ALL HOME ===============");         //
+        home.printAll();
+        System.out.println("============== END ALL HOME ===============");          //
         setContentPane(mainPanel);
         setTitle("Edit Lineup Screen");
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -163,7 +167,7 @@ public class EditLineupScreen extends JDialog {
                         editVisitor = temp;
                     }
                     temp.updateApparatusLists();
-                    //temp.printAll();
+                    temp.printAll();
                     updateRotation(rotationCombo, editHome, editVisitor, rotationNum);
                     changeCard("DefaultCard");
                 }
@@ -367,6 +371,7 @@ public class EditLineupScreen extends JDialog {
             case (ApparatusIndex.BB): team.setBeamGymnasts(eventTemp); break;
             case (ApparatusIndex.FX): team.setFloorGymnasts(eventTemp); break;
         }
+        //team.printAll();            //
         return team;
     }
 
