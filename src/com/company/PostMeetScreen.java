@@ -6,6 +6,9 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -22,7 +25,7 @@ public class PostMeetScreen {
 
         //placeholder functions
         gC.createTeamTablePost(teamTable, teamModel, teamRenderer, font, "Final Score");
-        gC.createIndividualTable(individualTable, individualModel, individualRenderer, font);
+        gC.createIndividualTableDual(individualTable, individualModel, individualRenderer, font);
 
 
         if (teams.size() == 2){
@@ -30,14 +33,16 @@ public class PostMeetScreen {
             Team home = teams.get(0);
             Team visitor1 = teams.get(1);
 
-            dualTable(gC, teamModel, individualModel, home, visitor1);
+            dualTables(gC, teamModel, individualModel, home, visitor1);
 
+            teamTable.getPreferredScrollableViewportSize().setSize(-1, -1);
+            teamScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+
+            individualScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         }
         else{
             testTable(gC, teamModel, individualModel); //for testing and demonstration
         }
-
-
 
         endButton.addActionListener(new ActionListener() {
             @Override
@@ -50,21 +55,25 @@ public class PostMeetScreen {
     //Test function
     private void testTable(GuiCreator gC, DefaultTableModel teamModel, DefaultTableModel individualModel){
 
-
         gC.addRowTeamTablePost(1, "UAH",150, teamModel);
         gC.addRowTeamTablePost(2, "Auburn", 135, teamModel);
-        gC.addRowTeamTablePost(3, "Alabama", 124,  teamModel);
-        gC.addRowTeamTablePost(4, "LSU", 100, teamModel);
+//        gC.addRowTeamTablePost(3, "Alabama", 124,  teamModel);
+//        gC.addRowTeamTablePost(4, "LSU", 100, teamModel);
 
-        gC.addRowIndividualTable(1, "Jacob Drake", "UAH", 9.874, individualModel);
-        gC.addRowIndividualTable(2, "Hailey Porter", "Auburn", 9.562, individualModel);
-        gC.addRowIndividualTable(3, "Adriana Lanier", "Alabama", 9.423, individualModel);
-        gC.addRowIndividualTable(4, "Janilou Sy", "LSU", 9.123, individualModel);
-        gC.addRowIndividualTable(5, "John Smith", "Alabama", 8.567, individualModel);
+        gC.addRowIndividualTableDual(1, "Jacob Drake", 9.874, individualModel);
+        gC.addRowIndividualTableDual(2, "Hailey Porter",  9.562, individualModel);
+        gC.addRowIndividualTableDual(3, "Adriana Lanier", 9.423, individualModel);
+        gC.addRowIndividualTableDual(4, "Janilou Sy", 9.123, individualModel);
+        gC.addRowIndividualTableDual(5, "John Smith",  8.567, individualModel);
+        gC.addRowIndividualTableDual(5, "John Smith",  8.567, individualModel);
+        gC.addRowIndividualTableDual(5, "John Smith",  8.567, individualModel);
+        gC.addRowIndividualTableDual(5, "John Smith",  8.567, individualModel);
+
     }
 
+
     //Test function
-    private void dualTable(GuiCreator gC, DefaultTableModel teamModel, DefaultTableModel individualModel, Team home, Team visitor1){
+    private void dualTables(GuiCreator gC, DefaultTableModel teamModel, DefaultTableModel individualModel, Team home, Team visitor1){
 
         if (home.getTeamScore().getRunningScore() > visitor1.getTeamScore().getRunningScore()){
             gC.addRowTeamTablePost(1, home.getTeamName(), home.getTeamScore().getRunningScore(), teamModel);
@@ -76,7 +85,32 @@ public class PostMeetScreen {
             gC.addRowTeamTablePost(2, home.getTeamName(), home.getTeamScore().getRunningScore(), teamModel);
         }
 
+        List<Player> allAroundPlayers = new ArrayList<>();
 
+        for (int i = 0; i < home.getAllGymnasts().size(); i++){
+            if (gC.checkAllAround(home.getAllGymnasts().get(i))){
+                allAroundPlayers.add(home.getAllGymnasts().get(i));
+            }
+        }
+        for (int i = 0; i < visitor1.getAllGymnasts().size(); i++){
+            if (gC.checkAllAround(visitor1.getAllGymnasts().get(i))){
+                allAroundPlayers.add(visitor1.getAllGymnasts().get(i));
+            }
+        }
+
+        //sort players by total score
+        Collections.sort(allAroundPlayers, new Comparator<Player>() {
+            @Override
+            public int compare(Player p1, Player p2) {
+                return Double.compare(p1.getPlayerScore().getTotalScore(), p2.getPlayerScore().getTotalScore());
+            }
+        });
+
+        Collections.reverse(allAroundPlayers); //sort in descending order
+
+        for (int i = 0; i < allAroundPlayers.size(); i++){
+            gC.addRowIndividualTableDual(i + 1,allAroundPlayers.get(i).getPlayerfName() + " " + allAroundPlayers.get(i).getPlayerlName(), allAroundPlayers.get(i).getPlayerScore().getTotalScore(), individualModel);
+        }
     }
 
 
@@ -96,6 +130,8 @@ public class PostMeetScreen {
     private JButton endButton;
     private JTable teamTable;
     private JTable individualTable;
+    private JScrollPane teamScrollPane;
+    private JScrollPane individualScrollPane;
 
 
 }

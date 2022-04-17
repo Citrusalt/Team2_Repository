@@ -12,6 +12,7 @@ import java.util.Comparator;
 
 public class Dual_Tri_ArenaScreen {
 
+//some table formatting
 
 
      public void updateGymnast(String gymnast, int teamNumb){
@@ -178,16 +179,15 @@ public class Dual_Tri_ArenaScreen {
         }
 
         for (int i = 0; i < home.getAllGymnasts().size(); i++){
-            if (checkAllAround(home.getAllGymnasts().get(i))){
+            if (gC.checkAllAround(home.getAllGymnasts().get(i))){
                 playerList.add(home.getAllGymnasts().get(i));
             }
         }
         for (int i = 0; i < visitor.getAllGymnasts().size(); i++){
-            if (checkAllAround(visitor.getAllGymnasts().get(i))){
+            if (gC.checkAllAround(visitor.getAllGymnasts().get(i))){
                 playerList.add(visitor.getAllGymnasts().get(i));
             }
         }
-
 
         Collections.sort(playerList, new Comparator<Player>() {
             @Override
@@ -200,10 +200,8 @@ public class Dual_Tri_ArenaScreen {
 
 
         for (int i = 0; i < playerList.size(); i++){
-            System.out.println(playerList.get(i).getPlayerScore().getTotalScore());
             gC.addRowIndividualTableDual(i + 1, playerList.get(i).getPlayerfName() + " " + playerList.get(i).getPlayerlName(), playerList.get(i).getPlayerScore().getTotalScore(), individualModel);
         }
-
 
         updateLabel.setText("Rotation " + rotation + " Results");
 
@@ -212,17 +210,6 @@ public class Dual_Tri_ArenaScreen {
         playerList.clear(); //clear list of all around players
     }
 
-    private Boolean checkAllAround(Player myPlayer){
-
-        for (boolean b : myPlayer.getApparatusStatus()){
-            if (!b){
-                return false;
-            }
-        }
-        return true;
-
-
-    }
 
     public void resetArenaTables(){
          individualModel.setRowCount(0);
@@ -250,7 +237,10 @@ public class Dual_Tri_ArenaScreen {
 
         createTables(2);
 
+        teamTable.getPreferredScrollableViewportSize().setSize(-1,-1);
+        teamPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 
+        individualPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
     }
 
 
@@ -336,6 +326,8 @@ public class Dual_Tri_ArenaScreen {
     private JTable individualTable;
     private JTable teamTable;
     private JLabel updateLabel;
+    private JScrollPane individualPane;
+    private JScrollPane teamPane;
 
 
 }

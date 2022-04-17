@@ -793,5 +793,4 @@ public class SetupModeDual {
     private JButton resetTimerButton;
 
 
-
 }

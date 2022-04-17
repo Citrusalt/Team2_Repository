@@ -182,4 +182,25 @@ public class GuiCreator {
             comboBox.addItem(p.getPlayerfName() + " " + p.getPlayerlName());
         }
     }
+
+    public Boolean checkAllAround(Player myPlayer){
+
+        for (boolean b : myPlayer.getApparatusStatus()){
+            if (!b){
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+    public Boolean confirmDialog(String message){
+        if (JOptionPane.showConfirmDialog(null, message, "WARNING",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
