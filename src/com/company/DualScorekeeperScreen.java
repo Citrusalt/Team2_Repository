@@ -18,7 +18,10 @@ public class DualScorekeeperScreen {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
         DatabaseManager db = new DatabaseManager();
+
+
         Dual_Tri_ArenaScreen myArenaScreen = new Dual_Tri_ArenaScreen();
 
         //Set Arena Screen Fields
@@ -43,6 +46,10 @@ public class DualScorekeeperScreen {
         //card layout start
         cardLayout = (CardLayout) mainPanel.getLayout();
         changeCard("CustomizeCard");
+
+        createJudges(allJudges);
+
+
 
 
         //*************************************
@@ -247,6 +254,7 @@ public class DualScorekeeperScreen {
             public void actionPerformed(ActionEvent e) {
                 float scoreArray[] = new float[7];
                 List<Double> scoresList = new ArrayList<>();
+                List<JudgeScore> judgeScoreList = new ArrayList<>();
                 //List<Double> scoresList  = new ArrayList<>();
                 //player instance here is just a placeholder
                 // Player player1 = new Player("Name", "2022", "CS", "9.9");
@@ -260,6 +268,9 @@ public class DualScorekeeperScreen {
                     scoreArray[4] = Integer.parseInt(j15.getText());
                     scoreArray[5] = Integer.parseInt(j16.getText());
                     scoreArray[6] = Integer.parseInt(nD1.getText()); //deduction textboxes are called nD1, nD2, nD3, nD4*/
+
+
+                    System.out.println(myArenaScreen.gymnastCurrent1.getForeground());
 
                     myArenaScreen.gymnastCurrent1.setForeground(Color.RED);
                     myArenaScreen.overall1.setForeground(Color.RED);
@@ -280,6 +291,10 @@ public class DualScorekeeperScreen {
                         if (Double.parseDouble(j11.getText()) > 10 || Double.parseDouble(j12.getText()) > 10) {
                             JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
                         } else {
+                            JudgeScore judgeScore1 = new JudgeScore();
+                            JudgeScore judgeScore2 = new JudgeScore();
+                            judgeScoreList.add(judgeScore1);
+                            judgeScoreList.add(judgeScore2);
                             scoresList.add(Double.parseDouble(j11.getText()));
                             scoresList.add(Double.parseDouble(j12.getText()));
                         }
@@ -288,6 +303,10 @@ public class DualScorekeeperScreen {
                         if (Double.parseDouble(j13.getText()) > 10 || Double.parseDouble(j14.getText()) > 10) {
                             JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
                         } else {
+                            JudgeScore judgeScore3 = new JudgeScore();
+                            JudgeScore judgeScore4 = new JudgeScore();
+                            judgeScoreList.add(judgeScore3);
+                            judgeScoreList.add(judgeScore4);
                             scoresList.add(Double.parseDouble(j13.getText()));
                             scoresList.add(Double.parseDouble(j14.getText()));
                         }
@@ -296,6 +315,10 @@ public class DualScorekeeperScreen {
                         if (Double.parseDouble(j15.getText()) > 10 || Double.parseDouble(j16.getText()) > 10) {
                             JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
                         } else {
+                            JudgeScore judgeScore5 = new JudgeScore();
+                            JudgeScore judgeScore6 = new JudgeScore();
+                            judgeScoreList.add(judgeScore5);
+                            judgeScoreList.add(judgeScore6);
                             scoresList.add(Double.parseDouble(j15.getText()));
                             scoresList.add(Double.parseDouble(j16.getText()));
                         }
@@ -310,27 +333,69 @@ public class DualScorekeeperScreen {
                     myArenaScreen.gymnastCurrent1.setText("Gymnast Current Score: " + String.valueOf(pscore));       //update score on arena screen
 
                     //these set the appropriate gymnast's apparatus score depending on rotation and team score
+                    //matches the judge score object with the judge from the apparatus
+
+
                     if (rotation == 1) {
                         home.getVaultGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setvaultScore(pscore);
                         home.getTeamScore().setvaultScore(home.getTeamScore().calculateTeamVaultScore(home.getVaultGymnasts()));
+                        // go through the list of judges scores (these are directly from the text boxes
+                        //set the createScore method in judgescore object, add it to the right judge object scores list
+                        for (int k = 0; k < judgeScoreList.size(); k++)
+                        {
+                            //match the score to the appropriate judge object
+                            judgeScoreList.get(k).createScore(team1App.getText(), home.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 0, scoresList.get(k));
+                            vaultJudges.get(k).addScore(judgeScoreList.get(k));
+                        }
+
                     }
                     else if (rotation == 2) {
                         home.getBarGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setbarScore(pscore);
                         home.getTeamScore().setbarScore(home.getTeamScore().calculateTeamBarScore(home.getBarGymnasts()));
+                        for (int k = 0; k < judgeScoreList.size(); k++)
+                        {
+                            //match the score to the appropriate judge object
+                            judgeScoreList.get(k).createScore(team1App.getText(), home.getBarGymnasts().get(team1Combo.getSelectedIndex()), 0, scoresList.get(k));
+                            barJudges.get(k).addScore(judgeScoreList.get(k));
+                        }
                     }
                     else if (rotation == 3) {
                         home.getBeamGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setbeamScore(pscore);
                         home.getTeamScore().setbeamScore(home.getTeamScore().calculateTeamBeamScore(home.getBeamGymnasts()));
+                        for (int k = 0; k < judgeScoreList.size(); k++)
+                        {
+                            //match the score to the appropriate judge object
+                            judgeScoreList.get(k).createScore(team1App.getText(), home.getBeamGymnasts().get(team1Combo.getSelectedIndex()), 0, scoresList.get(k));
+                            beamJudges.get(k).addScore(judgeScoreList.get(k));
+
+                        }
                     }
                     else if (rotation == 4) {
                         home.getFloorGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setfloorScore(pscore);
                         home.getTeamScore().setfloorScore(home.getTeamScore().calculateTeamFloorScore(home.getFloorGymnasts()));
+                        for (int k = 0; k < judgeScoreList.size(); k++)
+                        {
+                            //match the score to the appropriate judge object
+                            judgeScoreList.get(k).createScore(team1App.getText(), home.getFloorGymnasts().get(team1Combo.getSelectedIndex()), 0, scoresList.get(k));
+                            floorJudges.get(k).addScore(judgeScoreList.get(k));
+                        }
+                        System.out.println(judgeScoreList);
                     }
                     myArenaScreen.overall1.setText(String.valueOf("Running Team Score:     " + home.getTeamScore().getRunningScore()));
 
                     System.out.println(home.getTeamScore().getRunningScore()); //why is this 0?
                     System.out.println(visitor.getTeamScore().getRunningScore());
 
+
+
+                    for (int i = 0 ; i < judges.size(); i++){
+                        for (int j = 0; j < judges.get(i).size(); j++) {
+                            System.out.println(judges.get(i).get(j).getFname());
+                            for (int k = 0; k < judges.get(i).get(j).getScoreList().size(); k++){
+                                System.out.println(judges.get(i).get(j).getScoreList().get(k).getScoreAmt() + " " + judges.get(i).get(j).getScoreList().get(k).getPlayer().getPlayerlName() + " " + judges.get(i).get(j).getScoreList().get(k).getApparatusName());
+                             }
+                         }
+                     }
 
                 } catch (Exception exception) {
                     System.out.println(exception);
@@ -341,7 +406,7 @@ public class DualScorekeeperScreen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 List<Double> scoresList  = new ArrayList<>();
-
+                List<JudgeScore> judgeScoreList = new ArrayList<>();
                 float scoreArray[] = new float[7];
                 try{
                     //Use these scores to update score for backend and arena screen
@@ -368,6 +433,10 @@ public class DualScorekeeperScreen {
                             JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
                         }
                         else {
+                            JudgeScore judgeScore1 = new JudgeScore();
+                            JudgeScore judgeScore2 = new JudgeScore();
+                            judgeScoreList.add(judgeScore1);
+                            judgeScoreList.add(judgeScore2);        //set the score itself comes later
                             scoresList.add(Double.parseDouble(j21.getText()));
                             scoresList.add(Double.parseDouble(j22.getText()));
                         }
@@ -378,6 +447,10 @@ public class DualScorekeeperScreen {
                             JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
                         }
                         else {
+                            JudgeScore judgeScore3 = new JudgeScore();
+                            JudgeScore judgeScore4 = new JudgeScore();
+                            judgeScoreList.add(judgeScore3);
+                            judgeScoreList.add(judgeScore4);
                             scoresList.add(Double.parseDouble(j23.getText()));
                             scoresList.add(Double.parseDouble(j24.getText()));
                         }
@@ -388,6 +461,10 @@ public class DualScorekeeperScreen {
                             JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
                         }
                         else {
+                            JudgeScore judgeScore5 = new JudgeScore();
+                            JudgeScore judgeScore6 = new JudgeScore();
+                            judgeScoreList.add(judgeScore5);
+                            judgeScoreList.add(judgeScore6);
                             scoresList.add(Double.parseDouble(j25.getText()));
                             scoresList.add(Double.parseDouble(j26.getText()));
                         }
@@ -407,20 +484,46 @@ public class DualScorekeeperScreen {
                     if (rotation == 1) {
                         visitor.getBarGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setbarScore(pscore);
                         visitor.getTeamScore().setbarScore(visitor.getTeamScore().calculateTeamBarScore(visitor.getBarGymnasts()));
+                        for (int k = 0; k < judgeScoreList.size(); k++)
+                        {
+                            //match the score to the appropriate judge object
+                            judgeScoreList.get(k).createScore(team2App.getText(), visitor.getBarGymnasts().get(team2Combo.getSelectedIndex()), 0, scoresList.get(k));
+                            barJudges.get(k).addScore(judgeScoreList.get(k));
+                        }
                     }
                     else if (rotation == 2) {
                         visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setvaultScore(pscore);
                         visitor.getTeamScore().setvaultScore(visitor.getTeamScore().calculateTeamVaultScore(visitor.getVaultGymnasts()));
+                        for (int k = 0; k < judgeScoreList.size(); k++)
+                        {
+                            //match the score to the appropriate judge object
+                            judgeScoreList.get(k).createScore(team2App.getText(), visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 0, scoresList.get(k));
+                            vaultJudges.get(k).addScore(judgeScoreList.get(k));
+                        }
                     }
                     else if (rotation == 3) {
                         visitor.getFloorGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setfloorScore(pscore);
                         visitor.getTeamScore().setfloorScore(visitor.getTeamScore().calculateTeamFloorScore(visitor.getFloorGymnasts()));
+                        for (int k = 0; k < judgeScoreList.size(); k++)
+                        {
+                            //match the score to the appropriate judge object
+                            judgeScoreList.get(k).createScore(team2App.getText(), visitor.getFloorGymnasts().get(team2Combo.getSelectedIndex()), 0, scoresList.get(k));
+                            floorJudges.get(k).addScore(judgeScoreList.get(k));
+                        }
                     }
                     else if (rotation == 4) {
                         visitor.getBeamGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setbeamScore(pscore);
                         visitor.getTeamScore().setbeamScore(visitor.getTeamScore().calculateTeamBeamScore(visitor.getBeamGymnasts()));
+                        for (int k = 0; k < judgeScoreList.size(); k++)
+                        {
+                            //match the score to the appropriate judge object
+                            judgeScoreList.get(k).createScore(team2App.getText(), visitor.getBeamGymnasts().get(team2Combo.getSelectedIndex()), 0, scoresList.get(k));
+                            beamJudges.get(k).addScore(judgeScoreList.get(k));
+                        }
                     }
                     myArenaScreen.overall2.setText(String.valueOf("Running Team Score:     " + visitor.getTeamScore().getRunningScore()));
+                    myArenaScreen.overall2.setText(String.valueOf("Running Team Score:     " + visitor.getTeamScore().getRunningScore()));
+
                 } catch (Exception exception) {
 
                     System.out.println(exception);
@@ -678,6 +781,7 @@ public class DualScorekeeperScreen {
                 }
 
         }
+
     }
 
 
@@ -775,6 +879,47 @@ public class DualScorekeeperScreen {
             }
         }
 
+    }
+    List<List<Judge>> judges = new ArrayList<List<Judge>>();
+    List<Judge> floorJudges = new ArrayList<Judge>();
+    List<Judge> beamJudges = new ArrayList<Judge>();
+    List<Judge> vaultJudges = new ArrayList<Judge>();
+    List<Judge> barJudges = new ArrayList<Judge>();
+    public void createJudges(List<List<String>> allJudges){
+        //all this a placeholder, just need somewhere to put judge objects
+       // List<Judge> floorJudges = new ArrayList<Judge>();
+       // List<Judge> beamJudges = new ArrayList<Judge>();
+        //List<Judge> vaultJudges = new ArrayList<Judge>();
+       // List<Judge> barJudges = new ArrayList<Judge>();
+       // List<List<Judge>> judges = new ArrayList<List<Judge>>();
+        judges.add(floorJudges);
+        judges.add(barJudges);
+        judges.add(vaultJudges);
+        judges.add(beamJudges);
+        for (int j = 0; j < allJudges.get(0).size(); j++){
+            Judge judge = new Judge();
+            judge.setFname(allJudges.get(0).get(j).toString());
+            judge.setLname(allJudges.get(0).get(j).toString()); //not right but need to put something there
+            vaultJudges.add(judge);
+        }
+        for (int j = 0; j < allJudges.get(1).size(); j++){
+            Judge judge = new Judge();
+            judge.setFname(allJudges.get(1).get(j).toString());
+            judge.setLname(allJudges.get(1).get(j).toString()); //not right but need to put something there
+            barJudges.add(judge);
+        }
+        for (int j = 0; j < allJudges.get(2).size(); j++){
+            Judge judge = new Judge();
+            judge.setFname(allJudges.get(2).get(j).toString());
+            judge.setLname(allJudges.get(2).get(j).toString()); //not right but need to put something there
+            beamJudges.add(judge);
+        }
+        for (int j = 0; j < allJudges.get(3).size(); j++){
+            Judge judge = new Judge();
+            judge.setFname(allJudges.get(3).get(j).toString());
+            judge.setLname(allJudges.get(3).get(j).toString()); //not right but need to put something there
+            floorJudges.add(judge);
+        }
     }
 
     private List<JLabel> getHomeJudges(){
