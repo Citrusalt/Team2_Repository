@@ -119,7 +119,11 @@ public class SetupModeDual {
                         }
                     }
                     //Populate Judges Comboboxes
-                    String[] judgesNames = {"Kevin McNamara", "Patricia Boudreaux", "Kaitlyn Adams", "Michelle Martin", "John Smith", "Jane Doe", "Jacob Drake", "Janilou Sy", "Adriana Lanier", "Hailey Porter"};
+                    String[] judgesNames = {
+                            "Kevin McNamara", "Patricia Boudreaux", "Kaitlyn Adams", "Michelle Martin",
+                            "Beth Renwick", "Mark Welch", "Kathryn Kunn", "Debra Yohman", "Melissa Phillips",
+                            "Jane Droese", "Joy Schmidt", "Jane Flynn"
+                    };
                     List<JComboBox> judgesCombo = getjudgesCombo();
                     for (int k = 0; k<judgesCombo.size(); k++){
                         judgesCombo.get(k).removeAllItems();
