@@ -1,12 +1,18 @@
 package com.company;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Dual_Tri_ArenaScreen {
 
+//some table formatting
 
 
      public void updateGymnast(String gymnast, int teamNumb){
@@ -119,7 +125,20 @@ public class Dual_Tri_ArenaScreen {
              major1.setText(player.getPlayerMajor());
              year1.setText(player.getPlayerClass());
              avg1.setText(String.valueOf("Event Average: " + player.getPlayerAvg()[event]));
+             if (event == 0){
+                 gymnastCurrent1.setText("Gymnast Current Score: " + player.getPlayerScore().getvaultScore());
+             }
+             else if (event == 1){
+                 gymnastCurrent1.setText("Gymnast Current Score: " + player.getPlayerScore().getbarScore());
 
+             }
+             else if (event == 2){
+                 gymnastCurrent1.setText("Gymnast Current Score: " + player.getPlayerScore().getbeamScore());
+
+             }
+             else if (event == 3){
+                 gymnastCurrent1.setText("Gymnast Current Score: " + player.getPlayerScore().getfloorScore());
+             }
             pic1.setIcon(new ImageIcon ("src/com/company/pictures/" + player.getPlayerPicture()));
          }
          else if (teamNumb == 2){
@@ -127,16 +146,80 @@ public class Dual_Tri_ArenaScreen {
              major2.setText(player.getPlayerMajor());
              year2.setText(player.getPlayerClass());
              avg2.setText(String.valueOf("Event Average: " + player.getPlayerAvg()[event]));
+             if (event == 0){
+                 gymnastCurrent2.setText("Gymnast Current Score: " + player.getPlayerScore().getvaultScore());
+             }
+             else if (event == 1){
+                 gymnastCurrent2.setText("Gymnast Current Score: " + player.getPlayerScore().getbarScore());
+
+             }
+             else if (event == 2){
+                 gymnastCurrent2.setText("Gymnast Current Score: " + player.getPlayerScore().getbeamScore());
+
+             }
+             else if (event == 3){
+                 gymnastCurrent2.setText("Gymnast Current Score: " + player.getPlayerScore().getfloorScore());
+             }
              pic2.setIcon(new ImageIcon ("src/com/company/pictures/" + player.getPlayerPicture()));
 
              System.out.println(pic2.getIcon().toString());
-
          }
+    }
+
+    public void nextUpdateDual(Team home, Team visitor, int rotation){
+
+        if (home.getTeamScore().getRunningScore() > visitor.getTeamScore().getRunningScore()){
+            gC.addRowTeamTablePost(1, home.getTeamName(), home.getTeamScore().getRunningScore(), teamModel);
+            gC.addRowTeamTablePost(2, visitor.getTeamName(), visitor.getTeamScore().getRunningScore(), teamModel);
+        }
+        else
+        {
+            gC.addRowTeamTablePost(1, visitor.getTeamName(), visitor.getTeamScore().getRunningScore(), teamModel);
+            gC.addRowTeamTablePost(2, home.getTeamName(), home.getTeamScore().getRunningScore(), teamModel);
+        }
+
+        for (int i = 0; i < home.getAllGymnasts().size(); i++){
+            if (gC.checkAllAround(home.getAllGymnasts().get(i))){
+                playerList.add(home.getAllGymnasts().get(i));
+            }
+        }
+        for (int i = 0; i < visitor.getAllGymnasts().size(); i++){
+            if (gC.checkAllAround(visitor.getAllGymnasts().get(i))){
+                playerList.add(visitor.getAllGymnasts().get(i));
+            }
+        }
+
+        Collections.sort(playerList, new Comparator<Player>() {
+            @Override
+            public int compare(Player p1, Player p2) {
+                return Double.compare(p1.getPlayerScore().getTotalScore(), p2.getPlayerScore().getTotalScore());
+            }
+        });
+
+        Collections.reverse(playerList);
 
 
+        for (int i = 0; i < playerList.size(); i++){
+            gC.addRowIndividualTableDual(i + 1, playerList.get(i).getPlayerfName() + " " + playerList.get(i).getPlayerlName(), playerList.get(i).getPlayerScore().getTotalScore(), individualModel);
+        }
+
+        updateLabel.setText("Rotation " + rotation + " Results");
+
+        changeCard("UpdatePanel");
+
+        playerList.clear(); //clear list of all around players
+    }
 
 
+    public void resetArenaTables(){
+         individualModel.setRowCount(0);
+         teamModel.setRowCount(0);
+    }
 
+    private void createTables(int numbTeams){
+
+         gC.createIndividualTableDual(individualTable, individualModel, individualRenderer, font);
+         gC.createTeamTablePost(teamTable, teamModel, teamRenderer, font, "Current Score");
     }
 
     public Dual_Tri_ArenaScreen(){
@@ -151,6 +234,13 @@ public class Dual_Tri_ArenaScreen {
         cardLayout = (CardLayout)  mainPanel.getLayout();
         changeCard("SimulCard");
 
+
+        createTables(2);
+
+        teamTable.getPreferredScrollableViewportSize().setSize(-1,-1);
+        teamPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+
+        individualPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
     }
 
 
@@ -179,7 +269,20 @@ public class Dual_Tri_ArenaScreen {
     //frame
     private final JFrame frame;
 
+    GuiCreator gC = new GuiCreator();
 
+
+    //Table Header Font
+    Font font = new Font ("Verdana", Font.PLAIN, 18);
+
+    private DefaultTableModel teamModel = new DefaultTableModel();
+    private DefaultTableModel individualModel = new DefaultTableModel();
+
+    private DefaultTableCellRenderer teamRenderer = new DefaultTableCellRenderer();
+    private DefaultTableCellRenderer individualRenderer = new DefaultTableCellRenderer();
+
+
+    private java.util.List<Player> playerList = new ArrayList<>();
     public CardLayout cardLayout;
     private JPanel arenaScreenPanel;
     public JLabel clockLabel1;
@@ -218,6 +321,13 @@ public class Dual_Tri_ArenaScreen {
     private JLabel nonSimulRotation;
     public JLabel logo1;
     public JLabel logo2;
+    private JButton endButton;
+    private JPanel updatePanel;
+    private JTable individualTable;
+    private JTable teamTable;
+    private JLabel updateLabel;
+    private JScrollPane individualPane;
+    private JScrollPane teamPane;
 
 
 }

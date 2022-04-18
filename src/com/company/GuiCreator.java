@@ -76,6 +76,27 @@ public class GuiCreator {
 
         //individualTable.getColumnModel().getColumn(0).setPreferredWidth(1);
     }
+
+    public void createIndividualTableDual(JTable table, DefaultTableModel model, DefaultTableCellRenderer cellRenderer, Font font){
+        model.addColumn("Place");
+        model.addColumn("Gymnast Name");
+        model.addColumn("Score");
+
+        table.setModel(model);
+
+        centerColumns(table, cellRenderer);
+        table.getTableHeader().setFont(font);
+
+    }
+
+    public void addRowIndividualTableDual(int place, String name, double score, DefaultTableModel model){
+        Vector<String> row = new Vector<String>();
+        row.add(String.valueOf(place));
+        row.add(name);
+        row.add(String.valueOf(score));
+        model.addRow(row);
+    }
+
     //the parameters of this will undoubtedly change to accept either team or player class instead
     public void addRowIndividualTable(int place, String name, String team, double score, DefaultTableModel model){
         Vector<String> row = new Vector<String>();
@@ -86,10 +107,10 @@ public class GuiCreator {
         model.addRow(row);
     }
 
-    public void createTeamTablePost(JTable table, DefaultTableModel model, DefaultTableCellRenderer cellRenderer, Font font){
+    public void createTeamTablePost(JTable table, DefaultTableModel model, DefaultTableCellRenderer cellRenderer, Font font, String thirdColumn){
         model.addColumn("Place");
         model.addColumn("Team");
-        model.addColumn("Final Score");
+        model.addColumn(thirdColumn);
         table.setModel(model);
 
         centerColumns(table, cellRenderer); //center text in table
@@ -161,4 +182,25 @@ public class GuiCreator {
             comboBox.addItem(p.getPlayerfName() + " " + p.getPlayerlName());
         }
     }
+
+    public Boolean checkAllAround(Player myPlayer){
+
+        for (boolean b : myPlayer.getApparatusStatus()){
+            if (!b){
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+    public Boolean confirmDialog(String message){
+        if (JOptionPane.showConfirmDialog(null, message, "WARNING",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
