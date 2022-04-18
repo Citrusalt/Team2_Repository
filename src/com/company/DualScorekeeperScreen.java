@@ -31,8 +31,12 @@ public class DualScorekeeperScreen {
         //Set Arena Screen Fields
         myArenaScreen.teamName1.setText(homeCopy.getTeamName());
         myArenaScreen.teamName2.setText(visitorCopy.getTeamName());
-        myArenaScreen.logo1.setIcon(new ImageIcon("src/com/company/pictures/" + homeCopy.getTeamLogo()));
-        myArenaScreen.logo2.setIcon(new ImageIcon("src/com/company/pictures/" + visitorCopy.getTeamLogo()));
+
+        ImageIcon imageIcon = new ImageIcon("src/com/company/pictures/" + homeCopy.getTeamLogo());
+        myArenaScreen.logo1.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+
+        imageIcon = new ImageIcon("src/com/company/pictures/" + visitorCopy.getTeamLogo());
+        myArenaScreen.logo2.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
 
         homeTeamName.setText(homeCopy.getTeamName());
         visitorTeamName.setText(visitorCopy.getTeamName());
@@ -278,7 +282,7 @@ public class DualScorekeeperScreen {
                     scoreArray[6] = Integer.parseInt(nD1.getText()); //deduction textboxes are called nD1, nD2, nD3, nD4*/
 
 
-                    System.out.println(myArenaScreen.gymnastCurrent1.getForeground());
+//                    System.out.println(myArenaScreen.gymnastCurrent1.getForeground());
 
                     myArenaScreen.gymnastCurrent1.setForeground(Color.RED);
                     myArenaScreen.overall1.setForeground(Color.RED);

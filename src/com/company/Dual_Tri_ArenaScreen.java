@@ -139,7 +139,14 @@ public class Dual_Tri_ArenaScreen {
              else if (event == 3){
                  gymnastCurrent1.setText("Gymnast Current Score: " + player.getPlayerScore().getfloorScore());
              }
-            pic1.setIcon(new ImageIcon ("src/com/company/pictures/" + player.getPlayerPicture()));
+
+             ImageIcon imageIcon = new ImageIcon("src/com/company/pictures/" + player.getPlayerPicture());
+//             Image image = imageIcon.getImage();
+//             Image scaledImage = image.getScaledInstance(100, 137, java.awt.Image.SCALE_SMOOTH);
+//             imageIcon = new ImageIcon(scaledImage);
+             pic1.setIcon(gC.scaleImageIcon(imageIcon, 100, 137));
+
+//            pic1.setIcon(new ImageIcon ("src/com/company/pictures/" + player.getPlayerPicture()));
          }
          else if (teamNumb == 2){
              name2.setText(player.getPlayerfName() + " " + player.getPlayerlName());
@@ -160,7 +167,11 @@ public class Dual_Tri_ArenaScreen {
              else if (event == 3){
                  gymnastCurrent2.setText("Gymnast Current Score: " + player.getPlayerScore().getfloorScore());
              }
-             pic2.setIcon(new ImageIcon ("src/com/company/pictures/" + player.getPlayerPicture()));
+
+             ImageIcon imageIcon = new ImageIcon("src/com/company/pictures/" + player.getPlayerPicture());
+
+             pic2.setIcon(gC.scaleImageIcon(imageIcon, 100, 137));
+//             pic2.setIcon(new ImageIcon ("src/com/company/pictures/" + player.getPlayerPicture()));
 
              System.out.println(pic2.getIcon().toString());
          }
@@ -241,6 +252,11 @@ public class Dual_Tri_ArenaScreen {
         teamPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 
         individualPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+
+        ImageIcon imageIcon = new ImageIcon("src/com/company/pictures/default_picture.png");
+        imageIcon = gC.scaleImageIcon(imageIcon, 100, 137);
+        pic1.setIcon(imageIcon);
+        pic2.setIcon(imageIcon);
     }
 
 

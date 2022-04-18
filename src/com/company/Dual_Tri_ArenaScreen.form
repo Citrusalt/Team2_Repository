@@ -2,11 +2,11 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.company.Dual_Tri_ArenaScreen">
   <grid id="9eb1c" binding="mainPanel" layout-manager="CardLayout" hgap="0" vgap="0" show="109ae">
     <constraints>
-      <xy x="36" y="27" width="899" height="711"/>
+      <xy x="36" y="27" width="899" height="987"/>
     </constraints>
     <properties>
       <focusable value="true"/>
-      <preferredSize width="700" height="850"/>
+      <preferredSize width="700" height="750"/>
       <visible value="true"/>
     </properties>
     <border type="none"/>
@@ -18,7 +18,7 @@
         </constraints>
         <properties>
           <minimumSize width="-1" height="-1"/>
-          <preferredSize width="700" height="850"/>
+          <preferredSize width="700" height="750"/>
         </properties>
         <border type="none"/>
         <children>
@@ -124,9 +124,7 @@
           </component>
           <component id="ebc1e" class="javax.swing.JLabel" binding="teamName1">
             <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                <preferred-size width="33" height="80"/>
-              </grid>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font size="36"/>

@@ -203,4 +203,15 @@ public class GuiCreator {
         }
     }
 
+    public ImageIcon scaleImageIcon(ImageIcon imageIcon, int width, int height){
+
+        Image image = imageIcon.getImage();
+        Image scaledImage = image.getScaledInstance(width, height, java.awt.Image.SCALE_SMOOTH);
+        imageIcon = new ImageIcon(scaledImage);
+
+        return imageIcon;
+
+    }
+
+
 }
