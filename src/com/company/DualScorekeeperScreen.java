@@ -228,7 +228,7 @@ public class DualScorekeeperScreen {
                     if (currentevent1 == "Vault") {
                         myArenaScreen.updateGymnastInfo(homeCopy.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 0);
                     }
-                    else if (currentevent1 == "Bar") {
+                    else if (currentevent1 == "Bars") {
                         myArenaScreen.updateGymnastInfo(homeCopy.getBarGymnasts().get(team1Combo.getSelectedIndex()), 1, 1);
                     }
                     else if (currentevent1 == "Beam"){
@@ -249,7 +249,7 @@ public class DualScorekeeperScreen {
                     if (currentevent2 == "Vault") {
                         myArenaScreen.updateGymnastInfo(visitorCopy.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 0);
                     }
-                    else if (currentevent2 == "Bar") {
+                    else if (currentevent2 == "Bars") {
                         myArenaScreen.updateGymnastInfo(visitorCopy.getBarGymnasts().get(team2Combo.getSelectedIndex()), 2, 1);
                     }
                     else if (currentevent2 == "Beam"){
@@ -717,7 +717,7 @@ public class DualScorekeeperScreen {
         }
         else if (rotation == 1){
             currentevent1 = "Vault";
-            currentevent2 = "Bar";
+            currentevent2 = "Bars";
             team1App.setText(currentevent1);
             team2App.setText(currentevent2);
             myArenaScreen.updateEvent(vaultCombo1.getSelectedItem().toString() + " " +currentevent1, 1);
@@ -734,7 +734,7 @@ public class DualScorekeeperScreen {
 
         }
         else if (rotation == 2){
-            currentevent1 = "Bar";
+            currentevent1 = "Bars";
             currentevent2 = "Vault";
             team1App.setText(currentevent1);
             team2App.setText(currentevent2);
@@ -963,7 +963,7 @@ public class DualScorekeeperScreen {
         //Updates the arena display for home
         if (currentevent1 == "Vault") {
             myArenaScreen.updateGymnastInfo(home.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 0);
-        } else if (currentevent1 == "Bar") {
+        } else if (currentevent1 == "Bars") {
             myArenaScreen.updateGymnastInfo(home.getBarGymnasts().get(team1Combo.getSelectedIndex()), 1, 1);
         } else if (currentevent1 == "Beam") {
             myArenaScreen.updateGymnastInfo(home.getBeamGymnasts().get(team1Combo.getSelectedIndex()), 1, 2);
@@ -974,7 +974,7 @@ public class DualScorekeeperScreen {
         //Updates the arena display for home
         if (currentevent2 == "Vault") {
             myArenaScreen.updateGymnastInfo(visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 0);
-        } else if (currentevent2 == "Bar") {
+        } else if (currentevent2 == "Bars") {
             myArenaScreen.updateGymnastInfo(visitor.getBarGymnasts().get(team2Combo.getSelectedIndex()), 2, 1);
         } else if (currentevent2 == "Beam") {
             myArenaScreen.updateGymnastInfo(visitor.getBeamGymnasts().get(team2Combo.getSelectedIndex()), 2, 2);
@@ -996,7 +996,7 @@ public class DualScorekeeperScreen {
 
 
     public String currentevent1 = "Vault";
-    public String currentevent2 = "Bar";
+    public String currentevent2 = "Bars";
 
 
     private Boolean showUpdate = true; //if true, it's time to show update, if false, go to next rotation

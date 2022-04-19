@@ -344,6 +344,8 @@ public class Dual_Tri_ArenaScreen {
     private JLabel updateLabel;
     private JScrollPane individualPane;
     private JScrollPane teamPane;
+    private JProgressBar progressBar1;
+    private JLabel divider;
 
 
 }
