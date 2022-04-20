@@ -8,7 +8,7 @@ import java.util.List;
 
 public class TriScorekeeperScreen {
 
-    public TriScorekeeperScreen(GuiCreator gC){
+    public TriScorekeeperScreen(GuiCreator gC, Team home, Team visitor1, Team visitor2, List<List<String>> allJudges){
 
         JFrame frame = new JFrame("Triangular Scorekeeper Screen Prototype");
         frame.setContentPane(mainPanel);

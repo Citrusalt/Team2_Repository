@@ -22,7 +22,6 @@ public class SetupModeDual {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        String meetType = "dual";
         DatabaseManager db = new DatabaseManager();         //Creates instance of DatabaseManager
         List<Team>allTeamfromDB = db.getAllTeams();
 
@@ -39,8 +38,6 @@ public class SetupModeDual {
         //Card Layout start
         cardLayout = (CardLayout) mainPanel.getLayout();
 
-        changeCard("StartScreenCard");
-
 
         //Puts value in ComboBoxes
         comboBox7.addItem("-Select Team-");
@@ -49,7 +46,6 @@ public class SetupModeDual {
             comboBox7.addItem(allTeamfromDB.get(i).getTeamName());
             comboBox8.addItem(allTeamfromDB.get(i).getTeamName());
         }
-        int homeIndex =0, visitorIndex = 0;             //Stores the index of the user selection
 
         goBackButton.addActionListener(new ActionListener() {
             @Override
@@ -87,7 +83,6 @@ public class SetupModeDual {
 //                    }
 //                    visitor.printAll();
 
-                    changeCard("SelectVaultCard");
 
                     //Change the label for the team name
                     homeNameLabel.setText(home.getTeamName());
@@ -98,7 +93,6 @@ public class SetupModeDual {
                     visitorNameLabelBB.setText(visitor.getTeamName());
                     homeNameLabelFX.setText(home.getTeamName());
                     visitorNameLabelFX.setText(visitor.getTeamName());
-
 
                     //Populates ALL ComboBoxes for the HomeTeam; This is where those Lists of comboboxes are used
                     List<JComboBox> homeCombo = gethomeCombo();
@@ -133,6 +127,9 @@ public class SetupModeDual {
                         }
                     }
                     //************END POPULATE******************
+
+                    //Go to Vault Screen now
+                    changeCard("SelectVaultCard");
                 }
             }
         });
@@ -159,7 +156,7 @@ public class SetupModeDual {
                     changeCard("SelectBarCard");
                 }
                 else{
-                    JOptionPane.showMessageDialog(null, "Error. At least two players per team must be selected and no duplicate players.");
+                    JOptionPane.showMessageDialog(null, "Error. All spots must be filled and no duplicate players.");
                 }
 
                 //Verify stuff if they're valid
@@ -204,7 +201,7 @@ public class SetupModeDual {
                     changeCard("SelectBalanceBeamCard");
                 }
                 else{
-                    JOptionPane.showMessageDialog(null, "Error. At least two players per team must be selected and no duplicate players.");
+                    JOptionPane.showMessageDialog(null, "Error. All spots must be filled and no duplicate players.");
                 }
 
 //                changeCard("SelectBalanceBeamCard");
@@ -240,7 +237,7 @@ public class SetupModeDual {
                     changeCard("SelectFloorCard");
                 }
                 else{
-                    JOptionPane.showMessageDialog(null, "Error. At least two players per team must be selected and no duplicate players.");
+                    JOptionPane.showMessageDialog(null, "Error. All spots must be filled and no duplicate players.");
                 }
 //                changeCard("SelectFloorCard");
             }
@@ -272,16 +269,11 @@ public class SetupModeDual {
                         f26.getSelectedItem(),
                 };
                 if (gC.checkUnique(team1) && gC.checkUnique(team2)) {
-                    //Populate Judges Combobox
-                    //Judge Names After Michelle are ones I added -- PLACEHOLDER
-
                     changeCard("SelectJudgesCard");
                 }
                 else{
-                    JOptionPane.showMessageDialog(null, "Error. At least two players per team must be selected and no duplicate players.");
+                    JOptionPane.showMessageDialog(null, "Error. All spots must be filled and no duplicate players.");
                 }
-
-//                changeCard("SelectJudgesCard");
             }
         });
         judgesBackButton.addActionListener(new ActionListener() {
@@ -326,13 +318,11 @@ public class SetupModeDual {
                         j46.getSelectedItem(),
                 };
 
-
                 //!!!!!!!!!!!
                 // If u look at the scoresheet for NCAA, a judge can judge 2 events.
                 // I notice that on the scoresheet for dual, there's 4 (2^2) judges, quad there was 16 (2^4)
                 // Coincidence?                 -jlou (4.11.2022)
                 //!!!!!!!!!!!
-
 
                 if (gC.checkUnique(vaultJudges) && gC.checkUnique(barJudges) && gC.checkUnique(beamJudges) && gC.checkUnique(floorJudges)) {
                     //Calls the testTable class
@@ -343,12 +333,6 @@ public class SetupModeDual {
                 else{
                     JOptionPane.showMessageDialog(null, "Error. At least two judges must be selected per event and no duplicate judges on the same event.");
                 }
-//                Calls the testTable class
-                testTable(gC);
-                resetTables(); //resets tables so that table isnt still filled with old values
-                testTable(gC);
-
-//                changeCard("SummaryCard");
             }
         });
         vaultEditButton.addActionListener(new ActionListener() {
@@ -431,8 +415,6 @@ public class SetupModeDual {
         Team home = allTeamfromDB.get(homeIndex-1);             //This has the team data for the home team
         Team visitor = allTeamfromDB.get(visitorIndex-1);
 
-        List <Player> homePlayers = home.getAllGymnasts();
-
         List<JComboBox> homeBoxes = gethomeCombo();
         List<JComboBox> visitorBoxes = getvisitorCombo();
         //may god have mercy on me for this logic
@@ -492,19 +474,10 @@ public class SetupModeDual {
                 }
             }
         }
-//        for (int i = 0; i < home.getAllGymnasts().size(); i++){
-//                home.getAllGymnasts().get(i).printAll();
-//            }
-//        for (int i = 0; i < visitor.getAllGymnasts().size(); i++){
-//            visitor.getAllGymnasts().get(i).printAll();
-//        }
 
         //Save teams to database here
         home.updateApparatusLists();
         visitor.updateApparatusLists();
-
-//        home.printAll();
-
 
         List<Team>myTeams = new ArrayList<>();
         myTeams.add(home);
@@ -542,56 +515,28 @@ public class SetupModeDual {
             judgesNames[i] = judges.get(i).getSelectedItem().toString();
         }
 
-        String[] team1Example = {"Jacob Drake", "Janilou Sy", "Hailey Porter", "Adriana Lanier", "John Smith", "Jane Doe"};
-        String[] team2Example = {"John Smith", "Jane Doe", "Adriana Lanier", "Hailey Porter", "Janilou Sy", "Jacob Drake"};
-
-        //Fill Vault Table Example
-        // This can all be combined into a single for-loop, just showing how to do one at a time
-        //Use different string []'s for different events obviously
-//        for (int i = 0; i <= 5; i++){
-//            String[] row = {team1Example[i], team2Example[i]};
-//            gC.addRowTeamTable(row, vaultModel);
-//        }
-
+        //Fill Tables
         for (int i = 0; i < 6; i++){
             String[] row = {homeGymnasts[i], visitorGymnasts[i]};
             gC.addRowTeamTable(row, vaultModel);
         }
 
-        //Fill Bar Table Example
-//        for (int i = 0; i <= 5; i++){
-//            String[] row = {team1Example[i], team2Example[i]};
-//            gC.addRowTeamTable(row, barsModel);
-//        }
         for (int i = 6; i < 12; i++){
             String[] row = {homeGymnasts[i], visitorGymnasts[i]};
             gC.addRowTeamTable(row, barsModel);
         }
-        //Fill Beam Table Example
-//        for (int i = 0; i <= 5; i++){
-//            String[] row = {team1Example[i], team2Example[i]};
-//            gC.addRowTeamTable(row, beamModel);
-//        }
+
         for (int i = 12; i < 18; i++){
             String[] row = {homeGymnasts[i], visitorGymnasts[i]};
             gC.addRowTeamTable(row, beamModel);
         }
-        //Fill Floor Table Example
-//        for (int i = 0; i <= 5; i++){
-//            String[] row = {team1Example[i], team2Example[i]};
-//            gC.addRowTeamTable(row, floorModel);
-//        }
+
         for (int i = 18; i < 24; i++){
             String[] row = {homeGymnasts[i], visitorGymnasts[i]};
             gC.addRowTeamTable(row, floorModel);
         }
-//        String[] vaultJudges = new String[]{"Jacob Drake", "Adriana Lanier", "Hailey Porter","Janilou Sy", "John Smith", "Jane Doe"};
-//        String[] barJudges = new String[]{"Adriana Lanier", "Janilou Sy", "Jacob Drake","Janilou Sy", "John Smith", "Jane Doe"};
-//        String[] beamJudges = new String[]{"John Smith", "Adriana Lanier", "Hailey Porter","Janilou Sy", "Jacob Drake", "Jane Doe"};
-//        String[] floorJudges = new String[]{"Jacob Drake", "Jane Doe", "Hailey Porter","Janilou Sy", "John Smith", "Adriana Lanier"};
 
         for (int i = 0; i <= 5; i++){
-//            gC.addRowsJudgeTable(vaultJudges[i], barJudges[i], beamJudges[i], floorJudges[i], judgesModel);
             gC.addRowsJudgeTable(judgesNames[i],judgesNames[i+6],judgesNames[i+12],judgesNames[i+18], judgesModel);
             vaultJudges.add(judgesNames[i]);
             barJudges.add(judgesNames[i+6]);
@@ -603,11 +548,6 @@ public class SetupModeDual {
         allJudges.add(beamJudges);
         allJudges.add(floorJudges);
 
-//        for (int i = 0 ; i < allJudges.size(); i++){
-//            for (int j = 0; j < allJudges.get(i).size(); j++){
-//                System.out.println(allJudges.get(i).get(j).toString());
-//            }
-//        }
     }
 
     //clears tables
@@ -792,9 +732,7 @@ public class SetupModeDual {
     private JLabel visitorNameLabelBB;
     private JLabel homeNameLabelFX;
     private JLabel visitorNameLabelFX;
-    private JTextField clockTextField;
-    private JButton startTimerButton;
-    private JButton resetTimerButton;
+
 
 
 }

@@ -147,10 +147,12 @@ public class GuiCreator {
 
         for (Object i : objects){
 
-            if (i.toString().equals("- Select Judges -") || i.toString().equals("- Select Gymnast -")){
+            if (i.toString().equals("- Select Judges -")){
                     size--;
+            } else if (i.toString().equals("- Select Gymnast -")) {
+                return false;
             }
-            else{
+            else {
                 set.add(i);
             }
         }
