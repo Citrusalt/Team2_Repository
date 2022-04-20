@@ -139,32 +139,32 @@ public class SetupModeDual {
         vaultNextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                Object[] team1 = {
-//                        v11.getSelectedItem(),
-//                        v12.getSelectedItem(),
-//                        v13.getSelectedItem(),
-//                        v14.getSelectedItem(),
-//                        v15.getSelectedItem(),
-//                        v16.getSelectedItem(),
-//                };
-//                Object[] team2 = {
-//                        v21.getSelectedItem(),
-//                        v22.getSelectedItem(),
-//                        v23.getSelectedItem(),
-//                        v24.getSelectedItem(),
-//                        v25.getSelectedItem(),
-//                        v26.getSelectedItem(),
-//                };
-//                if (gC.checkUnique(team1) && gC.checkUnique(team2)) {
-//                    changeCard("SelectBarCard");
-//                }
-//                else{
-//                    JOptionPane.showMessageDialog(null, "Team members cannot be the same. Try Again.");
-//                }
+                Object[] team1 = {
+                        v11.getSelectedItem(),
+                        v12.getSelectedItem(),
+                        v13.getSelectedItem(),
+                        v14.getSelectedItem(),
+                        v15.getSelectedItem(),
+                        v16.getSelectedItem(),
+                };
+                Object[] team2 = {
+                        v21.getSelectedItem(),
+                        v22.getSelectedItem(),
+                        v23.getSelectedItem(),
+                        v24.getSelectedItem(),
+                        v25.getSelectedItem(),
+                        v26.getSelectedItem(),
+                };
+                if (gC.checkUnique(team1) && gC.checkUnique(team2)) {
+                    changeCard("SelectBarCard");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Error. At least two players per team must be selected and no duplicate players.");
+                }
 
                 //Verify stuff if they're valid
 
-                changeCard("SelectBarCard");
+//                changeCard("SelectBarCard");
 
             }
         });
@@ -184,30 +184,30 @@ public class SetupModeDual {
         barsNextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                Object[] team1 = {
-//                        b11.getSelectedItem(),
-//                        b12.getSelectedItem(),
-//                        b13.getSelectedItem(),
-//                        b14.getSelectedItem(),
-//                        b15.getSelectedItem(),
-//                        b16.getSelectedItem(),
-//                };
-//                Object[] team2 = {
-//                        b21.getSelectedItem(),
-//                        b22.getSelectedItem(),
-//                        b23.getSelectedItem(),
-//                        b24.getSelectedItem(),
-//                        b25.getSelectedItem(),
-//                        b26.getSelectedItem(),
-//                };
-//                if (gC.checkUnique(team1) && gC.checkUnique(team2)) {
-//                    changeCard("SelectBalanceBeamCard");
-//                }
-//                else{
-//                    JOptionPane.showMessageDialog(null, "Team members cannot be the same. Try Again.");
-//                }
+                Object[] team1 = {
+                        b11.getSelectedItem(),
+                        b12.getSelectedItem(),
+                        b13.getSelectedItem(),
+                        b14.getSelectedItem(),
+                        b15.getSelectedItem(),
+                        b16.getSelectedItem(),
+                };
+                Object[] team2 = {
+                        b21.getSelectedItem(),
+                        b22.getSelectedItem(),
+                        b23.getSelectedItem(),
+                        b24.getSelectedItem(),
+                        b25.getSelectedItem(),
+                        b26.getSelectedItem(),
+                };
+                if (gC.checkUnique(team1) && gC.checkUnique(team2)) {
+                    changeCard("SelectBalanceBeamCard");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Error. At least two players per team must be selected and no duplicate players.");
+                }
 
-                changeCard("SelectBalanceBeamCard");
+//                changeCard("SelectBalanceBeamCard");
             }
         });
         balanceBeamBackButton.addActionListener(new ActionListener() {
@@ -220,29 +220,29 @@ public class SetupModeDual {
         balanceBeamNextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                Object[] team1 = {
-//                        bb11.getSelectedItem(),
-//                        bb12.getSelectedItem(),
-//                        bb13.getSelectedItem(),
-//                        bb14.getSelectedItem(),
-//                        bb15.getSelectedItem(),
-//                        bb16.getSelectedItem(),
-//                };
-//                Object[] team2 = {
-//                        bb21.getSelectedItem(),
-//                        bb22.getSelectedItem(),
-//                        bb23.getSelectedItem(),
-//                        bb24.getSelectedItem(),
-//                        bb25.getSelectedItem(),
-//                        bb26.getSelectedItem(),
-//                };
-//                if (gC.checkUnique(team1) && gC.checkUnique(team2)) {
-//                    changeCard("SelectFloorCard");
-//                }
-//                else{
-//                    JOptionPane.showMessageDialog(null, "Team members cannot be the same. Try Again.");
-//                }
-                changeCard("SelectFloorCard");
+                Object[] team1 = {
+                        bb11.getSelectedItem(),
+                        bb12.getSelectedItem(),
+                        bb13.getSelectedItem(),
+                        bb14.getSelectedItem(),
+                        bb15.getSelectedItem(),
+                        bb16.getSelectedItem(),
+                };
+                Object[] team2 = {
+                        bb21.getSelectedItem(),
+                        bb22.getSelectedItem(),
+                        bb23.getSelectedItem(),
+                        bb24.getSelectedItem(),
+                        bb25.getSelectedItem(),
+                        bb26.getSelectedItem(),
+                };
+                if (gC.checkUnique(team1) && gC.checkUnique(team2)) {
+                    changeCard("SelectFloorCard");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Error. At least two players per team must be selected and no duplicate players.");
+                }
+//                changeCard("SelectFloorCard");
             }
         });
         floorBackButton.addActionListener(new ActionListener() {
@@ -255,33 +255,33 @@ public class SetupModeDual {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-//                Object[] team1 = {
-//                        f11.getSelectedItem(),
-//                        f12.getSelectedItem(),
-//                        f13.getSelectedItem(),
-//                        f14.getSelectedItem(),
-//                        f15.getSelectedItem(),
-//                        f16.getSelectedItem(),
-//                };
-//                Object[] team2 = {
-//                        f21.getSelectedItem(),
-//                        f22.getSelectedItem(),
-//                        f23.getSelectedItem(),
-//                        f24.getSelectedItem(),
-//                        f25.getSelectedItem(),
-//                        f26.getSelectedItem(),
-//                };
-//                if (gC.checkUnique(team1) && gC.checkUnique(team2)) {
-//                    //Populate Judges Combobox
-//                    //Judge Names After Michelle are ones I added -- PLACEHOLDER
-//
-//                    changeCard("SelectJudgesCard");
-//                }
-//                else{
-//                    JOptionPane.showMessageDialog(null, "Team members cannot be the same. Try Again.");
-//                }
+                Object[] team1 = {
+                        f11.getSelectedItem(),
+                        f12.getSelectedItem(),
+                        f13.getSelectedItem(),
+                        f14.getSelectedItem(),
+                        f15.getSelectedItem(),
+                        f16.getSelectedItem(),
+                };
+                Object[] team2 = {
+                        f21.getSelectedItem(),
+                        f22.getSelectedItem(),
+                        f23.getSelectedItem(),
+                        f24.getSelectedItem(),
+                        f25.getSelectedItem(),
+                        f26.getSelectedItem(),
+                };
+                if (gC.checkUnique(team1) && gC.checkUnique(team2)) {
+                    //Populate Judges Combobox
+                    //Judge Names After Michelle are ones I added -- PLACEHOLDER
 
-                changeCard("SelectJudgesCard");
+                    changeCard("SelectJudgesCard");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Error. At least two players per team must be selected and no duplicate players.");
+                }
+
+//                changeCard("SelectJudgesCard");
             }
         });
         judgesBackButton.addActionListener(new ActionListener() {
@@ -293,38 +293,38 @@ public class SetupModeDual {
         judgesNextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                Object[] vaultJudges = {
-//                        j11.getSelectedItem(),
-//                        j12.getSelectedItem(),
-//                        j13.getSelectedItem(),
-//                        j14.getSelectedItem(),
-//                        j15.getSelectedItem(),
-//                        j16.getSelectedItem(),
-//                };
-//                Object[] barJudges = {
-//                        j21.getSelectedItem(),
-//                        j22.getSelectedItem(),
-//                        j23.getSelectedItem(),
-//                        j24.getSelectedItem(),
-//                        j25.getSelectedItem(),
-//                        j26.getSelectedItem(),
-//                };
-//                Object[] beamJudges = {
-//                        j31.getSelectedItem(),
-//                        j32.getSelectedItem(),
-//                        j33.getSelectedItem(),
-//                        j34.getSelectedItem(),
-//                        j35.getSelectedItem(),
-//                        j36.getSelectedItem(),
-//                };
-//                Object[] floorJudges = {
-//                        j41.getSelectedItem(),
-//                        j42.getSelectedItem(),
-//                        j43.getSelectedItem(),
-//                        j44.getSelectedItem(),
-//                        j45.getSelectedItem(),
-//                        j46.getSelectedItem(),
-//                };
+                Object[] vaultJudges = {
+                        j11.getSelectedItem(),
+                        j12.getSelectedItem(),
+                        j13.getSelectedItem(),
+                        j14.getSelectedItem(),
+                        j15.getSelectedItem(),
+                        j16.getSelectedItem(),
+                };
+                Object[] barJudges = {
+                        j21.getSelectedItem(),
+                        j22.getSelectedItem(),
+                        j23.getSelectedItem(),
+                        j24.getSelectedItem(),
+                        j25.getSelectedItem(),
+                        j26.getSelectedItem(),
+                };
+                Object[] beamJudges = {
+                        j31.getSelectedItem(),
+                        j32.getSelectedItem(),
+                        j33.getSelectedItem(),
+                        j34.getSelectedItem(),
+                        j35.getSelectedItem(),
+                        j36.getSelectedItem(),
+                };
+                Object[] floorJudges = {
+                        j41.getSelectedItem(),
+                        j42.getSelectedItem(),
+                        j43.getSelectedItem(),
+                        j44.getSelectedItem(),
+                        j45.getSelectedItem(),
+                        j46.getSelectedItem(),
+                };
 
 
                 //!!!!!!!!!!!
@@ -334,21 +334,21 @@ public class SetupModeDual {
                 //!!!!!!!!!!!
 
 
-//                if (gC.checkUnique(vaultJudges) && gC.checkUnique(barJudges) && gC.checkUnique(beamJudges) && gC.checkUnique(floorJudges)) {
-//                    //Calls the testTable class
-//                    resetTables(); //resets tables so that table isnt still filled with old values
-//                    testTable(gC);
-//                    changeCard("SummaryCard");
-//                }
-//                else{
-//                    JOptionPane.showMessageDialog(null, "Judges cannot be the same. Try Again.");
-//                }
+                if (gC.checkUnique(vaultJudges) && gC.checkUnique(barJudges) && gC.checkUnique(beamJudges) && gC.checkUnique(floorJudges)) {
+                    //Calls the testTable class
+                    resetTables(); //resets tables so that table isnt still filled with old values
+                    testTable(gC);
+                    changeCard("SummaryCard");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Error. At least two judges must be selected per event and no duplicate judges on the same event.");
+                }
 //                Calls the testTable class
                 testTable(gC);
                 resetTables(); //resets tables so that table isnt still filled with old values
                 testTable(gC);
 
-                changeCard("SummaryCard");
+//                changeCard("SummaryCard");
             }
         });
         vaultEditButton.addActionListener(new ActionListener() {

@@ -32,10 +32,11 @@ public class DualScorekeeperScreen {
         myArenaScreen.teamName1.setText(homeCopy.getTeamName());
         myArenaScreen.teamName2.setText(visitorCopy.getTeamName());
 
-        ImageIcon imageIcon = new ImageIcon("src/com/company/pictures/" + homeCopy.getTeamLogo());
+
+        ImageIcon imageIcon = new ImageIcon(picturePath + homeCopy.getTeamLogo());
         myArenaScreen.logo1.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
 
-        imageIcon = new ImageIcon("src/com/company/pictures/" + visitorCopy.getTeamLogo());
+        imageIcon = new ImageIcon(picturePath + visitorCopy.getTeamLogo());
         myArenaScreen.logo2.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
 
         homeTeamName.setText(homeCopy.getTeamName());
@@ -61,109 +62,109 @@ public class DualScorekeeperScreen {
 
         //*************************************
 //         Sets the team participants. So tired setting up in the set-up mode smh.
-        List<Player> temp = new ArrayList<>();
-        homeCopy.getVaultGymnasts().clear();
-        homeCopy.getBarGymnasts().clear();
-        //Adds the vault players
-        for(int i = 0; i < 6; i++){
-            homeCopy.getAllGymnasts().get(i).setApparatusStatusByIndex(ApparatusIndex.VT, true);
-            homeCopy.getAllGymnasts().get(i).setApparatusOrderByIndex(ApparatusIndex.VT, i+1);
-            temp.add(homeCopy.getAllGymnasts().get(i));
-        }
-        homeCopy.setVaultGymnasts(temp);
-        temp = new ArrayList<>();
-
-        //Adds the bar players
-        homeCopy.getAllGymnasts().get(4).setApparatusStatusByIndex(ApparatusIndex.UB, true);
-        homeCopy.getAllGymnasts().get(4).setApparatusOrderByIndex(ApparatusIndex.UB, 1);
-        temp.add(homeCopy.getAllGymnasts().get(4));
-
-        homeCopy.getAllGymnasts().get(1).setApparatusStatusByIndex(ApparatusIndex.UB, true);
-        homeCopy.getAllGymnasts().get(1).setApparatusOrderByIndex(ApparatusIndex.UB, 2);
-        temp.add(homeCopy.getAllGymnasts().get(1));
-
-        homeCopy.getAllGymnasts().get(6).setApparatusStatusByIndex(ApparatusIndex.UB, true);
-        homeCopy.getAllGymnasts().get(6).setApparatusOrderByIndex(ApparatusIndex.UB, 3);
-        temp.add(homeCopy.getAllGymnasts().get(6));
-
-        homeCopy.getAllGymnasts().get(5).setApparatusStatusByIndex(ApparatusIndex.UB, true);
-        homeCopy.getAllGymnasts().get(5).setApparatusOrderByIndex(ApparatusIndex.UB, 4);
-        temp.add(homeCopy.getAllGymnasts().get(5));
-
-        homeCopy.getAllGymnasts().get(7).setApparatusStatusByIndex(ApparatusIndex.UB, true);
-        homeCopy.getAllGymnasts().get(7).setApparatusOrderByIndex(ApparatusIndex.UB, 5);
-        temp.add(homeCopy.getAllGymnasts().get(7));
-
-        homeCopy.getAllGymnasts().get(8).setApparatusStatusByIndex(ApparatusIndex.UB, true);
-        homeCopy.getAllGymnasts().get(8).setApparatusOrderByIndex(ApparatusIndex.UB, 6);
-        temp.add(homeCopy.getAllGymnasts().get(8));
-        homeCopy.setBarGymnasts(temp);
-
-        /////VISITOR
-        //ub
-        temp = new ArrayList<>();
-        visitorCopy.getBarGymnasts().clear();
-        visitorCopy.getVaultGymnasts().clear();
-
-        visitorCopy.getAllGymnasts().get(10).setApparatusStatusByIndex(ApparatusIndex.UB, true);
-        visitorCopy.getAllGymnasts().get(10).setApparatusOrderByIndex(ApparatusIndex.UB, 1);
-        temp.add(visitorCopy.getAllGymnasts().get(10));
-
-        visitorCopy.getAllGymnasts().get(7).setApparatusStatusByIndex(ApparatusIndex.UB, true);
-        visitorCopy.getAllGymnasts().get(7).setApparatusOrderByIndex(ApparatusIndex.UB, 2);
-        temp.add(visitorCopy.getAllGymnasts().get(7));
-
-        visitorCopy.getAllGymnasts().get(8).setApparatusStatusByIndex(ApparatusIndex.UB, true);
-        visitorCopy.getAllGymnasts().get(8).setApparatusOrderByIndex(ApparatusIndex.UB, 3);
-        temp.add(visitorCopy.getAllGymnasts().get(8));
-
-        visitorCopy.getAllGymnasts().get(0).setApparatusStatusByIndex(ApparatusIndex.UB, true);
-        visitorCopy.getAllGymnasts().get(0).setApparatusOrderByIndex(ApparatusIndex.UB, 4);
-        temp.add(visitorCopy.getAllGymnasts().get(0));
-
-        visitorCopy.getAllGymnasts().get(1).setApparatusStatusByIndex(ApparatusIndex.UB, true);
-        visitorCopy.getAllGymnasts().get(1).setApparatusOrderByIndex(ApparatusIndex.UB, 5);
-        temp.add(visitorCopy.getAllGymnasts().get(1));
-
-        visitorCopy.getAllGymnasts().get(5).setApparatusStatusByIndex(ApparatusIndex.UB, true);
-        visitorCopy.getAllGymnasts().get(5).setApparatusOrderByIndex(ApparatusIndex.UB, 6);
-        temp.add(visitorCopy.getAllGymnasts().get(5));
-        visitorCopy.setBarGymnasts(temp);
-
-        temp = new ArrayList<>();;
-
-        //vt
-
-        visitorCopy.getAllGymnasts().get(9).setApparatusStatusByIndex(ApparatusIndex.VT, true);
-        visitorCopy.getAllGymnasts().get(9).setApparatusOrderByIndex(ApparatusIndex.VT, 1);
-        temp.add(visitorCopy.getAllGymnasts().get(9));
-
-        visitorCopy.getAllGymnasts().get(2).setApparatusStatusByIndex(ApparatusIndex.VT, true);
-        visitorCopy.getAllGymnasts().get(2).setApparatusOrderByIndex(ApparatusIndex.VT, 2);
-        temp.add(visitorCopy.getAllGymnasts().get(2));
-
-        visitorCopy.getAllGymnasts().get(5).setApparatusStatusByIndex(ApparatusIndex.VT, true);
-        visitorCopy.getAllGymnasts().get(5).setApparatusOrderByIndex(ApparatusIndex.VT, 3);
-        temp.add(visitorCopy.getAllGymnasts().get(5));
-
-        visitorCopy.getAllGymnasts().get(4).setApparatusStatusByIndex(ApparatusIndex.VT, true);
-        visitorCopy.getAllGymnasts().get(4).setApparatusOrderByIndex(ApparatusIndex.VT, 4);
-        temp.add(visitorCopy.getAllGymnasts().get(4));
-
-        visitorCopy.getAllGymnasts().get(10).setApparatusStatusByIndex(ApparatusIndex.VT, true);
-        visitorCopy.getAllGymnasts().get(10).setApparatusOrderByIndex(ApparatusIndex.VT, 5);
-        temp.add(visitorCopy.getAllGymnasts().get(10));
-
-        visitorCopy.getAllGymnasts().get(1).setApparatusStatusByIndex(ApparatusIndex.VT, true);
-        visitorCopy.getAllGymnasts().get(1).setApparatusOrderByIndex(ApparatusIndex.VT, 6);
-        temp.add(visitorCopy.getAllGymnasts().get(1));
-
-        visitorCopy.setVaultGymnasts(temp);
-        //************************************
-        System.out.println("----------VISITOR-------");
-        visitorCopy.printAll();
-        System.out.println("----------HOME-------");
-        homeCopy.printAll();
+//        List<Player> temp = new ArrayList<>();
+//        homeCopy.getVaultGymnasts().clear();
+//        homeCopy.getBarGymnasts().clear();
+//        //Adds the vault players
+//        for(int i = 0; i < 6; i++){
+//            homeCopy.getAllGymnasts().get(i).setApparatusStatusByIndex(ApparatusIndex.VT, true);
+//            homeCopy.getAllGymnasts().get(i).setApparatusOrderByIndex(ApparatusIndex.VT, i+1);
+//            temp.add(homeCopy.getAllGymnasts().get(i));
+//        }
+//        homeCopy.setVaultGymnasts(temp);
+//        temp = new ArrayList<>();
+//
+//        //Adds the bar players
+//        homeCopy.getAllGymnasts().get(4).setApparatusStatusByIndex(ApparatusIndex.UB, true);
+//        homeCopy.getAllGymnasts().get(4).setApparatusOrderByIndex(ApparatusIndex.UB, 1);
+//        temp.add(homeCopy.getAllGymnasts().get(4));
+//
+//        homeCopy.getAllGymnasts().get(1).setApparatusStatusByIndex(ApparatusIndex.UB, true);
+//        homeCopy.getAllGymnasts().get(1).setApparatusOrderByIndex(ApparatusIndex.UB, 2);
+//        temp.add(homeCopy.getAllGymnasts().get(1));
+//
+//        homeCopy.getAllGymnasts().get(6).setApparatusStatusByIndex(ApparatusIndex.UB, true);
+//        homeCopy.getAllGymnasts().get(6).setApparatusOrderByIndex(ApparatusIndex.UB, 3);
+//        temp.add(homeCopy.getAllGymnasts().get(6));
+//
+//        homeCopy.getAllGymnasts().get(5).setApparatusStatusByIndex(ApparatusIndex.UB, true);
+//        homeCopy.getAllGymnasts().get(5).setApparatusOrderByIndex(ApparatusIndex.UB, 4);
+//        temp.add(homeCopy.getAllGymnasts().get(5));
+//
+//        homeCopy.getAllGymnasts().get(7).setApparatusStatusByIndex(ApparatusIndex.UB, true);
+//        homeCopy.getAllGymnasts().get(7).setApparatusOrderByIndex(ApparatusIndex.UB, 5);
+//        temp.add(homeCopy.getAllGymnasts().get(7));
+//
+//        homeCopy.getAllGymnasts().get(8).setApparatusStatusByIndex(ApparatusIndex.UB, true);
+//        homeCopy.getAllGymnasts().get(8).setApparatusOrderByIndex(ApparatusIndex.UB, 6);
+//        temp.add(homeCopy.getAllGymnasts().get(8));
+//        homeCopy.setBarGymnasts(temp);
+//
+//        /////VISITOR
+//        //ub
+//        temp = new ArrayList<>();
+//        visitorCopy.getBarGymnasts().clear();
+//        visitorCopy.getVaultGymnasts().clear();
+//
+//        visitorCopy.getAllGymnasts().get(10).setApparatusStatusByIndex(ApparatusIndex.UB, true);
+//        visitorCopy.getAllGymnasts().get(10).setApparatusOrderByIndex(ApparatusIndex.UB, 1);
+//        temp.add(visitorCopy.getAllGymnasts().get(10));
+//
+//        visitorCopy.getAllGymnasts().get(7).setApparatusStatusByIndex(ApparatusIndex.UB, true);
+//        visitorCopy.getAllGymnasts().get(7).setApparatusOrderByIndex(ApparatusIndex.UB, 2);
+//        temp.add(visitorCopy.getAllGymnasts().get(7));
+//
+//        visitorCopy.getAllGymnasts().get(8).setApparatusStatusByIndex(ApparatusIndex.UB, true);
+//        visitorCopy.getAllGymnasts().get(8).setApparatusOrderByIndex(ApparatusIndex.UB, 3);
+//        temp.add(visitorCopy.getAllGymnasts().get(8));
+//
+//        visitorCopy.getAllGymnasts().get(0).setApparatusStatusByIndex(ApparatusIndex.UB, true);
+//        visitorCopy.getAllGymnasts().get(0).setApparatusOrderByIndex(ApparatusIndex.UB, 4);
+//        temp.add(visitorCopy.getAllGymnasts().get(0));
+//
+//        visitorCopy.getAllGymnasts().get(1).setApparatusStatusByIndex(ApparatusIndex.UB, true);
+//        visitorCopy.getAllGymnasts().get(1).setApparatusOrderByIndex(ApparatusIndex.UB, 5);
+//        temp.add(visitorCopy.getAllGymnasts().get(1));
+//
+//        visitorCopy.getAllGymnasts().get(5).setApparatusStatusByIndex(ApparatusIndex.UB, true);
+//        visitorCopy.getAllGymnasts().get(5).setApparatusOrderByIndex(ApparatusIndex.UB, 6);
+//        temp.add(visitorCopy.getAllGymnasts().get(5));
+//        visitorCopy.setBarGymnasts(temp);
+//
+//        temp = new ArrayList<>();;
+//
+//        //vt
+//
+//        visitorCopy.getAllGymnasts().get(9).setApparatusStatusByIndex(ApparatusIndex.VT, true);
+//        visitorCopy.getAllGymnasts().get(9).setApparatusOrderByIndex(ApparatusIndex.VT, 1);
+//        temp.add(visitorCopy.getAllGymnasts().get(9));
+//
+//        visitorCopy.getAllGymnasts().get(2).setApparatusStatusByIndex(ApparatusIndex.VT, true);
+//        visitorCopy.getAllGymnasts().get(2).setApparatusOrderByIndex(ApparatusIndex.VT, 2);
+//        temp.add(visitorCopy.getAllGymnasts().get(2));
+//
+//        visitorCopy.getAllGymnasts().get(5).setApparatusStatusByIndex(ApparatusIndex.VT, true);
+//        visitorCopy.getAllGymnasts().get(5).setApparatusOrderByIndex(ApparatusIndex.VT, 3);
+//        temp.add(visitorCopy.getAllGymnasts().get(5));
+//
+//        visitorCopy.getAllGymnasts().get(4).setApparatusStatusByIndex(ApparatusIndex.VT, true);
+//        visitorCopy.getAllGymnasts().get(4).setApparatusOrderByIndex(ApparatusIndex.VT, 4);
+//        temp.add(visitorCopy.getAllGymnasts().get(4));
+//
+//        visitorCopy.getAllGymnasts().get(10).setApparatusStatusByIndex(ApparatusIndex.VT, true);
+//        visitorCopy.getAllGymnasts().get(10).setApparatusOrderByIndex(ApparatusIndex.VT, 5);
+//        temp.add(visitorCopy.getAllGymnasts().get(10));
+//
+//        visitorCopy.getAllGymnasts().get(1).setApparatusStatusByIndex(ApparatusIndex.VT, true);
+//        visitorCopy.getAllGymnasts().get(1).setApparatusOrderByIndex(ApparatusIndex.VT, 6);
+//        temp.add(visitorCopy.getAllGymnasts().get(1));
+//
+//        visitorCopy.setVaultGymnasts(temp);
+//        //************************************
+//        System.out.println("----------VISITOR-------");
+//        visitorCopy.printAll();
+//        System.out.println("----------HOME-------");
+//        homeCopy.printAll();
 
 
 
@@ -255,6 +256,10 @@ public class DualScorekeeperScreen {
                             myArenaScreen.changeCard("NonSimulCard");
                         }
                         myArenaScreen.resetArenaTables(); //reset tables
+                        showUpdate = true;
+                    }
+                    else{
+                        myArenaScreen.changeCard("SimulCard");
                         showUpdate = true;
                     }
                 }
@@ -1142,6 +1147,9 @@ public class DualScorekeeperScreen {
         return Arrays.asList(j21, j22, j23, j24, j25, j26);
     }
 
+
+    //Directory for pictures folder
+    String picturePath = System.getProperty("user.dir") + "/pictures/";
 
 
 

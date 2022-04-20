@@ -34,12 +34,14 @@ public class CreateTeamScreen2 extends JDialog {
                                 if (team.getTeamName().toUpperCase().equals(userInput)) {
                                     JOptionPane.showMessageDialog(null, "Team already exist");
                                     status.set(false);
-
                                 }
                             }
                     );
                     if(status.get()){
                         JOptionPane.showMessageDialog(null, "Team does not exist");
+                        if (teamLogo.equals("")){
+                            teamLogo = "default_logo.png";
+                        }
                         dispose();
                         AddGymnasts myAddGymnasts = new AddGymnasts(textField1.getText(),userInput, teamLogo); //pass in team object here through add gymnast constructor maybe?
                     }
@@ -79,6 +81,9 @@ public class CreateTeamScreen2 extends JDialog {
         fileChooser.setFileFilter(new FileNameExtensionFilter("*.png", "png"));
 
         BufferedImage img;
+        String picturePath = System.getProperty("user.dir") + "/pictures/";
+
+
 
         int returnval = fileChooser.showOpenDialog(this);
         if (returnval == JFileChooser.APPROVE_OPTION)
@@ -87,7 +92,7 @@ public class CreateTeamScreen2 extends JDialog {
             try{
                 String fileName = file.getName();
                 img = ImageIO.read(file);
-                ImageIO.write(img, "png", new File ("src/com/company/pictures/" + fileName));
+                ImageIO.write(img, "png", new File (picturePath + fileName));
                 //save file name to teamlogo string
                 JOptionPane.showMessageDialog(null, fileName + " was saved as the team logo.");
 
@@ -101,7 +106,7 @@ public class CreateTeamScreen2 extends JDialog {
         return"";
     }
 
-    private String teamLogo;
+    private String teamLogo = "";
 
     private JTextField textField1;
     private JButton browseFilesButton;

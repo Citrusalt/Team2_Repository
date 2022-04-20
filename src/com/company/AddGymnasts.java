@@ -143,6 +143,7 @@ public class AddGymnasts extends JDialog{
                     fname.setText(""); lname.setText(""); major.setText("");
                     vaultAvg.setText(""); barsAvg.setText(""); beamAvg.setText(""); floorAvg.setText("");
                     yearCB.setSelectedIndex(0);
+
                 }
             }
         });
@@ -158,11 +159,7 @@ public class AddGymnasts extends JDialog{
                     db.saveTeam(currentTeam);
                     JOptionPane.showMessageDialog(null, "Successfully Saved");
                     dispose();
-
-
                 }
-
-
             }
         });
         browseFilesButton.addActionListener(new ActionListener() {
@@ -247,6 +244,8 @@ private String uploadImg(){
     fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
     fileChooser.setFileFilter(new FileNameExtensionFilter("*.png", "png"));
 
+    String picturePath = System.getProperty("user.dir") + "/pictures/";
+
     BufferedImage img;
     boolean valid = true;
     String fileName ="";
@@ -257,7 +256,7 @@ private String uploadImg(){
         try{
             fileName = file.getName();
             img = ImageIO.read(file);
-            ImageIO.write(img, "png", new File ("src/com/company/pictures/" + fileName));
+            ImageIO.write(img, "png", new File (picturePath + fileName));
             JOptionPane.showMessageDialog(null, fileName + " was saved as the gymnast's photo.");
             //save file name to gymnast picture string
 

@@ -140,7 +140,7 @@ public class Dual_Tri_ArenaScreen {
                  gymnastCurrent1.setText("Gymnast Current Score: " + player.getPlayerScore().getfloorScore());
              }
 
-             ImageIcon imageIcon = new ImageIcon("src/com/company/pictures/" + player.getPlayerPicture());
+             ImageIcon imageIcon = new ImageIcon(picturePath + player.getPlayerPicture());
 //             Image image = imageIcon.getImage();
 //             Image scaledImage = image.getScaledInstance(100, 137, java.awt.Image.SCALE_SMOOTH);
 //             imageIcon = new ImageIcon(scaledImage);
@@ -168,7 +168,7 @@ public class Dual_Tri_ArenaScreen {
                  gymnastCurrent2.setText("Gymnast Current Score: " + player.getPlayerScore().getfloorScore());
              }
 
-             ImageIcon imageIcon = new ImageIcon("src/com/company/pictures/" + player.getPlayerPicture());
+             ImageIcon imageIcon = new ImageIcon(picturePath + player.getPlayerPicture());
 
              pic2.setIcon(gC.scaleImageIcon(imageIcon, 100, 137));
 //             pic2.setIcon(new ImageIcon ("src/com/company/pictures/" + player.getPlayerPicture()));
@@ -253,7 +253,7 @@ public class Dual_Tri_ArenaScreen {
 
         individualPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
-        ImageIcon imageIcon = new ImageIcon("src/com/company/pictures/default_picture.png");
+        ImageIcon imageIcon = new ImageIcon(picturePath + "default_picture.png");
         imageIcon = gC.scaleImageIcon(imageIcon, 100, 137);
         pic1.setIcon(imageIcon);
         pic2.setIcon(imageIcon);
@@ -297,6 +297,7 @@ public class Dual_Tri_ArenaScreen {
     private DefaultTableCellRenderer teamRenderer = new DefaultTableCellRenderer();
     private DefaultTableCellRenderer individualRenderer = new DefaultTableCellRenderer();
 
+    String picturePath = System.getProperty("user.dir") + "/pictures/";
 
     private java.util.List<Player> playerList = new ArrayList<>();
     public CardLayout cardLayout;

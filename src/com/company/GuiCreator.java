@@ -146,8 +146,19 @@ public class GuiCreator {
         Set<Object> set = new HashSet<Object>();
 
         for (Object i : objects){
-            set.add(i);
+
+            if (i.toString().equals("- Select Judges -") || i.toString().equals("- Select Gymnast -")){
+                    size--;
+            }
+            else{
+                set.add(i);
+            }
         }
+
+        if (set.size() < 2) {
+            return false;
+        }
+
         boolean unique = set.size() == size;
 
         if (unique){
