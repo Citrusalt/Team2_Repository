@@ -58,8 +58,6 @@ public class DualScorekeeperScreen {
 
         createJudges(allJudges);
 
-
-
         //*************************************
 //         Sets the team participants. So tired setting up in the set-up mode smh.
 //        List<Player> temp = new ArrayList<>();
@@ -165,8 +163,6 @@ public class DualScorekeeperScreen {
 //        visitorCopy.printAll();
 //        System.out.println("----------HOME-------");
 //        homeCopy.printAll();
-
-
 
 
         defaultTemplateButton.addActionListener(new ActionListener() {

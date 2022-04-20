@@ -191,7 +191,6 @@ public class AddGymnasts extends JDialog{
         });
 
         setVisible(true);   //SA BABA LANG TO
-
     }
 
     public void editSelectedGymnast(Team team, int row, int col){
