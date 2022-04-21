@@ -314,9 +314,6 @@ public class SetupModeTri {
                 else{
                     JOptionPane.showMessageDialog(null, "Error. At least two judges must be selected per event and no duplicate judges on the same event.");
                 }
-
-                //Calls the testTable class
-
             }
         });
         vaultEditButton.addActionListener(new ActionListener() {
@@ -411,7 +408,6 @@ public class SetupModeTri {
         Team visitor1 = allTeamfromDB.get(visitor1Index-1);
         Team visitor2 = allTeamfromDB.get(visitor2Index-1);
 
-        List <Player> homePlayers = home.getAllGymnasts();
 
         List<JComboBox> homeBoxes = gethomeCombo();
         List<JComboBox> visitor1Boxes = getvisitor1Combo();

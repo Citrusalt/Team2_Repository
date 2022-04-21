@@ -8,7 +8,7 @@ import java.util.List;
 
 public class QuadScorekeeperScreen {
 
-    public QuadScorekeeperScreen(GuiCreator gC){
+    public QuadScorekeeperScreen(GuiCreator gC, Team home, Team visitor1, Team visitor2, Team visitor3, List<List<String>> allJudges){
 
 
         JFrame frame = new JFrame("Quadrangular Scorekeeper Screen Prototype");

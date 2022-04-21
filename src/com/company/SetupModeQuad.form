@@ -60,13 +60,7 @@
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Select Team"/>
-                <item value="Auburn"/>
-                <item value="Alabama"/>
-                <item value="LSU"/>
-                <item value="Florida"/>
-              </model>
+              <model/>
             </properties>
           </component>
           <component id="5e071" class="javax.swing.JComboBox" binding="visitor2Combo">
@@ -74,13 +68,7 @@
               <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Select Team"/>
-                <item value="Auburn"/>
-                <item value="Alabama"/>
-                <item value="LSU"/>
-                <item value="Florida"/>
-              </model>
+              <model/>
             </properties>
           </component>
           <component id="13af0" class="javax.swing.JComboBox" binding="visitor1Combo">
@@ -88,13 +76,7 @@
               <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Select Team"/>
-                <item value="Auburn"/>
-                <item value="Alabama"/>
-                <item value="LSU"/>
-                <item value="Florida"/>
-              </model>
+              <model/>
             </properties>
           </component>
           <component id="6c95a" class="javax.swing.JLabel">
@@ -118,13 +100,7 @@
               <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Select Team"/>
-                <item value="Auburn"/>
-                <item value="Alabama"/>
-                <item value="LSU"/>
-                <item value="Florida"/>
-              </model>
+              <model/>
             </properties>
           </component>
           <component id="2991e" class="javax.swing.JButton" binding="continueButton" default-binding="true">
@@ -165,180 +141,103 @@
         </properties>
         <border type="none" title=""/>
         <children>
-          <component id="a812d" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+          <component id="a812d" class="javax.swing.JComboBox" binding="v16">
             <constraints>
               <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="af538" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
+          <component id="af538" class="javax.swing.JComboBox" binding="v11">
             <constraints>
               <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="9a9af" class="javax.swing.JComboBox" binding="comboBox3" default-binding="true">
+          <component id="9a9af" class="javax.swing.JComboBox" binding="v14">
             <constraints>
               <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="2de9c" class="javax.swing.JComboBox" binding="comboBox4" default-binding="true">
+          <component id="2de9c" class="javax.swing.JComboBox" binding="v15">
             <constraints>
               <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="cedad" class="javax.swing.JComboBox" binding="comboBox5" default-binding="true">
+          <component id="cedad" class="javax.swing.JComboBox" binding="v13">
             <constraints>
               <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="10d2" class="javax.swing.JComboBox" binding="comboBox6" default-binding="true">
+          <component id="10d2" class="javax.swing.JComboBox" binding="v12">
             <constraints>
               <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="f304f" class="javax.swing.JComboBox" default-binding="true">
+          <component id="f304f" class="javax.swing.JComboBox" binding="v41">
             <constraints>
               <grid row="3" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="620f9" class="javax.swing.JComboBox" default-binding="true">
+          <component id="620f9" class="javax.swing.JComboBox" binding="v44">
             <constraints>
               <grid row="6" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="3221d" class="javax.swing.JComboBox" default-binding="true">
+          <component id="3221d" class="javax.swing.JComboBox" binding="v45">
             <constraints>
               <grid row="7" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="2f968" class="javax.swing.JComboBox" default-binding="true">
+          <component id="2f968" class="javax.swing.JComboBox" binding="v43">
             <constraints>
               <grid row="5" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="2b6c8" class="javax.swing.JComboBox" default-binding="true">
+          <component id="2b6c8" class="javax.swing.JComboBox" binding="v42">
             <constraints>
               <grid row="4" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="b0ec4" class="javax.swing.JLabel">
+          <component id="b0ec4" class="javax.swing.JLabel" binding="homeVaultLabel">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -346,7 +245,7 @@
               <text value="Team Name: TEAM NAME"/>
             </properties>
           </component>
-          <component id="a8b8" class="javax.swing.JLabel">
+          <component id="a8b8" class="javax.swing.JLabel" binding="visitor3VaultLabel">
             <constraints>
               <grid row="2" column="10" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -379,19 +278,12 @@
               <text value="This apparatus requires a timer."/>
             </properties>
           </component>
-          <component id="8dc3" class="javax.swing.JComboBox" default-binding="true">
+          <component id="8dc3" class="javax.swing.JComboBox" binding="v46">
             <constraints>
               <grid row="8" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
           <component id="9715c" class="javax.swing.JButton" binding="vaultNextButton">
@@ -525,21 +417,14 @@
               <text value="6."/>
             </properties>
           </component>
-          <component id="4e3d4" class="javax.swing.JComboBox" default-binding="true">
+          <component id="4e3d4" class="javax.swing.JComboBox" binding="v21">
             <constraints>
               <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
           <hspacer id="12d21">
@@ -601,92 +486,57 @@
               <text value="6."/>
             </properties>
           </component>
-          <component id="77898" class="javax.swing.JComboBox" default-binding="true">
+          <component id="77898" class="javax.swing.JComboBox" binding="v22">
             <constraints>
               <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="23d55" class="javax.swing.JComboBox" default-binding="true">
+          <component id="23d55" class="javax.swing.JComboBox" binding="v23">
             <constraints>
               <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="201ac" class="javax.swing.JComboBox" default-binding="true">
+          <component id="201ac" class="javax.swing.JComboBox" binding="v24">
             <constraints>
               <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="c5b67" class="javax.swing.JComboBox" default-binding="true">
+          <component id="c5b67" class="javax.swing.JComboBox" binding="v25">
             <constraints>
               <grid row="7" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="67b9d" class="javax.swing.JComboBox" default-binding="true">
+          <component id="67b9d" class="javax.swing.JComboBox" binding="v26">
             <constraints>
               <grid row="8" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="a3f03" class="javax.swing.JLabel">
+          <component id="a3f03" class="javax.swing.JLabel" binding="visitor1VaultLabel">
             <constraints>
               <grid row="2" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -699,7 +549,7 @@
               <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
-          <component id="932ae" class="javax.swing.JLabel">
+          <component id="932ae" class="javax.swing.JLabel" binding="visitor2VaultLabel">
             <constraints>
               <grid row="2" column="7" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -707,100 +557,58 @@
               <text value="Team Name: TEAM NAME"/>
             </properties>
           </component>
-          <component id="9b866" class="javax.swing.JComboBox" default-binding="true">
+          <component id="9b866" class="javax.swing.JComboBox" binding="v31">
             <constraints>
               <grid row="3" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="72035" class="javax.swing.JComboBox" default-binding="true">
+          <component id="72035" class="javax.swing.JComboBox" binding="v32">
             <constraints>
               <grid row="4" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="b684" class="javax.swing.JComboBox" default-binding="true">
+          <component id="b684" class="javax.swing.JComboBox" binding="v33">
             <constraints>
               <grid row="5" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="49c4c" class="javax.swing.JComboBox" default-binding="true">
+          <component id="49c4c" class="javax.swing.JComboBox" binding="v34">
             <constraints>
               <grid row="6" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="bc1f8" class="javax.swing.JComboBox" default-binding="true">
+          <component id="bc1f8" class="javax.swing.JComboBox" binding="v35">
             <constraints>
               <grid row="7" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="9664f" class="javax.swing.JComboBox" default-binding="true">
+          <component id="9664f" class="javax.swing.JComboBox" binding="v36">
             <constraints>
               <grid row="8" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
           <component id="e1cfa" class="javax.swing.JLabel">
@@ -922,364 +730,188 @@
               <text value="FLOORS"/>
             </properties>
           </component>
-          <component id="790af" class="javax.swing.JComboBox" binding="comboBox9" default-binding="true">
+          <component id="790af" class="javax.swing.JComboBox" binding="j11">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="b1a2c" class="javax.swing.JComboBox" binding="comboBox10" default-binding="true">
+          <component id="b1a2c" class="javax.swing.JComboBox" binding="j21">
             <constraints>
               <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="fd7dc" class="javax.swing.JComboBox" binding="comboBox11" default-binding="true">
+          <component id="fd7dc" class="javax.swing.JComboBox" binding="j31">
             <constraints>
               <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="abea0" class="javax.swing.JComboBox" binding="comboBox12" default-binding="true">
+          <component id="abea0" class="javax.swing.JComboBox" binding="j41">
             <constraints>
               <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="ed64c" class="javax.swing.JComboBox" default-binding="true">
+          <component id="ed64c" class="javax.swing.JComboBox" binding="j12">
             <constraints>
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="d9775" class="javax.swing.JComboBox" default-binding="true">
+          <component id="d9775" class="javax.swing.JComboBox" binding="j13">
             <constraints>
               <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="5d893" class="javax.swing.JComboBox" default-binding="true">
+          <component id="5d893" class="javax.swing.JComboBox" binding="j14">
             <constraints>
               <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="ae4d8" class="javax.swing.JComboBox" default-binding="true">
+          <component id="ae4d8" class="javax.swing.JComboBox" binding="j15">
             <constraints>
               <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="d4ff" class="javax.swing.JComboBox" default-binding="true">
+          <component id="d4ff" class="javax.swing.JComboBox" binding="j16">
             <constraints>
               <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="60952" class="javax.swing.JComboBox" default-binding="true">
+          <component id="60952" class="javax.swing.JComboBox" binding="j22">
             <constraints>
               <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="e3e0" class="javax.swing.JComboBox" default-binding="true">
+          <component id="e3e0" class="javax.swing.JComboBox" binding="j23">
             <constraints>
               <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="7365" class="javax.swing.JComboBox" default-binding="true">
+          <component id="7365" class="javax.swing.JComboBox" binding="j24">
             <constraints>
               <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="ea1f7" class="javax.swing.JComboBox" default-binding="true">
+          <component id="ea1f7" class="javax.swing.JComboBox" binding="j25">
             <constraints>
               <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="14947" class="javax.swing.JComboBox" default-binding="true">
+          <component id="14947" class="javax.swing.JComboBox" binding="j26">
             <constraints>
               <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="b80f7" class="javax.swing.JComboBox" default-binding="true">
+          <component id="b80f7" class="javax.swing.JComboBox" binding="j32">
             <constraints>
               <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="30053" class="javax.swing.JComboBox" default-binding="true">
-            <constraints>
-              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
-            </properties>
-          </component>
-          <component id="bed0b" class="javax.swing.JComboBox" default-binding="true">
+          <component id="bed0b" class="javax.swing.JComboBox" binding="j34">
             <constraints>
               <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="44e9a" class="javax.swing.JComboBox" default-binding="true">
+          <component id="44e9a" class="javax.swing.JComboBox" binding="j35">
             <constraints>
               <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="3bdb1" class="javax.swing.JComboBox" default-binding="true">
+          <component id="3bdb1" class="javax.swing.JComboBox" binding="j36">
             <constraints>
               <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="44fbc" class="javax.swing.JComboBox" default-binding="true">
+          <component id="44fbc" class="javax.swing.JComboBox" binding="j42">
             <constraints>
               <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="12791" class="javax.swing.JComboBox" default-binding="true">
+          <component id="12791" class="javax.swing.JComboBox" binding="j43">
             <constraints>
               <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="d6b67" class="javax.swing.JComboBox" default-binding="true">
+          <component id="d6b67" class="javax.swing.JComboBox" binding="j44">
             <constraints>
               <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="318e5" class="javax.swing.JComboBox" default-binding="true">
+          <component id="318e5" class="javax.swing.JComboBox" binding="j45">
             <constraints>
               <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="1ef38" class="javax.swing.JComboBox" default-binding="true">
+          <component id="1ef38" class="javax.swing.JComboBox" binding="j46">
             <constraints>
               <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="Adriana Lanier"/>
-                <item value="Jane Doe"/>
-                <item value="John Smith"/>
-              </model>
+              <model/>
             </properties>
           </component>
           <component id="995ff" class="javax.swing.JButton" binding="judgesNextButton">
@@ -1288,6 +920,14 @@
             </constraints>
             <properties>
               <text value="Next"/>
+            </properties>
+          </component>
+          <component id="30053" class="javax.swing.JComboBox" binding="j33">
+            <constraints>
+              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model/>
             </properties>
           </component>
         </children>
@@ -1507,180 +1147,103 @@
         </properties>
         <border type="none" title=""/>
         <children>
-          <component id="5109f" class="javax.swing.JComboBox" default-binding="true">
+          <component id="5109f" class="javax.swing.JComboBox" binding="b16">
             <constraints>
               <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="40fa4" class="javax.swing.JComboBox" default-binding="true">
+          <component id="40fa4" class="javax.swing.JComboBox" binding="b11">
             <constraints>
               <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="e521" class="javax.swing.JComboBox" default-binding="true">
+          <component id="e521" class="javax.swing.JComboBox" binding="b14">
             <constraints>
               <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="9b2c6" class="javax.swing.JComboBox" default-binding="true">
+          <component id="9b2c6" class="javax.swing.JComboBox" binding="b15">
             <constraints>
               <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="15198" class="javax.swing.JComboBox" default-binding="true">
+          <component id="15198" class="javax.swing.JComboBox" binding="b13">
             <constraints>
               <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="f715d" class="javax.swing.JComboBox" default-binding="true">
+          <component id="f715d" class="javax.swing.JComboBox" binding="b12">
             <constraints>
               <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="5dbb9" class="javax.swing.JComboBox" default-binding="true">
+          <component id="5dbb9" class="javax.swing.JComboBox" binding="b41">
             <constraints>
               <grid row="3" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="18616" class="javax.swing.JComboBox" default-binding="true">
+          <component id="18616" class="javax.swing.JComboBox" binding="b44">
             <constraints>
               <grid row="6" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="df876" class="javax.swing.JComboBox" default-binding="true">
+          <component id="df876" class="javax.swing.JComboBox" binding="b45">
             <constraints>
               <grid row="7" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="8de8" class="javax.swing.JComboBox" default-binding="true">
+          <component id="8de8" class="javax.swing.JComboBox" binding="b43">
             <constraints>
               <grid row="5" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="2e4c" class="javax.swing.JComboBox" default-binding="true">
+          <component id="2e4c" class="javax.swing.JComboBox" binding="b42">
             <constraints>
               <grid row="4" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="5fa1c" class="javax.swing.JLabel">
+          <component id="5fa1c" class="javax.swing.JLabel" binding="homeBarsLabel">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1688,7 +1251,7 @@
               <text value="Team Name: TEAM NAME"/>
             </properties>
           </component>
-          <component id="51d24" class="javax.swing.JLabel">
+          <component id="51d24" class="javax.swing.JLabel" binding="visitor3BarsLabel">
             <constraints>
               <grid row="2" column="10" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1721,19 +1284,12 @@
               <text value="This apparatus requires a timer."/>
             </properties>
           </component>
-          <component id="1a6c3" class="javax.swing.JComboBox" default-binding="true">
+          <component id="1a6c3" class="javax.swing.JComboBox" binding="b46">
             <constraints>
               <grid row="8" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
           <component id="c0e65" class="javax.swing.JButton" binding="barsNextButton">
@@ -1867,21 +1423,14 @@
               <text value="6."/>
             </properties>
           </component>
-          <component id="b17af" class="javax.swing.JComboBox" default-binding="true">
+          <component id="b17af" class="javax.swing.JComboBox" binding="b21">
             <constraints>
               <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
           <hspacer id="8f36a">
@@ -1943,92 +1492,57 @@
               <text value="6."/>
             </properties>
           </component>
-          <component id="32076" class="javax.swing.JComboBox" default-binding="true">
+          <component id="32076" class="javax.swing.JComboBox" binding="b22">
             <constraints>
               <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="2b4a7" class="javax.swing.JComboBox" default-binding="true">
+          <component id="2b4a7" class="javax.swing.JComboBox" binding="b23">
             <constraints>
               <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="8eaeb" class="javax.swing.JComboBox" default-binding="true">
+          <component id="8eaeb" class="javax.swing.JComboBox" binding="b24">
             <constraints>
               <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="714e6" class="javax.swing.JComboBox" default-binding="true">
+          <component id="714e6" class="javax.swing.JComboBox" binding="b25">
             <constraints>
               <grid row="7" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="18bb6" class="javax.swing.JComboBox" default-binding="true">
+          <component id="18bb6" class="javax.swing.JComboBox" binding="b26">
             <constraints>
               <grid row="8" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="9499b" class="javax.swing.JLabel">
+          <component id="9499b" class="javax.swing.JLabel" binding="visitor1BarsLabel">
             <constraints>
               <grid row="2" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -2041,7 +1555,7 @@
               <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
-          <component id="512fa" class="javax.swing.JLabel">
+          <component id="512fa" class="javax.swing.JLabel" binding="visitor2BarsLabel">
             <constraints>
               <grid row="2" column="7" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -2049,100 +1563,58 @@
               <text value="Team Name: TEAM NAME"/>
             </properties>
           </component>
-          <component id="8f5dc" class="javax.swing.JComboBox" default-binding="true">
+          <component id="8f5dc" class="javax.swing.JComboBox" binding="b31">
             <constraints>
               <grid row="3" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="fdf6b" class="javax.swing.JComboBox" default-binding="true">
+          <component id="fdf6b" class="javax.swing.JComboBox" binding="b32">
             <constraints>
               <grid row="4" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="c60ec" class="javax.swing.JComboBox" default-binding="true">
+          <component id="c60ec" class="javax.swing.JComboBox" binding="b33">
             <constraints>
               <grid row="5" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="d67d" class="javax.swing.JComboBox" default-binding="true">
+          <component id="d67d" class="javax.swing.JComboBox" binding="b34">
             <constraints>
               <grid row="6" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="92137" class="javax.swing.JComboBox" default-binding="true">
+          <component id="92137" class="javax.swing.JComboBox" binding="b35">
             <constraints>
               <grid row="7" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="67a46" class="javax.swing.JComboBox" default-binding="true">
+          <component id="67a46" class="javax.swing.JComboBox" binding="b36">
             <constraints>
               <grid row="8" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
           <component id="c6eec" class="javax.swing.JLabel">
@@ -2211,180 +1683,95 @@
         </properties>
         <border type="none" title=""/>
         <children>
-          <component id="58f9b" class="javax.swing.JComboBox" default-binding="true">
+          <component id="58f9b" class="javax.swing.JComboBox" binding="bb16">
             <constraints>
               <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="80cd7" class="javax.swing.JComboBox" default-binding="true">
+          <component id="80cd7" class="javax.swing.JComboBox" binding="bb11">
             <constraints>
               <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="445b8" class="javax.swing.JComboBox" default-binding="true">
+          <component id="445b8" class="javax.swing.JComboBox" binding="bb14">
             <constraints>
               <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="ee989" class="javax.swing.JComboBox" default-binding="true">
+          <component id="ee989" class="javax.swing.JComboBox" binding="bb15">
             <constraints>
               <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="d2e4a" class="javax.swing.JComboBox" default-binding="true">
+          <component id="d2e4a" class="javax.swing.JComboBox" binding="bb13">
             <constraints>
               <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="f52db" class="javax.swing.JComboBox" default-binding="true">
+          <component id="f52db" class="javax.swing.JComboBox" binding="bb12">
             <constraints>
               <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="58686" class="javax.swing.JComboBox" default-binding="true">
+          <component id="58686" class="javax.swing.JComboBox" binding="bb41">
             <constraints>
               <grid row="3" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="3f747" class="javax.swing.JComboBox" default-binding="true">
+          <component id="3f747" class="javax.swing.JComboBox" binding="bb44">
             <constraints>
               <grid row="6" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="daea4" class="javax.swing.JComboBox" default-binding="true">
+          <component id="daea4" class="javax.swing.JComboBox" binding="bb45">
             <constraints>
               <grid row="7" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="1fb52" class="javax.swing.JComboBox" default-binding="true">
-            <constraints>
-              <grid row="5" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
-            </properties>
-          </component>
-          <component id="92dd2" class="javax.swing.JComboBox" default-binding="true">
+          <component id="92dd2" class="javax.swing.JComboBox" binding="bb42">
             <constraints>
               <grid row="4" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="50036" class="javax.swing.JLabel">
+          <component id="50036" class="javax.swing.JLabel" binding="homeBBLabel">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -2392,7 +1779,7 @@
               <text value="Team Name: TEAM NAME"/>
             </properties>
           </component>
-          <component id="28992" class="javax.swing.JLabel">
+          <component id="28992" class="javax.swing.JLabel" binding="visitor3BBLabel">
             <constraints>
               <grid row="2" column="10" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -2425,19 +1812,12 @@
               <text value="This apparatus requires a timer."/>
             </properties>
           </component>
-          <component id="51f0f" class="javax.swing.JComboBox" default-binding="true">
+          <component id="51f0f" class="javax.swing.JComboBox" binding="bb46">
             <constraints>
               <grid row="8" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
           <component id="51080" class="javax.swing.JButton" binding="balanceBeamNextButton">
@@ -2571,21 +1951,14 @@
               <text value="6."/>
             </properties>
           </component>
-          <component id="ea090" class="javax.swing.JComboBox" default-binding="true">
+          <component id="ea090" class="javax.swing.JComboBox" binding="bb21">
             <constraints>
               <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
           <hspacer id="ed328">
@@ -2647,92 +2020,57 @@
               <text value="6."/>
             </properties>
           </component>
-          <component id="6ae2" class="javax.swing.JComboBox" default-binding="true">
+          <component id="6ae2" class="javax.swing.JComboBox" binding="bb22">
             <constraints>
               <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="d5a4c" class="javax.swing.JComboBox" default-binding="true">
+          <component id="d5a4c" class="javax.swing.JComboBox" binding="bb23">
             <constraints>
               <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="c729e" class="javax.swing.JComboBox" default-binding="true">
+          <component id="c729e" class="javax.swing.JComboBox" binding="bb24">
             <constraints>
               <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="64d1e" class="javax.swing.JComboBox" default-binding="true">
+          <component id="64d1e" class="javax.swing.JComboBox" binding="bb25">
             <constraints>
               <grid row="7" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="2890f" class="javax.swing.JComboBox" default-binding="true">
+          <component id="2890f" class="javax.swing.JComboBox" binding="bb26">
             <constraints>
               <grid row="8" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="af17d" class="javax.swing.JLabel">
+          <component id="af17d" class="javax.swing.JLabel" binding="visitor1BBLabel">
             <constraints>
               <grid row="2" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -2745,7 +2083,7 @@
               <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
-          <component id="66eb1" class="javax.swing.JLabel">
+          <component id="66eb1" class="javax.swing.JLabel" binding="visitor2BBLabel">
             <constraints>
               <grid row="2" column="7" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -2753,100 +2091,58 @@
               <text value="Team Name: TEAM NAME"/>
             </properties>
           </component>
-          <component id="5261c" class="javax.swing.JComboBox" default-binding="true">
+          <component id="5261c" class="javax.swing.JComboBox" binding="bb31">
             <constraints>
               <grid row="3" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="8b442" class="javax.swing.JComboBox" default-binding="true">
+          <component id="8b442" class="javax.swing.JComboBox" binding="bb32">
             <constraints>
               <grid row="4" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="42f6b" class="javax.swing.JComboBox" default-binding="true">
+          <component id="42f6b" class="javax.swing.JComboBox" binding="bb33">
             <constraints>
               <grid row="5" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="86290" class="javax.swing.JComboBox" default-binding="true">
+          <component id="86290" class="javax.swing.JComboBox" binding="bb34">
             <constraints>
               <grid row="6" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="14ed3" class="javax.swing.JComboBox" default-binding="true">
+          <component id="14ed3" class="javax.swing.JComboBox" binding="bb35">
             <constraints>
               <grid row="7" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="f3efd" class="javax.swing.JComboBox" default-binding="true">
+          <component id="f3efd" class="javax.swing.JComboBox" binding="bb36">
             <constraints>
               <grid row="8" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
           <component id="a3989" class="javax.swing.JLabel">
@@ -2903,6 +2199,14 @@
               <text value="6."/>
             </properties>
           </component>
+          <component id="1fb52" class="javax.swing.JComboBox" binding="bb43">
+            <constraints>
+              <grid row="5" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model/>
+            </properties>
+          </component>
         </children>
       </grid>
       <grid id="9627c" binding="setupFloor" layout-manager="GridLayoutManager" row-count="11" column-count="13" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -2915,180 +2219,103 @@
         </properties>
         <border type="none" title=""/>
         <children>
-          <component id="95ac1" class="javax.swing.JComboBox" default-binding="true">
+          <component id="95ac1" class="javax.swing.JComboBox" binding="f16">
             <constraints>
               <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="11f69" class="javax.swing.JComboBox" default-binding="true">
+          <component id="11f69" class="javax.swing.JComboBox" binding="f11">
             <constraints>
               <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="4f406" class="javax.swing.JComboBox" default-binding="true">
+          <component id="4f406" class="javax.swing.JComboBox" binding="f14">
             <constraints>
               <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="6f53d" class="javax.swing.JComboBox" default-binding="true">
+          <component id="6f53d" class="javax.swing.JComboBox" binding="f15">
             <constraints>
               <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="74dcf" class="javax.swing.JComboBox" default-binding="true">
+          <component id="74dcf" class="javax.swing.JComboBox" binding="f13">
             <constraints>
               <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="d9605" class="javax.swing.JComboBox" default-binding="true">
+          <component id="d9605" class="javax.swing.JComboBox" binding="f12">
             <constraints>
               <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="7fb93" class="javax.swing.JComboBox" default-binding="true">
+          <component id="7fb93" class="javax.swing.JComboBox" binding="f41">
             <constraints>
               <grid row="3" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="62371" class="javax.swing.JComboBox" default-binding="true">
+          <component id="62371" class="javax.swing.JComboBox" binding="f44">
             <constraints>
               <grid row="6" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="d47f2" class="javax.swing.JComboBox" default-binding="true">
+          <component id="d47f2" class="javax.swing.JComboBox" binding="f45">
             <constraints>
               <grid row="7" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="326a9" class="javax.swing.JComboBox" default-binding="true">
+          <component id="326a9" class="javax.swing.JComboBox" binding="f43">
             <constraints>
               <grid row="5" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="9bbcf" class="javax.swing.JComboBox" default-binding="true">
+          <component id="9bbcf" class="javax.swing.JComboBox" binding="f42">
             <constraints>
               <grid row="4" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="956dd" class="javax.swing.JLabel">
+          <component id="956dd" class="javax.swing.JLabel" binding="homeFloorLabel">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -3096,7 +2323,7 @@
               <text value="Team Name: TEAM NAME"/>
             </properties>
           </component>
-          <component id="8584e" class="javax.swing.JLabel">
+          <component id="8584e" class="javax.swing.JLabel" binding="visitor3FloorLabel">
             <constraints>
               <grid row="2" column="10" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -3129,19 +2356,12 @@
               <text value="This apparatus requires a timer."/>
             </properties>
           </component>
-          <component id="a403a" class="javax.swing.JComboBox" default-binding="true">
+          <component id="a403a" class="javax.swing.JComboBox" binding="f46">
             <constraints>
               <grid row="8" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
           <component id="7c5aa" class="javax.swing.JButton" binding="floorNextButton">
@@ -3275,21 +2495,14 @@
               <text value="6."/>
             </properties>
           </component>
-          <component id="cab30" class="javax.swing.JComboBox" default-binding="true">
+          <component id="cab30" class="javax.swing.JComboBox" binding="f21">
             <constraints>
               <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
           <hspacer id="ccd">
@@ -3351,92 +2564,57 @@
               <text value="6."/>
             </properties>
           </component>
-          <component id="919a4" class="javax.swing.JComboBox" default-binding="true">
+          <component id="919a4" class="javax.swing.JComboBox" binding="f22">
             <constraints>
               <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="ece" class="javax.swing.JComboBox" default-binding="true">
+          <component id="ece" class="javax.swing.JComboBox" binding="f23">
             <constraints>
               <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="be060" class="javax.swing.JComboBox" default-binding="true">
+          <component id="be060" class="javax.swing.JComboBox" binding="f24">
             <constraints>
               <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="f5866" class="javax.swing.JComboBox" default-binding="true">
+          <component id="f5866" class="javax.swing.JComboBox" binding="f25">
             <constraints>
               <grid row="7" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="def97" class="javax.swing.JComboBox" default-binding="true">
+          <component id="def97" class="javax.swing.JComboBox" binding="f26">
             <constraints>
               <grid row="8" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
               <editable value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="664d2" class="javax.swing.JLabel">
+          <component id="664d2" class="javax.swing.JLabel" binding="visitor1FloorLabel">
             <constraints>
               <grid row="2" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -3449,7 +2627,7 @@
               <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
-          <component id="3cb18" class="javax.swing.JLabel">
+          <component id="3cb18" class="javax.swing.JLabel" binding="visitor2FloorLabel">
             <constraints>
               <grid row="2" column="7" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -3457,100 +2635,58 @@
               <text value="Team Name: TEAM NAME"/>
             </properties>
           </component>
-          <component id="a6de4" class="javax.swing.JComboBox" default-binding="true">
+          <component id="a6de4" class="javax.swing.JComboBox" binding="f31">
             <constraints>
               <grid row="3" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="d194b" class="javax.swing.JComboBox" default-binding="true">
+          <component id="d194b" class="javax.swing.JComboBox" binding="f32">
             <constraints>
               <grid row="4" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="3c5a7" class="javax.swing.JComboBox" default-binding="true">
+          <component id="3c5a7" class="javax.swing.JComboBox" binding="f33">
             <constraints>
               <grid row="5" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="a5740" class="javax.swing.JComboBox" default-binding="true">
+          <component id="a5740" class="javax.swing.JComboBox" binding="f34">
             <constraints>
               <grid row="6" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="c8131" class="javax.swing.JComboBox" default-binding="true">
+          <component id="c8131" class="javax.swing.JComboBox" binding="f35">
             <constraints>
               <grid row="7" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
-          <component id="636d6" class="javax.swing.JComboBox" default-binding="true">
+          <component id="636d6" class="javax.swing.JComboBox" binding="f36">
             <constraints>
               <grid row="8" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <doubleBuffered value="false"/>
-              <model>
-                <item value="Adriana Lanier"/>
-                <item value="Jacob Drake"/>
-                <item value="Janilou Sy"/>
-                <item value="Hailey Porter"/>
-                <item value="John Smith"/>
-                <item value="Jane Doe"/>
-              </model>
+              <model/>
             </properties>
           </component>
           <component id="c7dff" class="javax.swing.JLabel">

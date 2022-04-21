@@ -10,6 +10,10 @@ public class TriScorekeeperScreen {
 
     public TriScorekeeperScreen(GuiCreator gC, Team home, Team visitor1, Team visitor2, List<List<String>> allJudges){
 
+        System.out.println(home.getTeamName());
+        System.out.println(visitor1.getTeamName());
+        System.out.println(visitor2.getTeamName());
+
         JFrame frame = new JFrame("Triangular Scorekeeper Screen Prototype");
         frame.setContentPane(mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
