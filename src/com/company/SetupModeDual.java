@@ -152,6 +152,7 @@ public class SetupModeDual {
                         v25.getSelectedItem(),
                         v26.getSelectedItem(),
                 };
+
                 if (gC.checkUnique(team1) && gC.checkUnique(team2)) {
                     changeCard("SelectBarCard");
                 }
@@ -197,6 +198,7 @@ public class SetupModeDual {
                         b25.getSelectedItem(),
                         b26.getSelectedItem(),
                 };
+
                 if (gC.checkUnique(team1) && gC.checkUnique(team2)) {
                     changeCard("SelectBalanceBeamCard");
                 }
@@ -204,7 +206,7 @@ public class SetupModeDual {
                     JOptionPane.showMessageDialog(null, "Error. All spots must be filled and no duplicate players.");
                 }
 
-//                changeCard("SelectBalanceBeamCard");
+                changeCard("SelectBalanceBeamCard");
             }
         });
         balanceBeamBackButton.addActionListener(new ActionListener() {
@@ -239,7 +241,7 @@ public class SetupModeDual {
                 else{
                     JOptionPane.showMessageDialog(null, "Error. All spots must be filled and no duplicate players.");
                 }
-//                changeCard("SelectFloorCard");
+                changeCard("SelectFloorCard");
             }
         });
         floorBackButton.addActionListener(new ActionListener() {
@@ -268,6 +270,7 @@ public class SetupModeDual {
                         f25.getSelectedItem(),
                         f26.getSelectedItem(),
                 };
+
                 if (gC.checkUnique(team1) && gC.checkUnique(team2)) {
                     changeCard("SelectJudgesCard");
                 }
@@ -535,9 +538,17 @@ public class SetupModeDual {
             String[] row = {homeGymnasts[i], visitorGymnasts[i]};
             gC.addRowTeamTable(row, floorModel);
         }
+        ////
+        String judgesDisplay[] = judgesNames;
+        for(int i = 0; i < judgesDisplay.length; i++){
+            if(judgesDisplay[i].equals("- Select Judges -")){
+                judgesDisplay[i] = "";
+            }
+        }
+        ////
 
         for (int i = 0; i <= 5; i++){
-            gC.addRowsJudgeTable(judgesNames[i],judgesNames[i+6],judgesNames[i+12],judgesNames[i+18], judgesModel);
+            gC.addRowsJudgeTable(judgesDisplay[i],judgesDisplay[i+6],judgesDisplay[i+12],judgesDisplay[i+18], judgesModel);     //
             vaultJudges.add(judgesNames[i]);
             barJudges.add(judgesNames[i+6]);
             beamJudges.add(judgesNames[i+12]);
