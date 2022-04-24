@@ -12,7 +12,7 @@ public class QuadScorekeeperScreen {
     public QuadScorekeeperScreen(GuiCreator gC, Team home, Team visitor1, Team visitor2, Team visitor3, List<List<String>> allJudges){
 
 
-        JFrame frame = new JFrame("Quadrangular Scorekeeper Screen Prototype");
+        JFrame frame = new JFrame("Quadrangular Scorekeeper Screen");
         frame.setContentPane(mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
@@ -21,6 +21,45 @@ public class QuadScorekeeperScreen {
 
         QuadArenaScreen myQuadArenaScreen = new QuadArenaScreen(gC);
         myQuadArenaScreen.getFrame().setVisible(true);
+
+        homeCopy = home;
+        visitor1Copy = visitor1;
+        visitor2Copy = visitor2;
+        visitor3Copy = visitor3;
+
+
+        //Set Arena Screen Fields
+        myQuadArenaScreen.teamName1.setText(homeCopy.getTeamName());
+        myQuadArenaScreen.teamName2.setText(visitor1Copy.getTeamName());
+        myQuadArenaScreen.teamName3.setText(visitor2Copy.getTeamName());
+        myQuadArenaScreen.teamName4.setText(visitor3Copy.getTeamName());
+
+        //Team Logos
+        ImageIcon imageIcon = new ImageIcon(picturePath + homeCopy.getTeamLogo());
+        myQuadArenaScreen.logo1.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+
+        imageIcon = new ImageIcon(picturePath + visitor1Copy.getTeamLogo());
+        myQuadArenaScreen.logo2.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+
+        imageIcon = new ImageIcon(picturePath + visitor2Copy.getTeamLogo());
+        myQuadArenaScreen.logo3.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+
+        imageIcon = new ImageIcon(picturePath + visitor3Copy.getTeamLogo());
+        myQuadArenaScreen.logo4.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+
+        //Set Scoreboard Fields
+        team1Name.setText(homeCopy.getTeamName());
+        team2Name.setText(visitor1Copy.getTeamName());
+        team3Name.setText(visitor2Copy.getTeamName());
+        team4Name.setText(visitor3Copy.getTeamName());
+
+        vaultCombo1.setVisible(false);
+        vaultCombo2.setVisible(false);
+        vaultCombo3.setVisible(false);
+        vaultCombo4.setVisible(false);
+
+        myQuadArenaScreen.getFrame().setVisible(true);
+        myQuadArenaScreen.changeCard("ArenaCard");
 
 
         //card layout start
@@ -39,8 +78,7 @@ public class QuadScorekeeperScreen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 changeCard("QuadScorekeeperCard");
-                myQuadArenaScreen.getFrame().setVisible(true);
-                updateRotation(myQuadArenaScreen, frame, 0, gC);
+                updateRotation(myQuadArenaScreen, frame, 0, gC, homeCopy, visitor1Copy, visitor2Copy, visitor3Copy, allJudges);
             }
         });
 
@@ -97,13 +135,27 @@ public class QuadScorekeeperScreen {
         nextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                updateRotation(myQuadArenaScreen, frame, 1, gC);
-            }
-        });
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                updateRotation(myQuadArenaScreen, frame, -1, gC);
+
+                if (showUpdate == false) {
+                    if (gC.confirmDialog("Are you sure you want to end Rotation " + rotation + "?")){
+                        updateRotation(myQuadArenaScreen, frame, 1, gC, homeCopy, visitor1Copy, visitor2Copy, visitor3Copy, allJudges);
+
+                        //show update on arena screen
+                        myQuadArenaScreen.nextUpdateDual(homeCopy, visitor1Copy, visitor2Copy, visitor3Copy, rotation);
+                        myQuadArenaScreen.changeCard("ArenaCard");
+
+                        myQuadArenaScreen.resetArenaTables(); //reset tables
+                        showUpdate = true;
+                    }
+                    else{
+                        myQuadArenaScreen.changeCard("ArenaCard");
+                        showUpdate = true;
+                    }
+                }
+                else {
+                    myQuadArenaScreen.nextUpdateDual(homeCopy, visitor1Copy, visitor2Copy, visitor3Copy, rotation);
+                    showUpdate = false;
+                }
             }
         });
 
@@ -111,8 +163,18 @@ public class QuadScorekeeperScreen {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED){
-                    Object item = e.getItem();
-                    myQuadArenaScreen.updateGymnast(item.toString(), 1);
+                    if (currentevent1 == "Vault") {
+                        myQuadArenaScreen.updateGymnastInfo(homeCopy.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 0);
+                    }
+                    else if (currentevent1 == "Bars") {
+                        myQuadArenaScreen.updateGymnastInfo(homeCopy.getBarGymnasts().get(team1Combo.getSelectedIndex()), 1, 1);
+                    }
+                    else if (currentevent1 == "Beam"){
+                        myQuadArenaScreen.updateGymnastInfo(homeCopy.getBeamGymnasts().get(team1Combo.getSelectedIndex()), 1, 2);
+                    }
+                    else if (currentevent1 == "Floor"){
+                        myQuadArenaScreen.updateGymnastInfo(homeCopy.getFloorGymnasts().get(team1Combo.getSelectedIndex()), 1, 3);
+                    }
                 }
             }
         });
@@ -120,8 +182,18 @@ public class QuadScorekeeperScreen {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED){
-                    Object item = e.getItem();
-                    myQuadArenaScreen.updateGymnast(item.toString(), 2);
+                    if (currentevent2 == "Vault") {
+                        myQuadArenaScreen.updateGymnastInfo(visitor1Copy.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 0);
+                    }
+                    else if (currentevent2 == "Bars") {
+                        myQuadArenaScreen.updateGymnastInfo(visitor1Copy.getBarGymnasts().get(team2Combo.getSelectedIndex()), 2, 1);
+                    }
+                    else if (currentevent2 == "Beam"){
+                        myQuadArenaScreen.updateGymnastInfo(visitor1Copy.getBeamGymnasts().get(team2Combo.getSelectedIndex()), 2, 2);
+                    }
+                    else if (currentevent2 == "Floor"){
+                        myQuadArenaScreen.updateGymnastInfo(visitor1Copy.getFloorGymnasts().get(team2Combo.getSelectedIndex()), 2, 3);
+                    }
                 }
             }
         });
@@ -129,8 +201,18 @@ public class QuadScorekeeperScreen {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED){
-                    Object item = e.getItem();
-                    myQuadArenaScreen.updateGymnast(item.toString(), 3);
+                    if (currentevent3 == "Vault") {
+                        myQuadArenaScreen.updateGymnastInfo(visitor2Copy.getVaultGymnasts().get(team3Combo.getSelectedIndex()), 3, 0);
+                    }
+                    else if (currentevent3 == "Bars") {
+                        myQuadArenaScreen.updateGymnastInfo(visitor2Copy.getBarGymnasts().get(team3Combo.getSelectedIndex()), 3, 1);
+                    }
+                    else if (currentevent3 == "Beam"){
+                        myQuadArenaScreen.updateGymnastInfo(visitor2Copy.getBeamGymnasts().get(team3Combo.getSelectedIndex()), 3, 2);
+                    }
+                    else if (currentevent3 == "Floor"){
+                        myQuadArenaScreen.updateGymnastInfo(visitor2Copy.getFloorGymnasts().get(team3Combo.getSelectedIndex()), 3, 3);
+                    }
                 }
             }
         });
@@ -138,8 +220,18 @@ public class QuadScorekeeperScreen {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED){
-                    Object item = e.getItem();
-                    myQuadArenaScreen.updateGymnast(item.toString(), 4);
+                    if (currentevent4 == "Vault") {
+                        myQuadArenaScreen.updateGymnastInfo(visitor3Copy.getVaultGymnasts().get(team4Combo.getSelectedIndex()), 4, 0);
+                    }
+                    else if (currentevent4 == "Bars") {
+                        myQuadArenaScreen.updateGymnastInfo(visitor3Copy.getBarGymnasts().get(team4Combo.getSelectedIndex()), 4, 1);
+                    }
+                    else if (currentevent4 == "Beam"){
+                        myQuadArenaScreen.updateGymnastInfo(visitor3Copy.getBeamGymnasts().get(team4Combo.getSelectedIndex()), 4, 2);
+                    }
+                    else if (currentevent4 == "Floor"){
+                        myQuadArenaScreen.updateGymnastInfo(visitor3Copy.getFloorGymnasts().get(team4Combo.getSelectedIndex()), 4, 3);
+                    }
                 }
             }
         });
@@ -147,6 +239,7 @@ public class QuadScorekeeperScreen {
 
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 boolean invalidScore = false;
                 boolean emptyScores = false;
                 List<Double> scoresList = new ArrayList<>();        //to store text field data
@@ -180,7 +273,6 @@ public class QuadScorekeeperScreen {
                             invalidScore=true;
                             break; }
                     }
-
                     /*if (j11.getText().isEmpty() == true && j12.getText().isEmpty() == true && j13.getText().isEmpty() == true && j14.getText().isEmpty() == true && j15.getText().isEmpty() == true && j16.getText().isEmpty() == true)
                     {
                         emptyScores = true;
@@ -243,9 +335,11 @@ public class QuadScorekeeperScreen {
                 }
             }
         });
-        updateScoreButton2.addActionListener(new ActionListener() {
+        
+      updateScoreButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 boolean invalidScore = false;
                 boolean emptyScores = false;
                 List<Double> scoresList = new ArrayList<>();        //to store text field data
@@ -328,7 +422,6 @@ public class QuadScorekeeperScreen {
                     if (!nD2.getText().isEmpty()) {
                         deduction = Double.parseDouble(nD2.getText());
                     }
-
                     if (!invalidScore && !emptyScores){
                         updateColor(2, myQuadArenaScreen);
                         setVisitor1PlayerandTeamScore(scoresList, deduction, judgeScoreList, myQuadArenaScreen);
@@ -441,6 +534,7 @@ public class QuadScorekeeperScreen {
         updateScoreButton4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 boolean invalidScore = false;
                 boolean emptyScores = false;
                 List<Double> scoresList = new ArrayList<>();        //to store text field data
@@ -522,7 +616,6 @@ public class QuadScorekeeperScreen {
                     if (!nD4.getText().isEmpty()) {
                         deduction = Double.parseDouble(nD4.getText());
                     }
-
                     if (!invalidScore && !emptyScores) {
                         updateColor(4, myQuadArenaScreen);
                         setVisitor3PlayerandTeamScore(scoresList, deduction, judgeScoreList, myQuadArenaScreen);
@@ -660,6 +753,13 @@ public class QuadScorekeeperScreen {
                 //team logo logic here
             }
         });
+        editLineupButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //do stuff here
+//                EditLineupScreen myScreen = new EditLineupScreen(homeCopy, visitorCopy, new Team("",""), rotation, "Quad");
+            }
+        });
     }
 
 
@@ -718,84 +818,341 @@ public class QuadScorekeeperScreen {
 
     //pass in the frames that need to be handled and 1 if next rotation, -1 if previous
     //yes, a lot of this is redundant, but it's easy to read and change later
-    private void updateRotation(QuadArenaScreen myArenaScreen, JFrame thisFrame, int value, GuiCreator gC){
+    private void updateRotation(QuadArenaScreen myArenaScreen, JFrame thisFrame, int value, GuiCreator gC, Team home, Team visitor1, Team visitor2, Team visitor3, List<List<String>> allJudges){
 
         rotation = rotation + value;
         myArenaScreen.updateRotation(rotation);
 
         if (rotation == 0){
-            SetupModeQuad myQuadSetup = new SetupModeQuad(gC);
-            myQuadSetup.changeCard("SummaryCard");
+            QuadScorekeeperScreen myScorekeeperScreen = new QuadScorekeeperScreen(gC, home, visitor1, visitor2, visitor3, allJudges);
+            myScorekeeperScreen.changeCard("CustomizeCard");
             myArenaScreen.getFrame().dispose();
             thisFrame.dispose();
         }
         else if (rotation == 1){
-            team1App.setText("Vault");
-            team2App.setText("Bars");
-            team3App.setText("Beam");
-            team4App.setText("Floor");
 
-            myArenaScreen.updateEvent("Vault", 1);
-            myArenaScreen.updateEvent("Bars", 2);
-            myArenaScreen.updateEvent("Beam", 3);
-            myArenaScreen.updateEvent("Floor", 4);
+            currentevent1 = "Vault";
+            currentevent2 = "Floor";
+            currentevent3 = "Beam";
+            currentevent4 = "Bars";
+
+            myArenaScreen.updateEvent(vaultCombo1.getSelectedItem().toString() + " " + currentevent1, 1);
+            myArenaScreen.updateEvent(currentevent2, 2);
+            myArenaScreen.updateEvent(currentevent3, 3);
+            myArenaScreen.updateEvent(currentevent4, 4);
 
             rotationLabel.setText("ROTATION 1");
-            //update judges
-            //update players
-            //update scores
-            //change combo boxes
-            //etc.
+
+            updateJudgeNames(allJudges, rotation);
+
+            gC.updateCombobox(team1Combo, home.getVaultGymnasts());
+            gC.updateCombobox(team2Combo, visitor1.getFloorGymnasts());
+            gC.updateCombobox(team3Combo, visitor2.getBeamGymnasts());
+            gC.updateCombobox(team4Combo, visitor3.getBarGymnasts());
+
+
+            vaultCombo1.setVisible(true);
+            vaultCombo2.setVisible(false);
+            vaultCombo3.setVisible(false);
+            vaultCombo4.setVisible(false);
+
         }
         else if (rotation == 2){
-            team1App.setText("Bars");
-            team2App.setText("Vault");
-            team3App.setText("Floor");
-            team4App.setText("Beam");
 
-            myArenaScreen.updateEvent("Bars", 1);
-            myArenaScreen.updateEvent("Vault", 2);
-            myArenaScreen.updateEvent("Floor", 3);
-            myArenaScreen.updateEvent("Beam", 4);
+            currentevent1 = "Bars";
+            currentevent2 = "Vault";
+            currentevent3 = "Floor";
+            currentevent4 = "Beam";
+
+            myArenaScreen.updateEvent(vaultCombo1.getSelectedItem().toString() + " " + currentevent1, 1);
+            myArenaScreen.updateEvent(currentevent2, 2);
+            myArenaScreen.updateEvent(currentevent3, 3);
+            myArenaScreen.updateEvent(currentevent4, 4);
 
             rotationLabel.setText("ROTATION 2");
-            //update judges
-            //update players
-            //update scores
-            //change combo boxes
-            //etc.
+
+            updateJudgeNames(allJudges, rotation);
+
+            gC.updateCombobox(team1Combo, home.getBarGymnasts());
+            gC.updateCombobox(team2Combo, visitor1.getVaultGymnasts());
+            gC.updateCombobox(team3Combo, visitor2.getFloorGymnasts());
+            gC.updateCombobox(team4Combo, visitor3.getBeamGymnasts());
+
+
+            vaultCombo1.setVisible(false);
+            vaultCombo2.setVisible(true);
+            vaultCombo3.setVisible(false);
+            vaultCombo4.setVisible(false);
+
         }
         else if (rotation == 3){
-            team1App.setText("Beam");
-            team2App.setText("Bars");
-            team3App.setText("Vault");
-            team4App.setText("Floor");
 
-            myArenaScreen.updateEvent("Beam", 1);
-            myArenaScreen.updateEvent("Bars", 2);
-            myArenaScreen.updateEvent("Vault", 3);
-            myArenaScreen.updateEvent("Floor", 4);
+            currentevent1 = "Beam";
+            currentevent2 = "Bars";
+            currentevent3 = "Vault";
+            currentevent4 = "Floor";
+
+            myArenaScreen.updateEvent(vaultCombo1.getSelectedItem().toString() + " " + currentevent1, 1);
+            myArenaScreen.updateEvent(currentevent2, 2);
+            myArenaScreen.updateEvent(currentevent3, 3);
+            myArenaScreen.updateEvent(currentevent4, 4);
 
             rotationLabel.setText("ROTATION 3");
+
+            updateJudgeNames(allJudges, rotation);
+
+            gC.updateCombobox(team1Combo, home.getBeamGymnasts());
+            gC.updateCombobox(team2Combo, visitor1.getBarGymnasts());
+            gC.updateCombobox(team3Combo, visitor2.getVaultGymnasts());
+            gC.updateCombobox(team4Combo, visitor3.getFloorGymnasts());
+
+
+            vaultCombo1.setVisible(false);
+            vaultCombo2.setVisible(false);
+            vaultCombo3.setVisible(true);
+            vaultCombo4.setVisible(false);
         }
         else if (rotation == 4){
-            team1App.setText("Floor");
-            team2App.setText("Beam");
-            team3App.setText("Bars");
-            team4App.setText("Vault");
+            currentevent1 = "Floor";
+            currentevent2 = "Beam";
+            currentevent3 = "Bars";
+            currentevent4 = "Vault";
 
-            myArenaScreen.updateEvent("Floor", 1);
-            myArenaScreen.updateEvent("Beam", 2);
-            myArenaScreen.updateEvent("Bars", 3);
-            myArenaScreen.updateEvent("Vault", 4);
+            myArenaScreen.updateEvent(vaultCombo1.getSelectedItem().toString() + " " + currentevent1, 1);
+            myArenaScreen.updateEvent(currentevent2, 2);
+            myArenaScreen.updateEvent(currentevent3, 3);
+            myArenaScreen.updateEvent(currentevent4, 4);
 
             rotationLabel.setText("ROTATION 4");
+
+            updateJudgeNames(allJudges, rotation);
+
+            gC.updateCombobox(team1Combo, home.getBarGymnasts());
+            gC.updateCombobox(team2Combo, visitor1.getVaultGymnasts());
+            gC.updateCombobox(team3Combo, visitor2.getFloorGymnasts());
+            gC.updateCombobox(team4Combo, visitor3.getBeamGymnasts());
+
+
+            vaultCombo1.setVisible(false);
+            vaultCombo2.setVisible(false);
+            vaultCombo3.setVisible(false);
+            vaultCombo4.setVisible(true);
         }
         else if(rotation == 5){
-            List<Team> teams = new ArrayList<>();
-            PostMeetScreen myPostMode = new PostMeetScreen(gC, teams);
-            myArenaScreen.getFrame().dispose();
-            thisFrame.dispose();
+            if (gC.confirmDialog("Are you sure you want to end the tournament?")){
+                List <Team> teams = new ArrayList<>();
+                teams.add(home);
+                teams.add(visitor1);
+                teams.add(visitor2);
+                teams.add(visitor3);
+                PostMeetScreen myPostMode = new PostMeetScreen(gC, teams);
+                myArenaScreen.getFrame().dispose();
+                thisFrame.dispose();
+            }
+            else {
+                updateRotation(myArenaScreen, thisFrame, -1, gC, home, visitor1, visitor2, visitor3,  allJudges);
+            }
+        }
+
+    }
+
+    //big bloated code yikes   0: Vault, 1: Bars, 2: Beam, 3: Floor
+    private void updateJudgeNames(List<List <String>> allJudges, int rotation){
+
+        int h = 0;
+        int v1 = 0;
+        int v2 = 0;
+        int v3 = 0;
+        //def a smarter way to do this...
+        if (rotation == 1){
+            h = 0;
+            v1 = 3;
+            v2 = 2;
+            v3 = 1;
+        }
+        else if (rotation == 2){
+            h = 1;
+            v1 = 0;
+            v2 = 3;
+            v3 = 2;
+        }
+        else if (rotation == 3){
+            h = 2;
+            v1 = 1;
+            v2 = 0;
+            v3 = 3;
+        }
+        else if (rotation == 4){
+            h = 3;
+            v1 = 2;
+            v2 = 1;
+            v3 = 0;
+        }
+
+
+        for (int i = 0; i < allJudges.get(h).size(); i++){
+            if (allJudges.get(h).get(i) == ""){
+                getHomeJudges().get(i).setVisible(false);
+                getHomeJudgesTextbox().get(i).setVisible(false);
+            }
+            else{
+                getHomeJudges().get(i).setVisible(true);
+                getHomeJudgesTextbox().get(i).setVisible(true);
+            }
+            getHomeJudges().get(i).setText(allJudges.get(h).get(i));
+        }
+        for (int i = 0; i < allJudges.get(v1).size(); i++){
+            if (allJudges.get(v1).get(i) == ""){
+                getVisitor1Judges().get(i).setVisible(false);
+                getVisitor1JudgesTextbox().get(i).setVisible(false);
+            }
+            else{
+                getVisitor1Judges().get(i).setVisible(true);
+                getVisitor1JudgesTextbox().get(i).setVisible(true);
+            }
+            getVisitor1Judges().get(i).setText(allJudges.get(v1).get(i));
+        }
+        for (int i = 0; i < allJudges.get(v2).size(); i++){
+            if (allJudges.get(v2).get(i) == ""){
+                getVisitor2Judges().get(i).setVisible(false);
+                getVisitor2JudgesTextbox().get(i).setVisible(false);
+            }
+            else{
+                getVisitor2Judges().get(i).setVisible(true);
+                getVisitor2JudgesTextbox().get(i).setVisible(true);
+            }
+            getVisitor2Judges().get(i).setText(allJudges.get(v2).get(i));
+        }
+        for (int i = 0; i < allJudges.get(v3).size(); i++){
+            if (allJudges.get(v3).get(i) == ""){
+                getVisitor3Judges().get(i).setVisible(false);
+                getVisitor3JudgesTextbox().get(i).setVisible(false);
+            }
+            else{
+                getVisitor3Judges().get(i).setVisible(true);
+                getVisitor3JudgesTextbox().get(i).setVisible(true);
+            }
+            getVisitor3Judges().get(i).setText(allJudges.get(v3).get(i));
+        }
+    }
+
+    List<List<Judge>> judges = new ArrayList<List<Judge>>();
+    List<Judge> floorJudges = new ArrayList<Judge>();
+    List<Judge> beamJudges = new ArrayList<Judge>();
+    List<Judge> vaultJudges = new ArrayList<Judge>();
+    List<Judge> barJudges = new ArrayList<Judge>();
+
+    public void createJudges(List<List<String>> allJudges){
+        //all this a placeholder, just need somewhere to put judge objects
+        // List<Judge> floorJudges = new ArrayList<Judge>();
+        // List<Judge> beamJudges = new ArrayList<Judge>();
+        //List<Judge> vaultJudges = new ArrayList<Judge>();
+        // List<Judge> barJudges = new ArrayList<Judge>();
+        // List<List<Judge>> judges = new ArrayList<List<Judge>>();
+        judges.add(floorJudges);
+        judges.add(barJudges);
+        judges.add(vaultJudges);
+        judges.add(beamJudges);
+        for (int j = 0; j < allJudges.get(0).size(); j++){
+            Judge judge = new Judge();
+            judge.setFname(allJudges.get(0).get(j).toString());
+            judge.setLname(allJudges.get(0).get(j).toString()); //not right but need to put something there
+            vaultJudges.add(judge);
+        }
+        for (int j = 0; j < allJudges.get(1).size(); j++){
+            Judge judge = new Judge();
+            judge.setFname(allJudges.get(1).get(j).toString());
+            judge.setLname(allJudges.get(1).get(j).toString()); //not right but need to put something there
+            barJudges.add(judge);
+        }
+        for (int j = 0; j < allJudges.get(2).size(); j++){
+            Judge judge = new Judge();
+            judge.setFname(allJudges.get(2).get(j).toString());
+            judge.setLname(allJudges.get(2).get(j).toString()); //not right but need to put something there
+            beamJudges.add(judge);
+        }
+        for (int j = 0; j < allJudges.get(3).size(); j++){
+            Judge judge = new Judge();
+            judge.setFname(allJudges.get(3).get(j).toString());
+            judge.setLname(allJudges.get(3).get(j).toString()); //not right but need to put something there
+            floorJudges.add(judge);
+        }
+    }
+
+    public void updateDisplay(Dual_Tri_ArenaScreen myArenaScreen, GuiCreator gC, Team home, Team visitor1, Team visitor2, Team visitor3,  int rotation) {
+        team1Combo.removeAllItems();
+        team2Combo.removeAllItems();
+        team3Combo.removeAllItems();
+        team4Combo.removeAllItems();
+        System.out.println("Rotation: " + rotation);
+        switch (rotation) {
+            case 1:
+                gC.updateCombobox(team1Combo, home.getVaultGymnasts());
+                gC.updateCombobox(team2Combo, visitor1.getFloorGymnasts());
+                gC.updateCombobox(team3Combo, visitor2.getBeamGymnasts());
+                gC.updateCombobox(team4Combo, visitor3.getBarGymnasts());
+                break;
+            case 2:
+                gC.updateCombobox(team1Combo, home.getBarGymnasts());
+                gC.updateCombobox(team2Combo, visitor1.getVaultGymnasts());
+                gC.updateCombobox(team3Combo, visitor2.getFloorGymnasts());
+                gC.updateCombobox(team4Combo, visitor3.getBeamGymnasts());
+                break;
+            case 3:
+                gC.updateCombobox(team1Combo, home.getBeamGymnasts());
+                gC.updateCombobox(team2Combo, visitor1.getBarGymnasts());
+                gC.updateCombobox(team3Combo, visitor2.getVaultGymnasts());
+                gC.updateCombobox(team4Combo, visitor3.getFloorGymnasts());
+                break;
+            case 4:
+                gC.updateCombobox(team1Combo, home.getFloorGymnasts());
+                gC.updateCombobox(team2Combo, visitor1.getBeamGymnasts());
+                gC.updateCombobox(team3Combo, visitor2.getBarGymnasts());
+                gC.updateCombobox(team4Combo, visitor3.getVaultGymnasts());
+                break;
+        }
+
+        //this logic is bad and cringe and redundant and did I say bad?
+        //Updates the arena display for home
+        if (currentevent1 == "Vault") {
+            myArenaScreen.updateGymnastInfo(home.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 0);
+        } else if (currentevent1 == "Bars") {
+            myArenaScreen.updateGymnastInfo(home.getBarGymnasts().get(team1Combo.getSelectedIndex()), 1, 1);
+        } else if (currentevent1 == "Beam") {
+            myArenaScreen.updateGymnastInfo(home.getBeamGymnasts().get(team1Combo.getSelectedIndex()), 1, 2);
+        } else if (currentevent1 == "Floor") {
+            myArenaScreen.updateGymnastInfo(home.getFloorGymnasts().get(team1Combo.getSelectedIndex()), 1, 3);
+        }
+
+        //Updates the arena display for visitor1
+        if (currentevent2 == "Vault") {
+            myArenaScreen.updateGymnastInfo(visitor1.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 0);
+        } else if (currentevent2 == "Bars") {
+            myArenaScreen.updateGymnastInfo(visitor1.getBarGymnasts().get(team2Combo.getSelectedIndex()), 2, 1);
+        } else if (currentevent2 == "Beam") {
+            myArenaScreen.updateGymnastInfo(visitor1.getBeamGymnasts().get(team2Combo.getSelectedIndex()), 2, 2);
+        } else if (currentevent2 == "Floor") {
+            myArenaScreen.updateGymnastInfo(visitor1.getFloorGymnasts().get(team2Combo.getSelectedIndex()), 2, 3);
+        }
+        //Updates the arena display for visitor2
+        if (currentevent3 == "Vault") {
+            myArenaScreen.updateGymnastInfo(visitor2.getVaultGymnasts().get(team3Combo.getSelectedIndex()), 3, 0);
+        } else if (currentevent3 == "Bars") {
+            myArenaScreen.updateGymnastInfo(visitor2.getBarGymnasts().get(team3Combo.getSelectedIndex()), 3, 1);
+        } else if (currentevent3 == "Beam") {
+            myArenaScreen.updateGymnastInfo(visitor2.getBeamGymnasts().get(team3Combo.getSelectedIndex()), 3, 2);
+        } else if (currentevent3 == "Floor") {
+            myArenaScreen.updateGymnastInfo(visitor2.getFloorGymnasts().get(team3Combo.getSelectedIndex()), 3, 3);
+        }
+        //Updates the arena display for visitor3
+        if (currentevent4 == "Vault") {
+            myArenaScreen.updateGymnastInfo(visitor3.getVaultGymnasts().get(team4Combo.getSelectedIndex()), 4, 0);
+        } else if (currentevent4 == "Bars") {
+            myArenaScreen.updateGymnastInfo(visitor3.getBarGymnasts().get(team4Combo.getSelectedIndex()), 4, 1);
+        } else if (currentevent4 == "Beam") {
+            myArenaScreen.updateGymnastInfo(visitor3.getBeamGymnasts().get(team4Combo.getSelectedIndex()), 4, 2);
+        } else if (currentevent4 == "Floor") {
+            myArenaScreen.updateGymnastInfo(visitor3.getFloorGymnasts().get(team4Combo.getSelectedIndex()), 4, 3);
         }
 
     }
@@ -845,6 +1202,7 @@ public class QuadScorekeeperScreen {
                 break;
         }
     }
+
 
     List<List<Judge>> judges = new ArrayList<List<Judge>>();
     List<Judge> floorJudges = new ArrayList<Judge>();
@@ -1073,8 +1431,23 @@ public class QuadScorekeeperScreen {
             myQuadArenaScreen.overall4.setText(String.valueOf("Running Team Score:     " + visitor3Copy.getTeamScore().getRunningScore()));
     }
 
+    public Team homeCopy;
+    public Team visitor1Copy;
+    public Team visitor2Copy;
+    public Team visitor3Copy;
 
-    private int rotation = 1;
+    private List<JLabel> getHomeJudges(){
+        return Arrays.asList(jL11, jL12, jL13, jL14, jL15, jL16);
+    }
+    private List<JLabel> getVisitor1Judges(){
+        return Arrays.asList(jL21, jL22, jL23, jL24, jL25, jL26);
+    }
+    private List<JLabel> getVisitor2Judges(){
+        return Arrays.asList(jL31, jL32, jL33, jL34, jL35, jL36);
+    }
+    private List<JLabel> getVisitor3Judges(){
+        return Arrays.asList(jL41, jL42, jL43, jL44, jL45, jL46);
+    }
 
     private List<JTextField> getHomeJudgesTextbox(){
         return Arrays.asList(j11, j12, j13, j14, j15, j16);
@@ -1090,11 +1463,32 @@ public class QuadScorekeeperScreen {
     }
 
 
-    public Team homeCopy;
-    public Team visitor1Copy;
-    public Team visitor2Copy;
-    public Team visitor3Copy;
+    public String currentevent1 = "Vault";
+    public String currentevent2 = "Floor";
+    public String currentevent3 = "Beam";
+    public String currentevent4 = "Bars";
+
+
+
+    private int rotation = 1;
+    private Boolean showUpdate = true; //if true, it's time to show update, if false, go to next rotation
+
+    private List<JTextField> getHomeJudgesTextbox(){
+        return Arrays.asList(j11, j12, j13, j14, j15, j16);
+    }
+    private List<JTextField> getVisitor1JudgesTextbox(){
+        return Arrays.asList(j21, j22, j23, j24, j25, j26);
+    }
+    private List<JTextField> getVisitor2JudgesTextbox(){
+        return Arrays.asList(j31, j32, j33, j34, j35, j36);
+    }
+    private List<JTextField> getVisitor3JudgesTextbox(){
+        return Arrays.asList(j41, j42, j43, j44, j45, j46);
+    }
     private Color defaultColor = new Color(51, 51, 51); //default font color
+
+    //Directory for pictures folder
+    String picturePath = System.getProperty("user.dir") + "/pictures/";
 
     private JPanel mainPanel;
     private JPanel customizeScreen;
@@ -1127,8 +1521,6 @@ public class QuadScorekeeperScreen {
     private JButton updateScoreButton1;
     private JButton updateScoreButton2;
     private JTextField j21;
-    private JTabbedPane tabbedPane1;
-    private JPanel vaultTab;
     private JButton nextButton;
     private JTextField j31;
     private JTextField j32;
@@ -1166,5 +1558,33 @@ public class QuadScorekeeperScreen {
     private JTextField nD2;
     private JTextField nD3;
     private JTextField nD4;
+    private JComboBox vaultCombo1;
+    private JComboBox vaultCombo2;
+    private JComboBox vaultCombo3;
+    private JComboBox vaultCombo4;
+    private JLabel jL11;
+    private JLabel jL12;
+    private JLabel jL13;
+    private JLabel jL14;
+    private JLabel jL15;
+    private JLabel jL16;
+    private JLabel jL21;
+    private JLabel jL22;
+    private JLabel jL23;
+    private JLabel jL24;
+    private JLabel jL25;
+    private JLabel jL26;
+    private JLabel jL31;
+    private JLabel jL32;
+    private JLabel jL33;
+    private JLabel jL34;
+    private JLabel jL35;
+    private JLabel jL36;
+    private JLabel jL41;
+    private JLabel jL42;
+    private JLabel jL43;
+    private JLabel jL44;
+    private JLabel jL45;
+    private JLabel jL46;
     private CardLayout cardLayout;
 }

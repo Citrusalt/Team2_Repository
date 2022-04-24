@@ -343,9 +343,10 @@ public class DualScorekeeperScreen {
         updateScoreButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                float scoreArray[] = new float[7];
+
                 List<Double> scoresList = new ArrayList<>();
                 List<JudgeScore> judgeScoreList = new ArrayList<>();
+
                 boolean invalidScore = false;
                 boolean emptyScores = false;
                 boolean oddScores;
@@ -449,6 +450,11 @@ public class DualScorekeeperScreen {
                 } catch (Exception exception) {
                     System.out.println(exception);
                 }
+
+                //Resets the combobox
+                for(int i = 0; i < getHomeJudges().size(); i++){
+                    getHomeJudgesTextbox().get(i).setText("");
+                }
             }
         });
         updateScoreButton2.addActionListener(new ActionListener() {
@@ -456,19 +462,14 @@ public class DualScorekeeperScreen {
             public void actionPerformed(ActionEvent e) {
                 List<Double> scoresList  = new ArrayList<>();
                 List<JudgeScore> judgeScoreList = new ArrayList<>();
+
                 boolean invalidScore = false;
                 boolean emptyScores = false;
                 float scoreArray[] = new float[7];
+
+
                 try{
-                    //Use these scores to update score for backend and arena screen
-                    //doesn't have to be entered into a "scoreArray" just an example
-                   /* scoreArray[0] = Integer.parseInt(j21.getText());
-                    scoreArray[1] = Integer.parseInt(j22.getText());
-                    scoreArray[2] = Integer.parseInt(j23.getText());
-                    scoreArray[3] = Integer.parseInt(j24.getText());
-                    scoreArray[4] = Integer.parseInt(j25.getText());
-                    scoreArray[5] = Integer.parseInt(j26.getText());
-                    scoreArray[6] = Integer.parseInt(nD2.getText());*/
+
 
 
                     for (int i = 0; i<getVisitor1JudgesTextbox().size(); i++)
@@ -548,7 +549,10 @@ public class DualScorekeeperScreen {
 
                     System.out.println(exception);
                 }
-
+                //Resets the combobox
+                for(int i = 0; i < getVisitor1Judges().size(); i++){
+                    getVisitor1JudgesTextbox().get(i).setText("");
+                }
             }
         });
 
@@ -671,7 +675,7 @@ public class DualScorekeeperScreen {
         editLineupButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EditLineupScreen myScreen = new EditLineupScreen(homeCopy, visitorCopy, rotation);
+                EditLineupScreen myScreen = new EditLineupScreen(homeCopy, visitorCopy, new Team("",""), rotation, "Dual");
                 homeCopy = myScreen.getEditHome();
                 visitorCopy = myScreen.getEditVisitor();
                 homeCopy.updateApparatusLists();
@@ -871,7 +875,7 @@ public class DualScorekeeperScreen {
 
         if (rotation == 1){
             for (int i = 0; i < allJudges.get(0).size(); i++){
-                if (allJudges.get(0).get(i) == "- Select Judges -"){
+                if (allJudges.get(0).get(i) == ""){
                     getHomeJudges().get(i).setVisible(false);
                     getHomeJudgesTextbox().get(i).setVisible(false);
                 }
@@ -882,7 +886,7 @@ public class DualScorekeeperScreen {
                 getHomeJudges().get(i).setText(allJudges.get(0).get(i));
             }
             for (int i = 0; i < allJudges.get(1).size(); i++){
-                if (allJudges.get(1).get(i) == "- Select Judges -"){
+                if (allJudges.get(1).get(i) == ""){
                     getVisitor1Judges().get(i).setVisible(false);
                     getVisitor1JudgesTextbox().get(i).setVisible(false);
                 }
@@ -895,7 +899,7 @@ public class DualScorekeeperScreen {
         }
         else if (rotation == 2){
             for (int i = 0; i < allJudges.get(1).size(); i++){
-                if (allJudges.get(1).get(i) == "- Select Judges -"){
+                if (allJudges.get(1).get(i) == ""){
                     getHomeJudges().get(i).setVisible(false);
                     getHomeJudgesTextbox().get(i).setVisible(false);
                 }
@@ -906,7 +910,7 @@ public class DualScorekeeperScreen {
                 getHomeJudges().get(i).setText(allJudges.get(1).get(i));
             }
             for (int i = 0; i < allJudges.get(0).size(); i++){
-                if (allJudges.get(0).get(i) == "- Select Judges -"){
+                if (allJudges.get(0).get(i) == ""){
                     getVisitor1Judges().get(i).setVisible(false);
                     getVisitor1JudgesTextbox().get(i).setVisible(false);
                 }
@@ -919,7 +923,7 @@ public class DualScorekeeperScreen {
         }
         else if (rotation == 3){
             for (int i = 0; i < allJudges.get(2).size(); i++){
-                if (allJudges.get(2).get(i) == "- Select Judges -"){
+                if (allJudges.get(2).get(i) == ""){
                     getHomeJudges().get(i).setVisible(false);
                     getHomeJudgesTextbox().get(i).setVisible(false);
                 }
@@ -930,7 +934,7 @@ public class DualScorekeeperScreen {
                 getHomeJudges().get(i).setText(allJudges.get(2).get(i));
             }
             for (int i = 0; i < allJudges.get(3).size(); i++){
-                if (allJudges.get(3).get(i) == "- Select Judges -"){
+                if (allJudges.get(3).get(i) == ""){
                     getVisitor1Judges().get(i).setVisible(false);
                     getVisitor1JudgesTextbox().get(i).setVisible(false);
                 }
@@ -943,7 +947,7 @@ public class DualScorekeeperScreen {
         }
         else if (rotation == 4){
             for (int i = 0; i < allJudges.get(3).size(); i++){
-                if (allJudges.get(3).get(i) == "- Select Judges -"){
+                if (allJudges.get(3).get(i) == ""){
                     getHomeJudges().get(i).setVisible(false);
                     getHomeJudgesTextbox().get(i).setVisible(false);
                 }
@@ -954,7 +958,7 @@ public class DualScorekeeperScreen {
                 getHomeJudges().get(i).setText(allJudges.get(3).get(i));
             }
             for (int i = 0; i < allJudges.get(2).size(); i++){
-                if (allJudges.get(2).get(i) == "- Select Judges -"){
+                if (allJudges.get(2).get(i) == ""){
                     getVisitor1Judges().get(i).setVisible(false);
                     getVisitor1JudgesTextbox().get(i).setVisible(false);
                 }

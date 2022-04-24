@@ -24,21 +24,36 @@ public class TriScorekeeperScreen {
 
         Dual_Tri_ArenaScreen myDualTriArenaScreen = new Dual_Tri_ArenaScreen();
         myDualTriArenaScreen.getFrame().setVisible(true);
-        homeCopy = home;
-        visitor1Copy = visitor1;
-        visitor2Copy =visitor2;
 
+        homeCopy = home; visitor1Copy = visitor1; visitor2Copy = visitor2;
+        myDualTriArenaScreen.teamName1.setText(homeCopy.getTeamName());
+        myDualTriArenaScreen.teamName2.setText(visitor1Copy.getTeamName());
+
+        team1Name.setText(homeCopy.getTeamName());
+        team2Name.setText(visitor1Copy.getTeamName());
+
+
+        //This sets the team logo; must be updated every next rotation
+        ImageIcon imageIcon = new ImageIcon(picturePath + homeCopy.getTeamLogo());
+        myDualTriArenaScreen.logo1.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+        imageIcon = new ImageIcon(picturePath + visitor1Copy.getTeamLogo());
+        myDualTriArenaScreen.logo2.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
         //card layout start
         cardLayout = (CardLayout) mainPanel.getLayout();
         changeCard("CustomizeCard");
         createJudges(allJudges);
+
+        createJudges(allJudges);
+
+
+        vaultCombo2.setVisible(false);
 
         defaultTemplateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 changeCard("TriScorekeeperCard");
                 myDualTriArenaScreen.getFrame().setVisible(true);
-                updateRotation(myDualTriArenaScreen, frame, 0, gC);
+                updateRotation(myDualTriArenaScreen, frame, 0, gC, homeCopy, visitor1Copy, visitor2Copy, allJudges);
             }
         });
 
@@ -99,22 +114,45 @@ public class TriScorekeeperScreen {
         nextRotationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                updateRotation(myDualTriArenaScreen, frame, 1, gC);
+                updateRotation(myDualTriArenaScreen, frame, 1, gC,homeCopy, visitor1Copy, visitor2Copy, allJudges);
+                changeLogoDisplay(rotation, picturePath,myDualTriArenaScreen, gC);
             }
         });
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                updateRotation(myDualTriArenaScreen, frame, -1, gC);
-            }
-        });
+//        backButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                updateRotation(myDualTriArenaScreen, frame, -1, gC, homeCopy, visitor1Copy, visitor2Copy, allJudges);
+//            }
+//        });
 
         team1Combo.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED){
-                    Object item = e.getItem();
-                    myDualTriArenaScreen.updateGymnast(item.toString(), 1);
+                    //We have to know which teams are participating
+                    //We can use the rotation number to keep track
+                    Team temp = new Team("","");      //Temporary placeholder
+                   if(rotation == 1 || rotation == 4){          //Means that the team on the left comboboxes is the home team
+                        temp = homeCopy;
+                   } else if (rotation == 2 || rotation == 5){  //Means that the team on the left comboboxes is the visitor 2 team
+                        temp = visitor2Copy;
+                   } else if (rotation == 3 || rotation == 6){ //Means that the team on the left comboboxes is the visitor 1 team
+                       temp = visitor1Copy;
+
+                   }
+                    if(currentevent1 == "Vault"){
+                        myDualTriArenaScreen.updateGymnastInfo(temp.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1,0);
+
+                    } else if(currentevent1 == "Uneven Bars"){
+                        myDualTriArenaScreen.updateGymnastInfo(temp.getBarGymnasts().get(team1Combo.getSelectedIndex()), 1,1);
+
+                    }else if(currentevent1 == "Balanced Beam"){
+                        myDualTriArenaScreen.updateGymnastInfo(temp.getBeamGymnasts().get(team1Combo.getSelectedIndex()), 1,2);
+
+                    }else if(currentevent1 == "Floor Exercise"){
+                        myDualTriArenaScreen.updateGymnastInfo(temp.getFloorGymnasts().get(team1Combo.getSelectedIndex()), 1,3);
+
+                    }
                 }
             }
 
@@ -123,8 +161,30 @@ public class TriScorekeeperScreen {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED){
-                    Object item = e.getItem();
-                    myDualTriArenaScreen.updateGymnast(item.toString(), 2);
+                    //We have to know which teams are participating
+                    //We can use the rotation number to keep track
+                    Team temp = new Team("","");      //Temporary placeholder
+                    if(rotation == 2 || rotation == 6){          //Means that the team on the left comboboxes is the home team
+                        temp = homeCopy;
+                    } else if (rotation == 3 || rotation == 4){  //Means that the team on the left comboboxes is the visitor 2 team
+                        temp = visitor2Copy;
+                    } else if (rotation == 1 || rotation == 5){ //Means that the team on the left comboboxes is the visitor 1 team
+                        temp = visitor1Copy;
+
+                    }
+                    if(currentevent2 == "Vault"){
+                        myDualTriArenaScreen.updateGymnastInfo(temp.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2,0);
+
+                    } else if(currentevent2 == "Uneven Bars"){
+                        myDualTriArenaScreen.updateGymnastInfo(temp.getBarGymnasts().get(team2Combo.getSelectedIndex()), 2,1);
+
+                    }else if(currentevent2 == "Balanced Beam"){
+                        myDualTriArenaScreen.updateGymnastInfo(temp.getBeamGymnasts().get(team2Combo.getSelectedIndex()), 2,2);
+
+                    }else if(currentevent2 == "Floor Exercise"){
+                        myDualTriArenaScreen.updateGymnastInfo(temp.getFloorGymnasts().get(team2Combo.getSelectedIndex()), 2,3);
+
+                    }
                 }
             }
         });
@@ -352,17 +412,169 @@ public class TriScorekeeperScreen {
                 }
             }
         });
+        vaultCombo1.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                myDualTriArenaScreen.updateEvent(vaultCombo1.getSelectedItem().toString() + " Vault", 1);
+            }
+        });
+        vaultCombo2.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                myDualTriArenaScreen.updateEvent(vaultCombo2.getSelectedItem().toString() + " Vault", 2);
+            }
+        });
+        editLineupButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EditLineupScreen myScreen = new EditLineupScreen(homeCopy, visitor1Copy, visitor2Copy, rotation, "Tri");
+                homeCopy = myScreen.getEditHome();
+                visitor1Copy = myScreen.getEditVisitor();
+                visitor2Copy = myScreen.getEditVisitor2();
+                homeCopy.updateApparatusLists();
+                visitor1Copy.updateApparatusLists();
+                visitor2Copy.updateApparatusLists();
+                //updateDisplay(myArenaScreen, gC, homeCopy, visitorCopy, rotation);
+
+            }
+        });
     }
 
 
     public void changeCard(String cardName){
         cardLayout.show(mainPanel, cardName);
     }
+    public void updateDisplay(Dual_Tri_ArenaScreen myArenaScreen, GuiCreator gC, Team home, Team visitor1, Team visitor2, int rotation) {
+        team1Combo.removeAllItems();
+        team2Combo.removeAllItems();
+        System.out.println("Rotation: " + rotation);
+        switch (rotation) {
+            case 1:
+                gC.updateCombobox(team1Combo, home.getVaultGymnasts());
+                gC.updateCombobox(team2Combo, visitor1.getBarGymnasts());
+                break;
+            case 2:
+                gC.updateCombobox(team1Combo, visitor2.getVaultGymnasts());
+                gC.updateCombobox(team2Combo, home.getBarGymnasts());
+                break;
+            case 3:
+                gC.updateCombobox(team1Combo, visitor1.getVaultGymnasts());
+                gC.updateCombobox(team2Combo, visitor2.getBarGymnasts());
+                break;
+            case 4:
+                gC.updateCombobox(team1Combo, home.getBeamGymnasts());
+                gC.updateCombobox(team2Combo, visitor2.getFloorGymnasts());
+                break;
+            case 5:
+                gC.updateCombobox(team1Combo, visitor2.getBeamGymnasts());
+                gC.updateCombobox(team2Combo, visitor1.getFloorGymnasts());
+                break;
+            case 6:
+                gC.updateCombobox(team1Combo, visitor1.getBeamGymnasts());
+                gC.updateCombobox(team2Combo, home.getFloorGymnasts());
+                break;
 
+        }
+
+        //Updates the arena display for left side
+        if(currentevent1 == "Vault"){
+            switch (rotation){
+                case 1: myArenaScreen.updateGymnastInfo(home.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 0); break;
+                case 2: myArenaScreen.updateGymnastInfo(visitor2.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 0); break;
+                case 3: myArenaScreen.updateGymnastInfo(visitor1.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 0); break;
+            }
+        } else if(currentevent1 == "Balanced Beam"){
+            switch (rotation){
+                case 1: myArenaScreen.updateGymnastInfo(home.getBeamGymnasts().get(team1Combo.getSelectedIndex()), 1, 2); break;
+                case 2: myArenaScreen.updateGymnastInfo(visitor2.getBeamGymnasts().get(team1Combo.getSelectedIndex()), 1, 2); break;
+                case 3: myArenaScreen.updateGymnastInfo(visitor1.getBeamGymnasts().get(team1Combo.getSelectedIndex()), 1, 2); break;
+            }
+        }
+        //Updates the arena display for right side
+        if(currentevent1 == "Uneven Bars"){
+            switch (rotation){
+                case 1: myArenaScreen.updateGymnastInfo(visitor1.getBarGymnasts().get(team2Combo.getSelectedIndex()), 2, 1); break;
+                case 2: myArenaScreen.updateGymnastInfo(home.getBarGymnasts().get(team2Combo.getSelectedIndex()), 2, 1); break;
+                case 3: myArenaScreen.updateGymnastInfo(visitor2.getBarGymnasts().get(team2Combo.getSelectedIndex()), 2, 1); break;
+            }
+        } else if(currentevent1 == "Floor Exercise"){
+            switch (rotation){
+                case 1: myArenaScreen.updateGymnastInfo(visitor2.getFloorGymnasts().get(team2Combo.getSelectedIndex()), 2, 3); break;
+                case 2: myArenaScreen.updateGymnastInfo(visitor1.getFloorGymnasts().get(team2Combo.getSelectedIndex()), 2, 3); break;
+                case 3: myArenaScreen.updateGymnastInfo(home.getFloorGymnasts().get(team2Combo.getSelectedIndex()), 2, 3); break;
+            }
+        }
+
+
+
+//        //Updates the arena display for home
+//        if (currentevent1 == "Vault") {
+//            myArenaScreen.updateGymnastInfo(home.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 0);
+//        } else if (currentevent1 == "Uneven Bars") {
+//            myArenaScreen.updateGymnastInfo(home.getBarGymnasts().get(team1Combo.getSelectedIndex()), 1, 1);
+//        } else if (currentevent1 == "Balanced Beam") {
+//            myArenaScreen.updateGymnastInfo(home.getBeamGymnasts().get(team1Combo.getSelectedIndex()), 1, 2);
+//        } else if (currentevent1 == "Floor Exercise") {
+//            myArenaScreen.updateGymnastInfo(home.getFloorGymnasts().get(team1Combo.getSelectedIndex()), 1, 3);
+//        }
+//
+//        //Updates the arena display for visitor1
+//        if (currentevent2 == "Vault") {
+//            myArenaScreen.updateGymnastInfo(visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 0);
+//        } else if (currentevent2 == "Bars") {
+//            myArenaScreen.updateGymnastInfo(visitor.getBarGymnasts().get(team2Combo.getSelectedIndex()), 2, 1);
+//        } else if (currentevent2 == "Beam") {
+//            myArenaScreen.updateGymnastInfo(visitor.getBeamGymnasts().get(team2Combo.getSelectedIndex()), 2, 2);
+//        } else if (currentevent2 == "Floor") {
+//            myArenaScreen.updateGymnastInfo(visitor.getFloorGymnasts().get(team2Combo.getSelectedIndex()), 2, 3);
+//        }
+
+    }
+
+    //Changes the display logo on the arena screen
+    public void changeLogoDisplay(int rotation, String picturePath,
+                                  Dual_Tri_ArenaScreen myDualTriArenaScreen , GuiCreator gC){
+        ImageIcon imageIcon;
+        if(rotation == 1){              //left: home, right: visitor1
+            imageIcon = new ImageIcon(picturePath + homeCopy.getTeamLogo());        //Left
+            myDualTriArenaScreen.logo1.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+            imageIcon = new ImageIcon(picturePath + visitor1Copy.getTeamLogo());    //Right
+            myDualTriArenaScreen.logo2.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+
+        }else if (rotation == 2){       //left: visitor 2, right: home
+            imageIcon = new ImageIcon(picturePath + visitor2Copy.getTeamLogo());        //Left
+            myDualTriArenaScreen.logo1.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+            imageIcon = new ImageIcon(picturePath + homeCopy.getTeamLogo());    //Right
+            myDualTriArenaScreen.logo2.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+        }else if(rotation == 3){        //left: visitor 1, right: visitor 2
+            imageIcon = new ImageIcon(picturePath + visitor1Copy.getTeamLogo());        //Left
+            myDualTriArenaScreen.logo1.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+            imageIcon = new ImageIcon(picturePath + visitor2Copy.getTeamLogo());    //Right
+            myDualTriArenaScreen.logo2.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+        }else if (rotation == 4){       //left: home, right: visitor 2
+            imageIcon = new ImageIcon(picturePath + homeCopy.getTeamLogo());        //Left
+            myDualTriArenaScreen.logo1.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+            imageIcon = new ImageIcon(picturePath + visitor2Copy.getTeamLogo());    //Right
+            myDualTriArenaScreen.logo2.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+        }else if (rotation == 5){       //left: visitor 2, right: visitor 1
+            imageIcon = new ImageIcon(picturePath + visitor2Copy.getTeamLogo());        //Left
+            myDualTriArenaScreen.logo1.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+            imageIcon = new ImageIcon(picturePath + visitor1Copy.getTeamLogo());    //Right
+            myDualTriArenaScreen.logo2.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+        }else if (rotation == 6){       //left: visitor 1, right: home
+            imageIcon = new ImageIcon(picturePath + visitor1Copy.getTeamLogo());        //Left
+            myDualTriArenaScreen.logo1.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+            imageIcon = new ImageIcon(picturePath + homeCopy.getTeamLogo());    //Right
+            myDualTriArenaScreen.logo2.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+
+        }
+
+    }
 
     //pass in the frames that need to be handled and 1 if next rotation, -1 if previous
     //yes, a lot of this is redundant, but it's easy to read and change later
-    private void updateRotation(Dual_Tri_ArenaScreen myArenaScreen, JFrame thisFrame, int value, GuiCreator gC){
+    private void updateRotation(Dual_Tri_ArenaScreen myArenaScreen, JFrame thisFrame, int value, GuiCreator gC,
+                                Team home, Team visitor1, Team visitor2, List<List<String>> allJudges){
 
         rotation = rotation + value;
         myArenaScreen.updateRotation(rotation);
@@ -374,15 +586,30 @@ public class TriScorekeeperScreen {
             thisFrame.dispose();
         }
         else if (rotation == 1){
+            //This section be the same for rot 1,2,3
+            currentevent1 = "Vault";
+            currentevent2 = "Uneven Bars";
             team1App.setText("Vault");
-            team2App.setText("Bars");
-            team1Name.setText("Home");
-            team2Name.setText("Visitor 1");
-            myArenaScreen.updateEvent("Vault", 1);
-            myArenaScreen.updateEvent("Bars", 2);
-            myArenaScreen.updateTeamName("Home", 1); //change to actual school names later
-            myArenaScreen.updateTeamName("Visitor 1", 2); //""
+            team2App.setText("Uneven Bars");
+            //End section
+
+            team1Name.setText(home.getTeamName());
+            team2Name.setText(visitor1.getTeamName());
+            myArenaScreen.updateEvent(vaultCombo1.getSelectedItem().toString() + " Vaults", 1 );
+            myArenaScreen.updateEvent("Uneven Bars", 2);
+            myArenaScreen.updateTeamName(home.getTeamName(), 1); //change to actual school names later
+            myArenaScreen.updateTeamName(visitor1.getTeamName(), 2); //
+
             rotationLabel.setText("ROTATION 1");
+
+            updateJudgeNames(allJudges, rotation);
+
+            gC.updateCombobox(team1Combo, home.getVaultGymnasts());
+            gC.updateCombobox(team2Combo, visitor1.getBarGymnasts());
+
+            vaultCombo1.setVisible(true);
+            vaultCombo2.setVisible(false);
+
             //update judges
             //update players
             //update scores
@@ -390,15 +617,31 @@ public class TriScorekeeperScreen {
             //etc.
         }
         else if (rotation == 2){
+            //This section be the same for rot 1,2,3
+            currentevent1 = "Vault";
+            currentevent2 = "Uneven Bars";
             team1App.setText("Vault");
-            team2App.setText("Bars");
-            team1Name.setText("Visitor 2");
-            team2Name.setText("Home");
-            myArenaScreen.updateEvent("Vault", 1);
-            myArenaScreen.updateEvent("Bars", 2);
-            myArenaScreen.updateTeamName("Visitor 2", 1); //change to actual school names later
-            myArenaScreen.updateTeamName("Home", 2); //""
+            team2App.setText("Uneven Bars");
+            //End section
+
+            team1Name.setText(visitor2.getTeamName());          //Visitor 2 will be on the left side
+            team2Name.setText(home.getTeamName());              //Home will be on the right side
+            myArenaScreen.updateEvent(vaultCombo1.getSelectedItem().toString() + " Vaults", 1 );
+            myArenaScreen.updateEvent("Uneven Bars", 2);
+            myArenaScreen.updateTeamName(visitor2.getTeamName(), 1); //change to actual school names later
+            myArenaScreen.updateTeamName(home.getTeamName(), 2); //
+
             rotationLabel.setText("ROTATION 2");
+
+            updateJudgeNames(allJudges, rotation);
+
+            gC.updateCombobox(team1Combo, visitor2.getVaultGymnasts());
+            gC.updateCombobox(team2Combo, home.getBarGymnasts());
+
+            vaultCombo1.setVisible(true);
+            vaultCombo2.setVisible(false);
+
+
             //update judges
             //update players
             //update scores
@@ -406,48 +649,132 @@ public class TriScorekeeperScreen {
             //etc.
         }
         else if (rotation == 3){
+            //This section be the same for rot 1,2,3
+            currentevent1 = "Vault";
+            currentevent2 = "Uneven Bars";
             team1App.setText("Vault");
-            team2App.setText("Bars");
-            team1Name.setText("Visitor 1");
-            team2Name.setText("Visitor 2");
-            myArenaScreen.updateEvent("Vault", 1);
-            myArenaScreen.updateEvent("Bars", 2);
-            myArenaScreen.updateTeamName("Visitor 1", 1); //change to actual school names later
-            myArenaScreen.updateTeamName("Visitor 2", 2); //""
+            team2App.setText("Uneven Bars");
+            //End section
+
+            team1Name.setText(visitor1.getTeamName());              //Visitor 1 will be on the left side
+            team2Name.setText(visitor2.getTeamName());              //visitor 2 will be on the right side
+            myArenaScreen.updateEvent(vaultCombo1.getSelectedItem().toString() + " Vaults", 1 );
+            myArenaScreen.updateEvent("Uneven Bars", 2);
+            myArenaScreen.updateTeamName(visitor1.getTeamName(), 1); //change to actual school names later
+            myArenaScreen.updateTeamName(visitor2.getTeamName(), 2); //
+
             rotationLabel.setText("ROTATION 3");
+
+            updateJudgeNames(allJudges, rotation);
+
+            gC.updateCombobox(team1Combo, visitor1.getVaultGymnasts());
+            gC.updateCombobox(team2Combo, visitor2.getBarGymnasts());
+
+            vaultCombo1.setVisible(true);
+            vaultCombo2.setVisible(false);
+
+
+            //update judges
+            //update players
+            //update scores
+            //change combo boxes
+            //etc.
         }
         else if (rotation == 4){
-            team1App.setText("Beam");
-            team2App.setText("Floor");
-            team1Name.setText("Home");
-            team2Name.setText("Visitor 2");
-            myArenaScreen.updateEvent("Beam", 1);
-            myArenaScreen.updateEvent("Floor", 2);
-            myArenaScreen.updateTeamName("Home", 1); //change to actual school names later
-            myArenaScreen.updateTeamName("Visitor 2", 2); //""
+            //This section be the same for rot 4,5,6
+            currentevent1 = "Balanced Beam";
+            currentevent2 = "Floor Exercise";
+            team1App.setText("Balanced Beam");
+            team2App.setText("Floor Exercise");
+            //End section
+
+            team1Name.setText(home.getTeamName());                   //home will be on the left side
+            team2Name.setText(visitor2.getTeamName());              //visitor 2 will be on the right side
+            myArenaScreen.updateEvent(currentevent1, 1 );
+            myArenaScreen.updateEvent(currentevent2, 2);
+            myArenaScreen.updateTeamName(home.getTeamName(), 1); //change to actual school names later
+            myArenaScreen.updateTeamName(visitor2.getTeamName(), 2); //
+
             rotationLabel.setText("ROTATION 4");
+
+            updateJudgeNames(allJudges, rotation);
+
+            gC.updateCombobox(team1Combo, home.getBeamGymnasts());
+            gC.updateCombobox(team2Combo, visitor2.getFloorGymnasts());
+
+            vaultCombo1.setVisible(false);
+            vaultCombo2.setVisible(false);
+
+
+            //update judges
+            //update players
+            //update scores
+            //change combo boxes
+            //etc.
         }
         else if(rotation == 5){
-            team1App.setText("Beam");
-            team2App.setText("Floor");
-            team1Name.setText("Visitor 2");
-            team2Name.setText("Visitor 1");
-            myArenaScreen.updateEvent("Beam", 1);
-            myArenaScreen.updateEvent("Floor", 2);
-            myArenaScreen.updateTeamName("Visitor 2", 1); //change to actual school names later
-            myArenaScreen.updateTeamName("Visitor 1", 2); //""
+            //This section be the same for rot 4,5,6
+            currentevent1 = "Balanced Beam";
+            currentevent2 = "Floor Exercise";
+            team1App.setText("Balanced Beam");
+            team2App.setText("Floor Exercise");
+            //End section
+
+            team1Name.setText(visitor2.getTeamName());              //visitor 2 will be on the left side
+            team2Name.setText(visitor1.getTeamName());              //visitor 1 will be on the right side
+            myArenaScreen.updateEvent(currentevent1, 1 );
+            myArenaScreen.updateEvent(currentevent2, 2);
+            myArenaScreen.updateTeamName(visitor2.getTeamName(), 1); //change to actual school names later
+            myArenaScreen.updateTeamName(visitor1.getTeamName(), 2); //
+
             rotationLabel.setText("ROTATION 5");
+
+            updateJudgeNames(allJudges, rotation);
+
+            gC.updateCombobox(team1Combo, visitor2.getBeamGymnasts());
+            gC.updateCombobox(team2Combo, visitor1.getFloorGymnasts());
+
+            vaultCombo1.setVisible(false);
+            vaultCombo2.setVisible(false);
+
+
+            //update judges
+            //update players
+            //update scores
+            //change combo boxes
+            //etc.
         }
         else if (rotation == 6){
-            team1App.setText("Beam");
-            team2App.setText("Floor");
-            team1Name.setText("Visitor 1");
-            team2Name.setText("Home");
-            myArenaScreen.updateEvent("Beam", 1);
-            myArenaScreen.updateEvent("Floor", 2);
-            myArenaScreen.updateTeamName("Visitor 1", 1); //change to actual school names later
-            myArenaScreen.updateTeamName("Home", 2); //""
+            //This section be the same for rot 4,5,6
+            currentevent1 = "Balanced Beam";
+            currentevent2 = "Floor Exercise";
+            team1App.setText("Balanced Beam");
+            team2App.setText("Floor Exercise");
+            //End section
+
+            team1Name.setText(visitor1.getTeamName());              //visitor 1 will be on the left side
+            team2Name.setText(home.getTeamName());              //home will be on the right side
+            myArenaScreen.updateEvent(currentevent1, 1 );
+            myArenaScreen.updateEvent(currentevent2, 2);
+            myArenaScreen.updateTeamName(visitor1.getTeamName(), 1); //change to actual school names later
+            myArenaScreen.updateTeamName(home.getTeamName(), 2); //
+
             rotationLabel.setText("ROTATION 6");
+
+            updateJudgeNames(allJudges, rotation);
+
+            gC.updateCombobox(team1Combo, visitor1.getBeamGymnasts());
+            gC.updateCombobox(team2Combo, home.getFloorGymnasts());
+
+            vaultCombo1.setVisible(false);
+            vaultCombo2.setVisible(false);
+
+
+            //update judges
+            //update players
+            //update scores
+            //change combo boxes
+            //etc.
         }
         else if (rotation == 7){
             List<Team> teams = new ArrayList<>();
@@ -458,17 +785,15 @@ public class TriScorekeeperScreen {
 
     }
 
-    List<List<Judge>> judges = new ArrayList<List<Judge>>();
-    List<Judge> floorJudges = new ArrayList<Judge>();
-    List<Judge> beamJudges = new ArrayList<Judge>();
-    List<Judge> vaultJudges = new ArrayList<Judge>();
-    List<Judge> barJudges = new ArrayList<Judge>();
+
+    //Function that creates the judges
     public void createJudges(List<List<String>> allJudges){
         judges.add(floorJudges);
         judges.add(barJudges);
         judges.add(vaultJudges);
         judges.add(beamJudges);
         for (int j = 0; j < allJudges.get(0).size(); j++){
+
             if (!allJudges.get(0).get(j).equals("- Select Judges -")){
                 Judge judge = new Judge();
                 judge.setFname(allJudges.get(0).get(j).toString());
@@ -686,10 +1011,95 @@ public class TriScorekeeperScreen {
         return Arrays.asList(j21, j22, j23, j24, j25, j26);
     }
 
-    public Team homeCopy;
-    public Team visitor1Copy;
-    public Team visitor2Copy;
+    //Function that updates the labels and number of textfields of the judges
+    private void updateJudgeNames(List<List<String>> allJudges, int rotation){
 
+        if(rotation == 1 ||rotation == 2 ||rotation == 3 ){
+            //Sets the judges on the left side; Vaults
+            for (int i = 0; i < allJudges.get(ApparatusIndex.VT).size(); i++){
+                //Checks if there is a judge
+                if (allJudges.get(ApparatusIndex.VT).get(i).equals("- Select Judges -")){
+                    getLeftJudges().get(i).setVisible(false);
+                    getLeftJudgesTextbox().get(i).setVisible(false);
+                }
+                else{
+                    getLeftJudges().get(i).setVisible(true);
+                    getLeftJudgesTextbox().get(i).setVisible(true);
+                }
+                getLeftJudges().get(i).setText(allJudges.get(ApparatusIndex.VT).get(i));       //Sets text of label
+            }
+            //Sets the judges on the right side; Bars
+            for (int i = 0; i < allJudges.get(ApparatusIndex.UB).size(); i++){
+                //Checks if there is a judge
+                if (allJudges.get(ApparatusIndex.UB).get(i).equals("- Select Judges -")){
+                    getRightJudges().get(i).setVisible(false);
+                    getRightJudgesTextbox().get(i).setVisible(false);
+                }
+                else{
+                    getRightJudges().get(i).setVisible(true);
+                    getRightJudgesTextbox().get(i).setVisible(true);
+                }
+                getRightJudges().get(i).setText(allJudges.get(ApparatusIndex.UB).get(i));       //Sets text of label
+            }
+        } else if(rotation == 4 ||rotation == 5 ||rotation == 6){
+            //Sets the judges on the left side; Beams
+            for (int i = 0; i < allJudges.get(ApparatusIndex.BB).size(); i++){
+                //Checks if there is a judge
+                if (allJudges.get(ApparatusIndex.BB).get(i).equals("- Select Judges -")){
+                    getLeftJudges().get(i).setVisible(false);
+                    getLeftJudgesTextbox().get(i).setVisible(false);
+                }
+                else{
+                    getLeftJudges().get(i).setVisible(true);
+                    getLeftJudgesTextbox().get(i).setVisible(true);
+                }
+                getLeftJudges().get(i).setText(allJudges.get(ApparatusIndex.BB).get(i));       //Sets text of label
+            }
+            //Sets the judges on the right side; Floor
+            for (int i = 0; i < allJudges.get(ApparatusIndex.FX).size(); i++){
+                //Checks if there is a judge
+                if (allJudges.get(ApparatusIndex.FX).get(i).equals("- Select Judges -")){
+                    getRightJudges().get(i).setVisible(false);
+                    getRightJudgesTextbox().get(i).setVisible(false);
+                }
+                else{
+                    getRightJudges().get(i).setVisible(true);
+                    getRightJudgesTextbox().get(i).setVisible(true);
+                }
+                getRightJudges().get(i).setText(allJudges.get(ApparatusIndex.FX).get(i));       //Sets text of label
+            }
+        }
+
+    }
+
+    //Returns the Judges Label on the left side
+    private List<JLabel> getLeftJudges(){
+        return Arrays.asList(jL11, jL12, jL13, jL14, jL15, jL16);
+    }
+    //Returns the Judges Label on the right side
+    private List<JLabel> getRightJudges(){
+        return Arrays.asList(jL21, jL22, jL23, jL24, jL25, jL26);
+    }
+    //Returns the Judges TextField on the left side
+    private List<JTextField> getLeftJudgesTextbox(){
+        return Arrays.asList(j11, j12, j13, j14, j15, j16);
+    }
+    //Returns the Judges TextField on the left side
+    private List<JTextField> getRightJudgesTextbox(){
+        return Arrays.asList(j21, j22, j23, j24, j25, j26);
+    }
+
+
+    List<List<Judge>> judges = new ArrayList<List<Judge>>();
+    List<Judge> floorJudges = new ArrayList<Judge>();
+    List<Judge> beamJudges = new ArrayList<Judge>();
+    List<Judge> vaultJudges = new ArrayList<Judge>();
+    List<Judge> barJudges = new ArrayList<Judge>();
+    public String currentevent1;
+    public String currentevent2;
+    public Team homeCopy, visitor1Copy, visitor2Copy;
+    //Directory for pictures folder
+    String picturePath = System.getProperty("user.dir") + "/pictures/";
 
     private Color defaultColor = new Color(51, 51, 51); //default font color
     private int rotation = 1;
@@ -716,7 +1126,6 @@ public class TriScorekeeperScreen {
     private JLabel team2App;
     private JTextField j16;
     private JLabel team1App;
-    private JButton backButton;
     private JButton nextRotationButton;
     private JButton updateScoreButton1;
     private JButton updateScoreButton2;
@@ -737,5 +1146,19 @@ public class TriScorekeeperScreen {
     private JCheckBox timerCheckbox;
     private JTextField nD1;
     private JTextField nD2;
+    private JComboBox vaultCombo1;
+    private JComboBox vaultCombo2;
+    private JLabel jL11;
+    private JLabel jL12;
+    private JLabel jL13;
+    private JLabel jL14;
+    private JLabel jL15;
+    private JLabel jL16;
+    private JLabel jL21;
+    private JLabel jL22;
+    private JLabel jL23;
+    private JLabel jL24;
+    private JLabel jL25;
+    private JLabel jL26;
     private CardLayout cardLayout;
 }

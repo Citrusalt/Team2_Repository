@@ -13,8 +13,10 @@ import java.util.List;
 public class EditLineupScreen extends JDialog {
 
     //Passing in home and visitor team into constructor, you might need to pass in more info
-    public EditLineupScreen(Team home, Team visitor, int currentRotation) {
+    public EditLineupScreen(Team home, Team visitor, Team visitor2, int currentRotation, String meetType) {
 
+        meet = meetType;           //We have to add this now in order for all meet type to use this        //
+        //We have to add visitor 2, visitor 3 in parameter
 
         System.out.println("============== PRINTING ALL HOME ===============");         //
         home.printAll();
@@ -30,34 +32,53 @@ public class EditLineupScreen extends JDialog {
         //This will be useful when passing back the home Team. If it's true, it will be modified, else, it will just as is
         editHome = home;            //Sets editHome to the passed in
         editVisitor = visitor;      //Sets editVisitor to the passed in
+        editVisitor2 = visitor2;
 
         //card layout start
         cardLayout = (CardLayout) mainPanel.getLayout();
         changeCard("DefaultCard");
 
-        //set logos
-        homeLogo.setIcon(new ImageIcon("src/com/company/pictures/" + home.getTeamLogo()));
-        visitorLogo.setIcon(new ImageIcon("src/com/company/pictures/" + visitor.getTeamLogo()));
+        if (meetType.equals("Dual")){
+            //set logos
+            homeLogo.setIcon(new ImageIcon("src/com/company/pictures/" + home.getTeamLogo()));
+            visitorLogo.setIcon(new ImageIcon("src/com/company/pictures/" + visitor.getTeamLogo()));
+        } else if (meetType.equals("Tri")){
+            //do sumn
+        }
 
 
        //At the start, set to currentRotation
         rotationNum = currentRotation;                   //Current rotation it's at in the run mode
         rotationCombo.setSelectedIndex(currentRotation-1);
-        updateRotation(rotationCombo, home, visitor, rotationNum);
+        updateRotation(rotationCombo, home, visitor, visitor2, rotationNum, meet);     //Change this
 
         homeSubButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Home Team Substitute Player Button Press");
-                //We populate the combobox now. If it's home,
-                //Populate currentCombo and allCombo
-                switch (rotationCombo.getSelectedIndex()) {
-                    case 0: populateComboboxSub(home.getVaultGymnasts(), home); break;
-                    case 1: populateComboboxSub(home.getBarGymnasts(), home); break;
-                    case 2: populateComboboxSub(home.getBeamGymnasts(), home); break;
-                    case 3: populateComboboxSub(home.getFloorGymnasts(), home); break;
+                if(meetType.equals("Dual")){
+                    //We populate the combobox now. If it's home,
+                    //Populate currentCombo and allCombo
+                    switch (rotationCombo.getSelectedIndex()) {
+                        case 0: populateComboboxSub(home.getVaultGymnasts(), home); break;
+                        case 1: populateComboboxSub(home.getBarGymnasts(), home); break;
+                        case 2: populateComboboxSub(home.getBeamGymnasts(), home); break;
+                        case 3: populateComboboxSub(home.getFloorGymnasts(), home); break;
+                    }
+                    changeCard("SubGymnastCard");
+                } else if(meetType.equals("Tri")){
+                    //We populate the combobox now for sub
+                    switch (rotationCombo.getSelectedIndex()) {
+                        case 0: populateComboboxSub(home.getVaultGymnasts(), home); break;
+                        case 1: populateComboboxSub(visitor2.getVaultGymnasts(), home); break;
+                        case 2: populateComboboxSub(visitor.getVaultGymnasts(), home); break;
+                        case 3: populateComboboxSub(home.getBeamGymnasts(), home); break;
+                        case 4: populateComboboxSub(visitor2.getBeamGymnasts(), home); break;
+                        case 5: populateComboboxSub(visitor.getBeamGymnasts(), home); break;
+
+                    }
+                    changeCard("SubGymnastCard");
                 }
-                changeCard("SubGymnastCard");
             }
         });
 
@@ -65,111 +86,255 @@ public class EditLineupScreen extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Visitor Team Substitute Player Button Press");
-                //Populate currentCombo and allCombo
-                switch (rotationCombo.getSelectedIndex()) {
-                    case 0: populateComboboxSub(visitor.getBarGymnasts(), visitor); break;
-                    case 1: populateComboboxSub(visitor.getVaultGymnasts(), visitor); break;
-                    case 2: populateComboboxSub(visitor.getFloorGymnasts(), visitor); break;
-                    case 3: populateComboboxSub(visitor.getBeamGymnasts(), visitor); break;
+                if(meet.equals("Dual")){
+                    //Populate currentCombo and allCombo
+                    switch (rotationCombo.getSelectedIndex()) {
+                        case 0: populateComboboxSub(visitor.getBarGymnasts(), visitor); break;
+                        case 1: populateComboboxSub(visitor.getVaultGymnasts(), visitor); break;
+                        case 2: populateComboboxSub(visitor.getFloorGymnasts(), visitor); break;
+                        case 3: populateComboboxSub(visitor.getBeamGymnasts(), visitor); break;
+                    }
+                    changeCard("SubGymnastCard");
                 }
-                changeCard("SubGymnastCard");
+                else if(meet.equals("Tri")){
+                    switch (rotationCombo.getSelectedIndex()) {
+                        case 0: populateComboboxSub(visitor.getBarGymnasts(), visitor); break;
+                        case 1: populateComboboxSub(home.getBarGymnasts(), visitor); break;
+                        case 2: populateComboboxSub(visitor2.getBarGymnasts(), visitor); break;
+                        case 3: populateComboboxSub(visitor2.getFloorGymnasts(), visitor); break;
+                        case 4: populateComboboxSub(visitor.getFloorGymnasts(), visitor); break;
+                        case 5: populateComboboxSub(home.getFloorGymnasts(), visitor); break;
+                    }
+                    changeCard("SubGymnastCard");
+                }
             }
         });
 
         saveChangesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                boolean valid = false;
-                switch(rotationCombo.getSelectedIndex()){
-                    case 0:
-                        if(valid = checkSaveValid(home.getVaultGymnasts(), visitor.getBarGymnasts())){      //Checks if valid
-                            organizedList(home.getVaultGymnasts(), gethomeCombo(), ApparatusIndex.VT);        //
-                            organizedList(visitor.getBarGymnasts(), getvisitorCombo(), ApparatusIndex.UB);
+               if(meet.equals("Dual")){
+                   boolean valid = false;
+                   switch(rotationCombo.getSelectedIndex()){
+                       case 0:
+                           if(valid = checkSaveValid(home.getVaultGymnasts(), visitor.getBarGymnasts())){      //Checks if valid
+                               organizedList(home.getVaultGymnasts(), gethomeCombo(), ApparatusIndex.VT);        //
+                               organizedList(visitor.getBarGymnasts(), getvisitorCombo(), ApparatusIndex.UB);
 
-                            home.arrangeByOrderList(home.getVaultGymnasts(), ApparatusIndex.VT);
-                            visitor.arrangeByOrderList(visitor.getBarGymnasts(), ApparatusIndex.UB);
-                        } break;
-                    case 1:
-                        if(valid = checkSaveValid(home.getBarGymnasts(), visitor.getVaultGymnasts())){
-                            organizedList(home.getBarGymnasts(), gethomeCombo(), ApparatusIndex.UB);        //
-                            organizedList(visitor.getVaultGymnasts(), getvisitorCombo(), ApparatusIndex.VT);
+                               home.arrangeByOrderList(home.getVaultGymnasts(), ApparatusIndex.VT);
+                               visitor.arrangeByOrderList(visitor.getBarGymnasts(), ApparatusIndex.UB);
+                           } break;
+                       case 1:
+                           if(valid = checkSaveValid(home.getBarGymnasts(), visitor.getVaultGymnasts())){
+                               organizedList(home.getBarGymnasts(), gethomeCombo(), ApparatusIndex.UB);        //
+                               organizedList(visitor.getVaultGymnasts(), getvisitorCombo(), ApparatusIndex.VT);
 
-                            home.arrangeByOrderList(home.getBarGymnasts(), ApparatusIndex.UB);
-                            visitor.arrangeByOrderList(visitor.getVaultGymnasts(), ApparatusIndex.VT);
-                        } break;
-                    case 2:
-                        if(valid = checkSaveValid(home.getBeamGymnasts(), visitor.getFloorGymnasts())){
-                            organizedList(home.getBeamGymnasts(), gethomeCombo(), ApparatusIndex.BB);        //
-                            organizedList(visitor.getFloorGymnasts(), getvisitorCombo(), ApparatusIndex.FX);
+                               home.arrangeByOrderList(home.getBarGymnasts(), ApparatusIndex.UB);
+                               visitor.arrangeByOrderList(visitor.getVaultGymnasts(), ApparatusIndex.VT);
+                           } break;
+                       case 2:
+                           if(valid = checkSaveValid(home.getBeamGymnasts(), visitor.getFloorGymnasts())){
+                               organizedList(home.getBeamGymnasts(), gethomeCombo(), ApparatusIndex.BB);        //
+                               organizedList(visitor.getFloorGymnasts(), getvisitorCombo(), ApparatusIndex.FX);
 
-                            home.arrangeByOrderList(home.getBeamGymnasts(), ApparatusIndex.BB);
-                            visitor.arrangeByOrderList(visitor.getFloorGymnasts(), ApparatusIndex.FX);
-                        } break;
-                    case 3:
-                        if(valid =checkSaveValid(home.getFloorGymnasts(), visitor.getBeamGymnasts())){
-                            organizedList(home.getFloorGymnasts(), gethomeCombo(), ApparatusIndex.FX);        //
-                            organizedList(visitor.getBeamGymnasts(), getvisitorCombo(), ApparatusIndex.BB);
+                               home.arrangeByOrderList(home.getBeamGymnasts(), ApparatusIndex.BB);
+                               visitor.arrangeByOrderList(visitor.getFloorGymnasts(), ApparatusIndex.FX);
+                           } break;
+                       case 3:
+                           if(valid =checkSaveValid(home.getFloorGymnasts(), visitor.getBeamGymnasts())){
+                               organizedList(home.getFloorGymnasts(), gethomeCombo(), ApparatusIndex.FX);        //
+                               organizedList(visitor.getBeamGymnasts(), getvisitorCombo(), ApparatusIndex.BB);
 
-                            home.arrangeByOrderList(home.getFloorGymnasts(), ApparatusIndex.FX);
-                            visitor.arrangeByOrderList(visitor.getBeamGymnasts(), ApparatusIndex.BB);
-                        } break;
-                }
-                if(valid){
-                    editHome = home;
-                    editVisitor = visitor;
-                    dispose();
-                }
+                               home.arrangeByOrderList(home.getFloorGymnasts(), ApparatusIndex.FX);
+                               visitor.arrangeByOrderList(visitor.getBeamGymnasts(), ApparatusIndex.BB);
+                           } break;
+                   }
+                   if(valid){
+                       editHome = home;
+                       editVisitor = visitor;
+                       dispose();
+                   }
+               }else if(meet.equals("Tri")){
+                   boolean valid = false;
+                   switch(rotationCombo.getSelectedIndex()){
+                       case 0:
+                           if(valid = checkSaveValid(home.getVaultGymnasts(), visitor.getBarGymnasts())){      //Checks if valid
+                               organizedList(home.getVaultGymnasts(), gethomeCombo(), ApparatusIndex.VT);        //
+                               organizedList(visitor.getBarGymnasts(), getvisitorCombo(), ApparatusIndex.UB);
+
+                               home.arrangeByOrderList(home.getVaultGymnasts(), ApparatusIndex.VT);
+                               visitor.arrangeByOrderList(visitor.getBarGymnasts(), ApparatusIndex.UB);
+                           } break;
+                       case 1:
+                           if(valid = checkSaveValid(visitor2.getVaultGymnasts(), home.getBarGymnasts())){
+                               organizedList(visitor2.getVaultGymnasts(), gethomeCombo(), ApparatusIndex.VT);        //
+                               organizedList(home.getBarGymnasts(), getvisitorCombo(), ApparatusIndex.UB);
+
+                               visitor2.arrangeByOrderList(visitor2.getVaultGymnasts(), ApparatusIndex.VT);
+                               home.arrangeByOrderList(home.getBarGymnasts(), ApparatusIndex.UB);
+                           } break;
+                       case 2:
+                           if(valid = checkSaveValid(visitor.getVaultGymnasts(), visitor2.getBarGymnasts())){
+                               organizedList(visitor.getVaultGymnasts(), gethomeCombo(), ApparatusIndex.VT);        //
+                               organizedList(visitor2.getBarGymnasts(), getvisitorCombo(), ApparatusIndex.UB);
+
+                               visitor.arrangeByOrderList(visitor.getVaultGymnasts(), ApparatusIndex.VT);
+                               visitor2.arrangeByOrderList(visitor2.getBarGymnasts(), ApparatusIndex.UB);
+                           } break;
+                       case 3:
+                           if(valid =checkSaveValid(home.getBeamGymnasts(), visitor2.getFloorGymnasts())){
+                               organizedList(home.getBeamGymnasts(), gethomeCombo(), ApparatusIndex.BB);        //
+                               organizedList(visitor2.getFloorGymnasts(), getvisitorCombo(), ApparatusIndex.FX);
+
+                               home.arrangeByOrderList(home.getBeamGymnasts(), ApparatusIndex.BB);
+                               visitor2.arrangeByOrderList(visitor2.getFloorGymnasts(), ApparatusIndex.FX);
+                           } break;
+                       case 4:
+                           if(valid =checkSaveValid(visitor2.getBeamGymnasts(), visitor.getFloorGymnasts())){
+                               organizedList(visitor2.getBeamGymnasts(), gethomeCombo(), ApparatusIndex.BB);        //
+                               organizedList(visitor.getFloorGymnasts(), getvisitorCombo(), ApparatusIndex.FX);
+
+                               visitor2.arrangeByOrderList(visitor2.getBeamGymnasts(), ApparatusIndex.BB);
+                               visitor.arrangeByOrderList(visitor.getFloorGymnasts(), ApparatusIndex.FX);
+                           } break;
+                       case 5:
+                           if(valid =checkSaveValid(visitor.getBeamGymnasts(), home.getFloorGymnasts())){
+                               organizedList(visitor.getBeamGymnasts(), gethomeCombo(), ApparatusIndex.BB);        //
+                               organizedList(home.getFloorGymnasts(), getvisitorCombo(), ApparatusIndex.FX);
+
+                               visitor.arrangeByOrderList(visitor.getBeamGymnasts(), ApparatusIndex.BB);
+                               home.arrangeByOrderList(home.getFloorGymnasts(), ApparatusIndex.FX);
+                           } break;
+                   }
+                   if(valid){
+                       editHome = home;
+                       editVisitor = visitor;
+                       editVisitor2 = visitor2;
+                       dispose();
+                   }
+               }
             }
         });
         rotationCombo.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 //feel free to change this
-                updateRotation(rotationCombo, home, visitor, rotationNum);
+                updateRotation(rotationCombo, home, visitor, visitor2, rotationNum, meetType);
             }
         });
 
         saveChangesButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //We gotta determine if we selected from home or visitor
-                Team temp = null;
-                List<String> homeName = new ArrayList<>();
-                home.getAllGymnasts().forEach(
-                        gymnast->{
-                            homeName.add(gymnast.getPlayerfName() +" "+ gymnast.getPlayerlName());
-                        }
-                );
+                if(meet.equals("Dual")){
+                    //We gotta determine if we selected from home or visitor
+                    Team temp = null;
+                    List<String> homeName = new ArrayList<>();
+                    home.getAllGymnasts().forEach(
+                            gymnast->{
+                                homeName.add(gymnast.getPlayerfName() +" "+ gymnast.getPlayerlName());
+                            }
+                    );
 
-                int option = JOptionPane.showConfirmDialog(null, currentCombo.getSelectedItem().toString()
-                        +"  will be replaced by " + allCombo.getSelectedItem().toString()+ "."
-                        + "\nAre you sure you want to continue?");
-                if(option == 0){
-                    if(homeName.contains(currentCombo.getSelectedItem().toString())){
-                        //means they are home team
-                        System.out.println("This is the home team");
-                        switch (rotationCombo.getSelectedIndex()) {
-                            case 0: temp = updatesubstituteGymnast(ApparatusIndex.VT, home); break;
-                            case 1: temp = updatesubstituteGymnast(ApparatusIndex.UB, home); break;
-                            case 2: temp = updatesubstituteGymnast(ApparatusIndex.BB, home); break;
-                            case 3: temp = updatesubstituteGymnast(ApparatusIndex.FX, home); break;
+                    int option = JOptionPane.showConfirmDialog(null, currentCombo.getSelectedItem().toString()
+                            +"  will be replaced by " + allCombo.getSelectedItem().toString()+ "."
+                            + "\nAre you sure you want to continue?");
+                    if(option == 0){
+                        if(homeName.contains(currentCombo.getSelectedItem().toString())){
+                            //means they are home team
+                            System.out.println("This is the home team");
+                            switch (rotationCombo.getSelectedIndex()) {
+                                case 0: temp = updatesubstituteGymnast(ApparatusIndex.VT, home); break;
+                                case 1: temp = updatesubstituteGymnast(ApparatusIndex.UB, home); break;
+                                case 2: temp = updatesubstituteGymnast(ApparatusIndex.BB, home); break;
+                                case 3: temp = updatesubstituteGymnast(ApparatusIndex.FX, home); break;
+                            }
+                            temp.updateApparatusLists();
+                            editHome= temp;
+                        } else{
+                            //means they are visitor
+                            System.out.println("This is the visitor team");
+                            switch (rotationCombo.getSelectedIndex()) {
+                                case 0: temp = updatesubstituteGymnast(ApparatusIndex.UB, visitor); break;
+                                case 1: temp = updatesubstituteGymnast(ApparatusIndex.VT, visitor); break;
+                                case 2: temp = updatesubstituteGymnast(ApparatusIndex.FX, visitor); break;
+                                case 3: temp = updatesubstituteGymnast(ApparatusIndex.BB, visitor); break;
+                            }
+                            temp.updateApparatusLists();
+                            editVisitor = temp;
+
                         }
-                        editHome= temp;
-                    }else{
-                        //means they are visitor
-                        System.out.println("This is the visitor team");
-                        switch (rotationCombo.getSelectedIndex()) {
-                            case 0: temp = updatesubstituteGymnast(ApparatusIndex.UB, visitor); break;
-                            case 1: temp = updatesubstituteGymnast(ApparatusIndex.VT, visitor); break;
-                            case 2: temp = updatesubstituteGymnast(ApparatusIndex.FX, visitor); break;
-                            case 3: temp = updatesubstituteGymnast(ApparatusIndex.BB, visitor); break;
-                        }
-                        editVisitor = temp;
+                        temp.updateApparatusLists();
+                        temp.printAll();
+                        updateRotation(rotationCombo, editHome, editVisitor, editVisitor2, rotationNum, meetType);
+                        changeCard("DefaultCard");
                     }
-                    temp.updateApparatusLists();
-                    temp.printAll();
-                    updateRotation(rotationCombo, editHome, editVisitor, rotationNum);
-                    changeCard("DefaultCard");
+                }else if(meet.equals("Tri")){
+                    //We gotta determine if we selected from home or visitor
+                    Team temp = null;
+                    List<String> homeName = new ArrayList<>();
+                    home.getAllGymnasts().forEach(
+                            gymnast->{
+                                homeName.add(gymnast.getPlayerfName() +" "+ gymnast.getPlayerlName());
+                            }
+                    );
+                    List<String> visitorName = new ArrayList<>();
+                    visitor.getAllGymnasts().forEach(
+                            gymnast->{
+                                visitorName.add(gymnast.getPlayerfName() +" "+ gymnast.getPlayerlName());
+                            }
+                    );
+
+
+                    int option = JOptionPane.showConfirmDialog(null, currentCombo.getSelectedItem().toString()
+                            +"  will be replaced by " + allCombo.getSelectedItem().toString()+ "."
+                            + "\nAre you sure you want to continue?");
+                    if(option == 0){
+                        if(homeName.contains(currentCombo.getSelectedItem().toString())){
+                            //means they are home team
+                            System.out.println("This is the home team");
+                            switch (rotationCombo.getSelectedIndex()) {
+                                case 0: temp = updatesubstituteGymnast(ApparatusIndex.VT, home); break;
+                                case 1: temp = updatesubstituteGymnast(ApparatusIndex.UB, home); break;
+                                //case 2: temp = updatesubstituteGymnast(ApparatusIndex.VT, visitor); break;
+                                case 3: temp = updatesubstituteGymnast(ApparatusIndex.BB, home); break;
+                                //case 4: temp = updatesubstituteGymnast(ApparatusIndex.BB, visitor2); break;
+                                case 5: temp = updatesubstituteGymnast(ApparatusIndex.FX, home); break;
+                            }
+                            temp.updateApparatusLists();
+                            editHome= temp;
+                        } else if(visitorName.contains(currentCombo.getSelectedItem().toString())){
+                            //means they are visitor
+                            System.out.println("This is the visitor team");
+                            switch (rotationCombo.getSelectedIndex()) {
+                                case 0: temp = updatesubstituteGymnast(ApparatusIndex.UB, visitor); break;
+                                //case 1: temp = updatesubstituteGymnast(ApparatusIndex.UB, visitor); break;
+                                case 2: temp = updatesubstituteGymnast(ApparatusIndex.VT, visitor); break;
+                                //case 3: temp = updatesubstituteGymnast(ApparatusIndex.BB, visitor); break;
+                                case 4: temp = updatesubstituteGymnast(ApparatusIndex.FX, visitor); break;
+                                case 5: temp = updatesubstituteGymnast(ApparatusIndex.BB, visitor); break;
+                            }
+                            temp.updateApparatusLists();
+                            editVisitor = temp;
+                        }else{
+                            //means they are visitor2
+                            System.out.println("This is the visitor2 team");
+                            switch (rotationCombo.getSelectedIndex()) {
+                                //case 0: temp = updatesubstituteGymnast(ApparatusIndex.UB, visitor2); break;
+                                case 1: temp = updatesubstituteGymnast(ApparatusIndex.VT, visitor2); break;
+                                case 2: temp = updatesubstituteGymnast(ApparatusIndex.UB, visitor2); break;
+                                case 3: temp = updatesubstituteGymnast(ApparatusIndex.FX, visitor2); break;
+                                case 4: temp = updatesubstituteGymnast(ApparatusIndex.BB, visitor2); break;
+                                //case 5: temp = updatesubstituteGymnast(ApparatusIndex.BB, visitor2); break;
+                            }
+                            temp.updateApparatusLists();
+                            editVisitor2 = temp;
+                        }
+                        temp.updateApparatusLists();
+                        temp.printAll();
+                        updateRotation(rotationCombo, editHome, editVisitor, editVisitor2, rotationNum, meetType);
+                        changeCard("DefaultCard");
+                    }
                 }
             }
         });
@@ -184,37 +349,85 @@ public class EditLineupScreen extends JDialog {
         setVisible(true);   //KEEP THIS AT THE BOTTOM!!!
     }
 
-    private void updateRotation(JComboBox rotationCombo, Team home, Team visitor, int rotationNum) {
-        currentRotation = false;                            //This will help us determine how to populate comboboxes
-        switch (rotationCombo.getSelectedIndex()) {
-            case 0:
-                if (rotationNum-1 == 0) currentRotation = true;       //Selected index is it's the current rotation it's at in run
-                homeEventLabel.setText("VAULT");
-                visitorEventLabel.setText("BARS");
-                populateCombobox(gethomeCombo(), home.getVaultGymnasts(), currentRotation);
-                populateCombobox(getvisitorCombo(), visitor.getBarGymnasts(), currentRotation);
-                break;
-            case 1:
-                if (rotationNum-1 == 1) currentRotation = true;       //Selected index is the currentRotation
-                homeEventLabel.setText("BARS");
-                visitorEventLabel.setText("VAULT");
-                populateCombobox(gethomeCombo(), home.getBarGymnasts(), currentRotation);
-                populateCombobox(getvisitorCombo(), visitor.getVaultGymnasts(),currentRotation);
-                break;
-            case 2:
-                if (rotationNum-1 == 2) currentRotation = true;       //Selected index is the currentRotation
-                homeEventLabel.setText("BEAM");
-                visitorEventLabel.setText("FLOOR");
-                populateCombobox(gethomeCombo(), home.getBeamGymnasts(),currentRotation);
-                populateCombobox(getvisitorCombo(), visitor.getFloorGymnasts(), currentRotation);
-                break;
-            case 3:
-                if (rotationNum-1 == 3) currentRotation = true;       //Selected index is the currentRotation
-                homeEventLabel.setText("FLOOR");
-                visitorEventLabel.setText("BEAM");
-                populateCombobox(gethomeCombo(), home.getFloorGymnasts(), currentRotation);
-                populateCombobox(getvisitorCombo(), visitor.getBeamGymnasts(), currentRotation);
-                break;
+    private void updateRotation(JComboBox rotationCombo, Team home, Team visitor, Team visitor2, int rotationNum, String meet) {
+        if(meet.equals("Dual")){
+            currentRotation = false;                            //This will help us determine how to populate comboboxes
+            switch (rotationCombo.getSelectedIndex()) {
+                case 0:
+                    if (rotationNum-1 == 0) currentRotation = true;       //Selected index is it's the current rotation it's at in run
+                    homeEventLabel.setText("VAULT");
+                    visitorEventLabel.setText("BARS");
+                    populateCombobox(gethomeCombo(), home.getVaultGymnasts(), currentRotation);
+                    populateCombobox(getvisitorCombo(), visitor.getBarGymnasts(), currentRotation);
+                    break;
+                case 1:
+                    if (rotationNum-1 == 1) currentRotation = true;       //Selected index is the currentRotation
+                    homeEventLabel.setText("BARS");
+                    visitorEventLabel.setText("VAULT");
+                    populateCombobox(gethomeCombo(), home.getBarGymnasts(), currentRotation);
+                    populateCombobox(getvisitorCombo(), visitor.getVaultGymnasts(),currentRotation);
+                    break;
+                case 2:
+                    if (rotationNum-1 == 2) currentRotation = true;       //Selected index is the currentRotation
+                    homeEventLabel.setText("BEAM");
+                    visitorEventLabel.setText("FLOOR");
+                    populateCombobox(gethomeCombo(), home.getBeamGymnasts(),currentRotation);
+                    populateCombobox(getvisitorCombo(), visitor.getFloorGymnasts(), currentRotation);
+                    break;
+                case 3:
+                    if (rotationNum-1 == 3) currentRotation = true;       //Selected index is the currentRotation
+                    homeEventLabel.setText("FLOOR");
+                    visitorEventLabel.setText("BEAM");
+                    populateCombobox(gethomeCombo(), home.getFloorGymnasts(), currentRotation);
+                    populateCombobox(getvisitorCombo(), visitor.getBeamGymnasts(), currentRotation);
+                    break;
+            }
+        }else if (meet.equals("Tri")){
+            currentRotation = false;                            //This will help us determine how to populate comboboxes
+            switch (rotationCombo.getSelectedIndex()) {
+                case 0:
+                    if (rotationNum-1 == 0) currentRotation = true;       //Selected index is it's the current rotation it's at in run
+                    homeEventLabel.setText("VAULT");
+                    visitorEventLabel.setText("UNEVEN BARS");
+                    populateCombobox(gethomeCombo(), home.getVaultGymnasts(), currentRotation);
+                    populateCombobox(getvisitorCombo(), visitor.getBarGymnasts(), currentRotation);
+                    break;
+                case 1:
+                    if (rotationNum-1 == 1) currentRotation = true;       //Selected index is the currentRotation
+                    homeEventLabel.setText("VAULT");
+                    visitorEventLabel.setText("UNEVEN BARS");
+                    populateCombobox(gethomeCombo(), visitor2.getVaultGymnasts(), currentRotation);
+                    populateCombobox(getvisitorCombo(), home.getBarGymnasts(),currentRotation);
+                    break;
+                case 2:
+                    if (rotationNum-1 == 2) currentRotation = true;       //Selected index is the currentRotation
+                    homeEventLabel.setText("VAULT");
+                    visitorEventLabel.setText("BARS");
+                    populateCombobox(gethomeCombo(), visitor.getVaultGymnasts(),currentRotation);
+                    populateCombobox(getvisitorCombo(), visitor2.getBarGymnasts(), currentRotation);
+                    break;
+                case 3:
+                    if (rotationNum-1 == 3) currentRotation = true;       //Selected index is the currentRotation
+                    homeEventLabel.setText("BALANCED BEAM");
+                    visitorEventLabel.setText("FLOOR EXERCISE");
+                    populateCombobox(gethomeCombo(), home.getBeamGymnasts(), currentRotation);
+                    populateCombobox(getvisitorCombo(), visitor2.getFloorGymnasts(), currentRotation);
+                    break;
+                case 4:
+                    if (rotationNum-1 == 4) currentRotation = true;       //Selected index is the currentRotation
+                    homeEventLabel.setText("BALANCED BEAM");
+                    visitorEventLabel.setText("FLOOR EXERCISE");
+                    populateCombobox(gethomeCombo(), visitor2.getBeamGymnasts(), currentRotation);
+                    populateCombobox(getvisitorCombo(), visitor.getFloorGymnasts(), currentRotation);
+                    break;
+                case 5:
+                    if (rotationNum-1 == 5) currentRotation = true;       //Selected index is the currentRotation
+                    homeEventLabel.setText("BALANCED BEAM");
+                    visitorEventLabel.setText("FLOOR EXERCISE");
+                    populateCombobox(gethomeCombo(), visitor.getBeamGymnasts(), currentRotation);
+                    populateCombobox(getvisitorCombo(), home.getFloorGymnasts(), currentRotation);
+                    break;
+            }
         }
     }
 
@@ -238,6 +451,10 @@ public class EditLineupScreen extends JDialog {
     //Method that will return the modified visitorTeam
     public Team getEditVisitor() {
         return editVisitor;
+    }
+    //Method that will return the modified visitorTeam
+    public Team getEditVisitor2() {
+        return editVisitor2;
     }
 
     //Method that will populate the combobox depending on the passed in parameters
@@ -375,8 +592,11 @@ public class EditLineupScreen extends JDialog {
         return team;
     }
 
+    String meet;
     private Team editHome;
     private Team editVisitor;
+    private Team editVisitor2;
+    private Team editVisitor3;
     private int rotationNum;
     private boolean currentRotation;
     public CardLayout cardLayout;
