@@ -913,7 +913,7 @@ public class TriScorekeeperScreen {
             }
             myArenaScreen.overall1.setText(String.valueOf("Running Team Score:     " + visitor1Copy.getTeamScore().getRunningScore()));
         }
-        myArenaScreen.gymnastCurrent2.setText(String.valueOf("Gymnast Current Score: " + pscore));       //update score on arena screen
+        myArenaScreen.gymnastCurrent1.setText(String.valueOf("Gymnast Current Score: " + pscore));       //update score on arena screen
     }
 
 
@@ -1001,6 +1001,7 @@ public class TriScorekeeperScreen {
             }
             myArenaScreen.overall2.setText(String.valueOf("Running Team Score:     " + homeCopy.getTeamScore().getRunningScore()));
         }
+        myArenaScreen.gymnastCurrent2.setText("Gymnast Current Score: " + String.valueOf(pscore));       //update score on arena screen
     }
 
 
