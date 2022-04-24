@@ -1,8 +1,14 @@
 package com.company;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class QuadArenaScreen {
 
@@ -24,6 +30,161 @@ public class QuadArenaScreen {
             name4.setText(gymnast);
         }
     }
+
+    public void updateGymnastInfo(Player player, int teamNumb, int event){
+
+        if (teamNumb == 1){
+            name1.setText(player.getPlayerfName() + " " + player.getPlayerlName());
+            major1.setText(player.getPlayerMajor());
+            year1.setText(player.getPlayerClass());
+            appAvg1.setText(String.valueOf("Event Average: " + player.getPlayerAvg()[event]));
+            if (event == 0){
+                score1.setText("Gymnast Current Score: " + player.getPlayerScore().getvaultScore());
+            }
+            else if (event == 1){
+                score1.setText("Gymnast Current Score: " + player.getPlayerScore().getbarScore());
+
+            }
+            else if (event == 2){
+                score1.setText("Gymnast Current Score: " + player.getPlayerScore().getbeamScore());
+
+            }
+            else if (event == 3){
+                score1.setText("Gymnast Current Score: " + player.getPlayerScore().getfloorScore());
+            }
+
+            ImageIcon imageIcon = new ImageIcon(picturePath + player.getPlayerPicture());
+            pic1.setIcon(gC.scaleImageIcon(imageIcon, 100, 137));
+        }
+
+        else if (teamNumb == 2){
+            name2.setText(player.getPlayerfName() + " " + player.getPlayerlName());
+            major2.setText(player.getPlayerMajor());
+            year2.setText(player.getPlayerClass());
+            appAvg2.setText(String.valueOf("Event Average: " + player.getPlayerAvg()[event]));
+            if (event == 0){
+                score2.setText("Gymnast Current Score: " + player.getPlayerScore().getvaultScore());
+            }
+            else if (event == 1){
+                score2.setText("Gymnast Current Score: " + player.getPlayerScore().getbarScore());
+
+            }
+            else if (event == 2){
+                score2.setText("Gymnast Current Score: " + player.getPlayerScore().getbeamScore());
+
+            }
+            else if (event == 3){
+                score2.setText("Gymnast Current Score: " + player.getPlayerScore().getfloorScore());
+            }
+            ImageIcon imageIcon = new ImageIcon(picturePath + player.getPlayerPicture());
+            pic2.setIcon(gC.scaleImageIcon(imageIcon, 100, 137));
+        }
+        else if (teamNumb == 3){
+            name3.setText(player.getPlayerfName() + " " + player.getPlayerlName());
+            major3.setText(player.getPlayerMajor());
+            year3.setText(player.getPlayerClass());
+            appAvg3.setText(String.valueOf("Event Average: " + player.getPlayerAvg()[event]));
+            if (event == 0){
+                score3.setText("Gymnast Current Score: " + player.getPlayerScore().getvaultScore());
+            }
+            else if (event == 1){
+                score3.setText("Gymnast Current Score: " + player.getPlayerScore().getbarScore());
+
+            }
+            else if (event == 2){
+                score3.setText("Gymnast Current Score: " + player.getPlayerScore().getbeamScore());
+
+            }
+            else if (event == 3){
+                score3.setText("Gymnast Current Score: " + player.getPlayerScore().getfloorScore());
+            }
+            ImageIcon imageIcon = new ImageIcon(picturePath + player.getPlayerPicture());
+            pic3.setIcon(gC.scaleImageIcon(imageIcon, 100, 137));
+        }
+        else if (teamNumb == 4){
+            name4.setText(player.getPlayerfName() + " " + player.getPlayerlName());
+            major4.setText(player.getPlayerMajor());
+            year4.setText(player.getPlayerClass());
+            appAvg4.setText(String.valueOf("Event Average: " + player.getPlayerAvg()[event]));
+            if (event == 0){
+                score4.setText("Gymnast Current Score: " + player.getPlayerScore().getvaultScore());
+            }
+            else if (event == 1){
+                score4.setText("Gymnast Current Score: " + player.getPlayerScore().getbarScore());
+
+            }
+            else if (event == 2){
+                score4.setText("Gymnast Current Score: " + player.getPlayerScore().getbeamScore());
+
+            }
+            else if (event == 3){
+                score4.setText("Gymnast Current Score: " + player.getPlayerScore().getfloorScore());
+            }
+            ImageIcon imageIcon = new ImageIcon(picturePath + player.getPlayerPicture());
+            pic4.setIcon(gC.scaleImageIcon(imageIcon, 100, 137));
+        }
+
+
+    }
+
+
+    public void nextUpdateDual(Team home, Team visitor1, Team visitor2, Team visitor3, int rotation){
+
+        teamList.add(home);
+        teamList.add(visitor1);
+        teamList.add(visitor2);
+        teamList.add(visitor3);
+
+        //sort list of teams by their running score
+        Collections.sort(teamList, new Comparator<Team>() {
+            @Override
+            public int compare(Team o1, Team o2) {
+                return Double.compare(o1.getTeamScore().getRunningScore(), o2.getTeamScore().getRunningScore());
+            }
+        });
+
+        //reverse list in descending order
+        Collections.reverse(teamList);
+
+        //iterate through list of teams, iterate through players, if all around player, add to playerList
+        for (Team t : teamList){
+            for (Player p : t.getAllGymnasts()){
+                if (gC.checkAllAround(p)){
+                    playerList.add(p);
+                }
+            }
+        }
+
+        //sort players by their total score
+        Collections.sort(playerList, new Comparator<Player>() {
+            @Override
+            public int compare(Player p1, Player p2) {
+                return Double.compare(p1.getPlayerScore().getTotalScore(), p2.getPlayerScore().getTotalScore());
+            }
+        });
+
+        //reverse list in descending order
+        Collections.reverse(playerList);
+
+        //fill tables
+        for (int i = 0; i < playerList.size(); i++){
+            gC.addRowIndividualTableDual(i + 1, playerList.get(i).getPlayerfName() + " " + playerList.get(i).getPlayerlName(), playerList.get(i).getPlayerScore().getTotalScore(), individualModel);
+        }
+
+        updateLabel.setText("Rotation " + rotation + " Results");
+
+        changeCard("UpdatePanel");
+
+        playerList.clear();
+        teamList.clear();
+    }
+
+    public void resetArenaTables(){
+        individualModel.setRowCount(0);
+        teamModel.setRowCount(0);
+    }
+
+
     public void updateRotation(int rotationNumb){
         rotationLabel.setText("Rotation " + rotationNumb);
     }
@@ -221,12 +382,28 @@ public class QuadArenaScreen {
     }
 
     public QuadArenaScreen(GuiCreator gC){
-        frame = new JFrame ("Arena Screen Prototype");
-        frame.setContentPane(arenaScreenPanel);
+        frame = new JFrame ("Quad Arena Screen");
+        frame.setContentPane(mainPanel);
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(null);
-        frame.setVisible(false);
+
+        //card layout start
+        cardLayout = (CardLayout)  mainPanel.getLayout();
+        changeCard("ArenaCard");
+
+        createTables(4);
+        teamTable.getPreferredScrollableViewportSize().setSize(-1,-1);
+        teamPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+
+        individualPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+
+        ImageIcon imageIcon = new ImageIcon(picturePath + "default_picture.png");
+        imageIcon = gC.scaleImageIcon(imageIcon, 100, 137);
+        pic1.setIcon(imageIcon);
+        pic2.setIcon(imageIcon);
+        pic3.setIcon(imageIcon);
+        pic4.setIcon(imageIcon);
     }
 
 
@@ -234,6 +411,11 @@ public class QuadArenaScreen {
         return frame;
     }
 
+    private void createTables(int numbTeams){
+
+        gC.createIndividualTableDual(individualTable, individualModel, individualRenderer, font);
+        gC.createTeamTablePost(teamTable, teamModel, teamRenderer, font, "Current Score");
+    }
 
     //Timer variables
     public Timer timer1;
@@ -255,8 +437,31 @@ public class QuadArenaScreen {
     //frame
     private final JFrame frame;
 
+    //Directory for pictures
+    String picturePath = System.getProperty("user.dir") + "/pictures/";
 
+    GuiCreator gC = new GuiCreator();
 
+    //Table Header Font
+    Font font = new Font ("Verdana", Font.PLAIN, 18);
+
+    //List of players for Update Screen
+    private java.util.List<Player> playerList = new ArrayList<>();
+    //List of teams
+    private java.util.List<Team> teamList = new ArrayList<>();
+
+    //Table models
+    private DefaultTableModel teamModel = new DefaultTableModel();
+    private DefaultTableModel individualModel = new DefaultTableModel();
+
+    private DefaultTableCellRenderer teamRenderer = new DefaultTableCellRenderer();
+    private DefaultTableCellRenderer individualRenderer = new DefaultTableCellRenderer();
+
+    public CardLayout cardLayout;
+
+    public void changeCard(String cardName){
+        cardLayout.show(mainPanel, cardName);
+    }
 
     private JPanel arenaScreenPanel;
     public JLabel name1;
@@ -298,4 +503,17 @@ public class QuadArenaScreen {
     public JLabel appAvg3;
     public JLabel appAvg2;
     public JLabel appAvg4;
+    public JLabel teamName3;
+    public JLabel teamName4;
+    public JLabel logo1;
+    public JLabel logo2;
+    public JLabel logo3;
+    public JLabel logo4;
+    private JPanel updatePanel;
+    private JLabel updateLabel;
+    private JScrollPane individualPane;
+    private JTable individualTable;
+    private JScrollPane teamPane;
+    private JTable teamTable;
+    private JPanel mainPanel;
 }

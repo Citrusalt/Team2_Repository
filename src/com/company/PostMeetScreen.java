@@ -40,9 +40,18 @@ public class PostMeetScreen {
 
             individualScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         }
-        else{
-            testTable(gC, teamModel, individualModel); //for testing and demonstration
+        else if (teams.size() == 3){
+
         }
+        else if (teams.size() == 4){
+
+            quadTables(gC, teamModel, individualModel, teams);
+
+        }
+        else{
+            System.out.println("Invalid Number of Teams");
+        }
+
 
         endButton.addActionListener(new ActionListener() {
             @Override
@@ -113,6 +122,56 @@ public class PostMeetScreen {
         }
     }
 
+    //Test function
+    private void quadTables(GuiCreator gC, DefaultTableModel teamModel, DefaultTableModel individualModel, List<Team> teamList){
+
+        List<Team>myTeamList = new ArrayList<>();
+        List<Player>myPlayerList = new ArrayList<>();
+        myTeamList = teamList;
+
+        //sort list of teams by their running score
+        Collections.sort(teamList, new Comparator<Team>() {
+            @Override
+            public int compare(Team o1, Team o2) {
+                return Double.compare(o1.getTeamScore().getRunningScore(), o2.getTeamScore().getRunningScore());
+            }
+        });
+
+        //reverse list in descending order
+        Collections.reverse(teamList);
+
+
+        //iterate through list of teams, iterate through players, if all around player, add to playerList
+        for (Team t : teamList){
+            for (Player p : t.getAllGymnasts()){
+                if (gC.checkAllAround(p)){
+                    myPlayerList.add(p);
+                }
+            }
+        }
+
+        //sort players by their total score
+        Collections.sort(myPlayerList, new Comparator<Player>() {
+            @Override
+            public int compare(Player p1, Player p2) {
+                return Double.compare(p1.getPlayerScore().getTotalScore(), p2.getPlayerScore().getTotalScore());
+            }
+        });
+
+
+        //reverse list in descending order
+        Collections.reverse(myPlayerList);
+
+        for (int i = 0; i < teamList.size(); i++){
+            gC.addRowTeamTablePost(i+1, teamList.get(i).getTeamName(), teamList.get(i).getTeamScore().getRunningScore(), teamModel);
+        }
+
+
+
+        for (int i = 0; i < myPlayerList.size(); i++){
+            gC.addRowIndividualTableDual(i + 1,myPlayerList.get(i).getPlayerfName() + " " + myPlayerList.get(i).getPlayerlName(), myPlayerList.get(i).getPlayerScore().getTotalScore(), individualModel);
+        }
+    }
 
 
     //Table Header Font

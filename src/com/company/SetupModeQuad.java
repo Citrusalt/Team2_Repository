@@ -71,7 +71,7 @@ public class SetupModeQuad {
                         int homeIndex = homeCombo.getSelectedIndex();//Stores the index of the user selection
                         int visitor1Index = visitor1Combo.getSelectedIndex();
                         int visitor2Index = visitor2Combo.getSelectedIndex();
-                        int visitor3Index = visitor2Combo.getSelectedIndex();
+                        int visitor3Index = visitor3Combo.getSelectedIndex();
 
                         Team home = allTeamfromDB.get(homeIndex-1);             //This has the team data for the home team
                         Team visitor1 = allTeamfromDB.get(visitor1Index-1);       //This has the team data for the visitor team
@@ -82,25 +82,25 @@ public class SetupModeQuad {
                         homeVaultLabel.setText(home.getTeamName());
                         visitor1VaultLabel.setText(visitor1.getTeamName());
                         visitor2VaultLabel.setText(visitor2.getTeamName());
-                        visitor3VaultLabel.setText(visitor2.getTeamName());
+                        visitor3VaultLabel.setText(visitor3.getTeamName());
 
                         //Uneven Bars Screen
                         homeBarsLabel.setText(home.getTeamName());
                         visitor1BarsLabel.setText(visitor1.getTeamName());
                         visitor2BarsLabel.setText(visitor2.getTeamName());
-                        visitor3BarsLabel.setText(visitor2.getTeamName());
+                        visitor3BarsLabel.setText(visitor3.getTeamName());
 
                         //Balance Beam Screen
                         homeBBLabel.setText(home.getTeamName());
                         visitor1BBLabel.setText(visitor1.getTeamName());
                         visitor2BBLabel.setText(visitor2.getTeamName());
-                        visitor3BBLabel.setText(visitor2.getTeamName());
+                        visitor3BBLabel.setText(visitor3.getTeamName());
 
                         //Floor Screen
                         homeFloorLabel.setText(home.getTeamName());
                         visitor1FloorLabel.setText(visitor1.getTeamName());
                         visitor2FloorLabel.setText(visitor2.getTeamName());
-                        visitor3FloorLabel.setText(visitor2.getTeamName());
+                        visitor3FloorLabel.setText(visitor3.getTeamName());
 
                         //Populates ALL ComboBoxes for the HomeTeam; This is where those Lists of comboboxes are used
                         List<JComboBox> homeCombo = gethomeCombo();
@@ -430,7 +430,7 @@ public class SetupModeQuad {
         int homeIndex = homeCombo.getSelectedIndex();
         int visitor1Index = visitor1Combo.getSelectedIndex();
         int visitor2Index = visitor2Combo.getSelectedIndex();
-        int visitor3Index = visitor2Combo.getSelectedIndex();
+        int visitor3Index = visitor3Combo.getSelectedIndex();
 
         List<Team>allTeamfromDB = db.getAllTeams();
 
@@ -438,13 +438,13 @@ public class SetupModeQuad {
         Team home = allTeamfromDB.get(homeIndex-1);
         Team visitor1 = allTeamfromDB.get(visitor1Index-1);
         Team visitor2 = allTeamfromDB.get(visitor2Index-1);
-        Team visitor3 = allTeamfromDB.get(visitor2Index-1);
+        Team visitor3 = allTeamfromDB.get(visitor3Index-1);
 
 
         List<JComboBox> homeBoxes = gethomeCombo();
         List<JComboBox> visitor1Boxes = getvisitor1Combo();
         List<JComboBox> visitor2Boxes = getvisitor2Combo();
-        List<JComboBox> visitor3Boxes = getvisitor2Combo();
+        List<JComboBox> visitor3Boxes = getvisitor3Combo();
 
 
         //may god have mercy on me for this code
@@ -577,8 +577,8 @@ public class SetupModeQuad {
 
         List<JComboBox> home = gethomeCombo();
         List<JComboBox> visitor1 = getvisitor1Combo();
-        List<JComboBox> visitor2 = getvisitor1Combo();
-        List<JComboBox> visitor3 = getvisitor1Combo();
+        List<JComboBox> visitor2 = getvisitor2Combo();
+        List<JComboBox> visitor3 = getvisitor3Combo();
         List<JComboBox> judges = getjudgesCombo();
 
         //clear judges list

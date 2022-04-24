@@ -343,25 +343,11 @@ public class DualScorekeeperScreen {
         updateScoreButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                float scoreArray[] = new float[7];
+
                 List<Double> scoresList = new ArrayList<>();
                 List<JudgeScore> judgeScoreList = new ArrayList<>();
-                //List<Double> scoresList  = new ArrayList<>();
-                //player instance here is just a placeholder
-                // Player player1 = new Player("Name", "2022", "CS", "9.9");
                 try{
-                    //Use these scores to update score for backend and arena screen
-                    //doesn't have to be entered into a "scoreArray" just an example
-               /*     scoreArray[0] = Integer.parseInt(j11.getText());
-                    scoreArray[1] = Integer.parseInt(j12.getText());
-                    scoreArray[2] = Integer.parseInt(j13.getText());
-                    scoreArray[3] = Integer.parseInt(j14.getText());
-                    scoreArray[4] = Integer.parseInt(j15.getText());
-                    scoreArray[5] = Integer.parseInt(j16.getText());
-                    scoreArray[6] = Integer.parseInt(nD1.getText()); //deduction textboxes are called nD1, nD2, nD3, nD4*/
 
-
-//                    System.out.println(myArenaScreen.gymnastCurrent1.getForeground());
 
                     myArenaScreen.gymnastCurrent1.setForeground(Color.RED);
                     myArenaScreen.overall1.setForeground(Color.RED);
@@ -369,14 +355,7 @@ public class DualScorekeeperScreen {
                     myArenaScreen.gymnastCurrent2.setForeground(defaultColor);
                     myArenaScreen.overall2.setForeground(defaultColor);
 
-                    //This is just a test input
-//                    float avg = 0;
-//
-//                    for (float i : scoreArray){
-//                        avg += i;
-//                    }
-//                    avg = avg/6;
-//                    myArenaScreen.gymnastCurrent1.setText(String.valueOf(avg));
+
 
                     if (j11.getText().isEmpty() == false && j12.getText().isEmpty() == false) {
                         if (Double.parseDouble(j11.getText()) > 10 || Double.parseDouble(j12.getText()) > 10) {
@@ -503,17 +482,9 @@ public class DualScorekeeperScreen {
             public void actionPerformed(ActionEvent e) {
                 List<Double> scoresList  = new ArrayList<>();
                 List<JudgeScore> judgeScoreList = new ArrayList<>();
-                float scoreArray[] = new float[7];
+
                 try{
-                    //Use these scores to update score for backend and arena screen
-                    //doesn't have to be entered into a "scoreArray" just an example
-                   /* scoreArray[0] = Integer.parseInt(j21.getText());
-                    scoreArray[1] = Integer.parseInt(j22.getText());
-                    scoreArray[2] = Integer.parseInt(j23.getText());
-                    scoreArray[3] = Integer.parseInt(j24.getText());
-                    scoreArray[4] = Integer.parseInt(j25.getText());
-                    scoreArray[5] = Integer.parseInt(j26.getText());
-                    scoreArray[6] = Integer.parseInt(nD2.getText());*/
+
 
                     myArenaScreen.gymnastCurrent2.setForeground(Color.RED);
                     myArenaScreen.overall2.setForeground(Color.RED);
