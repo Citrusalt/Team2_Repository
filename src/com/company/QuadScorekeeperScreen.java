@@ -1042,42 +1042,6 @@ public class QuadScorekeeperScreen {
     List<Judge> vaultJudges = new ArrayList<Judge>();
     List<Judge> barJudges = new ArrayList<Judge>();
 
-    public void createJudges(List<List<String>> allJudges){
-        //all this a placeholder, just need somewhere to put judge objects
-        // List<Judge> floorJudges = new ArrayList<Judge>();
-        // List<Judge> beamJudges = new ArrayList<Judge>();
-        //List<Judge> vaultJudges = new ArrayList<Judge>();
-        // List<Judge> barJudges = new ArrayList<Judge>();
-        // List<List<Judge>> judges = new ArrayList<List<Judge>>();
-        judges.add(floorJudges);
-        judges.add(barJudges);
-        judges.add(vaultJudges);
-        judges.add(beamJudges);
-        for (int j = 0; j < allJudges.get(0).size(); j++){
-            Judge judge = new Judge();
-            judge.setFname(allJudges.get(0).get(j).toString());
-            judge.setLname(allJudges.get(0).get(j).toString()); //not right but need to put something there
-            vaultJudges.add(judge);
-        }
-        for (int j = 0; j < allJudges.get(1).size(); j++){
-            Judge judge = new Judge();
-            judge.setFname(allJudges.get(1).get(j).toString());
-            judge.setLname(allJudges.get(1).get(j).toString()); //not right but need to put something there
-            barJudges.add(judge);
-        }
-        for (int j = 0; j < allJudges.get(2).size(); j++){
-            Judge judge = new Judge();
-            judge.setFname(allJudges.get(2).get(j).toString());
-            judge.setLname(allJudges.get(2).get(j).toString()); //not right but need to put something there
-            beamJudges.add(judge);
-        }
-        for (int j = 0; j < allJudges.get(3).size(); j++){
-            Judge judge = new Judge();
-            judge.setFname(allJudges.get(3).get(j).toString());
-            judge.setLname(allJudges.get(3).get(j).toString()); //not right but need to put something there
-            floorJudges.add(judge);
-        }
-    }
 
     public void updateDisplay(Dual_Tri_ArenaScreen myArenaScreen, GuiCreator gC, Team home, Team visitor1, Team visitor2, Team visitor3,  int rotation) {
         team1Combo.removeAllItems();
@@ -1203,12 +1167,6 @@ public class QuadScorekeeperScreen {
         }
     }
 
-
-    List<List<Judge>> judges = new ArrayList<List<Judge>>();
-    List<Judge> floorJudges = new ArrayList<Judge>();
-    List<Judge> beamJudges = new ArrayList<Judge>();
-    List<Judge> vaultJudges = new ArrayList<Judge>();
-    List<Judge> barJudges = new ArrayList<Judge>();
 
     public void createJudges(List<List<String>> allJudges){
         judges.add(floorJudges);
@@ -1473,18 +1431,6 @@ public class QuadScorekeeperScreen {
     private int rotation = 1;
     private Boolean showUpdate = true; //if true, it's time to show update, if false, go to next rotation
 
-    private List<JTextField> getHomeJudgesTextbox(){
-        return Arrays.asList(j11, j12, j13, j14, j15, j16);
-    }
-    private List<JTextField> getVisitor1JudgesTextbox(){
-        return Arrays.asList(j21, j22, j23, j24, j25, j26);
-    }
-    private List<JTextField> getVisitor2JudgesTextbox(){
-        return Arrays.asList(j31, j32, j33, j34, j35, j36);
-    }
-    private List<JTextField> getVisitor3JudgesTextbox(){
-        return Arrays.asList(j41, j42, j43, j44, j45, j46);
-    }
     private Color defaultColor = new Color(51, 51, 51); //default font color
 
     //Directory for pictures folder
