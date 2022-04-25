@@ -65,12 +65,7 @@ public class QuadScorekeeperScreen {
         //card layout start
         cardLayout = (CardLayout) mainPanel.getLayout();
         changeCard("CustomizeCard");
-
-        homeCopy = home;
-        visitor1Copy = visitor1;
-        visitor2Copy = visitor1;
-        visitor3Copy = visitor1;
-
+        
         createJudges(allJudges);
 
 
