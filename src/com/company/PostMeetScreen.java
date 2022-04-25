@@ -41,11 +41,11 @@ public class PostMeetScreen {
             individualScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         }
         else if (teams.size() == 3){
-
+            dynamicTable(gC, teamModel, individualModel, teams);
         }
         else if (teams.size() == 4){
 
-            quadTables(gC, teamModel, individualModel, teams);
+            dynamicTable(gC, teamModel, individualModel, teams);
 
         }
         else{
@@ -123,7 +123,7 @@ public class PostMeetScreen {
     }
 
     //Test function
-    private void quadTables(GuiCreator gC, DefaultTableModel teamModel, DefaultTableModel individualModel, List<Team> teamList){
+    private void dynamicTable(GuiCreator gC, DefaultTableModel teamModel, DefaultTableModel individualModel, List<Team> teamList){
 
         List<Team>myTeamList = new ArrayList<>();
         List<Player>myPlayerList = new ArrayList<>();
