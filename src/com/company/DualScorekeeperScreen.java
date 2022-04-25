@@ -4,6 +4,7 @@ import javax.sound.midi.SysexMessage;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -848,6 +849,10 @@ public class DualScorekeeperScreen {
                     PostMeetScreen myPostMode = new PostMeetScreen(gC, teams);
                     myArenaScreen.getFrame().dispose();
                     thisFrame.dispose();
+
+                    //Just testing getting the judges                       //Potato
+                    PostMeetResults postresult = new PostMeetResults("dual", homeCopy, visitorCopy, new File(""), judges);
+
                 }
                 else {
                     updateRotationSimul(myArenaScreen, thisFrame, -1, gC, home, visitor,  allJudges);
@@ -1022,6 +1027,8 @@ public class DualScorekeeperScreen {
     List<Judge> beamJudges = new ArrayList<Judge>();
     List<Judge> vaultJudges = new ArrayList<Judge>();
     List<Judge> barJudges = new ArrayList<Judge>();
+
+
 
     public void createJudges(List<List<String>> allJudges){
         //all this a placeholder, just need somewhere to put judge objects
