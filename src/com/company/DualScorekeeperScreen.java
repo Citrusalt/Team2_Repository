@@ -347,20 +347,62 @@ public class DualScorekeeperScreen {
 
                 List<Double> scoresList = new ArrayList<>();
                 List<JudgeScore> judgeScoreList = new ArrayList<>();
+
+                boolean invalidScore = false;
+                boolean emptyScores = false;
+                boolean oddScores;
                 try{
+                    //Use these scores to update score for backend and arena screen
+                    //doesn't have to be entered into a "scoreArray" just an example
+               /*     scoreArray[0] = Integer.parseInt(j11.getText());
+                    scoreArray[1] = Integer.parseInt(j12.getText());
+                    scoreArray[2] = Integer.parseInt(j13.getText());
+                    scoreArray[3] = Integer.parseInt(j14.getText());
+                    scoreArray[4] = Integer.parseInt(j15.getText());
+                    scoreArray[5] = Integer.parseInt(j16.getText());
+                    scoreArray[6] = Integer.parseInt(nD1.getText()); //deduction textboxes are called nD1, nD2, nD3, nD4*/
+
+//                    System.out.println(myArenaScreen.gymnastCurrent1.getForeground());
+
+                    //This is just a test input
+//                    float avg = 0;
+//
+//                    for (float i : scoreArray){
+//                        avg += i;
+//                    }
+//                    avg = avg/6;
+//                    myArenaScreen.gymnastCurrent1.setText(String.valueOf(avg));
+           /*         if (j11.getText().isEmpty() == false && j12.getText().isEmpty() == false && j13.getText().isEmpty() == false && j14.getText().isEmpty() == false && j15.getText().isEmpty() == false && j16.getText().isEmpty() == false)
+                    {
+                        JOptionPane.showMessageDialog(null, "No scores were entered.");
+                        emptyScores = true;
+                    }*/
+                    for (int i = 0; i<getHomeJudgesTextbox().size(); i++)
+                    {
+                        //if the text field is empty and it is one of the visible ones set flag for later
+                        if(getHomeJudgesTextbox().get(i).getText().isEmpty() && getHomeJudgesTextbox().get(i).isVisible()){
+                            emptyScores = true;
+                        }
+                        //of it is not empty then get it
+                        else if(!getHomeJudgesTextbox().get(i).getText().isEmpty()){
+                            scoresList.add(Double.parseDouble(getHomeJudgesTextbox().get(i).getText()));
+                            JudgeScore judgeScore = new JudgeScore();
+                            judgeScoreList.add(judgeScore);
+                        }
+                    }
+                    for (int i = 0; i< scoresList.size(); i++)
+                    {
+                        if (scoresList.get(i)<0 || scoresList.get(i)>10 ||scoresList.size() % 2 != 0||emptyScores)
+                        {   JOptionPane.showMessageDialog(null, "Invalid Input. Make sure scores are in the appropriate range and all judges have a score.");
+                            invalidScore=true;
+                            break; }
+                    }
 
 
-                    myArenaScreen.gymnastCurrent1.setForeground(Color.RED);
-                    myArenaScreen.overall1.setForeground(Color.RED);
-
-                    myArenaScreen.gymnastCurrent2.setForeground(defaultColor);
-                    myArenaScreen.overall2.setForeground(defaultColor);
-
-
-
+/*
                     if (j11.getText().isEmpty() == false && j12.getText().isEmpty() == false) {
-                        if (Double.parseDouble(j11.getText()) > 10 || Double.parseDouble(j12.getText()) > 10) {
-                            JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
+                        if (Double.parseDouble(j11.getText()) > 10 || Double.parseDouble(j12.getText()) > 10 || Double.parseDouble(j11.getText()) < 0 || Double.parseDouble(j12.getText()) < 0) {
+                            JOptionPane.showMessageDialog(null, "Invalid input.");
                         } else {
                             JudgeScore judgeScore1 = new JudgeScore();
                             JudgeScore judgeScore2 = new JudgeScore();
@@ -370,9 +412,9 @@ public class DualScorekeeperScreen {
                             scoresList.add(Double.parseDouble(j12.getText()));
                         }
                     }
-                    if (j13.getText().isEmpty() == false && j14.getText().isEmpty() == false) {
+                   if (j13.getText().isEmpty() == false && j14.getText().isEmpty() == false) {
                         if (Double.parseDouble(j13.getText()) > 10 || Double.parseDouble(j14.getText()) > 10) {
-                            JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
+                            JOptionPane.showMessageDialog(null, "Invalid input.");
                         } else {
                             JudgeScore judgeScore3 = new JudgeScore();
                             JudgeScore judgeScore4 = new JudgeScore();
@@ -384,7 +426,7 @@ public class DualScorekeeperScreen {
                     }
                     if (j15.getText().isEmpty() == false && j16.getText().isEmpty() == false) {
                         if (Double.parseDouble(j15.getText()) > 10 || Double.parseDouble(j16.getText()) > 10) {
-                            JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
+                            JOptionPane.showMessageDialog(null, "Invalid input.");
                         } else {
                             JudgeScore judgeScore5 = new JudgeScore();
                             JudgeScore judgeScore6 = new JudgeScore();
@@ -393,81 +435,19 @@ public class DualScorekeeperScreen {
                             scoresList.add(Double.parseDouble(j15.getText()));
                             scoresList.add(Double.parseDouble(j16.getText()));
                         }
-                    }
+                    }*/
                     double deduction = 0;
                     if (!nD1.getText().isEmpty()) {
                         deduction = Double.parseDouble(nD1.getText());
                     }
-                    PlayerScore tempScore = new PlayerScore(); //holder to use calculation method
-                    double pscore = tempScore.calculateIndividualScore(scoresList, deduction);
-
-                    myArenaScreen.gymnastCurrent1.setText("Gymnast Current Score: " + String.valueOf(pscore));       //update score on arena screen
-
-                    //these set the appropriate gymnast's apparatus score depending on rotation and team score
-                    //matches the judge score object with the judge from the apparatus
-
-
-                    if (rotation == 1) {
-                        homeCopy.getVaultGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setvaultScore(pscore);
-                        homeCopy.getTeamScore().setvaultScore(homeCopy.getTeamScore().calculateTeamVaultScore(homeCopy.getVaultGymnasts()));
-                        // go through the list of judges scores (these are directly from the text boxes
-                        //set the createScore method in judgescore object, add it to the right judge object scores list
-                        for (int k = 0; k < judgeScoreList.size(); k++)
-                        {
-                            //match the score to the appropriate judge object
-                            judgeScoreList.get(k).createScore(team1App.getText(), homeCopy.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 0, scoresList.get(k));
-                            vaultJudges.get(k).addScore(judgeScoreList.get(k));
-                        }
-
+                    //only want to try to calculate or update on arena screen if there were no invalid scores or if they were not empty
+                    if (!invalidScore && !emptyScores && scoresList.size() % 2 == 0) {
+                        myArenaScreen.gymnastCurrent1.setForeground(Color.RED);
+                        myArenaScreen.overall1.setForeground(Color.RED);
+                        myArenaScreen.gymnastCurrent2.setForeground(defaultColor);
+                        myArenaScreen.overall2.setForeground(defaultColor);
+                        setPlayer1andTeamScore(scoresList, deduction, judgeScoreList, myArenaScreen);
                     }
-                    else if (rotation == 2) {
-                        homeCopy.getBarGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setbarScore(pscore);
-                        homeCopy.getTeamScore().setbarScore(homeCopy.getTeamScore().calculateTeamBarScore(homeCopy.getBarGymnasts()));
-                        for (int k = 0; k < judgeScoreList.size(); k++)
-                        {
-                            //match the score to the appropriate judge object
-                            judgeScoreList.get(k).createScore(team1App.getText(), homeCopy.getBarGymnasts().get(team1Combo.getSelectedIndex()), 0, scoresList.get(k));
-                            barJudges.get(k).addScore(judgeScoreList.get(k));
-                        }
-                    }
-                    else if (rotation == 3) {
-                        homeCopy.getBeamGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setbeamScore(pscore);
-                        homeCopy.getTeamScore().setbeamScore(homeCopy.getTeamScore().calculateTeamBeamScore(homeCopy.getBeamGymnasts()));
-                        for (int k = 0; k < judgeScoreList.size(); k++)
-                        {
-                            //match the score to the appropriate judge object
-                            judgeScoreList.get(k).createScore(team1App.getText(), homeCopy.getBeamGymnasts().get(team1Combo.getSelectedIndex()), 0, scoresList.get(k));
-                            beamJudges.get(k).addScore(judgeScoreList.get(k));
-
-                        }
-                    }
-                    else if (rotation == 4) {
-                        homeCopy.getFloorGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setfloorScore(pscore);
-                        homeCopy.getTeamScore().setfloorScore(homeCopy.getTeamScore().calculateTeamFloorScore(homeCopy.getFloorGymnasts()));
-                        for (int k = 0; k < judgeScoreList.size(); k++)
-                        {
-                            //match the score to the appropriate judge object
-                            judgeScoreList.get(k).createScore(team1App.getText(), homeCopy.getFloorGymnasts().get(team1Combo.getSelectedIndex()), 0, scoresList.get(k));
-                            floorJudges.get(k).addScore(judgeScoreList.get(k));
-                        }
-                        System.out.println(judgeScoreList);
-                    }
-                    myArenaScreen.overall1.setText(String.valueOf("Running Team Score:     " + homeCopy.getTeamScore().getRunningScore()));
-
-                    System.out.println(homeCopy.getTeamScore().getRunningScore()); //why is this 0?
-                    System.out.println(visitor.getTeamScore().getRunningScore());
-
-
-
-                    for (int i = 0 ; i < judges.size(); i++){
-                        for (int j = 0; j < judges.get(i).size(); j++) {
-                            System.out.println(judges.get(i).get(j).getFname());
-                            for (int k = 0; k < judges.get(i).get(j).getScoreList().size(); k++){
-                                System.out.println(judges.get(i).get(j).getScoreList().get(k).getScoreAmt() + " " + judges.get(i).get(j).getScoreList().get(k).getPlayer().getPlayerlName() + " " + judges.get(i).get(j).getScoreList().get(k).getApparatusName());
-                             }
-                         }
-                     }
-
                 } catch (Exception exception) {
                     System.out.println(exception);
                 }
@@ -484,21 +464,38 @@ public class DualScorekeeperScreen {
                 List<Double> scoresList  = new ArrayList<>();
                 List<JudgeScore> judgeScoreList = new ArrayList<>();
 
+                boolean invalidScore = false;
+                boolean emptyScores = false;
+                float scoreArray[] = new float[7];
+
+
                 try{
 
 
-                    myArenaScreen.gymnastCurrent2.setForeground(Color.RED);
-                    myArenaScreen.overall2.setForeground(Color.RED);
 
-                    myArenaScreen.gymnastCurrent1.setForeground(defaultColor);
-                    myArenaScreen.overall1.setForeground(defaultColor);
+                    for (int i = 0; i<getVisitor1JudgesTextbox().size(); i++)
+                    {
+                        if(getVisitor1JudgesTextbox().get(i).getText().isEmpty() && getVisitor1JudgesTextbox().get(i).isVisible()){
+                            emptyScores = true;
+                        }
+                        else if(!getVisitor1JudgesTextbox().get(i).getText().isEmpty()){
+                            scoresList.add(Double.parseDouble(getVisitor1JudgesTextbox().get(i).getText()));
+                            JudgeScore judgeScore = new JudgeScore();
+                            judgeScoreList.add(judgeScore);
+                        }
+                    }
+                    for (int i = 0; i< scoresList.size(); i++)
+                    {
+                        if (scoresList.get(i)<0 || scoresList.get(i)>10 || scoresList.size() % 2 != 0 || emptyScores)
+                        {   JOptionPane.showMessageDialog(null, "Invalid Input. Make sure scores are in the appropriate range and all judges have a score.");
+                            invalidScore=true;
+                            break; }
+                    }
 
-
-
-                    if (!j21.getText().isEmpty() && !j22.getText().isEmpty()){
-                        if (Double.parseDouble(j21.getText()) > 10 || Double.parseDouble(j22.getText()) >10)
+                    /*if (!j21.getText().isEmpty() && !j22.getText().isEmpty()){
+                        if (Double.parseDouble(j21.getText()) > 10 || Double.parseDouble(j22.getText()) >10 || Double.parseDouble(j21.getText()) < 0 || Double.parseDouble(j22.getText()) <0)
                         {
-                            JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
+                            JOptionPane.showMessageDialog(null, "Invalid input.");
                         }
                         else {
                             JudgeScore judgeScore1 = new JudgeScore();
@@ -510,9 +507,9 @@ public class DualScorekeeperScreen {
                         }
                     }
                     if (!j23.getText().isEmpty() && !j24.getText().isEmpty()){
-                        if (Double.parseDouble(j23.getText()) > 10 || Double.parseDouble(j24.getText()) >10)
+                        if (Double.parseDouble(j23.getText()) > 10 || Double.parseDouble(j24.getText()) >10 || Double.parseDouble(j23.getText()) < 0 || Double.parseDouble(j24.getText()) <0)
                         {
-                            JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
+                            JOptionPane.showMessageDialog(null, "Invalid input.");
                         }
                         else {
                             JudgeScore judgeScore3 = new JudgeScore();
@@ -524,9 +521,9 @@ public class DualScorekeeperScreen {
                         }
                     }
                     if (!j25.getText().isEmpty() && !j26.getText().isEmpty()){
-                        if (Double.parseDouble(j25.getText()) > 10 || Double.parseDouble(j26.getText()) >10)
+                        if (Double.parseDouble(j25.getText()) > 10 || Double.parseDouble(j26.getText()) >10 || Double.parseDouble(j25.getText()) < 0 || Double.parseDouble(j26.getText()) < 0)
                         {
-                            JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
+                            JOptionPane.showMessageDialog(null, "Invalid input.");
                         }
                         else {
                             JudgeScore judgeScore5 = new JudgeScore();
@@ -536,61 +533,18 @@ public class DualScorekeeperScreen {
                             scoresList.add(Double.parseDouble(j25.getText()));
                             scoresList.add(Double.parseDouble(j26.getText()));
                         }
-                    }
-
+                    }*/
                     double deduction = 0;
-                    if (!nD1.getText().isEmpty()) {
-                        deduction = Double.parseDouble(nD1.getText());
+                    if (!nD2.getText().isEmpty()) {
+                        deduction = Double.parseDouble(nD2.getText());
                     }
-
-                    PlayerScore tempScore = new PlayerScore(); //holder to use calculation method
-                    double pscore = tempScore.calculateIndividualScore(scoresList, deduction);
-
-                    myArenaScreen.gymnastCurrent2.setText(String.valueOf("Gymnast Current Score: " + pscore));       //update score on arena screen
-
-                    //these set the appropriate gymnast's apparatus score depending on rotation and team score
-                    if (rotation == 1) {
-                        visitorCopy.getBarGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setbarScore(pscore);
-                        visitorCopy.getTeamScore().setbarScore(visitorCopy.getTeamScore().calculateTeamBarScore(visitorCopy.getBarGymnasts()));
-                        for (int k = 0; k < judgeScoreList.size(); k++)
-                        {
-                            //match the score to the appropriate judge object
-                            judgeScoreList.get(k).createScore(team2App.getText(), visitorCopy.getBarGymnasts().get(team2Combo.getSelectedIndex()), 0, scoresList.get(k));
-                            barJudges.get(k).addScore(judgeScoreList.get(k));
-                        }
+                    if (!invalidScore && !emptyScores) {
+                        myArenaScreen.gymnastCurrent2.setForeground(Color.RED);
+                        myArenaScreen.overall2.setForeground(Color.RED);
+                        myArenaScreen.gymnastCurrent1.setForeground(defaultColor);
+                        myArenaScreen.overall1.setForeground(defaultColor);
+                        setPlayer2andTeamScore(scoresList, deduction, judgeScoreList, myArenaScreen);
                     }
-                    else if (rotation == 2) {
-                        visitorCopy.getVaultGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setvaultScore(pscore);
-                        visitorCopy.getTeamScore().setvaultScore(visitorCopy.getTeamScore().calculateTeamVaultScore(visitorCopy.getVaultGymnasts()));
-                        for (int k = 0; k < judgeScoreList.size(); k++)
-                        {
-                            //match the score to the appropriate judge object
-                            judgeScoreList.get(k).createScore(team2App.getText(), visitorCopy.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 0, scoresList.get(k));
-                            vaultJudges.get(k).addScore(judgeScoreList.get(k));
-                        }
-                    }
-                    else if (rotation == 3) {
-                        visitorCopy.getFloorGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setfloorScore(pscore);
-                        visitorCopy.getTeamScore().setfloorScore(visitorCopy.getTeamScore().calculateTeamFloorScore(visitorCopy.getFloorGymnasts()));
-                        for (int k = 0; k < judgeScoreList.size(); k++)
-                        {
-                            //match the score to the appropriate judge object
-                            judgeScoreList.get(k).createScore(team2App.getText(), visitorCopy.getFloorGymnasts().get(team2Combo.getSelectedIndex()), 0, scoresList.get(k));
-                            floorJudges.get(k).addScore(judgeScoreList.get(k));
-                        }
-                    }
-                    else if (rotation == 4) {
-                        visitorCopy.getBeamGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setbeamScore(pscore);
-                        visitorCopy.getTeamScore().setbeamScore(visitorCopy.getTeamScore().calculateTeamBeamScore(visitorCopy.getBeamGymnasts()));
-                        for (int k = 0; k < judgeScoreList.size(); k++)
-                        {
-                            //match the score to the appropriate judge object
-                            judgeScoreList.get(k).createScore(team2App.getText(), visitorCopy.getBeamGymnasts().get(team2Combo.getSelectedIndex()), 0, scoresList.get(k));
-                            beamJudges.get(k).addScore(judgeScoreList.get(k));
-                        }
-                    }
-                    myArenaScreen.overall2.setText(String.valueOf("Running Team Score:     " + visitorCopy.getTeamScore().getRunningScore()));
-                    myArenaScreen.overall2.setText(String.valueOf("Running Team Score:     " + visitorCopy.getTeamScore().getRunningScore()));
 
                 } catch (Exception exception) {
 
@@ -1031,39 +985,37 @@ public class DualScorekeeperScreen {
 
 
     public void createJudges(List<List<String>> allJudges){
-        //all this a placeholder, just need somewhere to put judge objects
-       // List<Judge> floorJudges = new ArrayList<Judge>();
-       // List<Judge> beamJudges = new ArrayList<Judge>();
-        //List<Judge> vaultJudges = new ArrayList<Judge>();
-       // List<Judge> barJudges = new ArrayList<Judge>();
-       // List<List<Judge>> judges = new ArrayList<List<Judge>>();
         judges.add(floorJudges);
         judges.add(barJudges);
         judges.add(vaultJudges);
         judges.add(beamJudges);
         for (int j = 0; j < allJudges.get(0).size(); j++){
+            if (!allJudges.get(0).get(j).equals("- Select Judges -")){
             Judge judge = new Judge();
             judge.setFname(allJudges.get(0).get(j).toString());
             judge.setLname(allJudges.get(0).get(j).toString()); //not right but need to put something there
-            vaultJudges.add(judge);
+            vaultJudges.add(judge);}
         }
         for (int j = 0; j < allJudges.get(1).size(); j++){
+            if (!allJudges.get(1).get(j).equals("- Select Judges -")){
             Judge judge = new Judge();
             judge.setFname(allJudges.get(1).get(j).toString());
             judge.setLname(allJudges.get(1).get(j).toString()); //not right but need to put something there
-            barJudges.add(judge);
+            barJudges.add(judge);}
         }
         for (int j = 0; j < allJudges.get(2).size(); j++){
+            if (!allJudges.get(2).get(j).equals("- Select Judges -")){
             Judge judge = new Judge();
             judge.setFname(allJudges.get(2).get(j).toString());
             judge.setLname(allJudges.get(2).get(j).toString()); //not right but need to put something there
-            beamJudges.add(judge);
+            beamJudges.add(judge);}
         }
         for (int j = 0; j < allJudges.get(3).size(); j++){
+            if (!allJudges.get(3).get(j).equals("- Select Judges -")){
             Judge judge = new Judge();
             judge.setFname(allJudges.get(3).get(j).toString());
             judge.setLname(allJudges.get(3).get(j).toString()); //not right but need to put something there
-            floorJudges.add(judge);
+            floorJudges.add(judge);}
         }
     }
     public void updateDisplay(Dual_Tri_ArenaScreen myArenaScreen, GuiCreator gC, Team home, Team visitor, int rotation) {
@@ -1112,6 +1064,108 @@ public class DualScorekeeperScreen {
         }
     }
 
+    private void setPlayer1andTeamScore(List<Double> scoresList, Double deduction, List<JudgeScore> judgeScoreList, Dual_Tri_ArenaScreen myArenaScreen)
+    {
+        PlayerScore tempScore = new PlayerScore(); //holder to use calculation method
+        double pscore = tempScore.calculateIndividualScore(scoresList, deduction);
+        if (rotation == 1) {
+            homeCopy.getVaultGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setvaultScore(pscore);
+            homeCopy.getTeamScore().setvaultScore(homeCopy.getTeamScore().calculateTeamVaultScore(homeCopy.getVaultGymnasts()));
+            // go through the list of judges scores (these are directly from the text boxes
+            //set the createScore method in judgescore object, add it to the right judge object scores list
+            for (int k = 0; k < judgeScoreList.size(); k++)
+            {
+                //match the score to the appropriate judge object
+                judgeScoreList.get(k).createScore(team1App.getText(), homeCopy.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 0, scoresList.get(k));
+                vaultJudges.get(k).addScore(judgeScoreList.get(k));
+            }
+
+        }
+        else if (rotation == 2) {
+            homeCopy.getBarGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setbarScore(pscore);
+            homeCopy.getTeamScore().setbarScore(homeCopy.getTeamScore().calculateTeamBarScore(homeCopy.getBarGymnasts()));
+            for (int k = 0; k < judgeScoreList.size(); k++)
+            {
+                //match the score to the appropriate judge object
+                judgeScoreList.get(k).createScore(team1App.getText(), homeCopy.getBarGymnasts().get(team1Combo.getSelectedIndex()), 0, scoresList.get(k));
+                barJudges.get(k).addScore(judgeScoreList.get(k));
+            }
+        }
+        else if (rotation == 3) {
+            homeCopy.getBeamGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setbeamScore(pscore);
+            homeCopy.getTeamScore().setbeamScore(homeCopy.getTeamScore().calculateTeamBeamScore(homeCopy.getBeamGymnasts()));
+            for (int k = 0; k < judgeScoreList.size(); k++)
+            {
+                //match the score to the appropriate judge object
+                judgeScoreList.get(k).createScore(team1App.getText(), homeCopy.getBeamGymnasts().get(team1Combo.getSelectedIndex()), 0, scoresList.get(k));
+                beamJudges.get(k).addScore(judgeScoreList.get(k));
+
+            }
+        }
+        else if (rotation == 4) {
+            homeCopy.getFloorGymnasts().get(team1Combo.getSelectedIndex()).getPlayerScore().setfloorScore(pscore);
+            homeCopy.getTeamScore().setfloorScore(homeCopy.getTeamScore().calculateTeamFloorScore(homeCopy.getFloorGymnasts()));
+            for (int k = 0; k < judgeScoreList.size(); k++)
+            {
+                //match the score to the appropriate judge object
+                judgeScoreList.get(k).createScore(team1App.getText(), homeCopy.getFloorGymnasts().get(team1Combo.getSelectedIndex()), 0, scoresList.get(k));
+                floorJudges.get(k).addScore(judgeScoreList.get(k));
+            }
+            System.out.println(judgeScoreList);
+        }
+
+        myArenaScreen.gymnastCurrent1.setText("Gymnast Current Score: " + String.valueOf(pscore));       //update score on arena screen
+        myArenaScreen.overall1.setText(String.valueOf("Running Team Score:     " + homeCopy.getTeamScore().getRunningScore()));
+    }
+
+    private void setPlayer2andTeamScore(List<Double> scoresList, Double deduction, List<JudgeScore> judgeScoreList, Dual_Tri_ArenaScreen myArenaScreen)
+    {PlayerScore tempScore = new PlayerScore(); //holder to use calculation method
+        double pscore = tempScore.calculateIndividualScore(scoresList, deduction);
+
+        //these set the appropriate gymnast's apparatus score depending on rotation and team score
+        if (rotation == 1) {
+            visitorCopy.getBarGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setbarScore(pscore);
+            visitorCopy.getTeamScore().setbarScore(visitorCopy.getTeamScore().calculateTeamBarScore(visitorCopy.getBarGymnasts()));
+            for (int k = 0; k < judgeScoreList.size(); k++)
+            {
+                //match the score to the appropriate judge object
+                judgeScoreList.get(k).createScore(team2App.getText(), visitorCopy.getBarGymnasts().get(team2Combo.getSelectedIndex()), 0, scoresList.get(k));
+                barJudges.get(k).addScore(judgeScoreList.get(k));
+            }
+        }
+        else if (rotation == 2) {
+            visitorCopy.getVaultGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setvaultScore(pscore);
+            visitorCopy.getTeamScore().setvaultScore(visitorCopy.getTeamScore().calculateTeamVaultScore(visitorCopy.getVaultGymnasts()));
+            for (int k = 0; k < judgeScoreList.size(); k++)
+            {
+                //match the score to the appropriate judge object
+                judgeScoreList.get(k).createScore(team2App.getText(), visitorCopy.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 0, scoresList.get(k));
+                vaultJudges.get(k).addScore(judgeScoreList.get(k));
+            }
+        }
+        else if (rotation == 3) {
+            visitorCopy.getFloorGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setfloorScore(pscore);
+            visitorCopy.getTeamScore().setfloorScore(visitorCopy.getTeamScore().calculateTeamFloorScore(visitorCopy.getFloorGymnasts()));
+            for (int k = 0; k < judgeScoreList.size(); k++)
+            {
+                //match the score to the appropriate judge object
+                judgeScoreList.get(k).createScore(team2App.getText(), visitorCopy.getFloorGymnasts().get(team2Combo.getSelectedIndex()), 0, scoresList.get(k));
+                floorJudges.get(k).addScore(judgeScoreList.get(k));
+            }
+        }
+        else if (rotation == 4) {
+            visitorCopy.getBeamGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setbeamScore(pscore);
+            visitorCopy.getTeamScore().setbeamScore(visitorCopy.getTeamScore().calculateTeamBeamScore(visitorCopy.getBeamGymnasts()));
+            for (int k = 0; k < judgeScoreList.size(); k++)
+            {
+                //match the score to the appropriate judge object
+                judgeScoreList.get(k).createScore(team2App.getText(), visitorCopy.getBeamGymnasts().get(team2Combo.getSelectedIndex()), 0, scoresList.get(k));
+                beamJudges.get(k).addScore(judgeScoreList.get(k));
+            }
+        }
+        myArenaScreen.gymnastCurrent2.setText(String.valueOf("Gymnast Current Score: " + pscore));       //update score on arena screen
+        myArenaScreen.overall2.setText(String.valueOf("Running Team Score:     " + visitorCopy.getTeamScore().getRunningScore()));
+    }
 
     public Team homeCopy;
     public Team visitorCopy;
@@ -1128,6 +1182,10 @@ public class DualScorekeeperScreen {
     private List<JTextField> getVisitor1JudgesTextbox(){
         return Arrays.asList(j21, j22, j23, j24, j25, j26);
     }
+
+
+
+
 
 
     //Directory for pictures folder
