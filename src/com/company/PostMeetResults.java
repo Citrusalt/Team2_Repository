@@ -16,14 +16,28 @@ public class PostMeetResults {
     private FileWriter resultsFileW;
 
     //constructors
-    public PostMeetResults(String meetType, Team team1, Team team2, File resultsFile) throws IOException {
+    public PostMeetResults(String meetType, Team team1, Team team2, File resultsFile, List<List<Judge>> judges) {
         this.meetType = meetType;
         this.team1 = team1;
         this.team2 = team2;
         this.team3 = null;
         this.team4 = null;
         this.resultsFile = resultsFile;
-        this.resultsFileW = new FileWriter(resultsFile.toString());
+//        this.resultsFileW = new FileWriter(resultsFile.toString());
+        try{
+            this.resultsFileW = new FileWriter(resultsFile.toString());
+        }catch(Exception e){
+            System.out.println("There was an error in results file W");
+        }
+
+
+
+        team1.printAll();//test
+        team2.printAll();//test
+        System.out.println("Here is a Judge:");
+
+        System.out.println(judges.get(0).get(0).getFname());
+
     }
 
     public PostMeetResults(String meetType, Team team1, Team team2, Team team3, File resultsFile) throws IOException {
@@ -625,4 +639,7 @@ public class PostMeetResults {
         addIndividualBeamToFile();
         addIndividualFloorToFile();
     }
+
+    //Just testing getting the judges
+
 }
