@@ -38,14 +38,15 @@ public class EditLineupScreen extends JDialog {
         cardLayout = (CardLayout) mainPanel.getLayout();
         changeCard("DefaultCard");
 
-        if (meetType.equals("Dual")){
-            //set logos
-            homeLogo.setIcon(new ImageIcon("src/com/company/pictures/" + home.getTeamLogo()));
-            visitorLogo.setIcon(new ImageIcon("src/com/company/pictures/" + visitor.getTeamLogo()));
-        } else if (meetType.equals("Tri")){
-            //do sumn
-        }
 
+
+
+        //Handles the image displayed on the editLineUp
+        changeLogoDisplay(meetType);
+
+        if(meetType.equals("Tri")){
+            rotationCombo.addItem(5);rotationCombo.addItem(6);
+        }
 
        //At the start, set to currentRotation
         rotationNum = currentRotation;                   //Current rotation it's at in the run mode
@@ -331,6 +332,7 @@ public class EditLineupScreen extends JDialog {
                             editVisitor2 = temp;
                         }
                         temp.updateApparatusLists();
+                        System.out.println("=======================THIS IS THE NEW TEAM AFTER SUB==========================");
                         temp.printAll();
                         updateRotation(rotationCombo, editHome, editVisitor, editVisitor2, rotationNum, meetType);
                         changeCard("DefaultCard");
@@ -485,6 +487,7 @@ public class EditLineupScreen extends JDialog {
         String[] cbhomeNames = new String[6];
         String[] cbvisitorNames = new String[6];
         boolean valid = true;
+
         //Populate homeNames, visitorNames, cbhomeNames, cbvisitorNames,
         for(int i = 0; i < 6; i++){
             cbhomeNames[i] = gethomeCombo().get(i).getSelectedItem().toString();              //These are the names from the combobox
@@ -592,6 +595,67 @@ public class EditLineupScreen extends JDialog {
         return team;
     }
 
+
+    //Function that will change the displayed team logo (who is on the left v right) depending on the rotation
+    public void changeLogoDisplay(String meetType){
+        GuiCreator gC = new GuiCreator();
+        ImageIcon icon = new ImageIcon();
+        // ImageIcon imageIcon = new ImageIcon(picturePath + homeCopy.getTeamLogo());
+//            myDualTriArenaScreen.logo1.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+//            imageIcon = new ImageIcon(picturePath + visitor1Copy.getTeamLogo());
+//            myDualTriArenaScreen.logo2.setIcon(gC.scaleImageIcon(imageIcon, 90, 90));
+
+        //            homeLogo.setIcon(new ImageIcon("src/com/company/pictures/" + home.getTeamLogo()));
+
+        if(meetType.equals("Dual")){
+            icon = new ImageIcon(picturePath + editHome.getTeamLogo());
+            homeLogo.setIcon(gC.scaleImageIcon(icon, 40,40));
+            icon = new ImageIcon(picturePath + editVisitor.getTeamLogo());
+            visitorLogo.setIcon(gC.scaleImageIcon(icon, 40,40));
+        }else if (meetType.equals("Tri")){
+            switch(rotationCombo.getSelectedIndex()){
+                case 0:                 //Rotation 1; HOME, VISITOR
+                    icon = new ImageIcon(picturePath + editHome.getTeamLogo());
+                    homeLogo.setIcon(gC.scaleImageIcon(icon, 40,40));
+                    icon = new ImageIcon(picturePath + editVisitor.getTeamLogo());
+                    visitorLogo.setIcon(gC.scaleImageIcon(icon, 40,40));
+                    break;
+                case 1:                 //Rotation 2; VISITOR2, HOME
+                    icon = new ImageIcon(picturePath + editVisitor2.getTeamLogo());
+                    homeLogo.setIcon(gC.scaleImageIcon(icon, 40,40));
+                    icon = new ImageIcon(picturePath + editHome.getTeamLogo());
+                    visitorLogo.setIcon(gC.scaleImageIcon(icon, 40,40));
+                    break;
+                case 2:                 //Rotation 3; VISITOR, VISITOR2
+                    icon = new ImageIcon(picturePath + editVisitor.getTeamLogo());
+                    homeLogo.setIcon(gC.scaleImageIcon(icon, 40,40));
+                    icon = new ImageIcon(picturePath + editVisitor2.getTeamLogo());
+                    visitorLogo.setIcon(gC.scaleImageIcon(icon, 40,40));
+                    break;
+                case 3:                 //Rotation 4; HOME, VISITOR2
+                    icon = new ImageIcon(picturePath + editHome.getTeamLogo());
+                    homeLogo.setIcon(gC.scaleImageIcon(icon, 40,40));
+                    icon = new ImageIcon(picturePath + editVisitor2.getTeamLogo());
+                    visitorLogo.setIcon(gC.scaleImageIcon(icon, 40,40));
+                    break;
+                case 4:                 //Rotation 5;VISITOR2, VISITOR
+                    icon = new ImageIcon(picturePath + editVisitor2.getTeamLogo());
+                    homeLogo.setIcon(gC.scaleImageIcon(icon, 40,40));
+                    icon = new ImageIcon(picturePath + editVisitor.getTeamLogo());
+                    visitorLogo.setIcon(gC.scaleImageIcon(icon, 40,40));
+                    break;
+                case 5:                 //Rotation 6; VISITOR, HOME
+                    icon = new ImageIcon(picturePath + editVisitor.getTeamLogo());
+                    homeLogo.setIcon(gC.scaleImageIcon(icon, 40,40));
+                    icon = new ImageIcon(picturePath + editHome.getTeamLogo());
+                    visitorLogo.setIcon(gC.scaleImageIcon(icon, 40,40));
+                    break;
+            }
+
+        }
+
+    }
+    String picturePath = System.getProperty("user.dir") + "/pictures/";
     String meet;
     private Team editHome;
     private Team editVisitor;

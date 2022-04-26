@@ -437,6 +437,9 @@ public class TriScorekeeperScreen {
         editLineupButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //Keep track of the last player on the apparatus
+                int team1current = team1Combo.getSelectedIndex();
+                int team2current = team2Combo.getSelectedIndex();
                 EditLineupScreen myScreen = new EditLineupScreen(homeCopy, visitor1Copy, visitor2Copy, rotation, "Tri");
                 homeCopy = myScreen.getEditHome();
                 visitor1Copy = myScreen.getEditVisitor();
@@ -444,8 +447,9 @@ public class TriScorekeeperScreen {
                 homeCopy.updateApparatusLists();
                 visitor1Copy.updateApparatusLists();
                 visitor2Copy.updateApparatusLists();
-                //updateDisplay(myArenaScreen, gC, homeCopy, visitorCopy, rotation);
+                updateDisplay(myDualTriArenaScreen, gC, homeCopy, visitor1Copy, visitor1Copy, rotation);
 
+                team1Combo.setSelectedIndex(team1current); team2Combo.setSelectedIndex(team2current);
             }
         });
     }
@@ -459,27 +463,27 @@ public class TriScorekeeperScreen {
         team2Combo.removeAllItems();
         System.out.println("Rotation: " + rotation);
         switch (rotation) {
-            case 1:
+            case 1:         //Rotation 1; HOME, VISITOR
                 gC.updateCombobox(team1Combo, home.getVaultGymnasts());
                 gC.updateCombobox(team2Combo, visitor1.getBarGymnasts());
                 break;
-            case 2:
+            case 2:         //Rotation 2; VISITOR2, HOME
                 gC.updateCombobox(team1Combo, visitor2.getVaultGymnasts());
                 gC.updateCombobox(team2Combo, home.getBarGymnasts());
                 break;
-            case 3:
+            case 3:         //Rotation 3; VISITOR, VISITOR2
                 gC.updateCombobox(team1Combo, visitor1.getVaultGymnasts());
                 gC.updateCombobox(team2Combo, visitor2.getBarGymnasts());
                 break;
-            case 4:
+            case 4:         //Rotation 4; HOME, VISITOR2
                 gC.updateCombobox(team1Combo, home.getBeamGymnasts());
                 gC.updateCombobox(team2Combo, visitor2.getFloorGymnasts());
                 break;
-            case 5:
+            case 5:         //Rotation 5;VISITOR2, VISITOR
                 gC.updateCombobox(team1Combo, visitor2.getBeamGymnasts());
                 gC.updateCombobox(team2Combo, visitor1.getFloorGymnasts());
                 break;
-            case 6:
+            case 6:         //Rotation 6; VISITOR, HOME
                 gC.updateCombobox(team1Combo, visitor1.getBeamGymnasts());
                 gC.updateCombobox(team2Combo, home.getFloorGymnasts());
                 break;
