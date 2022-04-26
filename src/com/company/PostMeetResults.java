@@ -6,61 +6,77 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
+//import static java.util.Arrays.sort;
+
 public class PostMeetResults {
-    private String meetType;
-    private Team team1;
-    private Team team2;
-    private Team team3;
-    private Team team4;
-    private File resultsFile;
+    private final String meetType;
+    private final Team team1;
+    private final Team team2;
+    private final Team team3;
+    private final Team team4;
     private FileWriter resultsFileW;
+    private final List<List<Judge>> judges;
+
 
     //constructors
-    public PostMeetResults(String meetType, Team team1, Team team2, File resultsFile, List<List<Judge>> judges) {
+    public PostMeetResults(String meetType, Team team1, Team team2, File resultsFile, List<List<Judge>> judges) throws IOException {
         this.meetType = meetType;
         this.team1 = team1;
         this.team2 = team2;
         this.team3 = null;
         this.team4 = null;
-        this.resultsFile = resultsFile;
-//        this.resultsFileW = new FileWriter(resultsFile.toString());
+        this.judges = judges;
+        //        this.resultsFileW = new FileWriter(resultsFile.toString());
         try{
             this.resultsFileW = new FileWriter(resultsFile.toString());
         }catch(Exception e){
             System.out.println("There was an error in results file W");
         }
 
-
-
-        team1.printAll();//test
-        team2.printAll();//test
-        System.out.println("Here is a Judge:");
-
-        System.out.println(judges.get(0).get(0).getFname());
+        writeResultsToFile();
 
     }
 
-    public PostMeetResults(String meetType, Team team1, Team team2, Team team3, File resultsFile) throws IOException {
+    public PostMeetResults(String meetType, Team team1, Team team2, Team team3, File resultsFile, List<List<Judge>> judges) throws IOException {
         this.meetType = meetType;
         this.team1 = team1;
         this.team2 = team2;
         this.team3 = team3;
         this.team4 = null;
-        this.resultsFile = resultsFile;
-        this.resultsFileW = new FileWriter(resultsFile.toString());
+        this.judges = judges;
+
+        //this.resultsFileW = new FileWriter(resultsFile.toString());
+
+        try{
+            this.resultsFileW = new FileWriter(resultsFile.toString());
+        }catch(Exception e){
+            System.out.println("There was an error in results file W");
+        }
+
+        writeResultsToFile();
     }
 
-    public PostMeetResults(String meetType, Team team1, Team team2, Team team3, Team team4, File resultsFile) throws IOException {
+    public PostMeetResults(String meetType, Team team1, Team team2, Team team3, Team team4, File resultsFile, List<List<Judge>> judges) throws IOException {
         this.meetType = meetType;
         this.team1 = team1;
         this.team2 = team2;
         this.team3 = team3;
         this.team4 = team4;
-        this.resultsFile = resultsFile;
-        this.resultsFileW = new FileWriter(resultsFile.toString());
+        this.judges = judges;
+
+        //this.resultsFileW = new FileWriter(resultsFile.toString());
+
+        try{
+            this.resultsFileW = new FileWriter(resultsFile.toString());
+        }catch(Exception e){
+            System.out.println("There was an error in results file W");
+        }
+
+        writeResultsToFile();
     }
 
     //getters
+    /*
     public File getResultsFile() {return resultsFile;}
     public String getMeetType() {return meetType;}
     public Team getTeam1() {return team1;}
@@ -75,6 +91,7 @@ public class PostMeetResults {
     public void setTeam2(Team team2) {this.team2 = team2;}
     public void setTeam3(Team team3) {this.team3 = team3;}
     public void setTeam4(Team team4) {this.team4 = team4;}
+    */
 
     //methods
     public void writeResultsToFile() throws IOException
@@ -86,6 +103,7 @@ public class PostMeetResults {
             addTeamResultsToFile();
             addAllAroundToFile();
             addIndividualToFile();
+            addJudgesToFile();
 
             resultsFileW.close();
 
@@ -97,35 +115,86 @@ public class PostMeetResults {
 
     public void addTeamStandingToFile() throws IOException
     {
-        resultsFileW.write("TEAM STANDING\n#\tTEAM\tVAULT\tBARS\tBEAM\tFLOOR\tFINAL\n\n");
+        resultsFileW.write("TEAM STANDING\n----------------------------------");
+        resultsFileW.write("\n#\tTEAM\tVAULT\tBARS\tBEAM\tFLOOR\tFINAL\n\n");
 
         if (meetType.equals("dual"))
         {
-            Team[] teamStanding = {team1, team2};
-            Arrays.sort(teamStanding);
+            ArrayList<Team> teamStanding = new ArrayList<>();
+            teamStanding.add(team1);
+            teamStanding.add(team2);
 
-            for (int i = 0; i < teamStanding.length; i++) {
-                resultsFileW.write((i + 1) + teamStanding[i].getTeamName() + teamStanding[i].getTeamScore().getvaultScore() + teamStanding[i].getTeamScore().getbarScore() + teamStanding[i].getTeamScore().getbeamScore() + teamStanding[i].getTeamScore().getfloorScore() + teamStanding[i].getTeamScore().getvaultScore() + (teamStanding[i].getTeamScore().getvaultScore() + teamStanding[i].getTeamScore().getbarScore() + teamStanding[i].getTeamScore().getbeamScore() + teamStanding[i].getTeamScore().getfloorScore() + teamStanding[i].getTeamScore().getvaultScore()));
+            Collections.sort(teamStanding, new Comparator<>() {
+                @Override
+                public int compare(Team t1, Team t2) {
+                    return Double.compare(t1.getTeamScore().getRunningScore(), t2.getTeamScore().getRunningScore());
+                }
+            });
+
+            for (int i = 0; i < teamStanding.size(); i++) {
+                String teamName = teamStanding.get(i).getTeamName();
+                double vaultScore = teamStanding.get(i).getTeamScore().getvaultScore();
+                double barScore = teamStanding.get(i).getTeamScore().getbarScore();
+                double beamScore = teamStanding.get(i).getTeamScore().getbeamScore();
+                double floorScore = teamStanding.get(i).getTeamScore().getfloorScore();
+                double overall = vaultScore + barScore + beamScore + floorScore;
+
+                resultsFileW.write((i + 1) + "\t" + teamName + "\t" + vaultScore + barScore + beamScore + floorScore + overall + "\n");
             }
         }
 
         if (meetType.equals("tri"))
         {
-            Team[] teamStanding = {team1, team2, team3};
-            Arrays.sort(teamStanding);
+            ArrayList<Team> teamStanding = new ArrayList<>();
+            teamStanding.add(team1);
+            teamStanding.add(team2);
+            teamStanding.add(team3);
 
-            for (int i = 0; i < teamStanding.length; i++) {
-                resultsFileW.write((i + 1) + teamStanding[i].getTeamName() + teamStanding[i].getTeamScore().getvaultScore() + teamStanding[i].getTeamScore().getbarScore() + teamStanding[i].getTeamScore().getbeamScore() + teamStanding[i].getTeamScore().getfloorScore() + teamStanding[i].getTeamScore().getvaultScore() + (teamStanding[i].getTeamScore().getvaultScore() + teamStanding[i].getTeamScore().getbarScore() + teamStanding[i].getTeamScore().getbeamScore() + teamStanding[i].getTeamScore().getfloorScore() + teamStanding[i].getTeamScore().getvaultScore()));
+            Collections.sort(teamStanding, new Comparator<>() {
+                @Override
+                public int compare(Team t1, Team t2) {
+                    return Double.compare(t1.getTeamScore().getRunningScore(), t2.getTeamScore().getRunningScore());
+                }
+            });
+
+            for (int i = 0; i < teamStanding.size(); i++)
+            {
+                String teamName = teamStanding.get(i).getTeamName();
+                double vaultScore = teamStanding.get(i).getTeamScore().getvaultScore();
+                double barScore = teamStanding.get(i).getTeamScore().getbarScore();
+                double beamScore = teamStanding.get(i).getTeamScore().getbeamScore();
+                double floorScore = teamStanding.get(i).getTeamScore().getfloorScore();
+                double overall = vaultScore + barScore + beamScore + floorScore;
+
+                resultsFileW.write((i + 1) + "\t" + teamName + "\t" + vaultScore + barScore + beamScore + floorScore + overall + "\n");
             }
         }
 
         if (meetType.equals("quad"))
         {
-            Team[] teamStanding = {team1, team2, team3, team4};
-            Arrays.sort(teamStanding);
+            ArrayList<Team> teamStanding = new ArrayList<>();
+            teamStanding.add(team1);
+            teamStanding.add(team2);
+            teamStanding.add(team3);
+            teamStanding.add(team4);
 
-            for (int i = 0; i < teamStanding.length; i++) {
-                resultsFileW.write((i + 1) + teamStanding[i].getTeamName() + teamStanding[i].getTeamScore().getvaultScore() + teamStanding[i].getTeamScore().getbarScore() + teamStanding[i].getTeamScore().getbeamScore() + teamStanding[i].getTeamScore().getfloorScore() + teamStanding[i].getTeamScore().getvaultScore() + (teamStanding[i].getTeamScore().getvaultScore() + teamStanding[i].getTeamScore().getbarScore() + teamStanding[i].getTeamScore().getbeamScore() + teamStanding[i].getTeamScore().getfloorScore() + teamStanding[i].getTeamScore().getvaultScore()));
+            Collections.sort(teamStanding, new Comparator<>() {
+                @Override
+                public int compare(Team t1, Team t2) {
+                    return Double.compare(t1.getTeamScore().getRunningScore(), t2.getTeamScore().getRunningScore());
+                }
+            });
+
+            for (int i = 0; i < teamStanding.size(); i++)
+            {
+                String teamName = teamStanding.get(i).getTeamName();
+                double vaultScore = teamStanding.get(i).getTeamScore().getvaultScore();
+                double barScore = teamStanding.get(i).getTeamScore().getbarScore();
+                double beamScore = teamStanding.get(i).getTeamScore().getbeamScore();
+                double floorScore = teamStanding.get(i).getTeamScore().getfloorScore();
+                double overall = vaultScore + barScore + beamScore + floorScore;
+
+                resultsFileW.write((i + 1) + "\t" + teamName + "\t" + vaultScore + barScore + beamScore + floorScore + overall + "\n");
             }
         }
 
@@ -147,39 +216,39 @@ public class PostMeetResults {
                 allAround = team1.getAllGymnasts().get(i).getPlayerScore().getTotalScore();
             }
 
-            resultsFileW.write( (i+1) + firstName + "\t" + lastName + "\t" + vault + "\t" + bars + "\t" + beam + "\t" + floor + "\t" + allAround);
+            resultsFileW.write( (i+1) + "\t" + firstName + "\t" + lastName + "\t" + vault + "\t" + bars + "\t" + beam + "\t" + floor + "\t" + allAround + "\n");
         }
     }
 
     public void addTeamResultsToFile() throws IOException
     {
-        resultsFileW.write("TEAM RESULTS DETAILS\n\n");
-        resultsFileW.write("TEAM: " + team1.getTeamName());
-        resultsFileW.write("#\tNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
+        resultsFileW.write("\nTEAM RESULTS DETAILS\n----------------------------------\n");
+        resultsFileW.write("\nTEAM: " + team1.getTeamName() + "\n");
+        resultsFileW.write("#\tFNAME\tLNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
 
         writeTeamResults(team1);
 
-        resultsFileW.write("TEAM: " + team2.getTeamName());
-        resultsFileW.write("#\tNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
+        resultsFileW.write("\nTEAM: " + team2.getTeamName() + "\n");
+        resultsFileW.write("#\tFNAME\tLNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
 
         writeTeamResults(team2);
 
         if (meetType.equals("tri"))
         {
-            resultsFileW.write("TEAM: " + team3.getTeamName());
-            resultsFileW.write("#\tNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
+            resultsFileW.write("\nTEAM: " + team3.getTeamName() + "\n");
+            resultsFileW.write("#\tFNAME\tLNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
             writeTeamResults(team3);
         }
 
         if (meetType.equals("quad"))
         {
-            resultsFileW.write("TEAM: " + team3.getTeamName());
-            resultsFileW.write("#\tNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
+            resultsFileW.write("\nTEAM: " + team3.getTeamName() + "\n");
+            resultsFileW.write("#\tFNAME\tLNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
 
             writeTeamResults(team3);
 
-            resultsFileW.write("TEAM: " + team4.getTeamName());
-            resultsFileW.write("#\tNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
+            resultsFileW.write("\nTEAM: " + team4.getTeamName() + "\n");
+            resultsFileW.write("#\tFNAME\tLNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
 
             writeTeamResults(team4);
         }
@@ -187,10 +256,10 @@ public class PostMeetResults {
 
     public void addAllAroundToFile() throws IOException
     {
-        resultsFileW.write("ALL AROUND RESULTS\n\n");
-        resultsFileW.write("PLACE\tNAME\tTEAM\tVAULT\tBARS\tBEAM\tFLOOR\tSCORE\n");
+        resultsFileW.write("\nALL AROUND RESULTS\n----------------------------------\n");
+        resultsFileW.write("#\tFNAME\tLNAME\tTEAM\tVAULT\tBARS\tBEAM\tFLOOR\tSCORE\n");
 
-        List<Player> AA_Gymnasts = new ArrayList<Player>();
+        List<Player> AA_Gymnasts = new ArrayList<>();
 
         for (int i = 0; i < team1.getAllGymnasts().size(); i++)
         {
@@ -240,7 +309,7 @@ public class PostMeetResults {
 
 
         //sort aa_array
-        Collections.sort(AA_Gymnasts, (o1, o2) -> 0);
+        AA_Gymnasts.sort((o1, o2) -> 0);
 
         for (int i = 0; i < AA_Gymnasts.size(); i++)
         {
@@ -280,10 +349,10 @@ public class PostMeetResults {
 
     public void addIndividualVaultToFile() throws IOException
     {
-        resultsFileW.write("INDIVIDUAL VAULT\n\n");
-        resultsFileW.write("NAME\tSCORE\tTEAM\tSCORE\n");
+        resultsFileW.write("\nINDIVIDUAL VAULT\n----------------------------------\n");
+        resultsFileW.write("#\tFNAME\tLNAME\tSCORE\tTEAM\tSCORE\n");
 
-        List<Player> vault_Gymnasts = new ArrayList<Player>();
+        List<Player> vault_Gymnasts = new ArrayList<>();
 
         for (int i = 0; i < team1.getAllGymnasts().size(); i++)
         {
@@ -332,7 +401,7 @@ public class PostMeetResults {
         }
 
         //sort vault_gymnasts
-        Collections.sort(vault_Gymnasts, (o1, o2) -> 0);
+        vault_Gymnasts.sort((o1, o2) -> 0);
 
         for (int i = 0; i < vault_Gymnasts.size(); i++)
         {
@@ -369,10 +438,10 @@ public class PostMeetResults {
 
     public void addIndividualBarsToFile() throws IOException
     {
-        resultsFileW.write("INDIVIDUAL BARS\n\n");
-        resultsFileW.write("NAME\tSCORE\tTEAM\tSCORE\n");
+        resultsFileW.write("\nINDIVIDUAL BARS\n----------------------------------\n");
+        resultsFileW.write("#\tFNAME\tLNAME\tSCORE\tTEAM\tSCORE\n");
 
-        List<Player> bar_Gymnasts = new ArrayList<Player>();
+        List<Player> bar_Gymnasts = new ArrayList<>();
 
         for (int i = 0; i < team1.getAllGymnasts().size(); i++)
         {
@@ -421,7 +490,7 @@ public class PostMeetResults {
         }
 
         //sort vault_gymnasts
-        Collections.sort(bar_Gymnasts, (o1, o2) -> 0);
+        bar_Gymnasts.sort((o1, o2) -> 0);
 
         for (int i = 0; i < bar_Gymnasts.size(); i++)
         {
@@ -458,9 +527,9 @@ public class PostMeetResults {
 
     public void addIndividualBeamToFile() throws IOException
     {
-        resultsFileW.write("INDIVIDUAL BEAM\n\n");
-        resultsFileW.write("NAME\tSCORE\tTEAM\tSCORE\n");
-        List<Player> beam_Gymnasts = new ArrayList<Player>();
+        resultsFileW.write("\nINDIVIDUAL BEAM\n----------------------------------\n");
+        resultsFileW.write("#\tFNAME\tLNAME\tSCORE\tTEAM\tSCORE\n");
+        List<Player> beam_Gymnasts = new ArrayList<>();
 
         for (int i = 0; i < team1.getAllGymnasts().size(); i++)
         {
@@ -509,7 +578,7 @@ public class PostMeetResults {
         }
 
         //sort vault_gymnasts
-        Collections.sort(beam_Gymnasts, (o1, o2) -> 0);
+        beam_Gymnasts.sort((o1, o2) -> 0);
 
         for (int i = 0; i < beam_Gymnasts.size(); i++)
         {
@@ -546,9 +615,9 @@ public class PostMeetResults {
 
     public void addIndividualFloorToFile() throws IOException
     {
-        resultsFileW.write("INDIVIDUAL FLOOR\n\n");
-        resultsFileW.write("NAME\tSCORE\tTEAM\tSCORE\n");
-        List<Player> fl_Gymnasts = new ArrayList<Player>();
+        resultsFileW.write("\nINDIVIDUAL FLOOR\n----------------------------------\n");
+        resultsFileW.write("#\tFNAME\tLNAME\tSCORE\tTEAM\tSCORE\n");
+        List<Player> fl_Gymnasts = new ArrayList<>();
 
         for (int i = 0; i < team1.getAllGymnasts().size(); i++)
         {
@@ -597,7 +666,7 @@ public class PostMeetResults {
         }
 
         //sort vault_gymnasts
-        Collections.sort(fl_Gymnasts, (o1, o2) -> 0);
+        fl_Gymnasts.sort((o1, o2) -> 0);
 
         for (int i = 0; i < fl_Gymnasts.size(); i++)
         {
@@ -640,6 +709,24 @@ public class PostMeetResults {
         addIndividualFloorToFile();
     }
 
-    //Just testing getting the judges
+    public void addJudgesToFile() throws IOException
+    {
+        resultsFileW.write("\nJUDGES SCORES\n----------------------------------\n");
+        resultsFileW.write("JUDGE_FNAME\tJUDGE_LNAME\tPLAYER_FNAME\tPLAYER_LNAME\t\tAPPAR\t\tATPT#\tSCORE\n");
+        for (List<Judge> judge : judges) {
+            for (Judge value : judge) {
+                for (int k = 0; k < value.getScoreList().size(); k++) {
+                    String judgeName = value.getFname();
+                    String playerFname = value.getScoreList().get(k).getPlayer().getPlayerfName();
+                    String playerLname = value.getScoreList().get(k).getPlayer().getPlayerlName();
+                    String apparatus = value.getScoreList().get(k).getApparatusName();
+                    int attemptNum = value.getScoreList().get(k).getAttemptNum();
+                    double score = value.getScoreList().get(k).getScoreAmt();
+                    resultsFileW.write(judgeName + "\t" + playerFname + "\t" + playerLname + "\t" + apparatus + "\t" + attemptNum + "\t" + score + "\n");
+                }
+
+            }
+        }
+    }
 
 }

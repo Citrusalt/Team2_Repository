@@ -151,7 +151,7 @@ public class PostMeetScreen {
         }
 
         //sort players by their total score
-        Collections.sort(myPlayerList, new Comparator<Player>() {
+        Collections.sort(myPlayerList, new Comparator<>() {
             @Override
             public int compare(Player p1, Player p2) {
                 return Double.compare(p1.getPlayerScore().getTotalScore(), p2.getPlayerScore().getTotalScore());

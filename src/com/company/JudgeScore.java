@@ -24,8 +24,8 @@ public class JudgeScore {
 
     //setters
 
-    public void setApparatusName(String apparatusName) {this.apparatusName = apparatusName;}
-    public void setAttemptNum(int attemptNum) {this.attemptNum = attemptNum;}
-    public void setScoreAmt(double scoreAmt) {this.scoreAmt = scoreAmt;}
+    //public void setApparatusName(String apparatusName) {this.apparatusName = apparatusName;}
+    //public void setAttemptNum(int attemptNum) {this.attemptNum = attemptNum;}
+    //public void setScoreAmt(double scoreAmt) {this.scoreAmt = scoreAmt;}
     public void setPlayer(Player player) {this.player = player;}
 }

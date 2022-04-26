@@ -3,6 +3,8 @@ package com.company;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -53,7 +55,11 @@ public class TriScorekeeperScreen {
             public void actionPerformed(ActionEvent e) {
                 changeCard("TriScorekeeperCard");
                 myDualTriArenaScreen.getFrame().setVisible(true);
-                updateRotation(myDualTriArenaScreen, frame, 0, gC, homeCopy, visitor1Copy, visitor2Copy, allJudges);
+                try {
+                    updateRotation(myDualTriArenaScreen, frame, 0, gC, homeCopy, visitor1Copy, visitor2Copy, allJudges);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
 
@@ -114,7 +120,11 @@ public class TriScorekeeperScreen {
         nextRotationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                updateRotation(myDualTriArenaScreen, frame, 1, gC,homeCopy, visitor1Copy, visitor2Copy, allJudges);
+                try {
+                    updateRotation(myDualTriArenaScreen, frame, 1, gC,homeCopy, visitor1Copy, visitor2Copy, allJudges);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
                 changeLogoDisplay(rotation, picturePath,myDualTriArenaScreen, gC);
             }
         });
@@ -574,7 +584,7 @@ public class TriScorekeeperScreen {
     //pass in the frames that need to be handled and 1 if next rotation, -1 if previous
     //yes, a lot of this is redundant, but it's easy to read and change later
     private void updateRotation(Dual_Tri_ArenaScreen myArenaScreen, JFrame thisFrame, int value, GuiCreator gC,
-                                Team home, Team visitor1, Team visitor2, List<List<String>> allJudges){
+                                Team home, Team visitor1, Team visitor2, List<List<String>> allJudges) throws IOException {
 
         rotation = rotation + value;
         myArenaScreen.updateRotation(rotation);
@@ -769,6 +779,7 @@ public class TriScorekeeperScreen {
             vaultCombo1.setVisible(false);
             vaultCombo2.setVisible(false);
 
+            PostMeetResults postresult = new PostMeetResults("tri", homeCopy, visitor1Copy, visitor2Copy, new File("RESULTS.txt"), judges);
 
             //update judges
             //update players

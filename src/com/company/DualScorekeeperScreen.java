@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -171,7 +172,11 @@ public class DualScorekeeperScreen {
             public void actionPerformed(ActionEvent e) {
                 changeCard("SimulCard");
                 if (selectedMode == 0){
-                    updateRotationSimul(myArenaScreen, frame, 0, gC, homeCopy, visitorCopy, allJudges);
+                    try {
+                        updateRotationSimul(myArenaScreen, frame, 0, gC, homeCopy, visitorCopy, allJudges);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                     //Fill Arena Screen
                 }
                 else if (selectedMode == 1){
@@ -243,7 +248,11 @@ public class DualScorekeeperScreen {
                 if (showUpdate == false){
                     if (gC.confirmDialog("Are you sure you want to end Rotation " + rotation + "?")){
                         if (selectedMode == 0){
-                            updateRotationSimul(myArenaScreen, frame, 1, gC, homeCopy, visitorCopy, allJudges);
+                            try {
+                                updateRotationSimul(myArenaScreen, frame, 1, gC, homeCopy, visitorCopy, allJudges);
+                            } catch (IOException ex) {
+                                ex.printStackTrace();
+                            }
                             //show update on arena screen
                             myArenaScreen.nextUpdateDual(homeCopy, visitorCopy, rotation);
                             myArenaScreen.changeCard("SimulCard");
@@ -718,7 +727,7 @@ public class DualScorekeeperScreen {
 
 
     //pass in the frames that need to be handled and 1 if next rotation, -1 if previous
-    private void updateRotationSimul(Dual_Tri_ArenaScreen myArenaScreen, JFrame thisFrame, int value, GuiCreator gC, Team home, Team visitor, List<List<String>> allJudges){
+    private void updateRotationSimul(Dual_Tri_ArenaScreen myArenaScreen, JFrame thisFrame, int value, GuiCreator gC, Team home, Team visitor, List<List<String>> allJudges) throws IOException {
         rotation = rotation + value;
         myArenaScreen.updateRotation(rotation);
 
@@ -805,7 +814,7 @@ public class DualScorekeeperScreen {
                     thisFrame.dispose();
 
                     //Just testing getting the judges                       //Potato
-                    PostMeetResults postresult = new PostMeetResults("dual", homeCopy, visitorCopy, new File(""), judges);
+                    PostMeetResults postresult = new PostMeetResults("dual", homeCopy, visitorCopy, new File("RESULTS.txt"), judges);
 
                 }
                 else {

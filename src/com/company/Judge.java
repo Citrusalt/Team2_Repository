@@ -25,7 +25,7 @@ public class Judge {
     //setters
     public void setFname(String fname){this.fname = fname;}
     public void setLname(String lname){this.lname = lname;}
-    public void setScoreList(List<JudgeScore> scoreList){this.scoreList = scoreList;}
+    //public void setScoreList(List<JudgeScore> scoreList){this.scoreList = scoreList;}
 
     //methods
     public void addScore(JudgeScore score)

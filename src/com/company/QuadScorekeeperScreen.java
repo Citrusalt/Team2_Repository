@@ -3,6 +3,8 @@ package com.company;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -1334,7 +1336,7 @@ public class QuadScorekeeperScreen {
             myQuadArenaScreen.overall3.setText(String.valueOf("Running Team Score:     " + visitor2Copy.getTeamScore().getRunningScore()));
         }
 
-    private void setVisitor3PlayerandTeamScore(List<Double> scoresList, Double deduction, List<JudgeScore> judgeScoreList, QuadArenaScreen myQuadArenaScreen){
+    private void setVisitor3PlayerandTeamScore(List<Double> scoresList, Double deduction, List<JudgeScore> judgeScoreList, QuadArenaScreen myQuadArenaScreen) throws IOException {
         PlayerScore tempScore = new PlayerScore(); //holder to use calculation method
         double pscore = tempScore.calculateIndividualScore(scoresList, deduction);
         if (rotation == 1) {
@@ -1382,6 +1384,9 @@ public class QuadScorekeeperScreen {
 
             myQuadArenaScreen.score4.setText("Gymnast Current Score: " + String.valueOf(pscore));       //update score on arena screen
             myQuadArenaScreen.overall4.setText(String.valueOf("Running Team Score:     " + visitor3Copy.getTeamScore().getRunningScore()));
+
+            PostMeetResults postresult = new PostMeetResults("quad", homeCopy, visitor1Copy, visitor2Copy, visitor3Copy, new File("RESULTS.txt"), judges);
+
     }
 
     public Team homeCopy;
