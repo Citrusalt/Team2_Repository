@@ -523,7 +523,7 @@ public class SetupModeTri {
 
         List<JComboBox> home = gethomeCombo();
         List<JComboBox> visitor1 = getvisitor1Combo();
-        List<JComboBox> visitor2 = getvisitor1Combo();
+        List<JComboBox> visitor2 = getvisitor2Combo();
         List<JComboBox> judges = getjudgesCombo();
 
         //clear judges list
