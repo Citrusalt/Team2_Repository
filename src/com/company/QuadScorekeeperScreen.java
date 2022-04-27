@@ -438,15 +438,7 @@ public class QuadScorekeeperScreen {
                 boolean emptyScores = false;
                 List<Double> scoresList = new ArrayList<>();        //to store text field data
                 List<JudgeScore> judgeScoreList = new ArrayList<>(); //to store new instance of judge score for every class.
-                float scoreArray[] = new float[6];
                 try{
-                  /*  //Use these scores to update score for backend and arena screen
-                    scoreArray[0] = Integer.parseInt(j21.getText());
-                    scoreArray[1] = Integer.parseInt(j22.getText());
-                    scoreArray[2] = Integer.parseInt(j23.getText());
-                    scoreArray[3] = Integer.parseInt(j24.getText());
-                    scoreArray[4] = Integer.parseInt(j25.getText());
-                    scoreArray[5] = Integer.parseInt(j26.getText());*/
 
                     for (int i = 0; i<getVisitor2JudgesTextbox().size(); i++)
                     {
@@ -536,15 +528,8 @@ public class QuadScorekeeperScreen {
                 boolean emptyScores = false;
                 List<Double> scoresList = new ArrayList<>();        //to store text field data
                 List<JudgeScore> judgeScoreList = new ArrayList<>(); //to store new instance of judge score for every class.
-                float scoreArray[] = new float[6];
                 try{
-                    //Use these scores to update score for backend and arena screen
-                /*    scoreArray[0] = Integer.parseInt(j21.getText());
-                    scoreArray[1] = Integer.parseInt(j22.getText());
-                    scoreArray[2] = Integer.parseInt(j23.getText());
-                    scoreArray[3] = Integer.parseInt(j24.getText());
-                    scoreArray[4] = Integer.parseInt(j25.getText());
-                    scoreArray[5] = Integer.parseInt(j26.getText());*/
+
                     for (int i = 0; i<getVisitor3JudgesTextbox().size(); i++)
                     {
                         if(getVisitor3JudgesTextbox().get(i).getText().isEmpty() && getVisitor3JudgesTextbox().get(i).isVisible()){
@@ -1311,7 +1296,7 @@ public class QuadScorekeeperScreen {
             }
         }
         myQuadArenaScreen.score2.setText("Gymnast Current Score: " + String.valueOf(pscore));       //update score on arena screen
-        myQuadArenaScreen.overall1.setText(String.valueOf("Running Team Score:     " + visitor1Copy.getTeamScore().getRunningScore()));
+        myQuadArenaScreen.overall2.setText(String.valueOf("Running Team Score:     " + visitor1Copy.getTeamScore().getRunningScore()));
 
     }
 
