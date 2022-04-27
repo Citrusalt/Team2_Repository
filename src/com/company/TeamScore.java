@@ -91,7 +91,10 @@ will the score board flash for a team after each individual person? if so these 
     // A players running score is the total score from all apparatuses
     //Returns running score
     public double getRunningScore() {
-        return this.floorScore + this.barScore + this.beamScore + this.vaultScore;
+        double runningScore = this.floorScore + this.barScore + this.beamScore + this.vaultScore;
+        runningScore = runningScore*1000;
+        runningScore = Math.floor(Math.round(runningScore)) /1000;
+        return runningScore;
     }
 
     //need to get the top 5 score from a total of 6 individual scores for a single apparatus
