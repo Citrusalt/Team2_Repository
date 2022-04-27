@@ -753,8 +753,29 @@ public class QuadScorekeeperScreen {
         editLineupButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //do stuff here
-//                EditLineupScreen myScreen = new EditLineupScreen(homeCopy, visitorCopy, new Team("",""), rotation, "Quad");
+                //Keep track of the last player on the apparatus
+                int team1current = team1Combo.getSelectedIndex();
+                int team2current = team2Combo.getSelectedIndex();
+                int team3current = team3Combo.getSelectedIndex();
+                int team4current = team4Combo.getSelectedIndex();
+                EditLineupScreen myScreen = new EditLineupScreen(homeCopy, visitor1Copy, visitor2Copy, visitor3Copy, rotation, "Quad");
+
+                homeCopy = myScreen.getEditHome();
+                visitor1Copy = myScreen.getEditVisitor();
+                visitor2Copy = myScreen.getEditVisitor2();
+                visitor3Copy = myScreen.getEditVisitor3();
+
+                homeCopy.updateApparatusLists();
+                visitor1Copy.updateApparatusLists();
+                visitor2Copy.updateApparatusLists();
+                visitor3Copy.updateApparatusLists();
+
+                updateDisplay(myQuadArenaScreen, gC, homeCopy, visitor1Copy, visitor2Copy, visitor3, rotation);
+
+                team1Combo.setSelectedIndex(team1current);
+                team2Combo.setSelectedIndex(team2current);
+                team3Combo.setSelectedIndex(team3current);
+                team4Combo.setSelectedIndex(team4current);
             }
         });
     }
@@ -1039,8 +1060,8 @@ public class QuadScorekeeperScreen {
     List<Judge> vaultJudges = new ArrayList<Judge>();
     List<Judge> barJudges = new ArrayList<Judge>();
 
-
-    public void updateDisplay(Dual_Tri_ArenaScreen myArenaScreen, GuiCreator gC, Team home, Team visitor1, Team visitor2, Team visitor3,  int rotation) {
+//dito
+    public void updateDisplay( QuadArenaScreen myQuadArenaScreen, GuiCreator gC, Team home, Team visitor1, Team visitor2, Team visitor3,  int rotation) {
         team1Combo.removeAllItems();
         team2Combo.removeAllItems();
         team3Combo.removeAllItems();
@@ -1076,44 +1097,44 @@ public class QuadScorekeeperScreen {
         //this logic is bad and cringe and redundant and did I say bad?
         //Updates the arena display for home
         if (currentevent1 == "Vault") {
-            myArenaScreen.updateGymnastInfo(home.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 0);
+            myQuadArenaScreen.updateGymnastInfo(home.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 0);
         } else if (currentevent1 == "Bars") {
-            myArenaScreen.updateGymnastInfo(home.getBarGymnasts().get(team1Combo.getSelectedIndex()), 1, 1);
+            myQuadArenaScreen.updateGymnastInfo(home.getBarGymnasts().get(team1Combo.getSelectedIndex()), 1, 1);
         } else if (currentevent1 == "Beam") {
-            myArenaScreen.updateGymnastInfo(home.getBeamGymnasts().get(team1Combo.getSelectedIndex()), 1, 2);
+            myQuadArenaScreen.updateGymnastInfo(home.getBeamGymnasts().get(team1Combo.getSelectedIndex()), 1, 2);
         } else if (currentevent1 == "Floor") {
-            myArenaScreen.updateGymnastInfo(home.getFloorGymnasts().get(team1Combo.getSelectedIndex()), 1, 3);
+            myQuadArenaScreen.updateGymnastInfo(home.getFloorGymnasts().get(team1Combo.getSelectedIndex()), 1, 3);
         }
 
         //Updates the arena display for visitor1
         if (currentevent2 == "Vault") {
-            myArenaScreen.updateGymnastInfo(visitor1.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 0);
+            myQuadArenaScreen.updateGymnastInfo(visitor1.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 0);
         } else if (currentevent2 == "Bars") {
-            myArenaScreen.updateGymnastInfo(visitor1.getBarGymnasts().get(team2Combo.getSelectedIndex()), 2, 1);
+            myQuadArenaScreen.updateGymnastInfo(visitor1.getBarGymnasts().get(team2Combo.getSelectedIndex()), 2, 1);
         } else if (currentevent2 == "Beam") {
-            myArenaScreen.updateGymnastInfo(visitor1.getBeamGymnasts().get(team2Combo.getSelectedIndex()), 2, 2);
+            myQuadArenaScreen.updateGymnastInfo(visitor1.getBeamGymnasts().get(team2Combo.getSelectedIndex()), 2, 2);
         } else if (currentevent2 == "Floor") {
-            myArenaScreen.updateGymnastInfo(visitor1.getFloorGymnasts().get(team2Combo.getSelectedIndex()), 2, 3);
+            myQuadArenaScreen.updateGymnastInfo(visitor1.getFloorGymnasts().get(team2Combo.getSelectedIndex()), 2, 3);
         }
         //Updates the arena display for visitor2
         if (currentevent3 == "Vault") {
-            myArenaScreen.updateGymnastInfo(visitor2.getVaultGymnasts().get(team3Combo.getSelectedIndex()), 3, 0);
+            myQuadArenaScreen.updateGymnastInfo(visitor2.getVaultGymnasts().get(team3Combo.getSelectedIndex()), 3, 0);
         } else if (currentevent3 == "Bars") {
-            myArenaScreen.updateGymnastInfo(visitor2.getBarGymnasts().get(team3Combo.getSelectedIndex()), 3, 1);
+            myQuadArenaScreen.updateGymnastInfo(visitor2.getBarGymnasts().get(team3Combo.getSelectedIndex()), 3, 1);
         } else if (currentevent3 == "Beam") {
-            myArenaScreen.updateGymnastInfo(visitor2.getBeamGymnasts().get(team3Combo.getSelectedIndex()), 3, 2);
+            myQuadArenaScreen.updateGymnastInfo(visitor2.getBeamGymnasts().get(team3Combo.getSelectedIndex()), 3, 2);
         } else if (currentevent3 == "Floor") {
-            myArenaScreen.updateGymnastInfo(visitor2.getFloorGymnasts().get(team3Combo.getSelectedIndex()), 3, 3);
+            myQuadArenaScreen.updateGymnastInfo(visitor2.getFloorGymnasts().get(team3Combo.getSelectedIndex()), 3, 3);
         }
         //Updates the arena display for visitor3
         if (currentevent4 == "Vault") {
-            myArenaScreen.updateGymnastInfo(visitor3.getVaultGymnasts().get(team4Combo.getSelectedIndex()), 4, 0);
+            myQuadArenaScreen.updateGymnastInfo(visitor3.getVaultGymnasts().get(team4Combo.getSelectedIndex()), 4, 0);
         } else if (currentevent4 == "Bars") {
-            myArenaScreen.updateGymnastInfo(visitor3.getBarGymnasts().get(team4Combo.getSelectedIndex()), 4, 1);
+            myQuadArenaScreen.updateGymnastInfo(visitor3.getBarGymnasts().get(team4Combo.getSelectedIndex()), 4, 1);
         } else if (currentevent4 == "Beam") {
-            myArenaScreen.updateGymnastInfo(visitor3.getBeamGymnasts().get(team4Combo.getSelectedIndex()), 4, 2);
+            myQuadArenaScreen.updateGymnastInfo(visitor3.getBeamGymnasts().get(team4Combo.getSelectedIndex()), 4, 2);
         } else if (currentevent4 == "Floor") {
-            myArenaScreen.updateGymnastInfo(visitor3.getFloorGymnasts().get(team4Combo.getSelectedIndex()), 4, 3);
+            myQuadArenaScreen.updateGymnastInfo(visitor3.getFloorGymnasts().get(team4Combo.getSelectedIndex()), 4, 3);
         }
 
     }
