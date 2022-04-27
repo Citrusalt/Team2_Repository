@@ -258,11 +258,6 @@ public class TriScorekeeperScreen {
                         setHomePlayerandTeamScore(scoresList, deduction, judgeScoreList, myDualTriArenaScreen);
                     }
 
-                    System.out.println(judges.get(2).get(0).getScoreList().get(0).getPlayer().getPlayerlName());
-
-
-
-
                 } catch (Exception exception) {
 
                     System.out.println(exception);
