@@ -199,12 +199,14 @@ public class TriScorekeeperScreen {
             }
         });
         updateScoreButton1.addActionListener(new ActionListener() {
-            List<Double> scoresList  = new ArrayList<>();
-            List<JudgeScore> judgeScoreList = new ArrayList<>();
-            boolean invalidScore = false;
-            boolean emptyScores = false;
             @Override
             public void actionPerformed(ActionEvent e) {
+                List<Double> scoresList  = new ArrayList<>();
+                List<JudgeScore> judgeScoreList = new ArrayList<>();
+                boolean invalidScore = false;
+                boolean emptyScores = false;
+                System.out.println(scoresList.size() +" " + emptyScores);
+
                 float scoreArray[] = new float[6];
                 try{
                     //Use these scores to update score for backend and arena screen
@@ -227,13 +229,20 @@ public class TriScorekeeperScreen {
                             judgeScoreList.add(judgeScore);
                         }
                     }
-                    for (int i = 0; i< scoresList.size(); i++)
-                    {
-                        if (scoresList.get(i)<0 || scoresList.get(i)>10 ||scoresList.size() % 2 != 0||emptyScores)
-                        {   JOptionPane.showMessageDialog(null, "Invalid Input. Make sure scores are in the appropriate range and all judges have a score.");
-                            invalidScore=true;
-                            break; }
+
+                    if (!emptyScores) {
+                        for (int i = 0; i < scoresList.size(); i++) {
+                            if (scoresList.get(i) < 0 || scoresList.get(i) > 10 || scoresList.size() % 2 != 0) {
+                                System.out.println(scoresList.get(i) + " " + scoresList.size() + " " + emptyScores);
+                                JOptionPane.showMessageDialog(null, "Invalid Input. Make sure scores are in the appropriate range.");
+                                invalidScore = true;
+                                break;
+                            }
+                        }
                     }
+                    else if (emptyScores)
+                        JOptionPane.showMessageDialog(null, "Invalid Input. Make sure all judges have a score.");
+
 
                     double deduction = 0;
                     if (!nD1.getText().isEmpty()) {
@@ -248,6 +257,8 @@ public class TriScorekeeperScreen {
                         myDualTriArenaScreen.overall2.setForeground(defaultColor);
                         setHomePlayerandTeamScore(scoresList, deduction, judgeScoreList, myDualTriArenaScreen);
                     }
+
+                    System.out.println(judges.get(2).get(0).getScoreList().get(0).getPlayer().getPlayerlName());
 
 
 
@@ -286,13 +297,17 @@ public class TriScorekeeperScreen {
                             judgeScoreList.add(judgeScore);
                         }
                     }
-                    for (int i = 0; i< scoresList.size(); i++)
-                    {
-                        if (scoresList.get(i)<0 || scoresList.get(i)>10 || scoresList.size() % 2 != 0 || emptyScores)
-                        {   JOptionPane.showMessageDialog(null, "Invalid Input. Make sure scores are in the appropriate range and all judges have a score.");
-                            invalidScore=true;
-                            break; }
+                    if (!emptyScores) {
+                        for (int i = 0; i < scoresList.size(); i++) {
+                            if (scoresList.get(i) < 0 || scoresList.get(i) > 10 || scoresList.size() % 2 != 0) {
+                                JOptionPane.showMessageDialog(null, "Invalid Input. Make sure scores are in the appropriate range.");
+                                invalidScore = true;
+                                break;
+                            }
+                        }
                     }
+                    else if (emptyScores)
+                        JOptionPane.showMessageDialog(null, "Invalid Input. Make sure all judges have a score.");
 
                     double deduction = 0;
                     if (!nD2.getText().isEmpty()) {
