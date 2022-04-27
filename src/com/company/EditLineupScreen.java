@@ -46,6 +46,9 @@ public class EditLineupScreen extends JDialog {
 
         if(meetType.equals("Tri")){
             rotationCombo.addItem(5);rotationCombo.addItem(6);
+        } else if (meetType.equals("Quad")) {
+
+            changeCard("QuadCard");
         }
 
        //At the start, set to currentRotation
@@ -347,8 +350,38 @@ public class EditLineupScreen extends JDialog {
             }
         });
 
+        sub1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
+            }
+        });
+        sub2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        sub3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        sub4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        quadSaveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
         setVisible(true);   //KEEP THIS AT THE BOTTOM!!!
+
     }
 
     private void updateRotation(JComboBox rotationCombo, Team home, Team visitor, Team visitor2, int rotationNum, String meet) {
@@ -655,6 +688,9 @@ public class EditLineupScreen extends JDialog {
         }
 
     }
+
+
+
     String picturePath = System.getProperty("user.dir") + "/pictures/";
     String meet;
     private Team editHome;
@@ -693,4 +729,43 @@ public class EditLineupScreen extends JDialog {
     private JComboBox currentCombo;
     private JComboBox allCombo;
     private JButton subbackButton;
+    private JPanel quadPanel;
+    private JLabel team1Event;
+    private JLabel team2Event;
+    private JLabel team3Event;
+    private JLabel team1Logo;
+    private JLabel team2Logo;
+    private JLabel team3Logo;
+    private JLabel team4Logo;
+    private JLabel team4Event;
+    private JComboBox team11;
+    private JComboBox team12;
+    private JComboBox team13;
+    private JComboBox team14;
+    private JComboBox team15;
+    private JComboBox team16;
+    private JComboBox team21;
+    private JComboBox team22;
+    private JComboBox team23;
+    private JComboBox team24;
+    private JComboBox team25;
+    private JComboBox team26;
+    private JComboBox team31;
+    private JComboBox team32;
+    private JComboBox team33;
+    private JComboBox team34;
+    private JComboBox team35;
+    private JComboBox team36;
+    private JComboBox team41;
+    private JComboBox team42;
+    private JComboBox team43;
+    private JComboBox team44;
+    private JComboBox team45;
+    private JComboBox team46;
+    private JComboBox quadRotationCombo;
+    private JButton sub1;
+    private JButton sub2;
+    private JButton sub3;
+    private JButton sub4;
+    private JButton quadSaveButton;
 }
