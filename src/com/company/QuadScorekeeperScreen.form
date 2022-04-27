@@ -5,7 +5,7 @@
       <xy x="20" y="20" width="1691" height="486"/>
     </constraints>
     <properties>
-      <preferredSize width="1025" height="500"/>
+      <preferredSize width="1050" height="500"/>
     </properties>
     <border type="none"/>
     <children>
@@ -288,14 +288,6 @@
             <properties>
               <font size="20"/>
               <text value="Visitor 3"/>
-            </properties>
-          </component>
-          <component id="ec4e1" class="javax.swing.JComboBox" binding="team4Combo">
-            <constraints>
-              <grid row="3" column="15" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <model/>
             </properties>
           </component>
           <component id="fe114" class="javax.swing.JTextField" binding="timer3Textfield">
@@ -964,7 +956,7 @@
           </component>
           <component id="197df" class="javax.swing.JComboBox" binding="vaultCombo1">
             <constraints>
-              <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <model>
@@ -974,6 +966,14 @@
                 <item value="Round-Off Entry"/>
               </model>
               <visible value="true"/>
+            </properties>
+          </component>
+          <component id="ec4e1" class="javax.swing.JComboBox" binding="team4Combo">
+            <constraints>
+              <grid row="3" column="15" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model/>
             </properties>
           </component>
         </children>

@@ -45,9 +45,15 @@ public class TriScorekeeperScreen {
         //card layout start
         cardLayout = (CardLayout) mainPanel.getLayout();
         changeCard("CustomizeCard");
-        createJudges(allJudges);
 
         createJudges(allJudges);
+
+        for (int i = 0; i < 4; i++){
+            for (int j = 0; j<allJudges.get(i).size(); j++){
+                System.out.println(allJudges.get(i).get(j));
+            }
+        }
+
 
 
         vaultCombo2.setVisible(false);
@@ -131,12 +137,12 @@ public class TriScorekeeperScreen {
 
                         //show update on arena screen
                         myDualTriArenaScreen.nextUpdateTri(homeCopy, visitor1Copy, visitor2Copy, rotation);
-                        myDualTriArenaScreen.changeCard("TriScorekeeperCard");
+                        myDualTriArenaScreen.changeCard("SimulCard");
 
                         myDualTriArenaScreen.resetArenaTables(); //reset tables
                         showUpdate = true;
                     } else {
-                        myDualTriArenaScreen.changeCard("TriScorekeeperCard");
+                        myDualTriArenaScreen.changeCard("SimulCard");
                         showUpdate = true;
                     }
                 } else {
@@ -1063,6 +1069,7 @@ public class TriScorekeeperScreen {
             for (int i = 0; i < allJudges.get(ApparatusIndex.VT).size(); i++) {
                 //Checks if there is a judge
                 if (allJudges.get(ApparatusIndex.VT).get(i).equals("- Select Judges -")) {
+                    System.out.println(allJudges.get(ApparatusIndex.VT).get(i));
                     getLeftJudges().get(i).setVisible(false);
                     getLeftJudgesTextbox().get(i).setVisible(false);
                 } else {
