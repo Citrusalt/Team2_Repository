@@ -241,7 +241,6 @@ public class SetupModeDual {
                 else{
                     JOptionPane.showMessageDialog(null, "Error. All spots must be filled and no duplicate players.");
                 }
-                changeCard("SelectFloorCard");
             }
         });
         floorBackButton.addActionListener(new ActionListener() {

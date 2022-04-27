@@ -14,7 +14,7 @@ public class DualScorekeeperScreen {
 
     public DualScorekeeperScreen(GuiCreator gC, Team home, Team visitor, List<List<String>> allJudges) {
 
-        JFrame frame = new JFrame("Scorekeeper Screen Prototype");
+        JFrame frame = new JFrame("Dual Scorekeeper Screen");
         frame.setContentPane(mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
@@ -177,14 +177,9 @@ public class DualScorekeeperScreen {
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
-                    //Fill Arena Screen
                 }
                 else if (selectedMode == 1){
-                    team1App.setText("Vault");
-                    team2App.setText("Vault");
-                    myArenaScreen.event1.setText("Vault");
-                    myArenaScreen.event2.setText("Vault");
-                    //Fill Arena Screen
+                        updateRotationNonSimul(myArenaScreen, frame, 0, gC, homeCopy, visitorCopy, allJudges);
                 }
             }
         });
@@ -251,15 +246,20 @@ public class DualScorekeeperScreen {
                             try {
                                 updateRotationSimul(myArenaScreen, frame, 1, gC, homeCopy, visitorCopy, allJudges);
                             } catch (IOException ex) {
-                                ex.printStackTrace();
+                                System.out.println("Some Error with Post Meet Mode");
                             }
                             //show update on arena screen
                             myArenaScreen.nextUpdateDual(homeCopy, visitorCopy, rotation);
                             myArenaScreen.changeCard("SimulCard");
                         }
                         else if (selectedMode == 1){
-                            updateRotationNonSimul(myArenaScreen, frame, 1, gC, homeCopy, visitorCopy, allJudges);
-                            myArenaScreen.changeCard("NonSimulCard");
+                            try{
+                                updateRotationNonSimul(myArenaScreen, frame, 1, gC, homeCopy, visitorCopy, allJudges);
+                            } catch (Exception exception) {
+                                System.out.println("Some Error with Post Meet Mode");
+                            }
+                            myArenaScreen.nextUpdateDual(homeCopy, visitorCopy, rotation);
+                            myArenaScreen.changeCard("SimulCard");
                         }
                         myArenaScreen.resetArenaTables(); //reset tables
                         showUpdate = true;
@@ -814,7 +814,7 @@ public class DualScorekeeperScreen {
                     thisFrame.dispose();
 
                     //Just testing getting the judges                       //Potato
-                    PostMeetResults postresult = new PostMeetResults("dual", homeCopy, visitorCopy, new File("RESULTS.txt"), judges);
+                    PostMeetResults postresult = new PostMeetResults("dual", home, visitor, new File("RESULTS.txt"), judges);
 
                 }
                 else {
@@ -837,48 +837,94 @@ public class DualScorekeeperScreen {
             thisFrame.dispose();
         }
         else if (rotation == 1){
-            team1App.setText("Vault");
-            team2App.setText("Vault");
-            myArenaScreen.updateEvent("Vault", 1);
-            myArenaScreen.updateEvent("Vault", 2);
+            currentevent1 = "Vault";
+            currentevent2 = "Vault";
+            team1App.setText(currentevent1);
+            team2App.setText(currentevent2);
+            myArenaScreen.updateEvent(vaultCombo1.getSelectedItem().toString() + " " + currentevent1, 1);
+            myArenaScreen.updateEvent(vaultCombo2.getSelectedItem().toString() + " " + currentevent2, 2);
             rotationLabel.setText("ROTATION 1");
-            //update judges
-            //update players
-            //update scores
-            //etc.
+
+            updateJudgeNamesSimul(allJudges, rotation);
+
+            gC.updateCombobox(team1Combo, home.getVaultGymnasts());
+            gC.updateCombobox(team2Combo, visitor.getVaultGymnasts());
+
+            vaultCombo1.setVisible(true);
+            vaultCombo2.setVisible(true);
+
         }
         else if (rotation == 2){
-            team1App.setText("Bars");
-            team2App.setText("Bars");
-            myArenaScreen.updateEvent("Bars", 1);
-            myArenaScreen.updateEvent("Bars", 2);
+            currentevent1 = "Bars";
+            currentevent2 = "Bars";
+            team1App.setText(currentevent1);
+            team2App.setText(currentevent2);
+            myArenaScreen.updateEvent(currentevent1, 1);
+            myArenaScreen.updateEvent(currentevent2, 2);
             rotationLabel.setText("ROTATION 2");
-            //update judges
-            //update players
-            //update scores
-            //etc.
+
+            updateJudgeNamesSimul(allJudges, rotation);
+
+            gC.updateCombobox(team1Combo, home.getBarGymnasts());
+            gC.updateCombobox(team2Combo, visitor.getBarGymnasts());
+
+            vaultCombo1.setVisible(false);
+            vaultCombo2.setVisible(false);
         }
         else if (rotation == 3){
-            team1App.setText("Beam");
-            team2App.setText("Beam");
-            myArenaScreen.updateEvent("Beam", 1);
-            myArenaScreen.updateEvent("Beam", 2);
+            currentevent1 = "Beam";
+            currentevent2 = "Beam";
+            team1App.setText(currentevent1);
+            team2App.setText(currentevent2);
+            myArenaScreen.updateEvent(currentevent1, 1);
+            myArenaScreen.updateEvent(currentevent2, 2);
             rotationLabel.setText("ROTATION 3");
+
+            updateJudgeNamesSimul(allJudges, rotation);
+
+            gC.updateCombobox(team1Combo, home.getBeamGymnasts());
+            gC.updateCombobox(team2Combo, visitor.getBeamGymnasts());
+
         }
         else if (rotation == 4){
-            team1App.setText("Floor");
-            team2App.setText("Floor");
-            myArenaScreen.updateEvent("Floor", 1);
-            myArenaScreen.updateEvent("Floor", 2);
+            currentevent1 = "Floor";
+            currentevent2 = "Floor";
+            team1App.setText(currentevent1);
+            team2App.setText(currentevent2);
+            myArenaScreen.updateEvent(currentevent1, 1);
+            myArenaScreen.updateEvent(currentevent2, 2);
             rotationLabel.setText("ROTATION 4");
+
+            updateJudgeNamesSimul(allJudges, rotation);
+
+            gC.updateCombobox(team1Combo, home.getBarGymnasts());
+            gC.updateCombobox(team2Combo, visitor.getBarGymnasts());
         }
         else if(rotation == 5){
-            List<Team> teams = new ArrayList<>();
-            teams.add(home);
-            teams.add(visitor);
-            PostMeetScreen myPostMode = new PostMeetScreen(gC, teams);
-            myArenaScreen.getFrame().dispose();
-            thisFrame.dispose();
+            if (gC.confirmDialog("Are you sure you want to end the tournament?")){
+                List <Team> teams = new ArrayList<>();
+                teams.add(home);
+                teams.add(visitor);
+                PostMeetScreen myPostMode = new PostMeetScreen(gC, teams);
+                myArenaScreen.getFrame().dispose();
+                thisFrame.dispose();
+
+                //Just testing getting the judges                       //Potato
+                try{
+                    PostMeetResults postresult = new PostMeetResults("dual", home, visitor, new File("RESULTS.txt"), judges);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            else {
+                try{
+                    updateRotationSimul(myArenaScreen, thisFrame, -1, gC, home, visitor,  allJudges);
+
+                } catch (Exception e) {
+
+                }
+            }
         }
 
     }

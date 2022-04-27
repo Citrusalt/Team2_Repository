@@ -19,6 +19,10 @@ public class MeetFormatScreen {
         cardLayout.show(meetFormatPanel, card);
         frame.setVisible(true);
 
+        //Program Logo
+        ImageIcon imageIcon = new ImageIcon(picturePath + "logo.png");
+        startImage.setIcon(gC.scaleImageIcon(imageIcon, 400, 400));
+
 
         startButton.addActionListener(new ActionListener() {
             @Override
@@ -56,7 +60,8 @@ public class MeetFormatScreen {
         });
     }
 
-
+    //Directory for pictures folder
+    String picturePath = System.getProperty("user.dir") + "/pictures/";
 
     private CardLayout cardLayout;
     private JPanel meetFormatPanel;

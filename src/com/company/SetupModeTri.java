@@ -568,9 +568,17 @@ public class SetupModeTri {
             gC.addRowTeamTable(row, floorModel);
         }
 
+        ////
+        String judgesDisplay[] = judgesNames;
+        for(int i = 0; i < judgesDisplay.length; i++){
+            if(judgesDisplay[i].equals("- Select Judges -")){
+                judgesDisplay[i] = "";
+            }
+        }
+        ////
 
         for (int i = 0; i <= 5; i++){
-            gC.addRowsJudgeTable(judgesNames[i],judgesNames[i+6],judgesNames[i+12],judgesNames[i+18], judgesModel);
+            gC.addRowsJudgeTable(judgesDisplay[i],judgesDisplay[i+6],judgesDisplay[i+12],judgesDisplay[i+18], judgesModel);
             vaultJudges.add(judgesNames[i]);
             barJudges.add(judgesNames[i+6]);
             beamJudges.add(judgesNames[i+12]);
