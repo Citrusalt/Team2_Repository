@@ -13,7 +13,7 @@ import java.util.List;
 public class EditLineupScreen extends JDialog {
 
     //Passing in home and visitor team into constructor, you might need to pass in more info
-    public EditLineupScreen(Team home, Team visitor, Team visitor2, int currentRotation, String meetType) {
+    public EditLineupScreen(Team home, Team visitor, Team visitor2, Team visitor3, int currentRotation, String meetType) {
 
         meet = meetType;           //We have to add this now in order for all meet type to use this        //
         //We have to add visitor 2, visitor 3 in parameter
@@ -33,6 +33,8 @@ public class EditLineupScreen extends JDialog {
         editHome = home;            //Sets editHome to the passed in
         editVisitor = visitor;      //Sets editVisitor to the passed in
         editVisitor2 = visitor2;
+        editVisitor3 = visitor3;
+
 
         //card layout start
         cardLayout = (CardLayout) mainPanel.getLayout();
@@ -381,7 +383,6 @@ public class EditLineupScreen extends JDialog {
             }
         });
         setVisible(true);   //KEEP THIS AT THE BOTTOM!!!
-
     }
 
     private void updateRotation(JComboBox rotationCombo, Team home, Team visitor, Team visitor2, int rotationNum, String meet) {
@@ -688,9 +689,6 @@ public class EditLineupScreen extends JDialog {
         }
 
     }
-
-
-
     String picturePath = System.getProperty("user.dir") + "/pictures/";
     String meet;
     private Team editHome;

@@ -440,7 +440,7 @@ public class TriScorekeeperScreen {
                 //Keep track of the last player on the apparatus
                 int team1current = team1Combo.getSelectedIndex();
                 int team2current = team2Combo.getSelectedIndex();
-                EditLineupScreen myScreen = new EditLineupScreen(homeCopy, visitor1Copy, visitor2Copy, rotation, "Tri");
+                EditLineupScreen myScreen = new EditLineupScreen(homeCopy, visitor1Copy, visitor2Copy, new Team("",""), rotation, "Tri");
                 homeCopy = myScreen.getEditHome();
                 visitor1Copy = myScreen.getEditVisitor();
                 visitor2Copy = myScreen.getEditVisitor2();

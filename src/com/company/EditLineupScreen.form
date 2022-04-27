@@ -741,14 +741,6 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="b99ed" class="javax.swing.JButton" binding="sub1">
-            <constraints>
-              <grid row="10" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Substitute New Player"/>
-            </properties>
-          </component>
           <component id="9426b" class="javax.swing.JButton" binding="sub4">
             <constraints>
               <grid row="10" column="7" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -1037,6 +1029,14 @@
           <component id="ab388" class="javax.swing.JButton" binding="sub3">
             <constraints>
               <grid row="10" column="5" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Substitute New Player"/>
+            </properties>
+          </component>
+          <component id="b99ed" class="javax.swing.JButton" binding="sub1">
+            <constraints>
+              <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Substitute New Player"/>

@@ -685,7 +685,7 @@ public class DualScorekeeperScreen {
         editLineupButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EditLineupScreen myScreen = new EditLineupScreen(homeCopy, visitorCopy, new Team("",""), rotation, "Dual");
+                EditLineupScreen myScreen = new EditLineupScreen(homeCopy, visitorCopy, new Team("",""),new Team("",""), rotation, "Dual");
                 homeCopy = myScreen.getEditHome();
                 visitorCopy = myScreen.getEditVisitor();
                 homeCopy.updateApparatusLists();
