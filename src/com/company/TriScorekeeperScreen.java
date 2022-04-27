@@ -452,7 +452,7 @@ public class TriScorekeeperScreen {
                 homeCopy.updateApparatusLists();
                 visitor1Copy.updateApparatusLists();
                 visitor2Copy.updateApparatusLists();
-                updateDisplay(myDualTriArenaScreen, gC, homeCopy, visitor1Copy, visitor1Copy, rotation);
+                updateDisplay(myDualTriArenaScreen, gC, homeCopy, visitor1Copy, visitor2Copy, rotation);
 
                 team1Combo.setSelectedIndex(team1current);
                 team2Combo.setSelectedIndex(team2current);
