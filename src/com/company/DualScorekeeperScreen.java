@@ -244,7 +244,6 @@ public class DualScorekeeperScreen {
         nextRotationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 if (showUpdate == false){
                     if (gC.confirmDialog("Are you sure you want to end Rotation " + rotation + "?")){
                         if (selectedMode == 0){
@@ -685,12 +684,17 @@ public class DualScorekeeperScreen {
         editLineupButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //Keep track of the last player on the apparatus
+                int team1current = team1Combo.getSelectedIndex();
+                int team2current = team2Combo.getSelectedIndex();
                 EditLineupScreen myScreen = new EditLineupScreen(homeCopy, visitorCopy, new Team("",""),new Team("",""), rotation, "Dual");
                 homeCopy = myScreen.getEditHome();
                 visitorCopy = myScreen.getEditVisitor();
                 homeCopy.updateApparatusLists();
                 visitorCopy.updateApparatusLists();
                 updateDisplay(myArenaScreen, gC, homeCopy, visitorCopy, rotation);
+
+                team1Combo.setSelectedIndex(team1current); team2Combo.setSelectedIndex(team2current);
             }
         });
         teamLogoCheckbox.addItemListener(new ItemListener() {
