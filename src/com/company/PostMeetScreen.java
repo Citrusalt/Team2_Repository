@@ -42,9 +42,17 @@ public class PostMeetScreen {
         }
         else if (teams.size() == 3){
             dynamicTable(gC, teamModel, individualModel, teams);
+            teamTable.getPreferredScrollableViewportSize().setSize(-1, -1);
+            teamScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+
+            individualScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         }
         else if (teams.size() == 4){
             dynamicTable(gC, teamModel, individualModel, teams);
+            teamTable.getPreferredScrollableViewportSize().setSize(-1, -1);
+            teamScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+
+            individualScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         }
         else{
             System.out.println("Invalid Number of Teams");
