@@ -207,8 +207,6 @@ public class SetupModeDual {
                 else{
                     JOptionPane.showMessageDialog(null, "Error. All spots must be filled and no duplicate players.");
                 }
-
-                changeCard("SelectBalanceBeamCard");
             }
         });
         balanceBeamBackButton.addActionListener(new ActionListener() {
@@ -328,14 +326,15 @@ public class SetupModeDual {
                 // Coincidence?                 -jlou (4.11.2022)
                 //!!!!!!!!!!!
 
-                if (gC.checkUnique(vaultJudges) && gC.checkUnique(barJudges) && gC.checkUnique(beamJudges) && gC.checkUnique(floorJudges)) {
+                if (gC.checkUnique(vaultJudges) && gC.isEven(vaultJudges) && gC.checkUnique(barJudges)
+                        && gC.isEven(barJudges) && gC.checkUnique(beamJudges) && gC.isEven(beamJudges) &&  gC.checkUnique(floorJudges) && gC.isEven(floorJudges))  {
                     //Calls the testTable class
                     resetTables(); //resets tables so that table isnt still filled with old values
                     testTable(gC);
                     changeCard("SummaryCard");
                 }
                 else{
-                    JOptionPane.showMessageDialog(null, "Error. At least two judges must be selected per event and no duplicate judges on the same event.");
+                    JOptionPane.showMessageDialog(null, "Error. There must be an even amount of judges and no duplicate judges on the same event.");
                 }
             }
         });
@@ -624,6 +623,7 @@ public class SetupModeDual {
     private List<String> beamJudges = new ArrayList<>();
     private List<String> floorJudges = new ArrayList<>();
 
+
     private JPanel mainPanel;
     private JButton startButton;
     private JButton dualButton;
@@ -644,7 +644,6 @@ public class SetupModeDual {
     private JButton goBackButton;
     private JButton continueButton;
     private JButton vaultNextButton;
-    private JCheckBox thisApparatusRequiresACheckBox;
     private JPanel setupBars;
     private JPanel setupFloor;
     private JPanel setupBalanceBeam;

@@ -55,8 +55,6 @@ public class TriScorekeeperScreen {
             }
         }
 
-
-
         vaultCombo2.setVisible(false);
 
         defaultTemplateButton.addActionListener(new ActionListener() {
@@ -149,12 +147,6 @@ public class TriScorekeeperScreen {
                 changeLogoDisplay(rotation, picturePath,myDualTriArenaScreen, gC);
             }
         });
-//        backButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                updateRotation(myDualTriArenaScreen, frame, -1, gC, homeCopy, visitor1Copy, visitor2Copy, allJudges);
-//            }
-//        });
 
         team1Combo.addItemListener(new ItemListener() {
             @Override
@@ -226,8 +218,6 @@ public class TriScorekeeperScreen {
                 List<JudgeScore> judgeScoreList = new ArrayList<>();
                 boolean invalidScore = false;
                 boolean emptyScores = false;
-                System.out.println(scoresList.size() +" " + emptyScores);
-
                 float scoreArray[] = new float[6];
                 try{
                     for (int i = 0; i<getHomeJudgesTextbox().size(); i++)
@@ -295,14 +285,6 @@ public class TriScorekeeperScreen {
                 boolean emptyScores = false;
                 float scoreArray[] = new float[6];
                 try {
-                    //Use these scores to update score for backend and arena screen
-                   /* scoreArray[0] = Integer.parseInt(j21.getText());
-                    scoreArray[1] = Integer.parseInt(j22.getText());
-                    scoreArray[2] = Integer.parseInt(j23.getText());
-                    scoreArray[3] = Integer.parseInt(j24.getText());
-                    scoreArray[4] = Integer.parseInt(j25.getText());
-                    scoreArray[5] = Integer.parseInt(j26.getText());*/
-
                     for (int i = 0; i < getVisitor1JudgesTextbox().size(); i++) {
                         if (getVisitor1JudgesTextbox().get(i).getText().isEmpty() && getVisitor1JudgesTextbox().get(i).isVisible()) {
                             emptyScores = true;
@@ -447,6 +429,18 @@ public class TriScorekeeperScreen {
                 }
             }
         });
+        teamLogoCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    myDualTriArenaScreen.logo1.setVisible(true);
+                    myDualTriArenaScreen.logo2.setVisible(true);
+                } else {
+                    myDualTriArenaScreen.logo1.setVisible(false);
+                    myDualTriArenaScreen.logo2.setVisible(false);
+                }
+            }
+        });
         vaultCombo1.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
@@ -569,30 +563,6 @@ public class TriScorekeeperScreen {
             }
         }
 
-
-
-//        //Updates the arena display for home
-//        if (currentevent1 == "Vault") {
-//            myArenaScreen.updateGymnastInfo(home.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 1, 0);
-//        } else if (currentevent1 == "Uneven Bars") {
-//            myArenaScreen.updateGymnastInfo(home.getBarGymnasts().get(team1Combo.getSelectedIndex()), 1, 1);
-//        } else if (currentevent1 == "Balanced Beam") {
-//            myArenaScreen.updateGymnastInfo(home.getBeamGymnasts().get(team1Combo.getSelectedIndex()), 1, 2);
-//        } else if (currentevent1 == "Floor Exercise") {
-//            myArenaScreen.updateGymnastInfo(home.getFloorGymnasts().get(team1Combo.getSelectedIndex()), 1, 3);
-//        }
-//
-//        //Updates the arena display for visitor1
-//        if (currentevent2 == "Vault") {
-//            myArenaScreen.updateGymnastInfo(visitor.getVaultGymnasts().get(team2Combo.getSelectedIndex()), 2, 0);
-//        } else if (currentevent2 == "Bars") {
-//            myArenaScreen.updateGymnastInfo(visitor.getBarGymnasts().get(team2Combo.getSelectedIndex()), 2, 1);
-//        } else if (currentevent2 == "Beam") {
-//            myArenaScreen.updateGymnastInfo(visitor.getBeamGymnasts().get(team2Combo.getSelectedIndex()), 2, 2);
-//        } else if (currentevent2 == "Floor") {
-//            myArenaScreen.updateGymnastInfo(visitor.getFloorGymnasts().get(team2Combo.getSelectedIndex()), 2, 3);
-//        }
-
     }
 
     //Changes the display logo on the arena screen
@@ -673,11 +643,6 @@ public class TriScorekeeperScreen {
             vaultCombo1.setVisible(true);
             vaultCombo2.setVisible(false);
 
-            //update judges
-            //update players
-            //update scores
-            //change combo boxes
-            //etc.
         } else if (rotation == 2) {
             //This section be the same for rot 1,2,3
             currentevent1 = "Vault";
@@ -703,12 +668,6 @@ public class TriScorekeeperScreen {
             vaultCombo1.setVisible(true);
             vaultCombo2.setVisible(false);
 
-
-            //update judges
-            //update players
-            //update scores
-            //change combo boxes
-            //etc.
         } else if (rotation == 3) {
             //This section be the same for rot 1,2,3
             currentevent1 = "Vault";
@@ -734,12 +693,6 @@ public class TriScorekeeperScreen {
             vaultCombo1.setVisible(true);
             vaultCombo2.setVisible(false);
 
-
-            //update judges
-            //update players
-            //update scores
-            //change combo boxes
-            //etc.
         } else if (rotation == 4) {
             //This section be the same for rot 4,5,6
             currentevent1 = "Balanced Beam";
@@ -765,12 +718,6 @@ public class TriScorekeeperScreen {
             vaultCombo1.setVisible(false);
             vaultCombo2.setVisible(false);
 
-
-            //update judges
-            //update players
-            //update scores
-            //change combo boxes
-            //etc.
         } else if (rotation == 5) {
             //This section be the same for rot 4,5,6
             currentevent1 = "Balanced Beam";
@@ -797,11 +744,6 @@ public class TriScorekeeperScreen {
             vaultCombo2.setVisible(false);
 
 
-            //update judges
-            //update players
-            //update scores
-            //change combo boxes
-            //etc.
         } else if (rotation == 6) {
             //This section be the same for rot 4,5,6
             currentevent1 = "Balanced Beam";
@@ -833,13 +775,13 @@ public class TriScorekeeperScreen {
             } catch (Exception e) {
                 System.out.println("Cannot create new instance of postmeet result");
             }
-            //update judges
-            //update players
-            //update scores
-            //change combo boxes
-            //etc.
+
         } else if (rotation == 7) {
             List<Team> teams = new ArrayList<>();
+            teams.add(homeCopy);
+            teams.add(visitor1Copy);
+            teams.add(visitor2Copy);
+
             PostMeetScreen myPostMode = new PostMeetScreen(gC, teams);
             myArenaScreen.getFrame().dispose();
             thisFrame.dispose();
@@ -904,8 +846,6 @@ public class TriScorekeeperScreen {
                 //match the score to the appropriate judge object
                 judgeScoreList.get(k).createScore(team1App.getText(), homeCopy.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 0, scoresList.get(k));
                 vaultJudges.get(k).addScore(judgeScoreList.get(k));
-
-
             }
 
             myArenaScreen.overall1.setText(String.valueOf("Running Team Score:     " + homeCopy.getTeamScore().getRunningScore()));
@@ -986,7 +926,7 @@ public class TriScorekeeperScreen {
         //Visitor1 is on Bars
         if (rotation == 1) {
             visitor1Copy.getBarGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setbarScore(pscore);
-            visitor1Copy.getTeamScore().setbarScore(visitor1Copy.getTeamScore().calculateTeamBarScore(visitor1Copy.getVaultGymnasts()));
+            visitor1Copy.getTeamScore().setbarScore(visitor1Copy.getTeamScore().calculateTeamBarScore(visitor1Copy.getBarGymnasts()));
             // go through the list of judges scores (these are directly from the text boxes
             //set the createScore method in judgescore object, add it to the right judge object scores list
             for (int k = 0; k < judgeScoreList.size(); k++) {

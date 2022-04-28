@@ -131,7 +131,7 @@
           </vspacer>
         </children>
       </grid>
-      <grid id="913c7" binding="setupVault" layout-manager="GridLayoutManager" row-count="11" column-count="13" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="913c7" binding="setupVault" layout-manager="GridLayoutManager" row-count="10" column-count="13" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <card name="SelectVaultCard"/>
@@ -270,14 +270,6 @@
               <text value="Back"/>
             </properties>
           </component>
-          <component id="c594f" class="javax.swing.JCheckBox" binding="thisApparatusRequiresACheckBox" default-binding="true">
-            <constraints>
-              <grid row="9" column="0" row-span="1" col-span="13" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="This apparatus requires a timer."/>
-            </properties>
-          </component>
           <component id="8dc3" class="javax.swing.JComboBox" binding="v46">
             <constraints>
               <grid row="8" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -288,7 +280,7 @@
           </component>
           <component id="9715c" class="javax.swing.JButton" binding="vaultNextButton">
             <constraints>
-              <grid row="10" column="0" row-span="1" col-span="13" vsize-policy="0" hsize-policy="3" anchor="6" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="9" column="0" row-span="1" col-span="13" vsize-policy="0" hsize-policy="3" anchor="6" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Next"/>
@@ -1137,7 +1129,7 @@
           </component>
         </children>
       </grid>
-      <grid id="e866a" binding="setupBars" layout-manager="GridLayoutManager" row-count="11" column-count="13" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="e866a" binding="setupBars" layout-manager="GridLayoutManager" row-count="10" column-count="13" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <card name="SelectBarCard"/>
@@ -1276,14 +1268,6 @@
               <text value="Back"/>
             </properties>
           </component>
-          <component id="a8abc" class="javax.swing.JCheckBox" default-binding="true">
-            <constraints>
-              <grid row="9" column="0" row-span="1" col-span="13" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="This apparatus requires a timer."/>
-            </properties>
-          </component>
           <component id="1a6c3" class="javax.swing.JComboBox" binding="b46">
             <constraints>
               <grid row="8" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -1294,7 +1278,7 @@
           </component>
           <component id="c0e65" class="javax.swing.JButton" binding="barsNextButton">
             <constraints>
-              <grid row="10" column="0" row-span="1" col-span="13" vsize-policy="0" hsize-policy="3" anchor="6" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="9" column="0" row-span="1" col-span="13" vsize-policy="0" hsize-policy="3" anchor="6" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Next"/>
@@ -1673,7 +1657,7 @@
           </component>
         </children>
       </grid>
-      <grid id="dc579" binding="setupBalanceBeam" layout-manager="GridLayoutManager" row-count="11" column-count="13" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="dc579" binding="setupBalanceBeam" layout-manager="GridLayoutManager" row-count="10" column-count="13" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <card name="SelectBalanceBeamCard"/>
@@ -1804,14 +1788,6 @@
               <text value="Back"/>
             </properties>
           </component>
-          <component id="d0760" class="javax.swing.JCheckBox" default-binding="true">
-            <constraints>
-              <grid row="9" column="0" row-span="1" col-span="13" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="This apparatus requires a timer."/>
-            </properties>
-          </component>
           <component id="51f0f" class="javax.swing.JComboBox" binding="bb46">
             <constraints>
               <grid row="8" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -1822,7 +1798,7 @@
           </component>
           <component id="51080" class="javax.swing.JButton" binding="balanceBeamNextButton">
             <constraints>
-              <grid row="10" column="0" row-span="1" col-span="13" vsize-policy="0" hsize-policy="3" anchor="6" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="9" column="0" row-span="1" col-span="13" vsize-policy="0" hsize-policy="3" anchor="6" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Next"/>
@@ -2209,7 +2185,7 @@
           </component>
         </children>
       </grid>
-      <grid id="9627c" binding="setupFloor" layout-manager="GridLayoutManager" row-count="11" column-count="13" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="9627c" binding="setupFloor" layout-manager="GridLayoutManager" row-count="10" column-count="13" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <card name="SelectFloorCard"/>
@@ -2348,14 +2324,6 @@
               <text value="Back"/>
             </properties>
           </component>
-          <component id="d8f62" class="javax.swing.JCheckBox" default-binding="true">
-            <constraints>
-              <grid row="9" column="0" row-span="1" col-span="13" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="This apparatus requires a timer."/>
-            </properties>
-          </component>
           <component id="a403a" class="javax.swing.JComboBox" binding="f46">
             <constraints>
               <grid row="8" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -2366,7 +2334,7 @@
           </component>
           <component id="7c5aa" class="javax.swing.JButton" binding="floorNextButton">
             <constraints>
-              <grid row="10" column="0" row-span="1" col-span="13" vsize-policy="0" hsize-policy="3" anchor="6" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="9" column="0" row-span="1" col-span="13" vsize-policy="0" hsize-policy="3" anchor="6" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Next"/>

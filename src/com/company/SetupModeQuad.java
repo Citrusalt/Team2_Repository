@@ -185,13 +185,12 @@ public class SetupModeQuad {
                 for (int i = 0; i < 6; i++){
                     visitor3Team[i] = getvisitor3Combo().get(i).getSelectedItem();
                 }
-                changeCard("SelectBarCard");        //Bypass check
-//                if (gC.checkUnique(homeTeam) && gC.checkUnique(visitor1Team) && gC.checkUnique(visitor2Team) && gC.checkUnique(visitor3Team)){
-//                    changeCard("SelectBarCard");
-//                }
-//                else{
-//                    JOptionPane.showMessageDialog(null, "Error. All spots must be filled and no duplicate players.");
-//                }
+                if (gC.checkUnique(homeTeam) && gC.checkUnique(visitor1Team) && gC.checkUnique(visitor2Team) && gC.checkUnique(visitor3Team)){
+                    changeCard("SelectBarCard");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Error. All spots must be filled and no duplicate players.");
+                }
             }
         });
         vaultBackButton.addActionListener(new ActionListener() {
@@ -227,13 +226,12 @@ public class SetupModeQuad {
                 for (int i = 0; i < 6; i++){
                     visitor3Team[i] = getvisitor3Combo().get(i + 6).getSelectedItem();
                 }
-                changeCard("SelectBalanceBeamCard");        //Bypass check
-//                if (gC.checkUnique(homeTeam) && gC.checkUnique(visitor1Team) && gC.checkUnique(visitor2Team) && gC.checkUnique(visitor3Team)){
-//                    changeCard("SelectBalanceBeamCard");
-//                }
-//                else{
-//                    JOptionPane.showMessageDialog(null, "Error. All spots must be filled and no duplicate players.");
-//                }
+                if (gC.checkUnique(homeTeam) && gC.checkUnique(visitor1Team) && gC.checkUnique(visitor2Team) && gC.checkUnique(visitor3Team)){
+                    changeCard("SelectBalanceBeamCard");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Error. All spots must be filled and no duplicate players.");
+                }
             }
         });
         balanceBeamBackButton.addActionListener(new ActionListener() {
@@ -261,14 +259,12 @@ public class SetupModeQuad {
                 for (int i = 0; i < 6; i++){
                     visitor3Team[i] = getvisitor3Combo().get(i + 12).getSelectedItem();
                 }
-                changeCard("SelectFloorCard");          //Bypass check
-
-//                if (gC.checkUnique(homeTeam) && gC.checkUnique(visitor1Team) && gC.checkUnique(visitor2Team)&& gC.checkUnique(visitor3Team)){
-//                    changeCard("SelectFloorCard");
-//                }
-//                else{
-//                    JOptionPane.showMessageDialog(null, "Error. All spots must be filled and no duplicate players.");
-//                }
+                if (gC.checkUnique(homeTeam) && gC.checkUnique(visitor1Team) && gC.checkUnique(visitor2Team)&& gC.checkUnique(visitor3Team)){
+                    changeCard("SelectFloorCard");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Error. All spots must be filled and no duplicate players.");
+                }
             }
         });
         floorBackButton.addActionListener(new ActionListener() {
@@ -296,14 +292,12 @@ public class SetupModeQuad {
                 for (int i = 0; i < 6; i++){
                     visitor3Team[i] = getvisitor3Combo().get(i + 18).getSelectedItem();
                 }
-                changeCard("SelectJudgesCard");             //Bypass check
-
-//                if (gC.checkUnique(homeTeam) && gC.checkUnique(visitor1Team) && gC.checkUnique(visitor2Team) && gC.checkUnique(visitor3Team)){
-//                    changeCard("SelectJudgesCard");
-//                }
-//                else{
-//                    JOptionPane.showMessageDialog(null, "Error. All spots must be filled and no duplicate players.");
-//                }
+                if (gC.checkUnique(homeTeam) && gC.checkUnique(visitor1Team) && gC.checkUnique(visitor2Team) && gC.checkUnique(visitor3Team)){
+                    changeCard("SelectJudgesCard");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Error. All spots must be filled and no duplicate players.");
+                }
             }
         });
         judgesBackButton.addActionListener(new ActionListener() {
@@ -334,16 +328,16 @@ public class SetupModeQuad {
                 //Calls the testTable class            //Bypass check
                 resetTables(); //resets tables so that table isnt still filled with old values
                 testTable(gC);
-                changeCard("SummaryCard");
-//                if (gC.checkUnique(vaultJudges) && gC.checkUnique(barJudges) && gC.checkUnique(beamJudges) && gC.checkUnique(floorJudges)){
-//                    //Calls the testTable class
-//                    resetTables(); //resets tables so that table isnt still filled with old values
-//                    testTable(gC);
-//                    changeCard("SummaryCard");
-//                }
-//                else{
-//                    JOptionPane.showMessageDialog(null, "Error. At least two judges must be selected per event and no duplicate judges on the same event.");
-//                }
+                if (gC.checkUnique(vaultJudges) && gC.isEven(vaultJudges) && gC.checkUnique(barJudges)
+                        && gC.isEven(barJudges) && gC.checkUnique(beamJudges) && gC.isEven(beamJudges) &&  gC.checkUnique(floorJudges) && gC.isEven(floorJudges)){
+                    //Calls the testTable class
+                    resetTables(); //resets tables so that table isnt still filled with old values
+                    testTable(gC);
+                    changeCard("SummaryCard");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Error. At least two judges must be selected per event and no duplicate judges on the same event.");
+                }
             }
         });
         vaultEditButton.addActionListener(new ActionListener() {
@@ -735,7 +729,6 @@ public class SetupModeQuad {
     private JComboBox v13;
     private JComboBox v12;
     private JButton vaultBackButton;
-    private JCheckBox thisApparatusRequiresACheckBox;
     private JButton vaultNextButton;
     private JPanel selectJudges;
     private JButton judgesBackButton;

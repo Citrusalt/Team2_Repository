@@ -146,6 +146,10 @@ public class QuadArenaScreen {
         //reverse list in descending order
         Collections.reverse(teamList);
 
+        for (int i = 0; i < teamList.size(); i++){
+            gC.addRowTeamTablePost(i+1, teamList.get(i).getTeamName(), teamList.get(i).getTeamScore().getRunningScore(), teamModel);
+        }
+
         //iterate through list of teams, iterate through players, if all around player, add to playerList
         for (Team t : teamList){
             for (Player p : t.getAllGymnasts()){
@@ -304,48 +308,6 @@ public class QuadArenaScreen {
         });
         timer4.start();
     }
-
-//    public void clock(int seconds, int selectedClock){
-//        switch (selectedClock){
-//            case 1:
-//                seconds1 = seconds;
-//                startClock(timer1, seconds1, time1, clockLabel1);
-//                break;
-//            case 2:
-//                startClock(timer2, seconds2, time2, clockLabel2);
-//                break;
-//            case 3:
-//                startClock(timer3, seconds3, time3, clockLabel3);
-//                break;
-//            case 4:
-//                startClock(timer4, seconds4, time4, clockLabel4);
-//                break;
-//        }
-//    }
-
-//    public void startClock(Timer timer, int seconds, String time, JLabel clockLabel){
-//
-//        timer = new Timer(1000, new ActionListener()
-//        {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//
-//                time = String.format("%02d:%02d", seconds /60, seconds % 60);
-//                clockLabel.setText(time2);
-//
-//                if (seconds <= 0){
-//                    resetClock2();
-//                }
-//                else {
-//                    seconds--;
-//                }
-//            }
-//        });
-//        timer.start();
-//    }
-
-
-//really redundant, will change later
 
     public void resetClock1(){
         try{

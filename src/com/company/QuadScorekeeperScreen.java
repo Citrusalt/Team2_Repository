@@ -243,15 +243,6 @@ public class QuadScorekeeperScreen {
                 List<JudgeScore> judgeScoreList = new ArrayList<>(); //to store new instance of judge score for every class.
                 float scoreArray[] = new float[6];
                 try{
-/*                    //Use these scores to update score for backend and arena screen
-                    scoreArray[0] = Integer.parseInt(j11.getText());
-                    scoreArray[1] = Integer.parseInt(j12.getText());
-                    scoreArray[2] = Integer.parseInt(j13.getText());
-                    scoreArray[3] = Integer.parseInt(j14.getText());
-                    scoreArray[4] = Integer.parseInt(j15.getText());
-                    scoreArray[5] = Integer.parseInt(j16.getText());*/
-
-
                     for (int i = 0; i<getHomeJudgesTextbox().size(); i++)
                     {
                         if(getHomeJudgesTextbox().get(i).getText().isEmpty() && getHomeJudgesTextbox().get(i).isVisible()){
@@ -301,14 +292,6 @@ public class QuadScorekeeperScreen {
                 List<JudgeScore> judgeScoreList = new ArrayList<>(); //to store new instance of judge score for every class.
                 float scoreArray[] = new float[6];
                 try{
-                    //Use these scores to update score for backend and arena screen
-                  /*  scoreArray[0] = Integer.parseInt(j21.getText());
-                    scoreArray[1] = Integer.parseInt(j22.getText());
-                    scoreArray[2] = Integer.parseInt(j23.getText());
-                    scoreArray[3] = Integer.parseInt(j24.getText());
-                    scoreArray[4] = Integer.parseInt(j25.getText());
-                    scoreArray[5] = Integer.parseInt(j26.getText());*/
-
                     for (int i = 0; i<getVisitor1JudgesTextbox().size(); i++)
                     {
                         if(getVisitor1JudgesTextbox().get(i).getText().isEmpty() && getVisitor1JudgesTextbox().get(i).isVisible()){
@@ -329,51 +312,6 @@ public class QuadScorekeeperScreen {
                             break; }
                     }
                     else JOptionPane.showMessageDialog(null, "Invalid Input. Make sure all judges have a score.");
-
-                   /* if (j21.getText().isEmpty() == true && j22.getText().isEmpty() == true && j23.getText().isEmpty() == true && j24.getText().isEmpty() == true && j25.getText().isEmpty() == true && j26.getText().isEmpty() == true)
-                    {
-                        emptyScores = true;
-                        JOptionPane.showMessageDialog(null, "No scores were input.");
-                    }
-                    if (j21.getText().isEmpty() == false && j22.getText().isEmpty() == false) {
-                        if (Double.parseDouble(j21.getText()) > 10 || Double.parseDouble(j22.getText()) > 10 || Double.parseDouble(j21.getText()) < 0 || Double.parseDouble(j22.getText()) < 0) {
-                            JOptionPane.showMessageDialog(null, "Invalid Input.");
-                            invalidScore =true;
-                        } else {
-                            JudgeScore judgeScore1 = new JudgeScore();
-                            JudgeScore judgeScore2 = new JudgeScore();
-                            judgeScoreList.add(judgeScore1);
-                            judgeScoreList.add(judgeScore2);
-                            scoresList.add(Double.parseDouble(j21.getText()));
-                            scoresList.add(Double.parseDouble(j22.getText()));
-                        }
-                    }
-                    if (j23.getText().isEmpty() == false && j24.getText().isEmpty() == false) {
-                        if (Double.parseDouble(j23.getText()) > 10 || Double.parseDouble(j24.getText()) > 10 || Double.parseDouble(j23.getText()) <0 || Double.parseDouble(j24.getText()) < 0) {
-                            JOptionPane.showMessageDialog(null, "Invalid Input.");
-                            invalidScore =true;
-                        } else {
-                            JudgeScore judgeScore3 = new JudgeScore();
-                            JudgeScore judgeScore4 = new JudgeScore();
-                            judgeScoreList.add(judgeScore3);
-                            judgeScoreList.add(judgeScore4);
-                            scoresList.add(Double.parseDouble(j23.getText()));
-                            scoresList.add(Double.parseDouble(j24.getText()));
-                        }
-                    }
-                    if (j25.getText().isEmpty() == false && j26.getText().isEmpty() == false) {
-                        if (Double.parseDouble(j25.getText()) > 10 || Double.parseDouble(j26.getText()) > 10 || Double.parseDouble(j25.getText()) <0 || Double.parseDouble(j26.getText()) <0) {
-                            JOptionPane.showMessageDialog(null, "Invalid Input.");
-                            invalidScore =true;
-                        } else {
-                            JudgeScore judgeScore5 = new JudgeScore();
-                            JudgeScore judgeScore6 = new JudgeScore();
-                            judgeScoreList.add(judgeScore5);
-                            judgeScoreList.add(judgeScore6);
-                            scoresList.add(Double.parseDouble(j25.getText()));
-                            scoresList.add(Double.parseDouble(j26.getText()));
-                        }
-                    }*/
                     // deduction stuff
                     double deduction = 0;
                     if (!nD2.getText().isEmpty()) {
@@ -400,14 +338,6 @@ public class QuadScorekeeperScreen {
                 List<JudgeScore> judgeScoreList = new ArrayList<>(); //to store new instance of judge score for every class.
                 float scoreArray[] = new float[6];
                 try{
-                  /*  //Use these scores to update score for backend and arena screen
-                    scoreArray[0] = Integer.parseInt(j21.getText());
-                    scoreArray[1] = Integer.parseInt(j22.getText());
-                    scoreArray[2] = Integer.parseInt(j23.getText());
-                    scoreArray[3] = Integer.parseInt(j24.getText());
-                    scoreArray[4] = Integer.parseInt(j25.getText());
-                    scoreArray[5] = Integer.parseInt(j26.getText());*/
-
                     for (int i = 0; i<getVisitor2JudgesTextbox().size(); i++)
                     {
                         if(getVisitor2JudgesTextbox().get(i).getText().isEmpty() && getVisitor2JudgesTextbox().get(i).isVisible()){
@@ -457,13 +387,6 @@ public class QuadScorekeeperScreen {
                 List<JudgeScore> judgeScoreList = new ArrayList<>(); //to store new instance of judge score for every class.
                 float scoreArray[] = new float[6];
                 try{
-                    //Use these scores to update score for backend and arena screen
-                /*    scoreArray[0] = Integer.parseInt(j21.getText());
-                    scoreArray[1] = Integer.parseInt(j22.getText());
-                    scoreArray[2] = Integer.parseInt(j23.getText());
-                    scoreArray[3] = Integer.parseInt(j24.getText());
-                    scoreArray[4] = Integer.parseInt(j25.getText());
-                    scoreArray[5] = Integer.parseInt(j26.getText());*/
                     for (int i = 0; i<getVisitor3JudgesTextbox().size(); i++)
                     {
                         if(getVisitor3JudgesTextbox().get(i).getText().isEmpty() && getVisitor3JudgesTextbox().get(i).isVisible()){
@@ -485,50 +408,6 @@ public class QuadScorekeeperScreen {
                     }
                     else JOptionPane.showMessageDialog(null, "Invalid Input. Make sure all judges have a score.");
 
-                   /* if (j41.getText().isEmpty() == true && j42.getText().isEmpty() == true && j43.getText().isEmpty() == true && j44.getText().isEmpty() == true && j45.getText().isEmpty() == true && j46.getText().isEmpty() == true)
-                    {
-                        emptyScores = true;
-                        JOptionPane.showMessageDialog(null, "No scores were input.");
-                    }
-                    if (j41.getText().isEmpty() == false && j42.getText().isEmpty() == false) {
-                        if (Double.parseDouble(j41.getText()) > 10 || Double.parseDouble(j42.getText()) > 10 || Double.parseDouble(j41.getText()) < 0 || Double.parseDouble(j42.getText()) < 0) {
-                            JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
-                            invalidScore =true;
-                        } else {
-                            JudgeScore judgeScore1 = new JudgeScore();
-                            JudgeScore judgeScore2 = new JudgeScore();
-                            judgeScoreList.add(judgeScore1);
-                            judgeScoreList.add(judgeScore2);
-                            scoresList.add(Double.parseDouble(j41.getText()));
-                            scoresList.add(Double.parseDouble(j42.getText()));
-                        }
-                    }
-                    if (j43.getText().isEmpty() == false && j44.getText().isEmpty() == false) {
-                        if (Double.parseDouble(j43.getText()) > 10 || Double.parseDouble(j44.getText()) > 10 || Double.parseDouble(j43.getText()) <0 || Double.parseDouble(j44.getText()) < 0) {
-                            JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
-                            invalidScore =true;
-                        } else {
-                            JudgeScore judgeScore3 = new JudgeScore();
-                            JudgeScore judgeScore4 = new JudgeScore();
-                            judgeScoreList.add(judgeScore3);
-                            judgeScoreList.add(judgeScore4);
-                            scoresList.add(Double.parseDouble(j43.getText()));
-                            scoresList.add(Double.parseDouble(j44.getText()));
-                        }
-                    }
-                    if (j45.getText().isEmpty() == false && j46.getText().isEmpty() == false) {
-                        if (Double.parseDouble(j45.getText()) > 10 || Double.parseDouble(j46.getText()) > 10 || Double.parseDouble(j45.getText()) <0 || Double.parseDouble(j46.getText()) <0) {
-                            JOptionPane.showMessageDialog(null, "A score cannot be greater than 10.");
-                            invalidScore =true;
-                        } else {
-                            JudgeScore judgeScore5 = new JudgeScore();
-                            JudgeScore judgeScore6 = new JudgeScore();
-                            judgeScoreList.add(judgeScore5);
-                            judgeScoreList.add(judgeScore6);
-                            scoresList.add(Double.parseDouble(j45.getText()));
-                            scoresList.add(Double.parseDouble(j46.getText()));
-                        }
-                    }*/
                     // deduction stuff
                     double deduction = 0;
                     if (!nD4.getText().isEmpty()) {
@@ -668,7 +547,18 @@ public class QuadScorekeeperScreen {
         teamLogoCheckbox.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
-                //team logo logic here
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myQuadArenaScreen.logo1.setVisible(true);
+                    myQuadArenaScreen.logo2.setVisible(true);
+                    myQuadArenaScreen.logo3.setVisible(true);
+                    myQuadArenaScreen.logo4.setVisible(true);
+                }
+                else{
+                    myQuadArenaScreen.logo1.setVisible(false);
+                    myQuadArenaScreen.logo2.setVisible(false);
+                    myQuadArenaScreen.logo3.setVisible(false);
+                    myQuadArenaScreen.logo4.setVisible(false);
+                }
             }
         });
         editLineupButton.addActionListener(new ActionListener() {
@@ -880,10 +770,10 @@ public class QuadScorekeeperScreen {
         else if(rotation == 5){
             if (gC.confirmDialog("Are you sure you want to end the tournament?")){
                 List <Team> teams = new ArrayList<>();
-                teams.add(home);
-                teams.add(visitor1);
-                teams.add(visitor2);
-                teams.add(visitor3);
+                teams.add(homeCopy);
+                teams.add(visitor1Copy);
+                teams.add(visitor2Copy);
+                teams.add(visitor3Copy);
                 PostMeetScreen myPostMode = new PostMeetScreen(gC, teams);
                 myArenaScreen.getFrame().dispose();
                 thisFrame.dispose();

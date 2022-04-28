@@ -32,25 +32,28 @@ public class PlayerScore implements Serializable {
     }
 
     public double getvaultScore() {
-        return this.vaultScore;
+        return (Math.floor(Math.floor(this.vaultScore*1000))/1000);
     }
 
     public double getbeamScore() {
-        return this.beamScore;
+        return (Math.floor(Math.round(this.beamScore*1000))/1000);
     }
 
     public double getfloorScore() {
-        return this.floorScore;
+        return (Math.floor(Math.round(this.floorScore*1000))/1000);
     }
 
     public double getbarScore() {
-        return this.barScore;
+        return (Math.floor(Math.round(this.barScore*1000))/1000);
     }
 
     // A players running score is the total score from all apparatuses
     //Returns running score
     public double getTotalScore() {
-        return this.floorScore + this.barScore + this.beamScore + this.vaultScore;
+        double total = this.floorScore + this.barScore + this.beamScore + this.vaultScore;
+        total = total*1000;
+        total = Math.floor(Math.round(total)) /1000;
+        return total;
     }
 
     //2 judges : average

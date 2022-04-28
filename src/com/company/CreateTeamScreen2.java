@@ -3,6 +3,7 @@ package com.company;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -95,6 +96,10 @@ public class CreateTeamScreen2 extends JDialog {
                 ImageIO.write(img, "png", new File (picturePath + fileName));
                 //save file name to teamlogo string
                 JOptionPane.showMessageDialog(null, fileName + " was saved as the team logo.");
+
+                //change button label
+                browseFilesButton.setText(fileName);
+
 
                 return fileName;
             } catch (Exception e) {

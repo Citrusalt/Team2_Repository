@@ -562,12 +562,12 @@ public class EditLineupScreen extends JDialog {
                     case 3:
 //                        valid = checkSaveValid(visitor3.getVaultGymnasts(), visitor2.getBarGymnasts());
 //                        valid2 = checkSaveValid(visitor.getBeamGymnasts(), home.getFloorGymnasts());
-                        if(valid=checkSaveValidQuad(home.getFloorGymnasts(), visitor.getBeamGymnasts(), visitor2.getBarGymnasts(), visitor3.getVaultGymnasts())){
+                        if(valid = checkSaveValidQuad(home.getFloorGymnasts(), visitor.getBeamGymnasts(), visitor2.getBarGymnasts(), visitor3.getVaultGymnasts())){
 //                            organizedList(home.getFloorGymnasts(), getTeam1Combo(), ApparatusIndex.VT);        //
 //                            organizedList(visitor.getBeamGymnasts(), getTeam2Combo(), ApparatusIndex.UB);
 //                            organizedList(visitor2.getBarGymnasts(), getTeam3Combo(), ApparatusIndex.BB);
 //                            organizedList(visitor3.getVaultGymnasts(), getTeam4Combo(), ApparatusIndex.FX);
-//
+
 //                            home.arrangeByOrderList(home.getFloorGymnasts(), ApparatusIndex.VT);
 //                            visitor.arrangeByOrderList(visitor.getBeamGymnasts(), ApparatusIndex.UB);
 //                            visitor2.arrangeByOrderList(visitor2.getBarGymnasts(), ApparatusIndex.BB);
