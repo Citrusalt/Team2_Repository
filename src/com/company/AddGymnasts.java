@@ -2,6 +2,7 @@ package com.company;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -14,7 +15,7 @@ public class AddGymnasts extends JDialog{
 
     public AddGymnasts(String teamNameDisplay, String teamName, String teamLogo){
 
-        setContentPane(addGymnasts);
+         setContentPane(addGymnasts);
         setTitle("Add Gymnast Screen");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         pack();
@@ -143,6 +144,7 @@ public class AddGymnasts extends JDialog{
                     fname.setText(""); lname.setText(""); major.setText("");
                     vaultAvg.setText(""); barsAvg.setText(""); beamAvg.setText(""); floorAvg.setText("");
                     yearCB.setSelectedIndex(0);
+                    browseFilesButton.setText("Browse Files");
 
                 }
             }
@@ -232,7 +234,8 @@ private void deleteSelectedGymnast(Team team, int row, int col){
     //Resets the widgets back to default
     fname.setText(""); lname.setText(""); major.setText("");
     vaultAvg.setText(""); barsAvg.setText(""); beamAvg.setText(""); floorAvg.setText("");
-    yearCB.setSelectedIndex(0);
+    yearCB.setSelectedIndex(0); browseFilesButton.setText("Browse Files");
+
 }
 
 private String uploadImg(){
@@ -258,6 +261,9 @@ private String uploadImg(){
             ImageIO.write(img, "png", new File (picturePath + fileName));
             JOptionPane.showMessageDialog(null, fileName + " was saved as the gymnast's photo.");
             //save file name to gymnast picture string
+
+            //change button label
+            browseFilesButton.setText(fileName);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error. Selected file was not saved.");
@@ -298,8 +304,8 @@ private String uploadImg(){
     private JButton saveTeamButton;
     private JScrollPane scrollPane;
     private JLabel teamName;
-    private JLabel logoLabel;
     private JComboBox yearCB;
     private JButton deleteGymnastButton;
+    private JPanel jpanelRed;
 
 }
