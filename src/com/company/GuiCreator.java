@@ -226,5 +226,14 @@ public class GuiCreator {
 
     }
 
+    public Boolean isEven ( Object[] objectArray){
+        if (objectArray.length % 2 == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
 }
