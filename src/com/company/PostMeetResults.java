@@ -115,8 +115,8 @@ public class PostMeetResults {
 
     public void addTeamStandingToFile() throws IOException
     {
-        resultsFileW.write("TEAM STANDING\n----------------------------------");
-        resultsFileW.write("\n#\tTEAM\tVAULT\tBARS\tBEAM\tFLOOR\tFINAL\n\n");
+        resultsFileW.write("TEAM STANDING\n----------------------------------\n");
+        resultsFileW.write(String.format("%8s %8s %8s %8s %8s %8s %8s\n", "#", "TEAM", "VAULT", "BARS", "BEAM", "FLOOR", "FINAL"));
 
         if (meetType.equals("dual"))
         {
@@ -139,7 +139,7 @@ public class PostMeetResults {
                 double floorScore = teamStanding.get(i).getTeamScore().getfloorScore();
                 double overall = vaultScore + barScore + beamScore + floorScore;
 
-                resultsFileW.write((i + 1) + "\t" + teamName + "\t" + vaultScore + barScore + beamScore + floorScore + overall + "\n");
+                resultsFileW.write(String.format("%8s %8s %8s %8s %8s %8s %8s\n", (i + 1), teamName, vaultScore, barScore, beamScore, floorScore, overall));
             }
         }
 
@@ -166,7 +166,7 @@ public class PostMeetResults {
                 double floorScore = teamStanding.get(i).getTeamScore().getfloorScore();
                 double overall = vaultScore + barScore + beamScore + floorScore;
 
-                resultsFileW.write((i + 1) + "\t" + teamName + "\t" + vaultScore + barScore + beamScore + floorScore + overall + "\n");
+                resultsFileW.write(String.format("%8s %8s %8s %8s %8s %8s %8s\n", (i + 1) , teamName , vaultScore , barScore , beamScore ,floorScore , overall));
             }
         }
 
@@ -194,7 +194,7 @@ public class PostMeetResults {
                 double floorScore = teamStanding.get(i).getTeamScore().getfloorScore();
                 double overall = vaultScore + barScore + beamScore + floorScore;
 
-                resultsFileW.write((i + 1) + "\t" + teamName + "\t" + vaultScore + barScore + beamScore + floorScore + overall + "\n");
+                resultsFileW.write(String.format("%8s %8s %8s %8s %8s %8s %8s\n", (i + 1) , teamName , vaultScore , barScore , beamScore, floorScore ,overall ));
             }
         }
 
@@ -216,7 +216,7 @@ public class PostMeetResults {
                 allAround = team1.getAllGymnasts().get(i).getPlayerScore().getTotalScore();
             }
 
-            resultsFileW.write( (i+1) + "\t" + firstName + "\t" + lastName + "\t" + vault + "\t" + bars + "\t" + beam + "\t" + floor + "\t" + allAround + "\n");
+            resultsFileW.write( String.format("%8s %8s %8s %8s %8s %8s %8s %8s\n", (i+1) ,firstName , lastName , vault , bars , beam , floor , allAround ));
         }
     }
 
@@ -224,31 +224,31 @@ public class PostMeetResults {
     {
         resultsFileW.write("\nTEAM RESULTS DETAILS\n----------------------------------\n");
         resultsFileW.write("\nTEAM: " + team1.getTeamName() + "\n");
-        resultsFileW.write("#\tFNAME\tLNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
+        resultsFileW.write(String.format("%8s %8s %8s %8s %8s %8s %8s %8s\n", "#", "FNAME", "LNAME", "VAULT", "BARS", "BEAM", "FLOOR", "ALL-AROUND"));
 
         writeTeamResults(team1);
 
         resultsFileW.write("\nTEAM: " + team2.getTeamName() + "\n");
-        resultsFileW.write("#\tFNAME\tLNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
+        resultsFileW.write(String.format("%8s %8s %8s %8s %8s %8s %8s %8s\n", "#", "FNAME", "LNAME", "VAULT", "BARS", "BEAM", "FLOOR", "ALL-AROUND"));
 
         writeTeamResults(team2);
 
         if (meetType.equals("tri"))
         {
             resultsFileW.write("\nTEAM: " + team3.getTeamName() + "\n");
-            resultsFileW.write("#\tFNAME\tLNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
+            resultsFileW.write(String.format("%8s %8s %8s %8s %8s %8s %8s %8s\n", "#", "FNAME", "LNAME", "VAULT", "BARS", "BEAM", "FLOOR", "ALL-AROUND"));
             writeTeamResults(team3);
         }
 
         if (meetType.equals("quad"))
         {
             resultsFileW.write("\nTEAM: " + team3.getTeamName() + "\n");
-            resultsFileW.write("#\tFNAME\tLNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
+            resultsFileW.write(String.format("%8s %8s %8s %8s %8s %8s %8s %8s\n", "#", "FNAME", "LNAME", "VAULT", "BARS", "BEAM", "FLOOR", "ALL-AROUND"));
 
             writeTeamResults(team3);
 
             resultsFileW.write("\nTEAM: " + team4.getTeamName() + "\n");
-            resultsFileW.write("#\tFNAME\tLNAME\tVAULT\tBARS\tBEAM\tFLOOR\tALL-AROUND\n");
+            resultsFileW.write(String.format("%8s %8s %8s %8s %8s %8s %8s %8s\n", "#", "FNAME", "LNAME", "VAULT", "BARS", "BEAM", "FLOOR", "ALL-AROUND"));
 
             writeTeamResults(team4);
         }
@@ -257,7 +257,7 @@ public class PostMeetResults {
     public void addAllAroundToFile() throws IOException
     {
         resultsFileW.write("\nALL AROUND RESULTS\n----------------------------------\n");
-        resultsFileW.write("#\tFNAME\tLNAME\tTEAM\tVAULT\tBARS\tBEAM\tFLOOR\tSCORE\n");
+        resultsFileW.write(String.format("%8s %8s %8s %8s %8s %8s %8s %8s %8s\n", "#", "FNAME", "LNAME", "TEAM", "VAULT", "BARS", "BEAM", "FLOOR", "SCORE"));
 
         List<Player> AA_Gymnasts = new ArrayList<>();
 
@@ -343,14 +343,14 @@ public class PostMeetResults {
                 teamName = team2.getTeamName();
             }
 
-            resultsFileW.write((i+1) + "\t" + fName + "\t" + lName + "\t" + teamName + "\t" + vault + "\t" + bars + "\t" + beam + "\t" + floor + "\t" + overall);
+            resultsFileW.write(String.format("%8s %8s %8s %8s %8s %8s %8s %8s %8s\n", (i+1) ,fName , lName , teamName , vault ,bars , beam , floor , overall));
         }
     }
 
     public void addIndividualVaultToFile() throws IOException
     {
         resultsFileW.write("\nINDIVIDUAL VAULT\n----------------------------------\n");
-        resultsFileW.write("#\tFNAME\tLNAME\tSCORE\tTEAM\tSCORE\n");
+        resultsFileW.write(String.format("%8s %8s %8s %8s %8s %8s\n", "#", "FNAME", "LNAME", "SCORE", "TEAM", "SCORE"));
 
         List<Player> vault_Gymnasts = new ArrayList<>();
 
@@ -432,14 +432,14 @@ public class PostMeetResults {
                 teamName = team2.getTeamName();
             }
 
-            resultsFileW.write((i+1) + "\t" + fName + "\t" + lName + "\t" + vault + "\t" + teamName + "\t" + overall);
+            resultsFileW.write(String.format("%8s %8s %8s %8s %8s %8s\n", (i+1) , fName , lName , vault, teamName , overall));
         }
     }
 
     public void addIndividualBarsToFile() throws IOException
     {
         resultsFileW.write("\nINDIVIDUAL BARS\n----------------------------------\n");
-        resultsFileW.write("#\tFNAME\tLNAME\tSCORE\tTEAM\tSCORE\n");
+        resultsFileW.write(String.format("%8s %8s %8s %8s %8s \n","#", "FNAME", "LNAME", "SCORE", "TEAM", "SCORE"));
 
         List<Player> bar_Gymnasts = new ArrayList<>();
 
@@ -521,14 +521,14 @@ public class PostMeetResults {
                 teamName = team2.getTeamName();
             }
 
-            resultsFileW.write((i+1) + "\t" + fName + "\t" + lName + "\t" + bars + "\t" + teamName + "\t" + overall);
+            resultsFileW.write(String.format("%8s %8s %8s %8s %8s \n", (i+1) ,fName , lName , bars , teamName , overall));
         }
     }
 
     public void addIndividualBeamToFile() throws IOException
     {
         resultsFileW.write("\nINDIVIDUAL BEAM\n----------------------------------\n");
-        resultsFileW.write("#\tFNAME\tLNAME\tSCORE\tTEAM\tSCORE\n");
+        resultsFileW.write(String.format("%8s %8s %8s %8s %8s %8s\n", "#", "FNAME", "LNAME", "SCORE", "TEAM", "TOTAL_SCORE"));
         List<Player> beam_Gymnasts = new ArrayList<>();
 
         for (int i = 0; i < team1.getAllGymnasts().size(); i++)
@@ -609,14 +609,14 @@ public class PostMeetResults {
                 teamName = team2.getTeamName();
             }
 
-            resultsFileW.write((i+1) + "\t" + fName + "\t" + lName + "\t" + beam + "\t" + teamName + "\t" + overall);
+            resultsFileW.write(String.format("%8s %8s %8s %8s %8s %8s\n", (i+1) ,fName ,lName , beam, teamName , overall));
         }
     }
 
     public void addIndividualFloorToFile() throws IOException
     {
         resultsFileW.write("\nINDIVIDUAL FLOOR\n----------------------------------\n");
-        resultsFileW.write("#\tFNAME\tLNAME\tSCORE\tTEAM\tSCORE\n");
+        resultsFileW.write(String.format("%8s %8s %8s %8s %8s %8s\n", "#", "FNAME", "LNAME", "SCORE", "TEAM", "TOTAL_SCORE"));
         List<Player> fl_Gymnasts = new ArrayList<>();
 
         for (int i = 0; i < team1.getAllGymnasts().size(); i++)
@@ -697,7 +697,7 @@ public class PostMeetResults {
                 teamName = team2.getTeamName();
             }
 
-            resultsFileW.write((i+1) + "\t" + fName + "\t" + lName + "\t" + floor + "\t" + teamName + "\t" + overall);
+            resultsFileW.write(String.format("%8s %8s %8s %8s %8s %8s\n", (i+1) ,fName,lName , floor , teamName , overall));
         }
     }
 
@@ -712,7 +712,7 @@ public class PostMeetResults {
     public void addJudgesToFile() throws IOException
     {
         resultsFileW.write("\nJUDGES SCORES\n----------------------------------\n");
-        resultsFileW.write("JUDGE_FNAME\tJUDGE_LNAME\tPLAYER_FNAME\tPLAYER_LNAME\t\tAPPAR\t\tATPT#\tSCORE\n");
+        resultsFileW.write(String.format("%8s %8s %8s %8s %8s %8s\n", "JUDGE_NAME", "PLAYER_FNAME", "PLAYER_LNAME", "APPAR", "ATPT#", "SCORE"));
         for (List<Judge> judge : judges) {
             for (Judge value : judge) {
                 for (int k = 0; k < value.getScoreList().size(); k++) {
@@ -722,7 +722,7 @@ public class PostMeetResults {
                     String apparatus = value.getScoreList().get(k).getApparatusName();
                     int attemptNum = value.getScoreList().get(k).getAttemptNum();
                     double score = value.getScoreList().get(k).getScoreAmt();
-                    resultsFileW.write(judgeName + "\t" + playerFname + "\t" + playerLname + "\t" + apparatus + "\t" + attemptNum + "\t" + score + "\n");
+                    resultsFileW.write(String.format("%8s %8s %8s %8s %8s %8s\n", judgeName , playerFname , playerLname , apparatus , attemptNum , score ));
                 }
 
             }
