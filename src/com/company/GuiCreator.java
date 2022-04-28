@@ -227,7 +227,14 @@ public class GuiCreator {
     }
 
     public Boolean isEven ( Object[] objectArray){
-        if (objectArray.length % 2 == 0){
+        int size = 6;
+
+        for (Object o : objectArray){
+            if (o.toString().equals("- Select Judges -") || o.toString().equals("")){
+                size--;
+            }
+        }
+        if ((size % 2 == 0) && (size > 0)) {
             return true;
         }
         else{
