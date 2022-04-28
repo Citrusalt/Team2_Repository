@@ -429,6 +429,18 @@ public class TriScorekeeperScreen {
                 }
             }
         });
+        teamLogoCheckbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    myDualTriArenaScreen.logo1.setVisible(true);
+                    myDualTriArenaScreen.logo2.setVisible(true);
+                } else {
+                    myDualTriArenaScreen.logo1.setVisible(false);
+                    myDualTriArenaScreen.logo2.setVisible(false);
+                }
+            }
+        });
         vaultCombo1.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {

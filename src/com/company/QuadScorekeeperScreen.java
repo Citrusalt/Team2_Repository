@@ -547,7 +547,18 @@ public class QuadScorekeeperScreen {
         teamLogoCheckbox.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
-                //team logo logic here
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    myQuadArenaScreen.logo1.setVisible(true);
+                    myQuadArenaScreen.logo2.setVisible(true);
+                    myQuadArenaScreen.logo3.setVisible(true);
+                    myQuadArenaScreen.logo4.setVisible(true);
+                }
+                else{
+                    myQuadArenaScreen.logo1.setVisible(false);
+                    myQuadArenaScreen.logo2.setVisible(false);
+                    myQuadArenaScreen.logo3.setVisible(false);
+                    myQuadArenaScreen.logo4.setVisible(false);
+                }
             }
         });
         editLineupButton.addActionListener(new ActionListener() {
