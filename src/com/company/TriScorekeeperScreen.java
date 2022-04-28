@@ -226,8 +226,6 @@ public class TriScorekeeperScreen {
                 List<JudgeScore> judgeScoreList = new ArrayList<>();
                 boolean invalidScore = false;
                 boolean emptyScores = false;
-                System.out.println(scoresList.size() +" " + emptyScores);
-
                 float scoreArray[] = new float[6];
                 try{
                     for (int i = 0; i<getHomeJudgesTextbox().size(); i++)
@@ -904,8 +902,6 @@ public class TriScorekeeperScreen {
                 //match the score to the appropriate judge object
                 judgeScoreList.get(k).createScore(team1App.getText(), homeCopy.getVaultGymnasts().get(team1Combo.getSelectedIndex()), 0, scoresList.get(k));
                 vaultJudges.get(k).addScore(judgeScoreList.get(k));
-
-
             }
 
             myArenaScreen.overall1.setText(String.valueOf("Running Team Score:     " + homeCopy.getTeamScore().getRunningScore()));
@@ -986,7 +982,7 @@ public class TriScorekeeperScreen {
         //Visitor1 is on Bars
         if (rotation == 1) {
             visitor1Copy.getBarGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setbarScore(pscore);
-            visitor1Copy.getTeamScore().setbarScore(visitor1Copy.getTeamScore().calculateTeamBarScore(visitor1Copy.getVaultGymnasts()));
+            visitor1Copy.getTeamScore().setbarScore(visitor1Copy.getTeamScore().calculateTeamBarScore(visitor1Copy.getBarGymnasts()));
             // go through the list of judges scores (these are directly from the text boxes
             //set the createScore method in judgescore object, add it to the right judge object scores list
             for (int k = 0; k < judgeScoreList.size(); k++) {
