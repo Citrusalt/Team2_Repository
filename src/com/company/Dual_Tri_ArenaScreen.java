@@ -283,7 +283,7 @@ public class Dual_Tri_ArenaScreen {
     }
 
     public Dual_Tri_ArenaScreen(){
-        frame = new JFrame ("Arena Screen Prototype");
+        frame = new JFrame ("Arena Screen");
         frame.setContentPane(mainPanel);
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.pack();
