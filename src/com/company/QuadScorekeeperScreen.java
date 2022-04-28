@@ -1177,28 +1177,28 @@ public class QuadScorekeeperScreen {
         judges.add(vaultJudges);
         judges.add(beamJudges);
         for (int j = 0; j < allJudges.get(0).size(); j++){
-            if (!allJudges.get(0).get(j).equals("- Select Judges -")){
+            if (!allJudges.get(0).get(j).equals("")){
                 Judge judge = new Judge();
                 judge.setFname(allJudges.get(0).get(j).toString());
                 judge.setLname(allJudges.get(0).get(j).toString()); //not right but need to put something there
                 vaultJudges.add(judge);}
         }
         for (int j = 0; j < allJudges.get(1).size(); j++){
-            if (!allJudges.get(1).get(j).equals("- Select Judges -")){
+            if (!allJudges.get(1).get(j).equals("")){
                 Judge judge = new Judge();
                 judge.setFname(allJudges.get(1).get(j).toString());
                 judge.setLname(allJudges.get(1).get(j).toString()); //not right but need to put something there
                 barJudges.add(judge);}
         }
         for (int j = 0; j < allJudges.get(2).size(); j++){
-            if (!allJudges.get(2).get(j).equals("- Select Judges -")){
+            if (!allJudges.get(2).get(j).equals("")){
                 Judge judge = new Judge();
                 judge.setFname(allJudges.get(2).get(j).toString());
                 judge.setLname(allJudges.get(2).get(j).toString()); //not right but need to put something there
                 beamJudges.add(judge);}
         }
         for (int j = 0; j < allJudges.get(3).size(); j++){
-            if (!allJudges.get(3).get(j).equals("- Select Judges -")){
+            if (!allJudges.get(3).get(j).equals("")){
                 Judge judge = new Judge();
                 judge.setFname(allJudges.get(3).get(j).toString());
                 judge.setLname(allJudges.get(3).get(j).toString()); //not right but need to put something there

@@ -39,6 +39,8 @@ public class SetupModeDual {
         cardLayout = (CardLayout) mainPanel.getLayout();
 
 
+
+
         //Puts value in ComboBoxes
         comboBox7.addItem("-Select Team-");
         comboBox8.addItem("-Select Team-");
@@ -544,7 +546,7 @@ public class SetupModeDual {
                 judgesDisplay[i] = "";
             }
         }
-        ////
+        //
 
         for (int i = 0; i <= 5; i++){
             gC.addRowsJudgeTable(judgesDisplay[i],judgesDisplay[i+6],judgesDisplay[i+12],judgesDisplay[i+18], judgesModel);     //

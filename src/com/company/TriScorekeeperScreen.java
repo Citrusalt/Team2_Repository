@@ -842,7 +842,7 @@ public class TriScorekeeperScreen {
         judges.add(beamJudges);
         for (int j = 0; j < allJudges.get(0).size(); j++) {
 
-            if (!allJudges.get(0).get(j).equals("- Select Judges -")) {
+            if (!allJudges.get(0).get(j).equals("")) {
                 Judge judge = new Judge();
                 judge.setFname(allJudges.get(0).get(j).toString());
                 judge.setLname(allJudges.get(0).get(j).toString()); //not right but need to put something there
@@ -850,7 +850,7 @@ public class TriScorekeeperScreen {
             }
         }
         for (int j = 0; j < allJudges.get(1).size(); j++) {
-            if (!allJudges.get(1).get(j).equals("- Select Judges -")) {
+            if (!allJudges.get(1).get(j).equals("")) {
                 Judge judge = new Judge();
                 judge.setFname(allJudges.get(1).get(j).toString());
                 judge.setLname(allJudges.get(1).get(j).toString()); //not right but need to put something there
@@ -858,7 +858,7 @@ public class TriScorekeeperScreen {
             }
         }
         for (int j = 0; j < allJudges.get(2).size(); j++) {
-            if (!allJudges.get(2).get(j).equals("- Select Judges -")) {
+            if (!allJudges.get(2).get(j).equals("")) {
                 Judge judge = new Judge();
                 judge.setFname(allJudges.get(2).get(j).toString());
                 judge.setLname(allJudges.get(2).get(j).toString()); //not right but need to put something there
@@ -866,7 +866,7 @@ public class TriScorekeeperScreen {
             }
         }
         for (int j = 0; j < allJudges.get(3).size(); j++) {
-            if (!allJudges.get(3).get(j).equals("- Select Judges -")) {
+            if (!allJudges.get(3).get(j).equals("")) {
                 Judge judge = new Judge();
                 judge.setFname(allJudges.get(3).get(j).toString());
                 judge.setLname(allJudges.get(3).get(j).toString()); //not right but need to put something there
@@ -1068,7 +1068,7 @@ public class TriScorekeeperScreen {
             //Sets the judges on the left side; Vaults
             for (int i = 0; i < allJudges.get(ApparatusIndex.VT).size(); i++) {
                 //Checks if there is a judge
-                if (allJudges.get(ApparatusIndex.VT).get(i).equals("- Select Judges -")) {
+                if (allJudges.get(ApparatusIndex.VT).get(i).equals("")) {
                     System.out.println(allJudges.get(ApparatusIndex.VT).get(i));
                     getLeftJudges().get(i).setVisible(false);
                     getLeftJudgesTextbox().get(i).setVisible(false);
@@ -1081,7 +1081,7 @@ public class TriScorekeeperScreen {
             //Sets the judges on the right side; Bars
             for (int i = 0; i < allJudges.get(ApparatusIndex.UB).size(); i++) {
                 //Checks if there is a judge
-                if (allJudges.get(ApparatusIndex.UB).get(i).equals("- Select Judges -")) {
+                if (allJudges.get(ApparatusIndex.UB).get(i).equals("")) {
                     getRightJudges().get(i).setVisible(false);
                     getRightJudgesTextbox().get(i).setVisible(false);
                 } else {
@@ -1094,7 +1094,7 @@ public class TriScorekeeperScreen {
             //Sets the judges on the left side; Beams
             for (int i = 0; i < allJudges.get(ApparatusIndex.BB).size(); i++) {
                 //Checks if there is a judge
-                if (allJudges.get(ApparatusIndex.BB).get(i).equals("- Select Judges -")) {
+                if (allJudges.get(ApparatusIndex.BB).get(i).equals("")) {
                     getLeftJudges().get(i).setVisible(false);
                     getLeftJudgesTextbox().get(i).setVisible(false);
                 } else {
@@ -1106,7 +1106,7 @@ public class TriScorekeeperScreen {
             //Sets the judges on the right side; Floor
             for (int i = 0; i < allJudges.get(ApparatusIndex.FX).size(); i++) {
                 //Checks if there is a judge
-                if (allJudges.get(ApparatusIndex.FX).get(i).equals("- Select Judges -")) {
+                if (allJudges.get(ApparatusIndex.FX).get(i).equals("")) {
                     getRightJudges().get(i).setVisible(false);
                     getRightJudgesTextbox().get(i).setVisible(false);
                 } else {
