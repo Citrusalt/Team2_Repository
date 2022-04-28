@@ -361,6 +361,7 @@ public class SetupModeTri {
                 Team visitor1 = myTeams.get(1);
                 Team visitor2 = myTeams.get(2);
                 frame.dispose();
+
                 TriScorekeeperScreen myTriScorekeeper = new TriScorekeeperScreen(gC, home, visitor1, visitor2, allJudges);
             }
         });
@@ -575,7 +576,7 @@ public class SetupModeTri {
                 judgesDisplay[i] = "";
             }
         }
-        ////
+
 
         for (int i = 0; i <= 5; i++){
             gC.addRowsJudgeTable(judgesDisplay[i],judgesDisplay[i+6],judgesDisplay[i+12],judgesDisplay[i+18], judgesModel);

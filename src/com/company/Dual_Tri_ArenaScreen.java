@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 public class Dual_Tri_ArenaScreen {
 
@@ -221,6 +222,54 @@ public class Dual_Tri_ArenaScreen {
         playerList.clear(); //clear list of all around players
     }
 
+    public void nextUpdateTri(Team home, Team visitor, Team visitor2, int rotation){
+
+        teamList.add(home); teamList.add(visitor); teamList.add(visitor2);
+        //Add to the row of team table based off who scored the highest,
+        //sort list of teams by their running score
+        Collections.sort(teamList, new Comparator<Team>() {
+            @Override
+            public int compare(Team o1, Team o2) {
+                return Double.compare(o1.getTeamScore().getRunningScore(), o2.getTeamScore().getRunningScore());
+            }
+        });
+        //reverse list in descending order
+        Collections.reverse(teamList);
+
+        //iterate through list of teams, iterate through players, if all around player, add to playerList
+        for (Team t : teamList){
+            for (Player p : t.getAllGymnasts()){
+                if (gC.checkAllAround(p)){
+                    playerList.add(p);
+                }
+            }
+        }
+
+        //sort players by their total score
+        Collections.sort(playerList, new Comparator<Player>() {
+            @Override
+            public int compare(Player p1, Player p2) {
+                return Double.compare(p1.getPlayerScore().getTotalScore(), p2.getPlayerScore().getTotalScore());
+            }
+        });
+
+        //reverse list in descending order
+        Collections.reverse(playerList);
+
+        //fill tables
+        for (int i = 0; i < playerList.size(); i++){
+            gC.addRowIndividualTableDual(i + 1, playerList.get(i).getPlayerfName() + " " + playerList.get(i).getPlayerlName(), playerList.get(i).getPlayerScore().getTotalScore(), individualModel);
+        }
+
+        updateLabel.setText("Rotation " + rotation + " Results");
+
+        changeCard("UpdatePanel");
+
+        playerList.clear();
+        teamList.clear();
+    }
+
+
 
     public void resetArenaTables(){
          individualModel.setRowCount(0);
@@ -273,6 +322,7 @@ public class Dual_Tri_ArenaScreen {
     }
 
 
+    List<Team> teamList = new ArrayList<>();
     //Timer variables
     public Timer timer1;
     String time1;

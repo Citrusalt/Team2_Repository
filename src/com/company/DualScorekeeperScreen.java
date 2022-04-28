@@ -60,6 +60,12 @@ public class DualScorekeeperScreen {
 
         createJudges(allJudges);
 
+        for (int i = 0; i < 4; i++){
+            for (int j = 0; j<allJudges.get(i).size(); j++){
+                System.out.println(allJudges.get(i).get(j));
+            }
+        }
+
         //*************************************
 //         Sets the team participants. So tired setting up in the set-up mode smh.
 //        List<Player> temp = new ArrayList<>();
@@ -239,7 +245,6 @@ public class DualScorekeeperScreen {
         nextRotationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 if (showUpdate == false){
                     if (gC.confirmDialog("Are you sure you want to end Rotation " + rotation + "?")){
                         if (selectedMode == 0){
@@ -685,12 +690,17 @@ public class DualScorekeeperScreen {
         editLineupButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EditLineupScreen myScreen = new EditLineupScreen(homeCopy, visitorCopy, new Team("",""), rotation, "Dual");
+                //Keep track of the last player on the apparatus
+                int team1current = team1Combo.getSelectedIndex();
+                int team2current = team2Combo.getSelectedIndex();
+                EditLineupScreen myScreen = new EditLineupScreen(homeCopy, visitorCopy, new Team("",""),new Team("",""), rotation, "Dual");
                 homeCopy = myScreen.getEditHome();
                 visitorCopy = myScreen.getEditVisitor();
                 homeCopy.updateApparatusLists();
                 visitorCopy.updateApparatusLists();
                 updateDisplay(myArenaScreen, gC, homeCopy, visitorCopy, rotation);
+
+                team1Combo.setSelectedIndex(team1current); team2Combo.setSelectedIndex(team2current);
             }
         });
         teamLogoCheckbox.addItemListener(new ItemListener() {
@@ -1045,28 +1055,28 @@ public class DualScorekeeperScreen {
         judges.add(vaultJudges);
         judges.add(beamJudges);
         for (int j = 0; j < allJudges.get(0).size(); j++){
-            if (!allJudges.get(0).get(j).equals("- Select Judges -")){
+            if (!allJudges.get(0).get(j).equals("")){
             Judge judge = new Judge();
             judge.setFname(allJudges.get(0).get(j).toString());
             judge.setLname(allJudges.get(0).get(j).toString()); //not right but need to put something there
             vaultJudges.add(judge);}
         }
         for (int j = 0; j < allJudges.get(1).size(); j++){
-            if (!allJudges.get(1).get(j).equals("- Select Judges -")){
+            if (!allJudges.get(1).get(j).equals("")){
             Judge judge = new Judge();
             judge.setFname(allJudges.get(1).get(j).toString());
             judge.setLname(allJudges.get(1).get(j).toString()); //not right but need to put something there
             barJudges.add(judge);}
         }
         for (int j = 0; j < allJudges.get(2).size(); j++){
-            if (!allJudges.get(2).get(j).equals("- Select Judges -")){
+            if (!allJudges.get(2).get(j).equals("")){
             Judge judge = new Judge();
             judge.setFname(allJudges.get(2).get(j).toString());
             judge.setLname(allJudges.get(2).get(j).toString()); //not right but need to put something there
             beamJudges.add(judge);}
         }
         for (int j = 0; j < allJudges.get(3).size(); j++){
-            if (!allJudges.get(3).get(j).equals("- Select Judges -")){
+            if (!allJudges.get(3).get(j).equals("")){
             Judge judge = new Judge();
             judge.setFname(allJudges.get(3).get(j).toString());
             judge.setLname(allJudges.get(3).get(j).toString()); //not right but need to put something there
