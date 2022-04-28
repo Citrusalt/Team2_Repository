@@ -236,6 +236,11 @@ public class Dual_Tri_ArenaScreen {
         //reverse list in descending order
         Collections.reverse(teamList);
 
+        for (int i = 0; i < teamList.size(); i++){
+            gC.addRowTeamTablePost(i+1, teamList.get(i).getTeamName(), teamList.get(i).getTeamScore().getRunningScore(), teamModel);
+        }
+
+
         //iterate through list of teams, iterate through players, if all around player, add to playerList
         for (Team t : teamList){
             for (Player p : t.getAllGymnasts()){

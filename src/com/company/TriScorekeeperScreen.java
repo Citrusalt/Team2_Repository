@@ -778,6 +778,10 @@ public class TriScorekeeperScreen {
 
         } else if (rotation == 7) {
             List<Team> teams = new ArrayList<>();
+            teams.add(homeCopy);
+            teams.add(visitor1Copy);
+            teams.add(visitor2Copy);
+
             PostMeetScreen myPostMode = new PostMeetScreen(gC, teams);
             myArenaScreen.getFrame().dispose();
             thisFrame.dispose();

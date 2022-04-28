@@ -770,10 +770,10 @@ public class QuadScorekeeperScreen {
         else if(rotation == 5){
             if (gC.confirmDialog("Are you sure you want to end the tournament?")){
                 List <Team> teams = new ArrayList<>();
-                teams.add(home);
-                teams.add(visitor1);
-                teams.add(visitor2);
-                teams.add(visitor3);
+                teams.add(homeCopy);
+                teams.add(visitor1Copy);
+                teams.add(visitor2Copy);
+                teams.add(visitor3Copy);
                 PostMeetScreen myPostMode = new PostMeetScreen(gC, teams);
                 myArenaScreen.getFrame().dispose();
                 thisFrame.dispose();

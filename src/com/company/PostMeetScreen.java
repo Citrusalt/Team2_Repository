@@ -44,9 +44,7 @@ public class PostMeetScreen {
             dynamicTable(gC, teamModel, individualModel, teams);
         }
         else if (teams.size() == 4){
-
             dynamicTable(gC, teamModel, individualModel, teams);
-
         }
         else{
             System.out.println("Invalid Number of Teams");
@@ -130,7 +128,7 @@ public class PostMeetScreen {
         myTeamList = teamList;
 
         //sort list of teams by their running score
-        Collections.sort(teamList, new Comparator<Team>() {
+        Collections.sort(myTeamList, new Comparator<Team>() {
             @Override
             public int compare(Team o1, Team o2) {
                 return Double.compare(o1.getTeamScore().getRunningScore(), o2.getTeamScore().getRunningScore());
@@ -138,11 +136,11 @@ public class PostMeetScreen {
         });
 
         //reverse list in descending order
-        Collections.reverse(teamList);
+        Collections.reverse(myTeamList);
 
 
         //iterate through list of teams, iterate through players, if all around player, add to playerList
-        for (Team t : teamList){
+        for (Team t : myTeamList){
             for (Player p : t.getAllGymnasts()){
                 if (gC.checkAllAround(p)){
                     myPlayerList.add(p);
@@ -162,8 +160,8 @@ public class PostMeetScreen {
         //reverse list in descending order
         Collections.reverse(myPlayerList);
 
-        for (int i = 0; i < teamList.size(); i++){
-            gC.addRowTeamTablePost(i+1, teamList.get(i).getTeamName(), teamList.get(i).getTeamScore().getRunningScore(), teamModel);
+        for (int i = 0; i < myTeamList.size(); i++){
+            gC.addRowTeamTablePost(i+1, myTeamList.get(i).getTeamName(), myTeamList.get(i).getTeamScore().getRunningScore(), teamModel);
         }
 
 
