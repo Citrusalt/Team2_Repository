@@ -45,6 +45,7 @@ public class TriScorekeeperScreen {
         //card layout start
         cardLayout = (CardLayout) mainPanel.getLayout();
         changeCard("CustomizeCard");
+        createJudges(allJudges);
 
         createJudges(allJudges);
 
@@ -67,9 +68,6 @@ public class TriScorekeeperScreen {
                     updateRotation(myDualTriArenaScreen, frame, 0, gC, homeCopy, visitor1Copy, visitor2Copy, allJudges);
                 } catch (Exception ex) {
                 }
-//                catch (IOException ex) {
-//                    ex.printStackTrace();
-//                }
             }
         });
 
@@ -129,7 +127,6 @@ public class TriScorekeeperScreen {
         });
         nextRotationButton.addActionListener(new ActionListener() {
             @Override
-            //HERE!
             public void actionPerformed(ActionEvent e) {
                 if (showUpdate == false) {
                     if (gC.confirmDialog("Are you sure you want to end Rotation " + rotation + "?")) {
@@ -149,6 +146,7 @@ public class TriScorekeeperScreen {
                     myDualTriArenaScreen.nextUpdateTri(homeCopy, visitor1Copy, visitor2Copy, rotation);
                     showUpdate = false;
                 }
+                changeLogoDisplay(rotation, picturePath,myDualTriArenaScreen, gC);
             }
         });
 //        backButton.addActionListener(new ActionListener() {
@@ -222,13 +220,14 @@ public class TriScorekeeperScreen {
             }
         });
         updateScoreButton1.addActionListener(new ActionListener() {
-            List<Double> scoresList = new ArrayList<>();
-            List<JudgeScore> judgeScoreList = new ArrayList<>();
-            boolean invalidScore = false;
-            boolean emptyScores = false;
-            //HERE! maybe
             @Override
             public void actionPerformed(ActionEvent e) {
+                List<Double> scoresList  = new ArrayList<>();
+                List<JudgeScore> judgeScoreList = new ArrayList<>();
+                boolean invalidScore = false;
+                boolean emptyScores = false;
+                System.out.println(scoresList.size() +" " + emptyScores);
+
                 float scoreArray[] = new float[6];
                 try{
                     for (int i = 0; i<getHomeJudgesTextbox().size(); i++)
@@ -244,13 +243,20 @@ public class TriScorekeeperScreen {
                             judgeScoreList.add(judgeScore);
                         }
                     }
-                    for (int i = 0; i< scoresList.size(); i++)
-                    {
-                        if (scoresList.get(i)<0 || scoresList.get(i)>10 ||scoresList.size() % 2 != 0||emptyScores)
-                        {   JOptionPane.showMessageDialog(null, "Invalid Input. Make sure scores are in the appropriate range and all judges have a score.");
-                            invalidScore=true;
-                            break; }
+
+                    if (!emptyScores) {
+                        for (int i = 0; i < scoresList.size(); i++) {
+                            if (scoresList.get(i) < 0 || scoresList.get(i) > 10 || scoresList.size() % 2 != 0) {
+                                System.out.println(scoresList.get(i) + " " + scoresList.size() + " " + emptyScores);
+                                JOptionPane.showMessageDialog(null, "Invalid Input. Make sure scores are in the appropriate range.");
+                                invalidScore = true;
+                                break;
+                            }
+                        }
                     }
+                    else if (emptyScores)
+                        JOptionPane.showMessageDialog(null, "Invalid Input. Make sure all judges have a score.");
+
 
                     double deduction = 0;
                     if (!nD1.getText().isEmpty()) {
@@ -266,6 +272,9 @@ public class TriScorekeeperScreen {
                         setHomePlayerandTeamScore(scoresList, deduction, judgeScoreList, myDualTriArenaScreen);
                     }
 
+
+
+
                 } catch (Exception exception) {
 
                     System.out.println(exception);
@@ -279,7 +288,6 @@ public class TriScorekeeperScreen {
         });
         updateScoreButton2.addActionListener(new ActionListener() {
             @Override
-            //HERE! maybe
             public void actionPerformed(ActionEvent e) {
                 List<Double> scoresList = new ArrayList<>();
                 List<JudgeScore> judgeScoreList = new ArrayList<>();
@@ -304,13 +312,17 @@ public class TriScorekeeperScreen {
                             judgeScoreList.add(judgeScore);
                         }
                     }
-                    for (int i = 0; i < scoresList.size(); i++) {
-                        if (scoresList.get(i) < 0 || scoresList.get(i) > 10 || scoresList.size() % 2 != 0 || emptyScores) {
-                            JOptionPane.showMessageDialog(null, "Invalid Input. Make sure scores are in the appropriate range and all judges have a score.");
-                            invalidScore = true;
-                            break;
+                    if (!emptyScores) {
+                        for (int i = 0; i < scoresList.size(); i++) {
+                            if (scoresList.get(i) < 0 || scoresList.get(i) > 10 || scoresList.size() % 2 != 0) {
+                                JOptionPane.showMessageDialog(null, "Invalid Input. Make sure scores are in the appropriate range.");
+                                invalidScore = true;
+                                break;
+                            }
                         }
                     }
+                    else if (emptyScores)
+                        JOptionPane.showMessageDialog(null, "Invalid Input. Make sure all judges have a score.");
 
                     double deduction = 0;
                     if (!nD2.getText().isEmpty()) {
@@ -324,6 +336,8 @@ public class TriScorekeeperScreen {
                         myDualTriArenaScreen.overall1.setForeground(defaultColor);
                         setVisitor1andTeamScore(scoresList, deduction, judgeScoreList, myDualTriArenaScreen);
                     }
+
+
 
 
                 } catch (Exception exception) {
@@ -470,7 +484,6 @@ public class TriScorekeeperScreen {
     public void changeCard(String cardName) {
         cardLayout.show(mainPanel, cardName);
     }
-
     public void updateDisplay(Dual_Tri_ArenaScreen myArenaScreen, GuiCreator gC, Team home, Team visitor1, Team visitor2, int rotation) {
         team1Combo.removeAllItems();
         team2Combo.removeAllItems();
@@ -555,6 +568,7 @@ public class TriScorekeeperScreen {
                     break;
             }
         }
+
 
 
 //        //Updates the arena display for home
@@ -1123,17 +1137,14 @@ public class TriScorekeeperScreen {
     private List<JLabel> getLeftJudges() {
         return Arrays.asList(jL11, jL12, jL13, jL14, jL15, jL16);
     }
-
     //Returns the Judges Label on the right side
     private List<JLabel> getRightJudges() {
         return Arrays.asList(jL21, jL22, jL23, jL24, jL25, jL26);
     }
-
     //Returns the Judges TextField on the left side
     private List<JTextField> getLeftJudgesTextbox() {
         return Arrays.asList(j11, j12, j13, j14, j15, j16);
     }
-
     //Returns the Judges TextField on the left side
     private List<JTextField> getRightJudgesTextbox() {
         return Arrays.asList(j21, j22, j23, j24, j25, j26);

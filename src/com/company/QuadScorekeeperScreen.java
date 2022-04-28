@@ -263,57 +263,15 @@ public class QuadScorekeeperScreen {
                             judgeScoreList.add(judgeScore);
                         }
                     }
+                    if (!emptyScores)
                     for (int i = 0; i< scoresList.size(); i++)
                     {
-                        if (scoresList.get(i)<0 || scoresList.get(i)>10 || scoresList.size() % 2 != 0 || emptyScores)
-                        {   JOptionPane.showMessageDialog(null, "Invalid Input. Make sure scores are in the appropriate range and all judges have a score.");
+                        if (scoresList.get(i)<0 || scoresList.get(i)>10 || scoresList.size() % 2 != 0)
+                        {   JOptionPane.showMessageDialog(null, "Invalid Input. Make sure scores are in the appropriate range.");
                             invalidScore=true;
                             break; }
                     }
-                    /*if (j11.getText().isEmpty() == true && j12.getText().isEmpty() == true && j13.getText().isEmpty() == true && j14.getText().isEmpty() == true && j15.getText().isEmpty() == true && j16.getText().isEmpty() == true)
-                    {
-                        emptyScores = true;
-                        JOptionPane.showMessageDialog(null, "No scores were input.");
-                    }
-                    if (j11.getText().isEmpty() == false && j12.getText().isEmpty() == false) {
-                        if (Double.parseDouble(j11.getText()) > 10 || Double.parseDouble(j12.getText()) > 10 || Double.parseDouble(j11.getText()) < 0 || Double.parseDouble(j12.getText()) < 0) {
-                            JOptionPane.showMessageDialog(null, "Invalid input.");
-                            invalidScore =true;
-                        } else {
-                            JudgeScore judgeScore1 = new JudgeScore();
-                            JudgeScore judgeScore2 = new JudgeScore();
-                            judgeScoreList.add(judgeScore1);
-                            judgeScoreList.add(judgeScore2);
-                            scoresList.add(Double.parseDouble(j11.getText()));
-                            scoresList.add(Double.parseDouble(j12.getText()));
-                        }
-                    }
-                    if (j13.getText().isEmpty() == false && j14.getText().isEmpty() == false) {
-                        if (Double.parseDouble(j13.getText()) > 10 || Double.parseDouble(j14.getText()) > 10 || Double.parseDouble(j13.getText()) <0 || Double.parseDouble(j14.getText()) < 0) {
-                            JOptionPane.showMessageDialog(null, "Invalid input.");
-                            invalidScore =true;
-                        } else {
-                            JudgeScore judgeScore3 = new JudgeScore();
-                            JudgeScore judgeScore4 = new JudgeScore();
-                            judgeScoreList.add(judgeScore3);
-                            judgeScoreList.add(judgeScore4);
-                            scoresList.add(Double.parseDouble(j13.getText()));
-                            scoresList.add(Double.parseDouble(j14.getText()));
-                        }
-                    }
-                    if (j15.getText().isEmpty() == false && j16.getText().isEmpty() == false) {
-                        if (Double.parseDouble(j15.getText()) > 10 || Double.parseDouble(j16.getText()) > 10 || Double.parseDouble(j15.getText()) <0 || Double.parseDouble(j16.getText()) <0) {
-                            JOptionPane.showMessageDialog(null, "Invalid Input.");
-                            invalidScore =true;
-                        } else {
-                            JudgeScore judgeScore5 = new JudgeScore();
-                            JudgeScore judgeScore6 = new JudgeScore();
-                            judgeScoreList.add(judgeScore5);
-                            judgeScoreList.add(judgeScore6);
-                            scoresList.add(Double.parseDouble(j15.getText()));
-                            scoresList.add(Double.parseDouble(j16.getText()));
-                        }
-                    }*/
+                    else JOptionPane.showMessageDialog(null, "Invalid Input. Make sure all judges have a score.");
 
                     // deduction stuff
                     double deduction = 0;
@@ -362,13 +320,15 @@ public class QuadScorekeeperScreen {
                             judgeScoreList.add(judgeScore);
                         }
                     }
+                    if (!emptyScores)
                     for (int i = 0; i< scoresList.size(); i++)
                     {
-                        if (scoresList.get(i)<0 || scoresList.get(i)>10 || scoresList.size() % 2 != 0 || emptyScores)
-                        {   JOptionPane.showMessageDialog(null, "Invalid Input. Make sure scores are in the appropriate range and all judges have a score.");
+                        if (scoresList.get(i)<0 || scoresList.get(i)>10 || scoresList.size() % 2 != 0)
+                        {   JOptionPane.showMessageDialog(null, "Invalid Input. Make sure scores are in the appropriate range.");
                             invalidScore=true;
                             break; }
                     }
+                    else JOptionPane.showMessageDialog(null, "Invalid Input. Make sure all judges have a score.");
 
                    /* if (j21.getText().isEmpty() == true && j22.getText().isEmpty() == true && j23.getText().isEmpty() == true && j24.getText().isEmpty() == true && j25.getText().isEmpty() == true && j26.getText().isEmpty() == true)
                     {
@@ -438,7 +398,15 @@ public class QuadScorekeeperScreen {
                 boolean emptyScores = false;
                 List<Double> scoresList = new ArrayList<>();        //to store text field data
                 List<JudgeScore> judgeScoreList = new ArrayList<>(); //to store new instance of judge score for every class.
+                float scoreArray[] = new float[6];
                 try{
+                  /*  //Use these scores to update score for backend and arena screen
+                    scoreArray[0] = Integer.parseInt(j21.getText());
+                    scoreArray[1] = Integer.parseInt(j22.getText());
+                    scoreArray[2] = Integer.parseInt(j23.getText());
+                    scoreArray[3] = Integer.parseInt(j24.getText());
+                    scoreArray[4] = Integer.parseInt(j25.getText());
+                    scoreArray[5] = Integer.parseInt(j26.getText());*/
 
                     for (int i = 0; i<getVisitor2JudgesTextbox().size(); i++)
                     {
@@ -451,57 +419,16 @@ public class QuadScorekeeperScreen {
                             judgeScoreList.add(judgeScore);
                         }
                     }
+                    if (!emptyScores)
                     for (int i = 0; i< scoresList.size(); i++)
                     {
-                        if (scoresList.get(i)<0 || scoresList.get(i)>10 || scoresList.size() % 2 != 0 || emptyScores)
-                        {   JOptionPane.showMessageDialog(null, "Invalid Input. Make sure scores are in the appropriate range and all judges have a score.");
+                        if (scoresList.get(i)<0 || scoresList.get(i)>10 || scoresList.size() % 2 != 0)
+                        {   JOptionPane.showMessageDialog(null, "Invalid Input. Make sure scores are in the appropriate range.");
                             invalidScore=true;
                             break; }
                     }
-                   /* if (j31.getText().isEmpty() == true && j32.getText().isEmpty() == true && j33.getText().isEmpty() == true && j34.getText().isEmpty() == true && j35.getText().isEmpty() == true && j36.getText().isEmpty() == true)
-                    {
-                        emptyScores = true;
-                        JOptionPane.showMessageDialog(null, "No scores were input.");
-                    }
-                    if (j31.getText().isEmpty() == false && j32.getText().isEmpty() == false) {
-                        if (Double.parseDouble(j31.getText()) > 10 || Double.parseDouble(j32.getText()) > 10 || Double.parseDouble(j31.getText()) < 0 || Double.parseDouble(j32.getText()) < 0) {
-                            JOptionPane.showMessageDialog(null, "Invalid Input.");
-                            invalidScore =true;
-                        } else {
-                            JudgeScore judgeScore1 = new JudgeScore();
-                            JudgeScore judgeScore2 = new JudgeScore();
-                            judgeScoreList.add(judgeScore1);
-                            judgeScoreList.add(judgeScore2);
-                            scoresList.add(Double.parseDouble(j41.getText()));
-                            scoresList.add(Double.parseDouble(j42.getText()));
-                        }
-                    }
-                    if (j33.getText().isEmpty() == false && j34.getText().isEmpty() == false) {
-                        if (Double.parseDouble(j33.getText()) > 10 || Double.parseDouble(j34.getText()) > 10 || Double.parseDouble(j33.getText()) <0 || Double.parseDouble(j34.getText()) < 0) {
-                            JOptionPane.showMessageDialog(null, "Invalid Input.");
-                            invalidScore =true;
-                        } else {
-                            JudgeScore judgeScore3 = new JudgeScore();
-                            JudgeScore judgeScore4 = new JudgeScore();
-                            judgeScoreList.add(judgeScore3);
-                            judgeScoreList.add(judgeScore4);
-                            scoresList.add(Double.parseDouble(j33.getText()));
-                            scoresList.add(Double.parseDouble(j34.getText()));
-                        }
-                    }
-                    if (j35.getText().isEmpty() == false && j36.getText().isEmpty() == false) {
-                        if (Double.parseDouble(j35.getText()) > 10 || Double.parseDouble(j36.getText()) > 10 || Double.parseDouble(j35.getText()) <0 || Double.parseDouble(j36.getText()) <0) {
-                            JOptionPane.showMessageDialog(null, "Invalid Input.");
-                            invalidScore =true;
-                        } else {
-                            JudgeScore judgeScore5 = new JudgeScore();
-                            JudgeScore judgeScore6 = new JudgeScore();
-                            judgeScoreList.add(judgeScore5);
-                            judgeScoreList.add(judgeScore6);
-                            scoresList.add(Double.parseDouble(j35.getText()));
-                            scoresList.add(Double.parseDouble(j36.getText()));
-                        }
-                    }*/
+                    else JOptionPane.showMessageDialog(null, "Invalid Input. Make sure all judges have a score.");
+
                     // deduction stuff
                     double deduction = 0;
                     if (!nD3.getText().isEmpty()) {
@@ -528,8 +455,15 @@ public class QuadScorekeeperScreen {
                 boolean emptyScores = false;
                 List<Double> scoresList = new ArrayList<>();        //to store text field data
                 List<JudgeScore> judgeScoreList = new ArrayList<>(); //to store new instance of judge score for every class.
+                float scoreArray[] = new float[6];
                 try{
-
+                    //Use these scores to update score for backend and arena screen
+                /*    scoreArray[0] = Integer.parseInt(j21.getText());
+                    scoreArray[1] = Integer.parseInt(j22.getText());
+                    scoreArray[2] = Integer.parseInt(j23.getText());
+                    scoreArray[3] = Integer.parseInt(j24.getText());
+                    scoreArray[4] = Integer.parseInt(j25.getText());
+                    scoreArray[5] = Integer.parseInt(j26.getText());*/
                     for (int i = 0; i<getVisitor3JudgesTextbox().size(); i++)
                     {
                         if(getVisitor3JudgesTextbox().get(i).getText().isEmpty() && getVisitor3JudgesTextbox().get(i).isVisible()){
@@ -541,13 +475,15 @@ public class QuadScorekeeperScreen {
                             judgeScoreList.add(judgeScore);
                         }
                     }
+                    if (!emptyScores)
                     for (int i = 0; i< scoresList.size(); i++)
                     {
-                        if (scoresList.get(i)<0 || scoresList.get(i)>10 || scoresList.size() % 2 != 0 || emptyScores)
-                        {   JOptionPane.showMessageDialog(null, "Invalid Input. Make sure scores are in the appropriate range and all judges have a score.");
+                        if (scoresList.get(i)<0 || scoresList.get(i)>10 || scoresList.size() % 2 != 0)
+                        {   JOptionPane.showMessageDialog(null, "Invalid Input. Make sure scores are in the appropriate range.");
                             invalidScore=true;
                             break; }
                     }
+                    else JOptionPane.showMessageDialog(null, "Invalid Input. Make sure all judges have a score.");
 
                    /* if (j41.getText().isEmpty() == true && j42.getText().isEmpty() == true && j43.getText().isEmpty() == true && j44.getText().isEmpty() == true && j45.getText().isEmpty() == true && j46.getText().isEmpty() == true)
                     {
@@ -1202,8 +1138,8 @@ public class QuadScorekeeperScreen {
                 Judge judge = new Judge();
                 judge.setFname(allJudges.get(3).get(j).toString());
                 judge.setLname(allJudges.get(3).get(j).toString()); //not right but need to put something there
-                floorJudges.add(judge);}
-        }
+                floorJudges.add(judge);
+        }}
     }
 
     private void setHomePlayerandTeamScore(List<Double> scoresList, Double deduction, List<JudgeScore> judgeScoreList, QuadArenaScreen myQuadArenaScreen)
