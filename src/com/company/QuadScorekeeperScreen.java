@@ -279,6 +279,10 @@ public class QuadScorekeeperScreen {
                 } catch (Exception exception) {
                     System.out.println(exception);
                 }
+
+                for(int i = 0; i < getHomeJudges().size(); i++){
+                    getHomeJudgesTextbox().get(i).setText("");
+                }
             }
         });
         
@@ -325,6 +329,10 @@ public class QuadScorekeeperScreen {
                 } catch (Exception exception) {
 
                     System.out.println(exception);
+                }
+
+                for(int i = 0; i < getVisitor1Judges().size(); i++){
+                    getVisitor1JudgesTextbox().get(i).setText("");
                 }
 
             }
@@ -374,6 +382,9 @@ public class QuadScorekeeperScreen {
 
                     System.out.println(exception);
                 }
+                for(int i = 0; i < getVisitor2Judges().size(); i++){
+                    getVisitor2JudgesTextbox().get(i).setText("");
+                }
 
             }
         });
@@ -420,6 +431,9 @@ public class QuadScorekeeperScreen {
                 } catch (Exception exception) {
 
                     System.out.println(exception);
+                }
+                for(int i = 0; i < getVisitor3Judges().size(); i++){
+                    getVisitor3JudgesTextbox().get(i).setText("");
                 }
 
             }
@@ -1143,7 +1157,7 @@ public class QuadScorekeeperScreen {
         }
         else if (rotation == 4) {
             visitor1Copy.getBeamGymnasts().get(team2Combo.getSelectedIndex()).getPlayerScore().setbeamScore(pscore);
-            visitor1Copy.getTeamScore().setbeamScore(visitor2Copy.getTeamScore().calculateTeamBeamScore(visitor2Copy.getBeamGymnasts()));
+            visitor1Copy.getTeamScore().setbeamScore(visitor1Copy.getTeamScore().calculateTeamBeamScore(visitor1Copy.getBeamGymnasts()));
             for (int k = 0; k < judgeScoreList.size(); k++) {
                 //match the score to the appropriate judge object
                 judgeScoreList.get(k).createScore(team2App.getText(), visitor1Copy.getBeamGymnasts().get(team2Combo.getSelectedIndex()), 0, scoresList.get(k));
@@ -1165,7 +1179,7 @@ public class QuadScorekeeperScreen {
                 visitor2Copy.getTeamScore().setbeamScore(visitor2Copy.getTeamScore().calculateTeamBeamScore(visitor2Copy.getBeamGymnasts()));
                 for (int k = 0; k < judgeScoreList.size(); k++) {
                     //match the score to the appropriate judge object
-                    judgeScoreList.get(k).createScore(team3App.getText(), visitor1Copy.getBeamGymnasts().get(team3Combo.getSelectedIndex()), 0, scoresList.get(k));
+                    judgeScoreList.get(k).createScore(team3App.getText(), visitor2Copy.getBeamGymnasts().get(team3Combo.getSelectedIndex()), 0, scoresList.get(k));
                     beamJudges.get(k).addScore(judgeScoreList.get(k));
 
                 }
@@ -1217,7 +1231,7 @@ public class QuadScorekeeperScreen {
             for (int k = 0; k < judgeScoreList.size(); k++)
             {
                 //match the score to the appropriate judge object
-                judgeScoreList.get(k).createScore(team4App.getText(), visitor1Copy.getBeamGymnasts().get(team4Combo.getSelectedIndex()), 0, scoresList.get(k));
+                judgeScoreList.get(k).createScore(team4App.getText(), visitor3Copy.getBeamGymnasts().get(team4Combo.getSelectedIndex()), 0, scoresList.get(k));
                 beamJudges.get(k).addScore(judgeScoreList.get(k));
 
             }
