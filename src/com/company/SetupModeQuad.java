@@ -336,7 +336,7 @@ public class SetupModeQuad {
                     changeCard("SummaryCard");
                 }
                 else{
-                    JOptionPane.showMessageDialog(null, "Error. At least two judges must be selected per event and no duplicate judges on the same event.");
+                    JOptionPane.showMessageDialog(null, "Error. An even amount of judges must be selected per event and no duplicate judges on the same event.");
                 }
             }
         });

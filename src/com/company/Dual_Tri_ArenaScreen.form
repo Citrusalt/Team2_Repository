@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.company.Dual_Tri_ArenaScreen">
-  <grid id="9eb1c" binding="mainPanel" layout-manager="CardLayout" hgap="0" vgap="0" show="109ae">
+  <grid id="9eb1c" binding="mainPanel" layout-manager="CardLayout" hgap="0" vgap="0" show="e83e2">
     <constraints>
       <xy x="36" y="27" width="899" height="987"/>
     </constraints>
@@ -451,7 +451,9 @@
           </scrollpane>
           <scrollpane id="d474b" binding="teamPane">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="-1" height="250"/>
+              </grid>
             </constraints>
             <properties>
               <focusable value="false"/>

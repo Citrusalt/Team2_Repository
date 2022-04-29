@@ -385,7 +385,6 @@ public class QuadScorekeeperScreen {
                 boolean emptyScores = false;
                 List<Double> scoresList = new ArrayList<>();        //to store text field data
                 List<JudgeScore> judgeScoreList = new ArrayList<>(); //to store new instance of judge score for every class.
-                float scoreArray[] = new float[6];
                 try{
                     for (int i = 0; i<getVisitor3JudgesTextbox().size(); i++)
                     {
@@ -665,6 +664,11 @@ public class QuadScorekeeperScreen {
             currentevent3 = "Beam";
             currentevent4 = "Bars";
 
+            team1App.setText(currentevent1);
+            team2App.setText(currentevent2);
+            team2App.setText(currentevent3);
+            team2App.setText(currentevent4);
+
             myArenaScreen.updateEvent(vaultCombo1.getSelectedItem().toString() + " " + currentevent1, 1);
             myArenaScreen.updateEvent(currentevent2, 2);
             myArenaScreen.updateEvent(currentevent3, 3);
@@ -693,8 +697,14 @@ public class QuadScorekeeperScreen {
             currentevent3 = "Floor";
             currentevent4 = "Beam";
 
-            myArenaScreen.updateEvent(vaultCombo1.getSelectedItem().toString() + " " + currentevent1, 1);
-            myArenaScreen.updateEvent(currentevent2, 2);
+            team1App.setText(currentevent1);
+            team2App.setText(currentevent2);
+            team2App.setText(currentevent3);
+            team2App.setText(currentevent4);
+
+
+            myArenaScreen.updateEvent(currentevent1, 1);
+            myArenaScreen.updateEvent(vaultCombo2.getSelectedItem().toString() + " " + currentevent2, 2);
             myArenaScreen.updateEvent(currentevent3, 3);
             myArenaScreen.updateEvent(currentevent4, 4);
 
@@ -721,9 +731,15 @@ public class QuadScorekeeperScreen {
             currentevent3 = "Vault";
             currentevent4 = "Floor";
 
-            myArenaScreen.updateEvent(vaultCombo1.getSelectedItem().toString() + " " + currentevent1, 1);
+            team1App.setText(currentevent1);
+            team2App.setText(currentevent2);
+            team2App.setText(currentevent3);
+            team2App.setText(currentevent4);
+
+
+            myArenaScreen.updateEvent(currentevent1, 1);
             myArenaScreen.updateEvent(currentevent2, 2);
-            myArenaScreen.updateEvent(currentevent3, 3);
+            myArenaScreen.updateEvent(vaultCombo3.getSelectedItem().toString() + " " + currentevent3, 3);
             myArenaScreen.updateEvent(currentevent4, 4);
 
             rotationLabel.setText("ROTATION 3");
@@ -747,10 +763,16 @@ public class QuadScorekeeperScreen {
             currentevent3 = "Bars";
             currentevent4 = "Vault";
 
-            myArenaScreen.updateEvent(vaultCombo1.getSelectedItem().toString() + " " + currentevent1, 1);
+            team1App.setText(currentevent1);
+            team2App.setText(currentevent2);
+            team2App.setText(currentevent3);
+            team2App.setText(currentevent4);
+
+
+            myArenaScreen.updateEvent(currentevent1, 1);
             myArenaScreen.updateEvent(currentevent2, 2);
             myArenaScreen.updateEvent(currentevent3, 3);
-            myArenaScreen.updateEvent(currentevent4, 4);
+            myArenaScreen.updateEvent(vaultCombo4.getSelectedItem().toString() + " " + currentevent4, 4);
 
             rotationLabel.setText("ROTATION 4");
 
@@ -774,6 +796,14 @@ public class QuadScorekeeperScreen {
                 teams.add(visitor1Copy);
                 teams.add(visitor2Copy);
                 teams.add(visitor3Copy);
+
+                try {
+                    PostMeetResults postresult = new PostMeetResults("quad", homeCopy, visitor1Copy, visitor2Copy, visitor3Copy, new File("RESULTS.txt"), judges);
+
+                } catch (Exception e) {
+
+                }
+
                 PostMeetScreen myPostMode = new PostMeetScreen(gC, teams);
                 myArenaScreen.getFrame().dispose();
                 thisFrame.dispose();
@@ -1216,8 +1246,6 @@ public class QuadScorekeeperScreen {
 
             myQuadArenaScreen.score4.setText("Gymnast Current Score: " + String.valueOf(pscore));       //update score on arena screen
             myQuadArenaScreen.overall4.setText(String.valueOf("Running Team Score:     " + visitor3Copy.getTeamScore().getRunningScore()));
-
-            PostMeetResults postresult = new PostMeetResults("quad", homeCopy, visitor1Copy, visitor2Copy, visitor3Copy, new File("RESULTS.txt"), judges);
 
     }
 
